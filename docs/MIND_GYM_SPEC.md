@@ -1,0 +1,215 @@
+# Mind Gym: Build Spec for Claude Code (standalone app)
+
+> **How to use this file:** create a new empty folder or repo (e.g. `Mind-Gym`), put this file at `docs/MIND_GYM_SPEC.md`, open Claude Code there, and say:
+> *"Read docs/MIND_GYM_SPEC.md. Use plan mode. Start with Phase 0 and stop for my review after each phase."*
+
+---
+
+## 0. Context and intent
+
+I use AI constantly and want to keep my own brain sharp. Build **Mind Gym**, a **standalone Windows desktop app** for brain training and curiosity. It offers:
+
+1. A **huge variety** of puzzles, games, and question sets, many generated locally and randomly, others pulled live from free public APIs and websites.
+2. A **big searchable keyword bank** of topics. I search or roll a random keyword, and the app builds a learning session around it: summary, quiz, related puzzles, and documentaries or videos to watch.
+3. **Anti-AI-dependence exercises**: explain-it-back, predict-then-verify, no-hint thinking timers, and retrieval of what I learned yesterday.
+4. **Adaptive difficulty, spaced repetition, and local stats.**
+
+### Relationship to my other app, Focus Point
+I already have a break-reminder app: https://github.com/Niick-pixel/Focus-purpose (Electron, Windows, tray, GitHub Releases auto-update). **Mind Gym is a separate app with its own repo, and it must not modify Focus Point.** You may read Focus Point's code **as a reference only**, for its proven patterns: Electron setup, settings store in `%APPDATA%`, electron-updater + GitHub Actions release workflow, themes (Night, Dusk, Forest, Sand), and test setup. Copy the patterns, not the code wholesale, and keep the visual style consistent so the two feel like siblings.
+
+**Coexistence rule:** Focus Point postpones breaks when a fullscreen game or video is in front. Mind Gym runs **windowed or maximized by default, not true fullscreen**, so Focus Point's breaks still trigger while I'm training. Mind Gym is screen time, not rest. If a fullscreen mode is added, it must be opt-in, and Settings must warn that it can delay Focus Point breaks.
+
+### Non-negotiables
+- **Stack:** Electron + Node (same as Focus Point), vanilla JS or web components in the renderer. Don't introduce React or another UI framework unless you justify it in Phase 0 and I approve.
+- **Everything works offline** with a local fallback. Online sources enrich; they are never required.
+- **Respect every source's terms of service.** Use official APIs, not scraping, wherever one exists. Show attribution and licenses in the app. Verify each endpoint, its rate limits, and its current terms **before** implementing it. If one is dead or its terms forbid this use, skip it and tell me.
+- **Privacy:** all data stays local. No telemetry.
+
+---
+
+## 1. Architecture
+
+```
+src/main/
+  main.js             # window, tray (optional), menus, IPC registration
+  store.js            # settings in %APPDATA%/Mind Gym/settings.json
+  updater.js          # electron-updater + GitHub Releases (same flow as Focus Point)
+  keywords.js         # keyword bank: fuzzy search, random, related-topic graph
+  providers/          # one file per online source (see §3)
+    provider.js       # common interface + cache + rate limiter + domain allowlist
+  srs.js              # spaced repetition (FSRS, e.g. ts-fsrs)
+  rating.js           # per-skill adaptive difficulty (Elo/Glicko-style)
+  stats.js            # local history in %APPDATA%/Mind Gym/stats.json
+  cache.js            # disk cache under %APPDATA%/Mind Gym/cache/
+src/renderer/
+  index.html / app.js / app.css
+  views/              # home, daily mix, keyword session, catalog, stats, settings, watch-later
+  games/              # one folder per game (see §4)
+assets/keywords.json  # keyword bank (see §2)
+assets/packs/         # offline question and puzzle packs
+.github/workflows/    # build + release, modeled on Focus Point
+test/
+```
+
+### Security rules
+- **All network requests happen in the main process** through IPC, behind a **domain allowlist** (only the providers in §3). The renderer never fetches arbitrary hosts.
+- Enable `contextIsolation`, disable `nodeIntegration`, and set a strict **CSP**. Sanitize any external HTML (e.g. Wikipedia extracts).
+- **External links open in the default browser** (`shell.openExternal`).
+- Optional API keys (YouTube Data API, NASA, Anthropic) are stored with Electron `safeStorage`, never in plain `settings.json`.
+
+### App shell
+- A home screen with **Daily Mix**, **Keyword of the Day**, a **search bar** (keywords + games), **Random Anything**, **Review queue (SRS)**, **Watch later**, and **Stats**.
+- Optional tray icon and an optional daily reminder notification. Both are **off by default**, because Focus Point already owns my "tray and interruptions" slot.
+- Launch on Windows startup: off by default.
+
+---
+
+## 2. The keyword bank (core of the curiosity engine)
+
+Ship `assets/keywords.json` with **at least 1,500 keywords** (target 3,000), generated by you (Claude Code) and checked for accuracy, across these domains:
+
+Physics · Chemistry · Biology · Neuroscience · Medicine · Astronomy and space · Earth science and climate · Mathematics · Computer science · Engineering · History (ancient, medieval, modern, 20th century) · Geography and cultures · Economics and finance · Philosophy · Psychology and cognitive biases · Logic and fallacies · Linguistics and etymology · Literature · Art history · Music · Architecture · Film · Technology history · Inventions · Military strategy · Law and political systems · Religion and mythology · Nature and animals · Food science · Sports science · Latin America and Costa Rica · Unsolved problems · Mysteries and anomalies.
+
+Each entry:
+```json
+{
+  "id": "entropy",
+  "term": "Entropy",
+  "aliases": ["second law of thermodynamics"],
+  "domain": "physics",
+  "tags": ["thermodynamics", "information theory"],
+  "difficulty": 3,
+  "related": ["heat-death-of-the-universe", "information-theory", "maxwells-demon"],
+  "wikipedia": "Entropy",
+  "wikidata": "Q48235"
+}
+```
+
+### Keyword features
+- **Fuzzy search** (e.g. Fuse.js) with aliases, tag filters, and domain filters.
+- **Random options**: fully random, random within a domain, "outside my comfort zone" (weights domains I've touched least), and **Rabbit Hole** (walk the `related` graph).
+- **Keyword of the Day**: deterministic per date, so it's stable all day.
+- **User-added keywords**: the app auto-fills them from Wikipedia and Wikidata when online.
+- **Expansion**: suggests new keywords from Wikipedia links or Wikidata for me to accept.
+- **Curiosity map**: a visual graph of explored keywords. Nodes grow with mastery.
+
+### A keyword session (what happens when I pick a keyword)
+1. **Predict first**: I write one sentence on what I think it is, before reading anything.
+2. **Learn**: Wikipedia summary, a key image, and related "On this day" or history facts.
+3. **Quiz**: 5–10 questions generated from Wikipedia and Wikidata facts, trivia APIs, and (optional) the Claude API.
+4. **Puzzle tie-in**: one related puzzle (physics → Fermi estimation; history → put events in chronological order).
+5. **Explain it back**: 3–5 sentences written without looking. Compared to the summary locally, or graded by Claude if a key is set.
+6. **Watch**: 1–3 documentary or video suggestions, with "add to watch-later".
+7. **Remember**: key facts become spaced-repetition cards.
+
+---
+
+## 3. Online content providers (verify each before using)
+
+A common `Provider` interface: `id`, `name`, `license/attribution`, `isAvailable()`, `fetch(params)`, per-provider **rate limiter**, **disk cache with TTL**, **offline fallback**, and a descriptive `User-Agent` (required by Wikimedia). Each provider can be toggled in Settings.
+
+| Provider | Use | Notes to verify |
+|---|---|---|
+| **Wikipedia REST API** | Random article, summaries, "On this day", featured article | CC BY-SA, so show attribution |
+| **Wikidata SPARQL / API** | Generated questions: capitals, dates, populations, higher/lower, chronology | CC0; keep queries light |
+| **Open Trivia DB** | Trivia by category and difficulty; session tokens to avoid repeats | CC BY-SA |
+| **The Trivia API** | Second trivia source | Free-tier limits |
+| **Lichess API** + CC0 puzzle DB subset (bundled offline) | Chess puzzles by rating, daily puzzle | Don't hammer the API |
+| **REST Countries** + `world-atlas` topojson | Flags, capitals, borders, map clicking | |
+| **The Met** / **Art Institute of Chicago** APIs | Art quizzes: era, artist, culture | Open-access images only |
+| **iNaturalist API** | Identify species from photos; Costa Rica filter | Photo licenses + credit |
+| **NASA APOD** | "What am I looking at?" space quiz | `DEMO_KEY` is rate-limited; optional key |
+| **Free Dictionary API** | Definitions, word of the day | |
+| **Datamuse API** | Word games, clue generation | |
+| **YouTube channel RSS feeds** (no key) | Latest videos from curated channels | `youtube.com/feeds/videos.xml?channel_id=…` |
+| **YouTube Data API v3** (optional key) | Keyword documentary search | Quota-limited; off without a key |
+| **Internet Archive** | Public-domain documentaries | Check each item's license |
+| **Anthropic API** (optional key) | Riddles and questions on any keyword, explain-it-back grading, Socratic mode | Off by default; the app fully works without it |
+
+**Link-out only (open in browser, no scraping):** Project Euler, past Advent of Code, Khan Academy, MIT OpenCourseWare, Brilliant, Lichess studies.
+
+### Watch and learn: curated channels (seed list, editable in Settings; verify every channel ID)
+Veritasium, Kurzgesagt, 3Blue1Brown, Vsauce, PBS Space Time, PBS Eons, Numberphile, Computerphile, Stand-up Maths, Real Engineering, Wendover Productions, Smarter Every Day, Mark Rober, Primer, TED-Ed, SciShow, CGP Grey, Tom Scott, Kings and Generals, Oversimplified, Historia Civilis, Crash Course, Closer To Truth, DW Documentary, Free Documentary, BBC Earth, Up and Atom, Dr. Becky, Steve Mould, Practical Engineering, Branch Education, Asianometry, Lemmino, Great Art Explained, Johnny Harris, Tibees. Tag each channel with domains so videos map to keywords.
+
+**Video flow:** suggest → I watch in the browser → I mark it watched → **3 recall questions** → the video becomes an SRS card and an entry in "Things I've learned".
+
+---
+
+## 4. The game catalog (local, random, offline-first)
+
+Every game declares `id`, `name`, `skills` (logic, math, language, memory, attention, spatial, strategy, knowledge, deep-thinking), `durationRange`, `difficultyRange`, and `offline`, and implements `start(difficulty, seed)` → `onFinish({score, accuracy, timeMs, difficulty})`. **Seeded RNG everywhere**, so any puzzle can be replayed or shared by seed.
+
+**A. Logic:** **Simon Tatham's Portable Puzzle Collection** (MIT licensed, has a JS/WASM build; keep the license notice). It includes Solo (sudoku), Keen (KenKen), Towers, Unequal, Pattern (nonogram), Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines (no-guess), Pearl, Tracks, Unruly, Map, and Mosaic. Also: logic-grid (zebra) puzzles with a unique-solution generator, knights and knaves, Mastermind, Tower of Hanoi, syllogisms, and "spot the fallacy" (40+ fallacies).
+
+**B. Math:** mental math sprints (no calculator), Countdown numbers game and 24 game (with a solver that proves solvability), Fermi estimation (scored on log-error), sequences, Kakuro, probability intuition (Monty Hall, birthday paradox, Bayes: predict, then simulate the answer live), and orders-of-magnitude "which is bigger?".
+
+**C. Language:** Countdown letters, anagrams, word ladder, Wordle-style (English and Spanish word lists), cryptograms (public-domain quotes), mini crosswords, etymology quiz, and vocab SRS.
+
+**D. Memory:** dual n-back, digit span, Corsi blocks, card pairs, Kim's game (images from Met/iNaturalist), a memory-palace trainer, and "yesterday" recall (content from 1, 3, and 7 days ago).
+
+**E. Attention and speed:** Stroop, Schulte tables, Flanker, Go/No-Go, reaction time, visual search, and RSVP speed-reading with a comprehension check.
+
+**F. Spatial:** 3D mental rotation (three.js), tangrams, 15-puzzle, Rush Hour-style sliding blocks, pipe connect, and map geography.
+
+**G. Strategy:** chess puzzles (rated), play vs Stockfish WASM at adjustable strength, Connect Four vs minimax, Nim with a "discover the winning strategy" mode, and Go problems (only if a clearly licensed dataset exists).
+
+**H. Knowledge:** trivia (APIs + offline packs), Wikipedia "guess the article", "On this day" chronology ordering, Wikidata higher/lower, art era guess, species ID, APOD quiz, and flags and capitals.
+
+**I. Deep thinking (anti-AI-dependence):**
+- **Core exercises**: explain it back (Feynman technique), predict → verify, steelman the opposing argument, and first-principles breakdown.
+- **No-AI challenge of the day**: a small real-world task done by hand.
+- **Socratic mode** (optional Claude key): the AI only asks questions and never gives answers.
+- **Thinking timer**: hints and "reveal" stay locked for the first N seconds of any puzzle.
+
+**J. Riddles and lateral thinking:** 200+ original and public-domain riddles, situation puzzles, rebuses, plus Claude-generated riddles per keyword if a key is set.
+
+**Minimum at launch: 60+ distinct game or question types**, counting each Tatham puzzle separately.
+
+---
+
+## 5. Sessions, randomness, and adaptivity
+
+- **Daily Mix (~10 min default)**: speed warm-up → logic → memory → a Keyword-of-the-Day item → deep-think prompt → video suggestion. Weighted random: **favor weaker skills**, **avoid games played in the last 3 days**, and **ensure domain variety**.
+- **Modes**: Daily Mix · Random Anything · Pick a Skill · Pick a Keyword · Rabbit Hole · Marathon · Custom playlist.
+- **Adaptive difficulty**: per-skill rating, targeting 70–80% success.
+- **Spaced repetition**: FSRS for facts, vocab, and video recall, with a daily review queue.
+- **Streaks** with rest-day allowances, so they don't turn into compulsion.
+
+---
+
+## 6. Stats (local only)
+
+- **Activity**: minutes per day, sessions, games played, and personal bests.
+- **Skill radar** over time.
+- **Learning**: keywords explored, curiosity-map growth, SRS due/learned, and videos watched and recalled.
+- **"Thinking without AI" minutes.**
+- Export to JSON/CSV.
+
+---
+
+## 7. Settings
+
+Theme (Night, Dusk, Forest, Sand, matching Focus Point) · session length · difficulty bias · language for word games (English/Spanish/both) · skills and domains to include · provider toggles · API keys (safeStorage) · channel list editor · thinking-timer seconds · tray icon on/off · daily reminder on/off · start with Windows on/off · opt-in fullscreen (with Focus Point warning) · reset stats · clear cache · attributions and licenses page.
+
+---
+
+## 8. Quality and performance
+
+- **Tests** for: seeded RNG determinism, every generator's **solvability and uniqueness**, Elo/FSRS updates, keyword search, provider caching, and offline fallback (network mocked off).
+- **Startup speed**: lazy-load games so the app opens fast. Download heavy assets (puzzle DB subsets, Stockfish WASM) on first use with a progress bar.
+- **Accessibility**: keyboard-first controls, good contrast in all themes, and colorblind-safe palettes (Stroop needs care here).
+- **README**: features, install, run from source, and a "How it's built" table, in the same style as Focus Point's README.
+
+---
+
+## 9. Phases (stop for my review after each)
+
+- **Phase 0 (plan only):** Skim Focus Point's repo as a reference. Propose the project structure, dependencies, and release workflow. Verify every provider in §3 (still alive? terms allow this?) and flag risks. No code yet.
+- **Phase 1 (skeleton):** Electron app, home screen, settings, themes, keyword bank (first 500) with search/random, game interface, 5 local games (mental math, Stroop, n-back, Schulte, word ladder), stats, tests, and a GitHub Actions release that builds a Windows installer.
+- **Phase 2 (online content):** provider framework, cache, allowlist, then Wikipedia, Wikidata, OpenTDB, REST Countries, Lichess, and the full keyword session flow (§2).
+- **Phase 3 (variety):** Tatham puzzle integration and the rest of §4 to reach 60+ types. Keyword bank to 1,500+.
+- **Phase 4 (watch and learn):** YouTube RSS, watch-later queue, video recall, Internet Archive, and the art, nature, and space providers.
+- **Phase 5 (adaptivity):** Daily Mix weighting, skill ratings, FSRS, curiosity map, and full stats.
+- **Phase 6 (optional AI + polish):** Claude features (Socratic mode, grading, generation), auto-updates, README, and v1.0.0.
+
+At the end of each phase: run all tests, run the app, and give me a short changelog plus anything you skipped and why.
