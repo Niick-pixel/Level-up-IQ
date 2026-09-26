@@ -57,7 +57,7 @@ const split = (s, sep) => (s || '').split(sep).map((x) => x.trim()).filter(Boole
 
 function parseShard(domain, text, errors) {
   const out = [];
-  text.split('\n').forEach((raw, i) => {
+  text.split(/\r?\n/).forEach((raw, i) => {
     const line = raw.trim();
     if (!line || line.startsWith('#')) return;
     const where = `${domain}.txt:${i + 1}`;
@@ -136,7 +136,7 @@ if (require.main === module) {
   }
   const json = JSON.stringify(bank, null, 1) + '\n';
   if (process.argv.includes('--check')) {
-    const current = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '';
+    const current = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8').replace(/\r\n/g, '\n') : '';
     if (current !== json) {
       console.error('assets/keywords.json is out of date. Run: npm run keywords:build');
       process.exit(1);

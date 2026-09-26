@@ -11,7 +11,7 @@ const bank = KeywordBank.load();
 test('the shards build cleanly and keywords.json is up to date', () => {
   const { errors, bank: built } = build();
   assert.deepEqual(errors, []);
-  const onDisk = fs.readFileSync(path.join(__dirname, '..', 'assets', 'keywords.json'), 'utf8');
+  const onDisk = fs.readFileSync(path.join(__dirname, '..', 'assets', 'keywords.json'), 'utf8').replace(/\r\n/g, '\n');
   assert.equal(onDisk, JSON.stringify(built, null, 1) + '\n', 'run: npm run keywords:build');
 });
 
