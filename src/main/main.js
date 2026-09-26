@@ -1,0 +1,239 @@
+const path = require('path');
+const {
+  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, Notification, nativeImage,
+} = require('electron');
+const { Store } = require('./store');
+const { Stats } = require('./stats');
+const { Ratings } = require('./rating');
+const { KeywordBank } = require('./keywords');
+const { createUpdater } = require('./updater');
+const { guardWindow } = require('./window-guard');
+const { registerSchemes, handleProtocol, appUrl, SCHEME } = require('./protocol');
+const { isAllowedLink } = require('./links');
+const { registerIpc } = require('./ipc');
+const { localDateKey } = require('../shared/rng.js');
+
+const ASSETS = path.join(__dirname, '..', '..', 'assets');
+const START_HIDDEN = process.argv.includes('--hidden');
+
+// Title-bar colors for each theme (must match src/renderer/theme.css).
+const THEMES = {
+  night:  { bg: '#12131f', fg: '#c9c6e8' },
+  dusk:   { bg: '#1c1426', fg: '#e4c9e0' },
+  forest: { bg: '#0f1a17', fg: '#bfdccd' },
+  sand:   { bg: '#f3eee6', fg: '#5a4f45' },
+};
+const TITLEBAR_HEIGHT = 40;
+
+if (!app.requestSingleInstanceLock()) {
+  app.quit();
+  return;
+}
+
+app.setAppUserModelId('com.mindgym.app');
+registerSchemes(protocol);
+
+let store;
+let stats;
+let ratings;
+let bank;
+let updater;
+let win = null;
+let guard = null;
+let tray = null;
+let quitting = false;
+let reminderTimer = null;
+let lastReminderDay = null;
+
+const dateKey = (ms = Date.now()) => localDateKey(ms);
+
+function broadcast(channel, payload) {
+  if (win && !win.isDestroyed()) win.webContents.send(channel, payload);
+}
+
+// ---------------------------------------------------------------------------
+// Window
+
+function visibleOnSomeDisplay(b) {
+  return screen.getAllDisplays().some(({ workArea: w }) =>
+    b.x < w.x + w.width - 80 && b.x + b.width > w.x + 80 && b.y >= w.y - 10 && b.y < w.y + w.height - 80);
+}
+
+function createWindow() {
+  const settings = store.get();
+  const theme = THEMES[settings.theme] || THEMES.night;
+  const saved = settings.windowBounds;
+  const bounds = saved && visibleOnSomeDisplay(saved) ? saved : { width: 1280, height: 820 };
+
+  win = new BrowserWindow({
+    ...bounds,
+    minWidth: 900,
+    minHeight: 620,
+    show: false,
+    title: 'Mind Gym',
+    icon: path.join(ASSETS, 'icon.png'),
+    backgroundColor: theme.bg,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: { color: theme.bg, symbolColor: theme.fg, height: TITLEBAR_HEIGHT },
+    autoHideMenuBar: true,
+    webPreferences: {
+      preload: path.join(__dirname, '..', 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
+      spellcheck: false,
+    },
+  });
+  win.removeMenu();
+  guard = guardWindow(win, { screen, getSettings: () => store.get() });
+
+  // No navigation away from the app, no new windows; allowed links open in the browser.
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    if (isAllowedLink(url)) shell.openExternal(url);
+    return { action: 'deny' };
+  });
+  win.webContents.on('will-navigate', (e, url) => {
+    if (!url.startsWith(`${SCHEME}://`)) e.preventDefault();
+  });
+
+  win.loadURL(appUrl('/index.html'));
+  win.once('ready-to-show', () => {
+    if (!START_HIDDEN) win.show();
+  });
+
+  let saveTimer = null;
+  const saveBounds = () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      if (win && !win.isDestroyed() && !win.isMaximized() && !win.isFullScreen() && !guard.isPseudoMaximized()) {
+        store.set({ windowBounds: win.getBounds() });
+      }
+    }, 500);
+  };
+  win.on('resize', saveBounds);
+  win.on('move', saveBounds);
+  win.on('blur', () => broadcast('window:blur'));
+  win.on('focus', () => broadcast('window:focus'));
+
+  win.on('close', (e) => {
+    // With the tray icon on, closing hides the window; otherwise closing quits.
+    if (!quitting && store.get().trayIcon) {
+      e.preventDefault();
+      win.hide();
+    }
+  });
+  win.on('closed', () => { win = null; });
+}
+
+function showWindow() {
+  if (!win) createWindow();
+  if (win.isMinimized()) win.restore();
+  win.show();
+  win.focus();
+}
+
+function applyTheme(themeName) {
+  const theme = THEMES[themeName] || THEMES.night;
+  if (win && !win.isDestroyed()) {
+    win.setBackgroundColor(theme.bg);
+    try {
+      win.setTitleBarOverlay({ color: theme.bg, symbolColor: theme.fg, height: TITLEBAR_HEIGHT });
+    } catch { /* not supported on this platform */ }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Optional extras (all off by default: Focus Point owns the tray and interruptions)
+
+function applyTray(enabled) {
+  if (enabled && !tray) {
+    const icon = nativeImage.createFromPath(path.join(ASSETS, 'tray.png'));
+    tray = new Tray(icon);
+    tray.setToolTip('Mind Gym');
+    tray.setContextMenu(Menu.buildFromTemplate([
+      { label: 'Open Mind Gym', click: showWindow },
+      { label: 'Daily Mix', click: () => { showWindow(); broadcast('navigate', '#/mix'); } },
+      { type: 'separator' },
+      { label: 'Quit', click: () => { quitting = true; app.quit(); } },
+    ]));
+    tray.on('click', showWindow);
+  } else if (!enabled && tray) {
+    tray.destroy();
+    tray = null;
+  }
+}
+
+function applyLoginItem(enabled) {
+  if (!app.isPackaged) return; // don't register the dev electron binary
+  app.setLoginItemSettings({ openAtLogin: enabled, args: ['--hidden'] });
+}
+
+function checkReminder() {
+  const s = store.get();
+  if (!s.dailyReminder) return;
+  const now = new Date();
+  const today = dateKey(now.getTime());
+  const [h, m] = s.dailyReminderTime.split(':').map(Number);
+  if (lastReminderDay === today || now.getHours() * 60 + now.getMinutes() < h * 60 + m) return;
+  lastReminderDay = today;
+  if ((stats.summary().today.games || 0) > 0) return; // already trained today
+  if (!Notification.isSupported()) return;
+  const n = new Notification({ title: 'Mind Gym', body: 'Ten minutes for your brain? Your Daily Mix is ready.', silent: true });
+  n.on('click', () => { showWindow(); broadcast('navigate', '#/mix'); });
+  n.show();
+}
+
+function onSettingsChanged(next) {
+  applyTheme(next.theme);
+  applyTray(next.trayIcon);
+  applyLoginItem(next.launchAtLogin);
+  if (!next.allowFullscreen && win && win.isFullScreen()) win.setFullScreen(false);
+  broadcast('settings:changed', next);
+}
+
+// ---------------------------------------------------------------------------
+
+app.on('second-instance', showWindow);
+
+app.whenReady().then(() => {
+  const dir = app.getPath('userData'); // %APPDATA%/Mind Gym
+  store = new Store(dir);
+  stats = new Stats(dir, { dateKey });
+  ratings = new Ratings(dir, { dateKey });
+  bank = KeywordBank.load();
+
+  // The renderer never talks to the network in this phase; deny any permission requests too.
+  session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
+  session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
+    const ok = details.url.startsWith(`${SCHEME}://`) || details.url.startsWith('devtools://') || details.url.startsWith('data:');
+    cb({ cancel: !ok });
+  });
+  handleProtocol(protocol);
+
+  updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
+
+  registerIpc({
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, guard: {
+      setFullscreen: (on) => guard?.setFullscreen(on),
+      toggleMaximize: () => guard?.toggleMaximize(),
+    },
+    getWindow: () => win,
+    onSettingsChanged,
+  });
+
+  createWindow();
+  const s = store.get();
+  applyTray(s.trayIcon);
+  applyLoginItem(s.launchAtLogin);
+  reminderTimer = setInterval(checkReminder, 60 * 1000);
+  updater.start();
+});
+
+app.on('before-quit', () => {
+  quitting = true;
+  clearInterval(reminderTimer);
+});
+
+app.on('window-all-closed', () => {
+  if (!store?.get().trayIcon) app.quit();
+});

@@ -1,0 +1,16 @@
+plate-tectonics | Plate tectonics | continental drift | geology | 1 | pangaea, ring-of-fire |
+pangaea | Pangaea | Pangea | geology, supercontinents | 1 | plate-tectonics |
+ring-of-fire | Ring of Fire | Pacific Ring of Fire | volcanoes, earthquakes | 1 | plate-tectonics, arenal-volcano |
+moment-magnitude-scale | Moment magnitude scale | Richter scale | earthquakes | 2 | ring-of-fire |
+greenhouse-effect | Greenhouse effect | | climate | 1 | climate-change, keeling-curve |
+climate-change | Climate change | global warming | climate | 1 | greenhouse-effect, milankovitch-cycles |
+keeling-curve | Keeling Curve | | climate, measurement | 3 | greenhouse-effect |
+milankovitch-cycles | Milankovitch cycles | | climate, orbits | 4 | ice-age |
+ice-age | Ice age | glacial period | climate | 2 | milankovitch-cycles, snowball-earth |
+snowball-earth | Snowball Earth | | climate, deep time | 3 | ice-age, great-oxidation-event |
+great-oxidation-event | Great Oxidation Event | | deep time, atmosphere | 3 | photosynthesis, snowball-earth |
+coriolis-force | Coriolis force | Coriolis effect | atmosphere, physics | 3 | jet-stream |
+jet-stream | Jet stream | | atmosphere, weather | 2 | coriolis-force |
+el-nino | El Niño–Southern Oscillation | ENSO; El Niño; La Niña | climate, oceans | 2 | thermohaline-circulation |
+thermohaline-circulation | Thermohaline circulation | ocean conveyor belt | oceans | 3 | el-nino |
+chicxulub-crater | Chicxulub crater | dinosaur-killing asteroid | impacts, extinction | 2 | |

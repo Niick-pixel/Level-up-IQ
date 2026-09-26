@@ -1,0 +1,16 @@
+trojan-war | Trojan War | Trojan horse | Greek mythology | 1 | iliad |
+prometheus | Prometheus | | Greek mythology | 1 | frankenstein |
+yggdrasil | Yggdrasil | world tree | Norse mythology | 2 | ragnarok |
+ragnarok | Ragnarök | | Norse mythology | 2 | yggdrasil |
+popol-vuh | Popol Vuh | | Maya, sacred texts | 3 | maya-civilization |
+quetzalcoatl | Quetzalcoatl | feathered serpent | Aztec, Mesoamerican | 2 | resplendent-quetzal |
+book-of-the-dead | Book of the Dead | | Egyptian | 2 | maat |
+maat | Maat | Ma'at | Egyptian, concepts | 3 | book-of-the-dead |
+dead-sea-scrolls | Dead Sea Scrolls | | texts, archaeology | 2 | |
+four-noble-truths | Four Noble Truths | | Buddhism | 2 | dharma |
+dharma | Dharma | | Hinduism, Buddhism | 2 | four-noble-truths |
+taoism | Taoism | Daoism; Tao Te Ching | Chinese philosophy | 2 | |
+axial-age | Axial Age | | history of religion | 4 | |
+flood-myth | Flood myth | great flood | comparative mythology | 2 | epic-of-gilgamesh |
+trickster | Trickster | Loki; Anansi | archetypes | 2 | |
+pachamama | Pachamama | | Andean | 2 | inca-empire |

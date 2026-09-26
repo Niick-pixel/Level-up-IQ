@@ -1,0 +1,16 @@
+equal-temperament | Equal temperament | | tuning | 4 | harmonic-series |
+harmonic-series | Harmonic series (music) | overtones | acoustics | 3 | equal-temperament |
+circle-of-fifths | Circle of fifths | | theory | 2 | |
+counterpoint | Counterpoint | | theory, Baroque | 3 | fugue |
+fugue | Fugue | Bach | forms | 3 | counterpoint |
+sonata-form | Sonata form | | forms, Classical | 3 | |
+blues | Blues | | genres | 1 | jazz |
+jazz | Jazz | | genres, improvisation | 1 | blues |
+bossa-nova | Bossa nova | | genres, Brazil | 2 | |
+salsa-music | Salsa music | | genres, Caribbean | 2 | |
+beethovens-ninth | Symphony No. 9 (Beethoven) | Ode to Joy | symphonies | 2 | |
+twelve-tone-technique | Twelve-tone technique | dodecaphony; Schoenberg | modernism, composition | 4 | |
+theremin | Theremin | | instruments, electronic | 2 | |
+absolute-pitch | Absolute pitch | perfect pitch | perception | 2 | |
+earworm | Earworm | involuntary musical imagery | perception, psychology | 1 | |
+four-thirty-three | 4′33″ | John Cage | experimental | 3 | |

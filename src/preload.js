@@ -1,0 +1,47 @@
+// Safe bridge between the UI and the main process. Only these calls exist on window.api.
+const { contextBridge, ipcRenderer } = require('electron');
+
+const on = (channel) => (cb) => {
+  const handler = (_e, payload) => cb(payload);
+  ipcRenderer.on(channel, handler);
+  return () => ipcRenderer.removeListener(channel, handler);
+};
+const call = (channel) => (...args) => ipcRenderer.invoke(channel, ...args);
+
+contextBridge.exposeInMainWorld('api', {
+  // settings
+  getSettings: call('settings:get'),
+  setSettings: call('settings:set'),
+  resetSettings: call('settings:reset'),
+  onSettings: on('settings:changed'),
+
+  // keywords
+  keywordDomains: call('keywords:domains'),
+  searchKeywords: call('keywords:search'),
+  getKeyword: call('keywords:get'),
+  keywordOfTheDay: call('keywords:today'),
+  randomKeyword: call('keywords:random'),
+  exploreKeyword: call('keywords:explore'),
+  keywordCount: call('keywords:count'),
+
+  // games, stats, ratings
+  suggestDifficulty: call('rating:suggest'),
+  ratings: call('rating:all'),
+  recordResult: call('stats:record'),
+  statsSummary: call('stats:summary'),
+  exportStats: call('stats:export'),
+  resetStats: call('stats:reset'),
+
+  // app
+  info: call('app:info'),
+  openExternal: call('app:openExternal'),
+  updaterState: call('updater:state'),
+  checkForUpdates: call('updater:check'),
+  installUpdate: call('updater:install'),
+  onUpdater: on('updater:state'),
+  setFullscreen: call('window:fullscreen'),
+  toggleMaximize: call('window:toggleMaximize'),
+  onBlur: on('window:blur'),
+  onFocus: on('window:focus'),
+  onNavigate: on('navigate'),
+});

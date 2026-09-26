@@ -1,0 +1,16 @@
+tardigrade | Tardigrade | water bear | invertebrates, extremophiles | 1 | extremophile |
+extremophile | Extremophile | | microbes | 2 | tardigrade |
+octopus | Octopus | | cephalopods, intelligence | 1 | |
+bird-migration | Bird migration | | birds, behavior | 1 | monarch-butterfly-migration |
+monarch-butterfly-migration | Monarch butterfly migration | | insects, migration | 2 | bird-migration |
+mycorrhiza | Mycorrhiza | wood wide web | fungi, plants | 3 | |
+keystone-species | Keystone species | | ecology | 2 | wolves-in-yellowstone |
+wolves-in-yellowstone | History of wolves in Yellowstone | trophic cascade | ecology, reintroduction | 2 | keystone-species |
+convergent-evolution | Convergent evolution | | evolution | 3 | natural-selection |
+animal-echolocation | Animal echolocation | | bats, dolphins, senses | 2 | |
+bioluminescence | Bioluminescence | | light, deep sea | 2 | |
+coral-reef | Coral reef | | oceans, ecology | 1 | great-barrier-reef |
+axolotl | Axolotl | | amphibians, regeneration | 1 | |
+waggle-dance | Waggle dance | | bees, communication | 2 | |
+periodical-cicadas | Periodical cicadas | 17-year cicada | insects, prime numbers | 3 | prime-number |
+sloth | Sloth | | mammals, Costa Rica | 1 | |

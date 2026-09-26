@@ -1,0 +1,16 @@
+proto-indo-european-language | Proto-Indo-European language | PIE | historical linguistics | 3 | indo-european-languages, grimms-law |
+indo-european-languages | Indo-European languages | | language families | 2 | proto-indo-european-language |
+grimms-law | Grimm's law | | sound change | 4 | proto-indo-european-language |
+great-vowel-shift | Great Vowel Shift | | English, sound change | 3 | |
+egyptian-hieroglyphs | Egyptian hieroglyphs | | writing systems | 2 | rosetta-stone |
+cuneiform | Cuneiform | | writing systems, Mesopotamia | 2 | code-of-hammurabi |
+linear-b | Linear B | | decipherment | 3 | linear-a |
+linguistic-relativity | Linguistic relativity | Sapir–Whorf hypothesis | language and thought | 3 | |
+universal-grammar | Universal grammar | Chomsky | syntax | 4 | origin-of-language |
+creole-language | Creole language | | contact languages | 3 | |
+etymology | Etymology | word origins | words | 1 | loanword |
+loanword | Loanword | borrowing | words | 1 | etymology |
+false-friend | False friend | | words, translation | 1 | |
+tone | Tone (linguistics) | tonal language | phonology | 3 | |
+international-phonetic-alphabet | International Phonetic Alphabet | IPA | phonetics | 2 | |
+esperanto | Esperanto | | constructed languages | 1 | |

@@ -1,0 +1,16 @@
+the-art-of-war | The Art of War | Sun Tzu | treatises, China | 1 | on-war |
+on-war | On War | Clausewitz | treatises | 3 | fog-of-war, the-art-of-war |
+fog-of-war | Fog of war | | concepts | 2 | on-war |
+battle-of-cannae | Battle of Cannae | Hannibal | ancient battles, tactics | 2 | pincer-movement |
+pincer-movement | Pincer movement | double envelopment | tactics | 2 | battle-of-cannae |
+battle-of-thermopylae | Battle of Thermopylae | 300 Spartans | ancient battles | 1 | |
+blitzkrieg | Blitzkrieg | | WWII, tactics | 2 | |
+normandy-landings | Normandy landings | D-Day | WWII | 1 | operation-fortitude |
+operation-fortitude | Operation Fortitude | | WWII, deception | 3 | normandy-landings |
+guerrilla-warfare | Guerrilla warfare | | irregular warfare | 2 | |
+trench-warfare | Trench warfare | | WWI | 1 | world-war-i |
+mutual-assured-destruction | Mutual assured destruction | MAD; deterrence | nuclear strategy, Cold War | 2 | cold-war |
+ooda-loop | OODA loop | observe orient decide act | decision making | 3 | |
+siege-of-leningrad | Siege of Leningrad | | WWII | 2 | |
+battle-of-hastings | Battle of Hastings | 1066 | medieval battles | 1 | |
+military-logistics | Military logistics | | supply | 3 | |

@@ -1,0 +1,15 @@
+maillard-reaction | Maillard reaction | browning | cooking chemistry | 2 | caramelization |
+caramelization | Caramelization | | cooking chemistry, sugar | 2 | maillard-reaction |
+fermentation | Fermentation | | microbes | 1 | sourdough |
+sourdough | Sourdough | | bread, microbes | 1 | fermentation, gluten |
+umami | Umami | savory; MSG | taste | 1 | |
+emulsion | Emulsion | mayonnaise | colloids | 2 | |
+gluten | Gluten | | proteins, bread | 1 | |
+capsaicin | Capsaicin | Scoville scale | taste, chemistry | 2 | |
+pasteurization | Pasteurization | Louis Pasteur | food safety | 1 | germ-theory |
+nixtamalization | Nixtamalization | | maize, Mesoamerica | 3 | |
+cocoa-bean | Cocoa bean | cacao | crops, chocolate | 1 | |
+coffee | Coffee | | crops, caffeine | 1 | caffeine |
+caffeine | Caffeine | | stimulants, adenosine | 1 | coffee |
+sous-vide | Sous vide | | techniques | 2 | |
+starch-gelatinization | Starch gelatinization | | starch | 3 | |

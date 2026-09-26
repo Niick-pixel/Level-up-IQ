@@ -1,0 +1,19 @@
+costa-rica | Costa Rica | | countries, Central America | 1 | military-of-costa-rica, monteverde |
+military-of-costa-rica | Military of Costa Rica | abolition of the army 1948 | Costa Rica, history | 2 | jose-figueres-ferrer |
+jose-figueres-ferrer | José Figueres Ferrer | Don Pepe | Costa Rica, people | 2 | military-of-costa-rica |
+monteverde | Monteverde Cloud Forest Reserve | cloud forest | Costa Rica, ecology | 2 | resplendent-quetzal |
+resplendent-quetzal | Resplendent quetzal | quetzal | birds, Central America | 2 | monteverde, quetzalcoatl |
+arenal-volcano | Arenal Volcano | | Costa Rica, volcanoes | 1 | ring-of-fire |
+stone-spheres-of-costa-rica | Stone spheres of Costa Rica | Diquís spheres | Costa Rica, archaeology | 2 | |
+tortuguero-national-park | Tortuguero National Park | sea turtles | Costa Rica, conservation | 2 | |
+payment-for-ecosystem-services | Payment for ecosystem services | PES; FONAFIFO | conservation, economics | 4 | costa-rica |
+maya-civilization | Maya civilization | | Mesoamerica | 1 | maya-numerals, popol-vuh |
+maya-numerals | Maya numerals | base 20; zero | Mesoamerica, mathematics | 3 | maya-civilization |
+inca-empire | Inca Empire | Tawantinsuyu | Andes | 1 | machu-picchu, quipu |
+quipu | Quipu | khipu | Andes, record keeping | 3 | inca-empire |
+machu-picchu | Machu Picchu | | Andes, architecture | 1 | inca-empire |
+panama-canal | Panama Canal | | engineering, Central America | 1 | |
+amazon-rainforest | Amazon rainforest | Amazonia | ecology, Brazil | 1 | amazon-river |
+atacama-desert | Atacama Desert | | deserts, Chile | 2 | |
+simon-bolivar | Simón Bolívar | El Libertador | independence | 1 | |
+galapagos-islands | Galápagos Islands | | Ecuador, evolution | 1 | natural-selection |

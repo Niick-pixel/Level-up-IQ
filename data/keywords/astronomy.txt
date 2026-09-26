@@ -1,0 +1,17 @@
+black-hole | Black hole | event horizon | gravity | 2 | general-relativity, hawking-radiation, event-horizon-telescope |
+hawking-radiation | Hawking radiation | | black holes, quantum | 4 | black-hole |
+event-horizon-telescope | Event Horizon Telescope | EHT | observatories | 3 | black-hole |
+gravitational-wave | Gravitational wave | LIGO | gravity | 3 | general-relativity, black-hole |
+dark-matter | Dark matter | | cosmology | 3 | galaxy-rotation-curve, dark-energy |
+galaxy-rotation-curve | Galaxy rotation curve | | galaxies | 4 | dark-matter |
+dark-energy | Dark energy | | cosmology | 3 | dark-matter, heat-death-of-the-universe, hubbles-law |
+big-bang | Big Bang | | cosmology | 1 | cosmic-microwave-background, hubbles-law |
+cosmic-microwave-background | Cosmic microwave background | CMB | cosmology | 3 | big-bang |
+exoplanet | Exoplanet | extrasolar planet | planets | 2 | circumstellar-habitable-zone |
+circumstellar-habitable-zone | Circumstellar habitable zone | Goldilocks zone | planets, astrobiology | 2 | exoplanet, fermi-paradox |
+fermi-paradox | Fermi paradox | where is everybody? | astrobiology | 2 | drake-equation, circumstellar-habitable-zone |
+drake-equation | Drake equation | | astrobiology, estimation | 2 | fermi-paradox |
+supernova | Supernova | | stars | 2 | neutron-star, neutrino |
+neutron-star | Neutron star | pulsar | stars | 3 | supernova |
+voyager-golden-record | Voyager Golden Record | | spacecraft | 2 | |
+lagrange-point | Lagrange point | L2 | orbits | 3 | |

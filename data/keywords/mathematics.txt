@@ -1,0 +1,17 @@
+prime-number | Prime number | | number theory | 1 | riemann-hypothesis, fundamental-theorem-of-arithmetic, goldbachs-conjecture |
+fundamental-theorem-of-arithmetic | Fundamental theorem of arithmetic | unique factorization | number theory | 2 | prime-number |
+pythagorean-theorem | Pythagorean theorem | | geometry | 1 | |
+pi | Pi | π | constants | 1 | eulers-identity |
+eulers-identity | Euler's identity | e^(iπ) + 1 = 0 | constants, complex numbers | 3 | pi |
+cantors-diagonal-argument | Cantor's diagonal argument | uncountable sets | set theory, infinity | 4 | hilberts-hotel |
+hilberts-hotel | Hilbert's paradox of the Grand Hotel | Hilbert's hotel | infinity, set theory | 2 | cantors-diagonal-argument |
+godels-incompleteness-theorems | Gödel's incompleteness theorems | incompleteness | logic, foundations | 5 | halting-problem, liar-paradox |
+fibonacci-sequence | Fibonacci sequence | Fibonacci numbers | sequences | 1 | golden-ratio |
+golden-ratio | Golden ratio | φ; phi | constants | 2 | fibonacci-sequence |
+bayes-theorem | Bayes' theorem | Bayes' rule | probability | 3 | base-rate-fallacy, monty-hall-problem |
+monty-hall-problem | Monty Hall problem | | probability, puzzles | 2 | bayes-theorem, birthday-problem |
+birthday-problem | Birthday problem | birthday paradox | probability | 2 | monty-hall-problem |
+law-of-large-numbers | Law of large numbers | | probability | 2 | gamblers-fallacy |
+chaos-theory | Chaos theory | butterfly effect | dynamical systems | 3 | |
+seven-bridges-of-konigsberg | Seven Bridges of Königsberg | | graph theory | 2 | four-color-theorem |
+four-color-theorem | Four color theorem | four colour theorem | graph theory, proofs | 3 | seven-bridges-of-konigsberg |

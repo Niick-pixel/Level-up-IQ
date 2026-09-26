@@ -1,0 +1,17 @@
+printing-press | Printing press | Gutenberg | communication | 1 | |
+steam-engine | Steam engine | James Watt | energy | 1 | industrial-revolution |
+incandescent-light-bulb | Incandescent light bulb | Edison | electricity | 1 | |
+telephone | Telephone | Alexander Graham Bell | communication | 1 | electrical-telegraph |
+compass | Compass | | navigation | 1 | |
+paper | Paper | Cai Lun | writing | 1 | printing-press |
+gunpowder | Gunpowder | | China, chemistry | 1 | |
+microscope | Microscope | Leeuwenhoek | science | 1 | germ-theory |
+telescope | Telescope | Galileo | science | 1 | |
+refrigeration | Refrigeration | | food, thermodynamics | 2 | |
+hook-and-loop-fastener | Hook-and-loop fastener | Velcro; biomimicry | biomimicry | 2 | |
+post-it-note | Post-it Note | | accidental inventions | 1 | |
+microwave-oven | Microwave oven | | accidental inventions, kitchen | 1 | |
+gps | Global Positioning System | GPS | navigation, relativity | 2 | general-relativity |
+lithium-ion-battery | Lithium-ion battery | | energy | 2 | redox |
+wheel | Wheel | | ancient | 1 | |
+barcode | Barcode | | retail | 1 | |

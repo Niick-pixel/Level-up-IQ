@@ -1,0 +1,16 @@
+bernoulli-principle | Bernoulli's principle | | fluids | 2 | lift-force, magnus-effect |
+lift-force | Lift (force) | | aerodynamics | 2 | bernoulli-principle |
+tacoma-narrows-bridge | Tacoma Narrows Bridge (1940) | Galloping Gertie | bridges, failure | 2 | resonance, suspension-bridge |
+resonance | Resonance | | vibration, physics | 2 | tacoma-narrows-bridge, tuned-mass-damper |
+arch | Arch | keystone | structures | 1 | roman-concrete |
+roman-concrete | Roman concrete | opus caementicium | materials | 3 | arch, pantheon |
+suspension-bridge | Suspension bridge | | bridges | 2 | tacoma-narrows-bridge |
+feedback | Feedback | feedback loop | control | 2 | pid-controller |
+pid-controller | Proportional–integral–derivative controller | PID controller | control | 4 | feedback |
+transistor | Transistor | | electronics | 2 | moores-law |
+moores-law | Moore's law | | electronics, semiconductors | 2 | transistor |
+carnot-cycle | Carnot cycle | heat engine efficiency | thermodynamics | 4 | entropy, steam-engine |
+factor-of-safety | Factor of safety | safety factor | design | 3 | |
+tuned-mass-damper | Tuned mass damper | | vibration, skyscrapers | 3 | resonance, taipei-101 |
+three-gorges-dam | Three Gorges Dam | | dams, energy | 2 | |
+finite-element-method | Finite element method | FEM | simulation | 5 | |

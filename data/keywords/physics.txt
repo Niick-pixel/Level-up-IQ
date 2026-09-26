@@ -1,0 +1,20 @@
+# id | Term | aliases (;) | tags (,) | difficulty 1-5 | related ids (,) | Wikipedia title (optional)
+entropy | Entropy | second law of thermodynamics; disorder | thermodynamics, information theory | 3 | heat-death-of-the-universe, maxwells-demon, information-theory, arrow-of-time |
+heat-death-of-the-universe | Heat death of the universe | big freeze | cosmology, thermodynamics | 3 | entropy, dark-energy |
+maxwells-demon | Maxwell's demon | | thermodynamics, thought experiment | 4 | entropy, information-theory |
+conservation-of-energy | Conservation of energy | first law of thermodynamics | thermodynamics, symmetry | 1 | noethers-theorem, entropy |
+noethers-theorem | Noether's theorem | symmetry and conservation laws | symmetry, mathematics | 5 | conservation-of-energy |
+quantum-entanglement | Quantum entanglement | spooky action at a distance | quantum mechanics | 4 | bells-theorem, quantum-superposition, quantum-computing |
+bells-theorem | Bell's theorem | Bell inequality | quantum mechanics, locality | 5 | quantum-entanglement |
+quantum-superposition | Quantum superposition | | quantum mechanics | 3 | schrodingers-cat, double-slit-experiment |
+schrodingers-cat | Schrödinger's cat | | quantum mechanics, thought experiment | 2 | quantum-superposition |
+double-slit-experiment | Double-slit experiment | Young's experiment | quantum mechanics, optics | 2 | wave-particle-duality, quantum-superposition |
+wave-particle-duality | Wave–particle duality | | quantum mechanics, light | 3 | double-slit-experiment, photoelectric-effect |
+photoelectric-effect | Photoelectric effect | | quantum mechanics, light, Einstein | 2 | wave-particle-duality |
+special-relativity | Special relativity | E=mc²; time dilation | relativity, Einstein | 3 | general-relativity, twin-paradox |
+general-relativity | General relativity | curved spacetime | relativity, gravity, Einstein | 4 | special-relativity, black-hole, gravitational-wave, gps |
+twin-paradox | Twin paradox | | relativity, thought experiment | 3 | special-relativity |
+standard-model | Standard Model | particle physics | particles, forces | 4 | higgs-boson, neutrino |
+higgs-boson | Higgs boson | God particle | particles, CERN | 3 | standard-model |
+neutrino | Neutrino | ghost particle | particles | 3 | standard-model, supernova |
+superconductivity | Superconductivity | | condensed matter, materials | 4 | |

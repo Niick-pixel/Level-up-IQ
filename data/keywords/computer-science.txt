@@ -1,0 +1,15 @@
+turing-machine | Turing machine | | computability | 3 | halting-problem, alan-turing |
+halting-problem | Halting problem | | computability | 4 | turing-machine, godels-incompleteness-theorems |
+big-o-notation | Big O notation | time complexity | algorithms | 2 | sorting-algorithm, p-versus-np |
+sorting-algorithm | Sorting algorithm | quicksort; merge sort | algorithms | 2 | big-o-notation |
+information-theory | Information theory | Shannon entropy; bits | information | 3 | entropy, claude-shannon |
+public-key-cryptography | Public-key cryptography | RSA; asymmetric encryption | security | 3 | hash-function, prime-number |
+hash-function | Hash function | | security, data structures | 2 | public-key-cryptography |
+neural-network | Neural network (machine learning) | artificial neural network | AI | 3 | backpropagation, turing-test |
+backpropagation | Backpropagation | | AI, calculus | 4 | neural-network |
+turing-test | Turing test | imitation game | AI, philosophy | 2 | chinese-room, neural-network |
+quantum-computing | Quantum computing | qubit | quantum | 4 | quantum-entanglement, public-key-cryptography |
+recursion | Recursion (computer science) | | programming | 2 | |
+byzantine-fault | Byzantine fault | Byzantine generals problem | distributed systems | 4 | |
+compiler | Compiler | | programming languages | 2 | |
+open-source-software | Open-source software | open source | software, culture | 1 | |

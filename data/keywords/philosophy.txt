@@ -1,0 +1,16 @@
+trolley-problem | Trolley problem | | ethics, thought experiment | 1 | utilitarianism |
+utilitarianism | Utilitarianism | | ethics | 2 | trolley-problem, categorical-imperative |
+categorical-imperative | Categorical imperative | Kant | ethics | 3 | utilitarianism |
+ship-of-theseus | Ship of Theseus | | identity, metaphysics | 1 | |
+allegory-of-the-cave | Allegory of the cave | Plato's cave | epistemology, Plato | 1 | |
+cogito-ergo-sum | Cogito, ergo sum | I think therefore I am; Descartes | epistemology | 2 | brain-in-a-vat |
+brain-in-a-vat | Brain in a vat | | epistemology, skepticism | 3 | cogito-ergo-sum |
+problem-of-induction | Problem of induction | Hume | epistemology | 3 | falsifiability |
+falsifiability | Falsifiability | Popper | philosophy of science | 2 | problem-of-induction |
+occams-razor | Occam's razor | law of parsimony | reasoning | 1 | |
+hard-problem-of-consciousness | Hard problem of consciousness | | mind | 4 | chinese-room |
+chinese-room | Chinese room | | mind, AI | 3 | turing-test, hard-problem-of-consciousness |
+stoicism | Stoicism | | ethics, Hellenistic | 1 | |
+existentialism | Existentialism | | modern | 2 | |
+original-position | Original position | veil of ignorance; Rawls | political philosophy, justice | 3 | social-contract |
+socratic-method | Socratic method | elenchus | reasoning, teaching | 1 | |

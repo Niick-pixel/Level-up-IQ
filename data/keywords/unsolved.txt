@@ -1,0 +1,15 @@
+riemann-hypothesis | Riemann hypothesis | | mathematics, Millennium Prize | 5 | prime-number |
+p-versus-np | P versus NP problem | P = NP | computer science, Millennium Prize | 4 | public-key-cryptography, big-o-notation |
+collatz-conjecture | Collatz conjecture | 3n + 1 problem | mathematics | 2 | |
+goldbachs-conjecture | Goldbach's conjecture | | mathematics, primes | 2 | prime-number, twin-prime |
+twin-prime | Twin prime | twin prime conjecture | mathematics, primes | 3 | prime-number |
+navier-stokes | Navier–Stokes existence and smoothness | | physics, Millennium Prize | 5 | |
+abiogenesis | Abiogenesis | origin of life | biology | 3 | |
+quantum-gravity | Quantum gravity | theory of everything | physics | 5 | general-relativity |
+baryon-asymmetry | Baryon asymmetry | matter–antimatter asymmetry | physics, cosmology | 4 | |
+hubbles-law | Hubble's law | Hubble tension; expansion of the universe | cosmology | 4 | dark-energy |
+arrow-of-time | Arrow of time | | physics, time | 3 | entropy |
+sleep | Sleep | why do we sleep? | biology | 2 | sleep-and-memory |
+lonely-runner-conjecture | Lonely runner conjecture | | mathematics | 4 | |
+hilberts-problems | Hilbert's problems | | mathematics, history | 3 | riemann-hypothesis |
+origin-of-language | Origin of language | | linguistics, evolution | 3 | universal-grammar |

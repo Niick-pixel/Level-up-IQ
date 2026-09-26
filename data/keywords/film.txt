@@ -1,0 +1,16 @@
+kuleshov-effect | Kuleshov effect | | editing, perception | 3 | montage |
+montage | Montage (filmmaking) | | editing | 2 | kuleshov-effect, battleship-potemkin |
+battleship-potemkin | Battleship Potemkin | | silent film, Soviet | 3 | montage |
+citizen-kane | Citizen Kane | | classics | 2 | |
+german-expressionism | German Expressionism | | movements, silent film | 3 | metropolis |
+metropolis | Metropolis (1927 film) | | silent film, science fiction | 2 | german-expressionism |
+french-new-wave | French New Wave | Nouvelle Vague | movements | 3 | |
+italian-neorealism | Italian neorealism | | movements | 3 | bicycle-thieves |
+bicycle-thieves | Bicycle Thieves | | classics, Italian | 3 | italian-neorealism |
+frame-rate | Frame rate | fps | technology | 1 | |
+dolly-zoom | Dolly zoom | Vertigo effect | camera technique | 2 | |
+macguffin | MacGuffin | | storytelling | 1 | chekhovs-gun |
+heros-journey | Hero's journey | monomyth | storytelling | 2 | odyssey |
+a-space-odyssey | 2001: A Space Odyssey | HAL 9000 | science fiction | 2 | |
+seven-samurai | Seven Samurai | Kurosawa | classics, Japanese | 2 | |
+studio-ghibli | Studio Ghibli | Miyazaki | animation | 1 | |

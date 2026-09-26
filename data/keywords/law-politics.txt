@@ -1,0 +1,15 @@
+separation-of-powers | Separation of powers | Montesquieu | government | 2 | rule-of-law |
+social-contract | Social contract | Hobbes; Locke; Rousseau | political philosophy | 2 | original-position |
+rule-of-law | Rule of law | | principles | 2 | separation-of-powers |
+habeas-corpus | Habeas corpus | | rights, courts | 2 | magna-carta |
+presumption-of-innocence | Presumption of innocence | | rights, courts | 1 | |
+common-law | Common law | case law | legal systems | 2 | civil-law |
+civil-law | Civil law (legal system) | Napoleonic Code | legal systems | 3 | common-law |
+universal-declaration-of-human-rights | Universal Declaration of Human Rights | UDHR | human rights | 1 | |
+arrows-impossibility-theorem | Arrow's impossibility theorem | | voting | 4 | condorcet-paradox |
+condorcet-paradox | Condorcet paradox | voting paradox | voting | 3 | arrows-impossibility-theorem |
+gerrymandering | Gerrymandering | | elections | 2 | |
+first-past-the-post | First-past-the-post voting | plurality voting | voting systems | 2 | proportional-representation |
+proportional-representation | Proportional representation | | voting systems | 2 | first-past-the-post |
+filibuster | Filibuster | | legislatures | 2 | |
+un-security-council | United Nations Security Council | UNSC; veto | international law | 2 | |

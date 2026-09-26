@@ -1,0 +1,16 @@
+don-quixote | Don Quixote | | Spanish, novels | 1 | |
+one-hundred-years-of-solitude | One Hundred Years of Solitude | Cien años de soledad | Latin American, magical realism | 2 | magical-realism |
+magical-realism | Magical realism | realismo mágico | movements | 2 | one-hundred-years-of-solitude |
+hamlet | Hamlet | | Shakespeare, tragedy | 1 | |
+odyssey | Odyssey | | epic, Greek | 1 | iliad, heros-journey |
+iliad | Iliad | | epic, Greek | 1 | odyssey, trojan-war |
+epic-of-gilgamesh | Epic of Gilgamesh | | epic, Mesopotamia | 2 | flood-myth |
+divine-comedy | Divine Comedy | Inferno; Dante | epic, Italian | 2 | |
+nineteen-eighty-four | Nineteen Eighty-Four | 1984; Big Brother | dystopia | 1 | brave-new-world |
+brave-new-world | Brave New World | | dystopia | 1 | nineteen-eighty-four |
+frankenstein | Frankenstein | The Modern Prometheus | gothic, science fiction | 1 | prometheus |
+the-tale-of-genji | The Tale of Genji | | Japanese, novels | 3 | |
+stream-of-consciousness | Stream of consciousness | | narrative technique, modernism | 3 | |
+chekhovs-gun | Chekhov's gun | | narrative technique | 1 | macguffin |
+unreliable-narrator | Unreliable narrator | | narrative technique | 2 | |
+the-library-of-babel | The Library of Babel | Borges | short stories, infinity | 3 | hilberts-hotel |

@@ -1,0 +1,16 @@
+antikythera-mechanism | Antikythera mechanism | | ancient, computing | 2 | |
+analytical-engine | Analytical engine | Babbage | computing | 3 | ada-lovelace |
+ada-lovelace | Ada Lovelace | | people, computing | 1 | analytical-engine |
+alan-turing | Alan Turing | | people, computing | 1 | turing-machine, enigma-machine |
+enigma-machine | Enigma machine | | cryptography, WWII | 2 | alan-turing |
+eniac | ENIAC | | computing | 2 | |
+arpanet | ARPANET | | internet | 2 | world-wide-web |
+world-wide-web | World Wide Web | WWW; Tim Berners-Lee | internet | 1 | arpanet |
+apollo-11 | Apollo 11 | Moon landing | space | 1 | space-race, apollo-guidance-computer |
+apollo-guidance-computer | Apollo Guidance Computer | AGC | computing, space | 3 | apollo-11 |
+claude-shannon | Claude Shannon | | people, information | 2 | information-theory |
+unix | Unix | | operating systems | 2 | |
+xerox-parc | PARC (company) | Xerox PARC | computing, GUI | 3 | |
+year-2000-problem | Year 2000 problem | Y2K; millennium bug | software | 1 | |
+first-iphone | iPhone (1st generation) | | smartphones | 1 | |
+electrical-telegraph | Electrical telegraph | Morse code | communication | 2 | telephone |

@@ -1,0 +1,17 @@
+periodic-table | Periodic table | Mendeleev's table | elements | 1 | chemical-element, electronegativity |
+chemical-element | Chemical element | | elements, atoms | 1 | periodic-table, isotope |
+isotope | Isotope | | atoms, nuclear | 2 | radioactive-decay, radiocarbon-dating |
+radioactive-decay | Radioactive decay | radioactivity | nuclear | 2 | isotope, half-life |
+half-life | Half-life | | nuclear, kinetics | 2 | radioactive-decay, radiocarbon-dating |
+radiocarbon-dating | Radiocarbon dating | carbon-14 dating | nuclear, archaeology | 2 | isotope, half-life |
+electronegativity | Electronegativity | | bonding | 3 | chemical-bond |
+chemical-bond | Chemical bond | covalent bond; ionic bond | bonding | 2 | electronegativity, hydrogen-bond |
+hydrogen-bond | Hydrogen bond | | bonding, water | 3 | chemical-bond, properties-of-water |
+properties-of-water | Properties of water | water anomaly | water | 2 | hydrogen-bond |
+ph | pH | acidity; potential of hydrogen | acids and bases | 1 | buffer-solution |
+buffer-solution | Buffer solution | | acids and bases | 3 | ph |
+catalysis | Catalysis | catalyst | kinetics, reactions | 2 | enzyme, haber-process |
+haber-process | Haber process | Haber–Bosch process | industry, fertiliser | 3 | catalysis |
+chirality | Chirality (chemistry) | handedness; enantiomer | stereochemistry | 4 | thalidomide |
+redox | Redox | oxidation-reduction; rust | reactions | 2 | lithium-ion-battery |
+polymer | Polymer | plastics; macromolecule | materials | 2 | |

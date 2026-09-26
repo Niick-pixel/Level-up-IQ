@@ -1,0 +1,16 @@
+natural-selection | Natural selection | survival of the fittest | evolution | 1 | evolution, sexual-selection, galapagos-islands |
+evolution | Evolution | | evolution | 1 | natural-selection, genetic-drift, convergent-evolution |
+sexual-selection | Sexual selection | | evolution, behavior | 2 | natural-selection |
+genetic-drift | Genetic drift | | evolution, population genetics | 3 | evolution |
+dna | DNA | deoxyribonucleic acid; double helix | genetics, molecules | 1 | gene, crispr, central-dogma |
+gene | Gene | | genetics | 1 | dna, epigenetics |
+central-dogma | Central dogma of molecular biology | | genetics, proteins | 3 | dna, protein-folding |
+protein-folding | Protein folding | | proteins | 4 | central-dogma, enzyme |
+enzyme | Enzyme | | proteins, metabolism | 2 | catalysis, protein-folding |
+crispr | CRISPR | CRISPR-Cas9; gene editing | genetics, biotech | 3 | dna, gene |
+epigenetics | Epigenetics | | genetics | 3 | gene |
+mitochondrion | Mitochondrion | mitochondria; powerhouse of the cell | cells, energy | 1 | symbiogenesis, atp |
+symbiogenesis | Symbiogenesis | endosymbiotic theory | cells, evolution | 3 | mitochondrion |
+atp | Adenosine triphosphate | ATP | energy, molecules | 2 | mitochondrion, photosynthesis |
+photosynthesis | Photosynthesis | | plants, energy | 1 | atp, great-oxidation-event |
+horizontal-gene-transfer | Horizontal gene transfer | | genetics, bacteria | 4 | antimicrobial-resistance |

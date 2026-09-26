@@ -1,0 +1,17 @@
+neuron | Neuron | nerve cell | cells | 1 | synapse, action-potential, glia |
+synapse | Synapse | | signaling | 2 | neuron, neurotransmitter |
+action-potential | Action potential | nerve impulse; spike | signaling | 3 | neuron |
+neurotransmitter | Neurotransmitter | | chemistry, signaling | 2 | dopamine, synapse |
+dopamine | Dopamine | | neurotransmitters, reward | 2 | neurotransmitter, reward-system |
+reward-system | Reward system | | motivation | 3 | dopamine |
+neuroplasticity | Neuroplasticity | brain plasticity | learning | 2 | long-term-potentiation, hebbian-theory |
+long-term-potentiation | Long-term potentiation | LTP | memory, learning | 4 | neuroplasticity, hippocampus |
+hebbian-theory | Hebbian theory | cells that fire together wire together | learning | 3 | neuroplasticity |
+hippocampus | Hippocampus | | memory, anatomy | 2 | long-term-potentiation, henry-molaison, sleep-and-memory |
+henry-molaison | Henry Molaison | Patient H.M. | memory, case study | 3 | hippocampus |
+prefrontal-cortex | Prefrontal cortex | | executive function, anatomy | 2 | working-memory, phineas-gage |
+phineas-gage | Phineas Gage | | case study | 2 | prefrontal-cortex |
+split-brain | Split-brain | corpus callosotomy | hemispheres | 3 | prefrontal-cortex |
+sleep-and-memory | Sleep and memory | memory consolidation | memory, sleep | 3 | hippocampus, spacing-effect |
+glia | Glia | neuroglia; glial cells | cells | 3 | neuron |
+blindsight | Blindsight | | vision, consciousness | 4 | hard-problem-of-consciousness |

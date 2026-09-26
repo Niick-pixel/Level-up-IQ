@@ -1,0 +1,16 @@
+vo2-max | VO2 max | maximal oxygen uptake | endurance, physiology | 2 | lactate-threshold, high-intensity-interval-training |
+lactate-threshold | Lactate threshold | | endurance | 3 | vo2-max |
+muscle-hypertrophy | Muscle hypertrophy | | strength | 2 | progressive-overload |
+progressive-overload | Progressive overload | | training principles | 1 | muscle-hypertrophy |
+supercompensation | Supercompensation | | training principles | 3 | progressive-overload |
+high-intensity-interval-training | High-intensity interval training | HIIT | training | 1 | vo2-max |
+skeletal-muscle | Skeletal muscle | fast-twitch fibres; slow-twitch fibres | muscles | 2 | |
+magnus-effect | Magnus effect | curveball | ball sports, physics | 2 | bernoulli-principle |
+altitude-training | Altitude training | | endurance | 2 | |
+doping-in-sport | Doping in sport | | ethics, drugs | 1 | |
+mental-chronometry | Mental chronometry | reaction time | perception | 3 | |
+proprioception | Proprioception | | senses | 2 | |
+delayed-onset-muscle-soreness | Delayed onset muscle soreness | DOMS | recovery | 1 | |
+sports-periodization | Sports periodization | periodization | training | 3 | supercompensation |
+four-minute-mile | Four-minute mile | Roger Bannister | records, running | 1 | |
+marathon | Marathon | Pheidippides | running | 1 | |

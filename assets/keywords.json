@@ -1,0 +1,8874 @@
+{
+ "version": 1,
+ "domains": [
+  {
+   "id": "physics",
+   "label": "Physics"
+  },
+  {
+   "id": "chemistry",
+   "label": "Chemistry"
+  },
+  {
+   "id": "biology",
+   "label": "Biology"
+  },
+  {
+   "id": "neuroscience",
+   "label": "Neuroscience"
+  },
+  {
+   "id": "medicine",
+   "label": "Medicine"
+  },
+  {
+   "id": "astronomy",
+   "label": "Astronomy and space"
+  },
+  {
+   "id": "earth-science",
+   "label": "Earth science and climate"
+  },
+  {
+   "id": "mathematics",
+   "label": "Mathematics"
+  },
+  {
+   "id": "computer-science",
+   "label": "Computer science"
+  },
+  {
+   "id": "engineering",
+   "label": "Engineering"
+  },
+  {
+   "id": "history",
+   "label": "History"
+  },
+  {
+   "id": "geography",
+   "label": "Geography and cultures"
+  },
+  {
+   "id": "economics",
+   "label": "Economics and finance"
+  },
+  {
+   "id": "philosophy",
+   "label": "Philosophy"
+  },
+  {
+   "id": "psychology",
+   "label": "Psychology and cognitive biases"
+  },
+  {
+   "id": "logic",
+   "label": "Logic and fallacies"
+  },
+  {
+   "id": "linguistics",
+   "label": "Linguistics and etymology"
+  },
+  {
+   "id": "literature",
+   "label": "Literature"
+  },
+  {
+   "id": "art-history",
+   "label": "Art history"
+  },
+  {
+   "id": "music",
+   "label": "Music"
+  },
+  {
+   "id": "architecture",
+   "label": "Architecture"
+  },
+  {
+   "id": "film",
+   "label": "Film"
+  },
+  {
+   "id": "technology-history",
+   "label": "Technology history"
+  },
+  {
+   "id": "inventions",
+   "label": "Inventions"
+  },
+  {
+   "id": "military-strategy",
+   "label": "Military strategy"
+  },
+  {
+   "id": "law-politics",
+   "label": "Law and political systems"
+  },
+  {
+   "id": "religion-mythology",
+   "label": "Religion and mythology"
+  },
+  {
+   "id": "nature",
+   "label": "Nature and animals"
+  },
+  {
+   "id": "food-science",
+   "label": "Food science"
+  },
+  {
+   "id": "sports-science",
+   "label": "Sports science"
+  },
+  {
+   "id": "latin-america",
+   "label": "Latin America and Costa Rica"
+  },
+  {
+   "id": "unsolved",
+   "label": "Unsolved problems"
+  },
+  {
+   "id": "mysteries",
+   "label": "Mysteries and anomalies"
+  }
+ ],
+ "keywords": [
+  {
+   "id": "alhambra",
+   "term": "Alhambra",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "Islamic",
+    "palaces"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Alhambra",
+   "wikidata": null
+  },
+  {
+   "id": "angkor-wat",
+   "term": "Angkor Wat",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "temples",
+    "Khmer"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Angkor Wat",
+   "wikidata": null
+  },
+  {
+   "id": "bauhaus",
+   "term": "Bauhaus",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "modernism",
+    "design"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Bauhaus",
+   "wikidata": null
+  },
+  {
+   "id": "brutalist-architecture",
+   "term": "Brutalist architecture",
+   "aliases": [
+    "brutalism"
+   ],
+   "domain": "architecture",
+   "tags": [
+    "modernism"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Brutalist architecture",
+   "wikidata": null
+  },
+  {
+   "id": "burj-khalifa",
+   "term": "Burj Khalifa",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "skyscrapers"
+   ],
+   "difficulty": 1,
+   "related": [
+    "taipei-101"
+   ],
+   "wikipedia": "Burj Khalifa",
+   "wikidata": null
+  },
+  {
+   "id": "fallingwater",
+   "term": "Fallingwater",
+   "aliases": [
+    "Frank Lloyd Wright"
+   ],
+   "domain": "architecture",
+   "tags": [
+    "houses",
+    "modernism"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Fallingwater",
+   "wikidata": null
+  },
+  {
+   "id": "flying-buttress",
+   "term": "Flying buttress",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "structures"
+   ],
+   "difficulty": 3,
+   "related": [
+    "gothic-architecture"
+   ],
+   "wikipedia": "Flying buttress",
+   "wikidata": null
+  },
+  {
+   "id": "geodesic-dome",
+   "term": "Geodesic dome",
+   "aliases": [
+    "Buckminster Fuller"
+   ],
+   "domain": "architecture",
+   "tags": [
+    "structures"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Geodesic dome",
+   "wikidata": null
+  },
+  {
+   "id": "gothic-architecture",
+   "term": "Gothic architecture",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "styles",
+    "medieval"
+   ],
+   "difficulty": 2,
+   "related": [
+    "flying-buttress"
+   ],
+   "wikipedia": "Gothic architecture",
+   "wikidata": null
+  },
+  {
+   "id": "great-pyramid-of-giza",
+   "term": "Great Pyramid of Giza",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "ancient",
+    "Egypt"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Great Pyramid of Giza",
+   "wikidata": null
+  },
+  {
+   "id": "hagia-sophia",
+   "term": "Hagia Sophia",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "Byzantine",
+    "domes"
+   ],
+   "difficulty": 2,
+   "related": [
+    "byzantine-empire"
+   ],
+   "wikipedia": "Hagia Sophia",
+   "wikidata": null
+  },
+  {
+   "id": "leaning-tower-of-pisa",
+   "term": "Leaning Tower of Pisa",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "foundations",
+    "Italy"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Leaning Tower of Pisa",
+   "wikidata": null
+  },
+  {
+   "id": "pantheon",
+   "term": "Pantheon, Rome",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "Roman",
+    "domes"
+   ],
+   "difficulty": 2,
+   "related": [
+    "roman-concrete"
+   ],
+   "wikipedia": "Pantheon, Rome",
+   "wikidata": null
+  },
+  {
+   "id": "sagrada-familia",
+   "term": "Sagrada Família",
+   "aliases": [
+    "Gaudí"
+   ],
+   "domain": "architecture",
+   "tags": [
+    "churches",
+    "Barcelona"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Sagrada Família",
+   "wikidata": null
+  },
+  {
+   "id": "taipei-101",
+   "term": "Taipei 101",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "skyscrapers"
+   ],
+   "difficulty": 2,
+   "related": [
+    "tuned-mass-damper"
+   ],
+   "wikipedia": "Taipei 101",
+   "wikidata": null
+  },
+  {
+   "id": "vernacular-architecture",
+   "term": "Vernacular architecture",
+   "aliases": [],
+   "domain": "architecture",
+   "tags": [
+    "styles"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Vernacular architecture",
+   "wikidata": null
+  },
+  {
+   "id": "caravaggio",
+   "term": "Caravaggio",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "Baroque",
+    "painters"
+   ],
+   "difficulty": 2,
+   "related": [
+    "chiaroscuro"
+   ],
+   "wikipedia": "Caravaggio",
+   "wikidata": null
+  },
+  {
+   "id": "chiaroscuro",
+   "term": "Chiaroscuro",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "techniques"
+   ],
+   "difficulty": 3,
+   "related": [
+    "caravaggio"
+   ],
+   "wikipedia": "Chiaroscuro",
+   "wikidata": null
+  },
+  {
+   "id": "cubism",
+   "term": "Cubism",
+   "aliases": [
+    "Picasso",
+    "Braque"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "movements"
+   ],
+   "difficulty": 2,
+   "related": [
+    "guernica"
+   ],
+   "wikipedia": "Cubism",
+   "wikidata": null
+  },
+  {
+   "id": "fountain-duchamp",
+   "term": "Fountain (Duchamp)",
+   "aliases": [
+    "readymade"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "conceptual art"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Fountain (Duchamp)",
+   "wikidata": null
+  },
+  {
+   "id": "frida-kahlo",
+   "term": "Frida Kahlo",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "painters",
+    "Mexico"
+   ],
+   "difficulty": 1,
+   "related": [
+    "mexican-muralism"
+   ],
+   "wikipedia": "Frida Kahlo",
+   "wikidata": null
+  },
+  {
+   "id": "guernica",
+   "term": "Guernica (Picasso)",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "paintings",
+    "war"
+   ],
+   "difficulty": 2,
+   "related": [
+    "cubism"
+   ],
+   "wikipedia": "Guernica (Picasso)",
+   "wikidata": null
+  },
+  {
+   "id": "impressionism",
+   "term": "Impressionism",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "movements"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Impressionism",
+   "wikidata": null
+  },
+  {
+   "id": "lascaux",
+   "term": "Lascaux",
+   "aliases": [
+    "cave paintings"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "prehistoric"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Lascaux",
+   "wikidata": null
+  },
+  {
+   "id": "mexican-muralism",
+   "term": "Mexican muralism",
+   "aliases": [
+    "Diego Rivera"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "movements",
+    "Mexico"
+   ],
+   "difficulty": 3,
+   "related": [
+    "frida-kahlo"
+   ],
+   "wikipedia": "Mexican muralism",
+   "wikidata": null
+  },
+  {
+   "id": "mona-lisa",
+   "term": "Mona Lisa",
+   "aliases": [
+    "La Gioconda"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "paintings",
+    "Leonardo"
+   ],
+   "difficulty": 1,
+   "related": [
+    "sfumato"
+   ],
+   "wikipedia": "Mona Lisa",
+   "wikidata": null
+  },
+  {
+   "id": "perspective",
+   "term": "Perspective (graphical)",
+   "aliases": [
+    "vanishing point",
+    "linear perspective"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "techniques"
+   ],
+   "difficulty": 2,
+   "related": [
+    "renaissance"
+   ],
+   "wikipedia": "Perspective (graphical)",
+   "wikidata": null
+  },
+  {
+   "id": "renaissance",
+   "term": "Renaissance",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "periods"
+   ],
+   "difficulty": 1,
+   "related": [
+    "perspective"
+   ],
+   "wikipedia": "Renaissance",
+   "wikidata": null
+  },
+  {
+   "id": "sfumato",
+   "term": "Sfumato",
+   "aliases": [],
+   "domain": "art-history",
+   "tags": [
+    "techniques"
+   ],
+   "difficulty": 3,
+   "related": [
+    "mona-lisa"
+   ],
+   "wikipedia": "Sfumato",
+   "wikidata": null
+  },
+  {
+   "id": "surrealism",
+   "term": "Surrealism",
+   "aliases": [
+    "Dalí",
+    "Magritte"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "movements"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Surrealism",
+   "wikidata": null
+  },
+  {
+   "id": "the-starry-night",
+   "term": "The Starry Night",
+   "aliases": [
+    "Van Gogh"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "paintings"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "The Starry Night",
+   "wikidata": null
+  },
+  {
+   "id": "ukiyo-e",
+   "term": "Ukiyo-e",
+   "aliases": [
+    "The Great Wave"
+   ],
+   "domain": "art-history",
+   "tags": [
+    "Japanese",
+    "prints"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Ukiyo-e",
+   "wikidata": null
+  },
+  {
+   "id": "big-bang",
+   "term": "Big Bang",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "cosmology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "cosmic-microwave-background",
+    "hubbles-law"
+   ],
+   "wikipedia": "Big Bang",
+   "wikidata": null
+  },
+  {
+   "id": "black-hole",
+   "term": "Black hole",
+   "aliases": [
+    "event horizon"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "gravity"
+   ],
+   "difficulty": 2,
+   "related": [
+    "general-relativity",
+    "hawking-radiation",
+    "event-horizon-telescope"
+   ],
+   "wikipedia": "Black hole",
+   "wikidata": null
+  },
+  {
+   "id": "circumstellar-habitable-zone",
+   "term": "Circumstellar habitable zone",
+   "aliases": [
+    "Goldilocks zone"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "planets",
+    "astrobiology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "exoplanet",
+    "fermi-paradox"
+   ],
+   "wikipedia": "Circumstellar habitable zone",
+   "wikidata": null
+  },
+  {
+   "id": "cosmic-microwave-background",
+   "term": "Cosmic microwave background",
+   "aliases": [
+    "CMB"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "cosmology"
+   ],
+   "difficulty": 3,
+   "related": [
+    "big-bang"
+   ],
+   "wikipedia": "Cosmic microwave background",
+   "wikidata": null
+  },
+  {
+   "id": "dark-energy",
+   "term": "Dark energy",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "cosmology"
+   ],
+   "difficulty": 3,
+   "related": [
+    "dark-matter",
+    "heat-death-of-the-universe",
+    "hubbles-law"
+   ],
+   "wikipedia": "Dark energy",
+   "wikidata": null
+  },
+  {
+   "id": "dark-matter",
+   "term": "Dark matter",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "cosmology"
+   ],
+   "difficulty": 3,
+   "related": [
+    "galaxy-rotation-curve",
+    "dark-energy"
+   ],
+   "wikipedia": "Dark matter",
+   "wikidata": null
+  },
+  {
+   "id": "drake-equation",
+   "term": "Drake equation",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "astrobiology",
+    "estimation"
+   ],
+   "difficulty": 2,
+   "related": [
+    "fermi-paradox"
+   ],
+   "wikipedia": "Drake equation",
+   "wikidata": null
+  },
+  {
+   "id": "event-horizon-telescope",
+   "term": "Event Horizon Telescope",
+   "aliases": [
+    "EHT"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "observatories"
+   ],
+   "difficulty": 3,
+   "related": [
+    "black-hole"
+   ],
+   "wikipedia": "Event Horizon Telescope",
+   "wikidata": null
+  },
+  {
+   "id": "exoplanet",
+   "term": "Exoplanet",
+   "aliases": [
+    "extrasolar planet"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "planets"
+   ],
+   "difficulty": 2,
+   "related": [
+    "circumstellar-habitable-zone"
+   ],
+   "wikipedia": "Exoplanet",
+   "wikidata": null
+  },
+  {
+   "id": "fermi-paradox",
+   "term": "Fermi paradox",
+   "aliases": [
+    "where is everybody?"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "astrobiology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "drake-equation",
+    "circumstellar-habitable-zone"
+   ],
+   "wikipedia": "Fermi paradox",
+   "wikidata": null
+  },
+  {
+   "id": "galaxy-rotation-curve",
+   "term": "Galaxy rotation curve",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "galaxies"
+   ],
+   "difficulty": 4,
+   "related": [
+    "dark-matter"
+   ],
+   "wikipedia": "Galaxy rotation curve",
+   "wikidata": null
+  },
+  {
+   "id": "gravitational-wave",
+   "term": "Gravitational wave",
+   "aliases": [
+    "LIGO"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "gravity"
+   ],
+   "difficulty": 3,
+   "related": [
+    "general-relativity",
+    "black-hole"
+   ],
+   "wikipedia": "Gravitational wave",
+   "wikidata": null
+  },
+  {
+   "id": "hawking-radiation",
+   "term": "Hawking radiation",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "black holes",
+    "quantum"
+   ],
+   "difficulty": 4,
+   "related": [
+    "black-hole"
+   ],
+   "wikipedia": "Hawking radiation",
+   "wikidata": null
+  },
+  {
+   "id": "lagrange-point",
+   "term": "Lagrange point",
+   "aliases": [
+    "L2"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "orbits"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Lagrange point",
+   "wikidata": null
+  },
+  {
+   "id": "neutron-star",
+   "term": "Neutron star",
+   "aliases": [
+    "pulsar"
+   ],
+   "domain": "astronomy",
+   "tags": [
+    "stars"
+   ],
+   "difficulty": 3,
+   "related": [
+    "supernova"
+   ],
+   "wikipedia": "Neutron star",
+   "wikidata": null
+  },
+  {
+   "id": "supernova",
+   "term": "Supernova",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "stars"
+   ],
+   "difficulty": 2,
+   "related": [
+    "neutron-star",
+    "neutrino"
+   ],
+   "wikipedia": "Supernova",
+   "wikidata": null
+  },
+  {
+   "id": "voyager-golden-record",
+   "term": "Voyager Golden Record",
+   "aliases": [],
+   "domain": "astronomy",
+   "tags": [
+    "spacecraft"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Voyager Golden Record",
+   "wikidata": null
+  },
+  {
+   "id": "atp",
+   "term": "Adenosine triphosphate",
+   "aliases": [
+    "ATP"
+   ],
+   "domain": "biology",
+   "tags": [
+    "energy",
+    "molecules"
+   ],
+   "difficulty": 2,
+   "related": [
+    "mitochondrion",
+    "photosynthesis"
+   ],
+   "wikipedia": "Adenosine triphosphate",
+   "wikidata": null
+  },
+  {
+   "id": "central-dogma",
+   "term": "Central dogma of molecular biology",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "genetics",
+    "proteins"
+   ],
+   "difficulty": 3,
+   "related": [
+    "dna",
+    "protein-folding"
+   ],
+   "wikipedia": "Central dogma of molecular biology",
+   "wikidata": null
+  },
+  {
+   "id": "crispr",
+   "term": "CRISPR",
+   "aliases": [
+    "CRISPR-Cas9",
+    "gene editing"
+   ],
+   "domain": "biology",
+   "tags": [
+    "genetics",
+    "biotech"
+   ],
+   "difficulty": 3,
+   "related": [
+    "dna",
+    "gene"
+   ],
+   "wikipedia": "CRISPR",
+   "wikidata": null
+  },
+  {
+   "id": "dna",
+   "term": "DNA",
+   "aliases": [
+    "deoxyribonucleic acid",
+    "double helix"
+   ],
+   "domain": "biology",
+   "tags": [
+    "genetics",
+    "molecules"
+   ],
+   "difficulty": 1,
+   "related": [
+    "gene",
+    "crispr",
+    "central-dogma"
+   ],
+   "wikipedia": "DNA",
+   "wikidata": null
+  },
+  {
+   "id": "enzyme",
+   "term": "Enzyme",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "proteins",
+    "metabolism"
+   ],
+   "difficulty": 2,
+   "related": [
+    "catalysis",
+    "protein-folding"
+   ],
+   "wikipedia": "Enzyme",
+   "wikidata": null
+  },
+  {
+   "id": "epigenetics",
+   "term": "Epigenetics",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "genetics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "gene"
+   ],
+   "wikipedia": "Epigenetics",
+   "wikidata": null
+  },
+  {
+   "id": "evolution",
+   "term": "Evolution",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "evolution"
+   ],
+   "difficulty": 1,
+   "related": [
+    "natural-selection",
+    "genetic-drift",
+    "convergent-evolution"
+   ],
+   "wikipedia": "Evolution",
+   "wikidata": null
+  },
+  {
+   "id": "gene",
+   "term": "Gene",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "genetics"
+   ],
+   "difficulty": 1,
+   "related": [
+    "dna",
+    "epigenetics"
+   ],
+   "wikipedia": "Gene",
+   "wikidata": null
+  },
+  {
+   "id": "genetic-drift",
+   "term": "Genetic drift",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "evolution",
+    "population genetics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "evolution"
+   ],
+   "wikipedia": "Genetic drift",
+   "wikidata": null
+  },
+  {
+   "id": "horizontal-gene-transfer",
+   "term": "Horizontal gene transfer",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "genetics",
+    "bacteria"
+   ],
+   "difficulty": 4,
+   "related": [
+    "antimicrobial-resistance"
+   ],
+   "wikipedia": "Horizontal gene transfer",
+   "wikidata": null
+  },
+  {
+   "id": "mitochondrion",
+   "term": "Mitochondrion",
+   "aliases": [
+    "mitochondria",
+    "powerhouse of the cell"
+   ],
+   "domain": "biology",
+   "tags": [
+    "cells",
+    "energy"
+   ],
+   "difficulty": 1,
+   "related": [
+    "symbiogenesis",
+    "atp"
+   ],
+   "wikipedia": "Mitochondrion",
+   "wikidata": null
+  },
+  {
+   "id": "natural-selection",
+   "term": "Natural selection",
+   "aliases": [
+    "survival of the fittest"
+   ],
+   "domain": "biology",
+   "tags": [
+    "evolution"
+   ],
+   "difficulty": 1,
+   "related": [
+    "evolution",
+    "sexual-selection",
+    "galapagos-islands"
+   ],
+   "wikipedia": "Natural selection",
+   "wikidata": null
+  },
+  {
+   "id": "photosynthesis",
+   "term": "Photosynthesis",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "plants",
+    "energy"
+   ],
+   "difficulty": 1,
+   "related": [
+    "atp",
+    "great-oxidation-event"
+   ],
+   "wikipedia": "Photosynthesis",
+   "wikidata": null
+  },
+  {
+   "id": "protein-folding",
+   "term": "Protein folding",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "proteins"
+   ],
+   "difficulty": 4,
+   "related": [
+    "central-dogma",
+    "enzyme"
+   ],
+   "wikipedia": "Protein folding",
+   "wikidata": null
+  },
+  {
+   "id": "sexual-selection",
+   "term": "Sexual selection",
+   "aliases": [],
+   "domain": "biology",
+   "tags": [
+    "evolution",
+    "behavior"
+   ],
+   "difficulty": 2,
+   "related": [
+    "natural-selection"
+   ],
+   "wikipedia": "Sexual selection",
+   "wikidata": null
+  },
+  {
+   "id": "symbiogenesis",
+   "term": "Symbiogenesis",
+   "aliases": [
+    "endosymbiotic theory"
+   ],
+   "domain": "biology",
+   "tags": [
+    "cells",
+    "evolution"
+   ],
+   "difficulty": 3,
+   "related": [
+    "mitochondrion"
+   ],
+   "wikipedia": "Symbiogenesis",
+   "wikidata": null
+  },
+  {
+   "id": "buffer-solution",
+   "term": "Buffer solution",
+   "aliases": [],
+   "domain": "chemistry",
+   "tags": [
+    "acids and bases"
+   ],
+   "difficulty": 3,
+   "related": [
+    "ph"
+   ],
+   "wikipedia": "Buffer solution",
+   "wikidata": null
+  },
+  {
+   "id": "catalysis",
+   "term": "Catalysis",
+   "aliases": [
+    "catalyst"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "kinetics",
+    "reactions"
+   ],
+   "difficulty": 2,
+   "related": [
+    "enzyme",
+    "haber-process"
+   ],
+   "wikipedia": "Catalysis",
+   "wikidata": null
+  },
+  {
+   "id": "chemical-bond",
+   "term": "Chemical bond",
+   "aliases": [
+    "covalent bond",
+    "ionic bond"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "bonding"
+   ],
+   "difficulty": 2,
+   "related": [
+    "electronegativity",
+    "hydrogen-bond"
+   ],
+   "wikipedia": "Chemical bond",
+   "wikidata": null
+  },
+  {
+   "id": "chemical-element",
+   "term": "Chemical element",
+   "aliases": [],
+   "domain": "chemistry",
+   "tags": [
+    "elements",
+    "atoms"
+   ],
+   "difficulty": 1,
+   "related": [
+    "periodic-table",
+    "isotope"
+   ],
+   "wikipedia": "Chemical element",
+   "wikidata": null
+  },
+  {
+   "id": "chirality",
+   "term": "Chirality (chemistry)",
+   "aliases": [
+    "handedness",
+    "enantiomer"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "stereochemistry"
+   ],
+   "difficulty": 4,
+   "related": [
+    "thalidomide"
+   ],
+   "wikipedia": "Chirality (chemistry)",
+   "wikidata": null
+  },
+  {
+   "id": "electronegativity",
+   "term": "Electronegativity",
+   "aliases": [],
+   "domain": "chemistry",
+   "tags": [
+    "bonding"
+   ],
+   "difficulty": 3,
+   "related": [
+    "chemical-bond"
+   ],
+   "wikipedia": "Electronegativity",
+   "wikidata": null
+  },
+  {
+   "id": "haber-process",
+   "term": "Haber process",
+   "aliases": [
+    "Haber–Bosch process"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "industry",
+    "fertiliser"
+   ],
+   "difficulty": 3,
+   "related": [
+    "catalysis"
+   ],
+   "wikipedia": "Haber process",
+   "wikidata": null
+  },
+  {
+   "id": "half-life",
+   "term": "Half-life",
+   "aliases": [],
+   "domain": "chemistry",
+   "tags": [
+    "nuclear",
+    "kinetics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "radioactive-decay",
+    "radiocarbon-dating"
+   ],
+   "wikipedia": "Half-life",
+   "wikidata": null
+  },
+  {
+   "id": "hydrogen-bond",
+   "term": "Hydrogen bond",
+   "aliases": [],
+   "domain": "chemistry",
+   "tags": [
+    "bonding",
+    "water"
+   ],
+   "difficulty": 3,
+   "related": [
+    "chemical-bond",
+    "properties-of-water"
+   ],
+   "wikipedia": "Hydrogen bond",
+   "wikidata": null
+  },
+  {
+   "id": "isotope",
+   "term": "Isotope",
+   "aliases": [],
+   "domain": "chemistry",
+   "tags": [
+    "atoms",
+    "nuclear"
+   ],
+   "difficulty": 2,
+   "related": [
+    "radioactive-decay",
+    "radiocarbon-dating"
+   ],
+   "wikipedia": "Isotope",
+   "wikidata": null
+  },
+  {
+   "id": "periodic-table",
+   "term": "Periodic table",
+   "aliases": [
+    "Mendeleev's table"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "elements"
+   ],
+   "difficulty": 1,
+   "related": [
+    "chemical-element",
+    "electronegativity"
+   ],
+   "wikipedia": "Periodic table",
+   "wikidata": null
+  },
+  {
+   "id": "ph",
+   "term": "pH",
+   "aliases": [
+    "acidity",
+    "potential of hydrogen"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "acids and bases"
+   ],
+   "difficulty": 1,
+   "related": [
+    "buffer-solution"
+   ],
+   "wikipedia": "pH",
+   "wikidata": null
+  },
+  {
+   "id": "polymer",
+   "term": "Polymer",
+   "aliases": [
+    "plastics",
+    "macromolecule"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "materials"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Polymer",
+   "wikidata": null
+  },
+  {
+   "id": "properties-of-water",
+   "term": "Properties of water",
+   "aliases": [
+    "water anomaly"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "water"
+   ],
+   "difficulty": 2,
+   "related": [
+    "hydrogen-bond"
+   ],
+   "wikipedia": "Properties of water",
+   "wikidata": null
+  },
+  {
+   "id": "radioactive-decay",
+   "term": "Radioactive decay",
+   "aliases": [
+    "radioactivity"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "nuclear"
+   ],
+   "difficulty": 2,
+   "related": [
+    "isotope",
+    "half-life"
+   ],
+   "wikipedia": "Radioactive decay",
+   "wikidata": null
+  },
+  {
+   "id": "radiocarbon-dating",
+   "term": "Radiocarbon dating",
+   "aliases": [
+    "carbon-14 dating"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "nuclear",
+    "archaeology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "isotope",
+    "half-life"
+   ],
+   "wikipedia": "Radiocarbon dating",
+   "wikidata": null
+  },
+  {
+   "id": "redox",
+   "term": "Redox",
+   "aliases": [
+    "oxidation-reduction",
+    "rust"
+   ],
+   "domain": "chemistry",
+   "tags": [
+    "reactions"
+   ],
+   "difficulty": 2,
+   "related": [
+    "lithium-ion-battery"
+   ],
+   "wikipedia": "Redox",
+   "wikidata": null
+  },
+  {
+   "id": "backpropagation",
+   "term": "Backpropagation",
+   "aliases": [],
+   "domain": "computer-science",
+   "tags": [
+    "AI",
+    "calculus"
+   ],
+   "difficulty": 4,
+   "related": [
+    "neural-network"
+   ],
+   "wikipedia": "Backpropagation",
+   "wikidata": null
+  },
+  {
+   "id": "big-o-notation",
+   "term": "Big O notation",
+   "aliases": [
+    "time complexity"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "algorithms"
+   ],
+   "difficulty": 2,
+   "related": [
+    "sorting-algorithm",
+    "p-versus-np"
+   ],
+   "wikipedia": "Big O notation",
+   "wikidata": null
+  },
+  {
+   "id": "byzantine-fault",
+   "term": "Byzantine fault",
+   "aliases": [
+    "Byzantine generals problem"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "distributed systems"
+   ],
+   "difficulty": 4,
+   "related": [],
+   "wikipedia": "Byzantine fault",
+   "wikidata": null
+  },
+  {
+   "id": "compiler",
+   "term": "Compiler",
+   "aliases": [],
+   "domain": "computer-science",
+   "tags": [
+    "programming languages"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Compiler",
+   "wikidata": null
+  },
+  {
+   "id": "halting-problem",
+   "term": "Halting problem",
+   "aliases": [],
+   "domain": "computer-science",
+   "tags": [
+    "computability"
+   ],
+   "difficulty": 4,
+   "related": [
+    "turing-machine",
+    "godels-incompleteness-theorems"
+   ],
+   "wikipedia": "Halting problem",
+   "wikidata": null
+  },
+  {
+   "id": "hash-function",
+   "term": "Hash function",
+   "aliases": [],
+   "domain": "computer-science",
+   "tags": [
+    "security",
+    "data structures"
+   ],
+   "difficulty": 2,
+   "related": [
+    "public-key-cryptography"
+   ],
+   "wikipedia": "Hash function",
+   "wikidata": null
+  },
+  {
+   "id": "information-theory",
+   "term": "Information theory",
+   "aliases": [
+    "Shannon entropy",
+    "bits"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "information"
+   ],
+   "difficulty": 3,
+   "related": [
+    "entropy",
+    "claude-shannon"
+   ],
+   "wikipedia": "Information theory",
+   "wikidata": null
+  },
+  {
+   "id": "neural-network",
+   "term": "Neural network (machine learning)",
+   "aliases": [
+    "artificial neural network"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "AI"
+   ],
+   "difficulty": 3,
+   "related": [
+    "backpropagation",
+    "turing-test"
+   ],
+   "wikipedia": "Neural network (machine learning)",
+   "wikidata": null
+  },
+  {
+   "id": "open-source-software",
+   "term": "Open-source software",
+   "aliases": [
+    "open source"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "software",
+    "culture"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Open-source software",
+   "wikidata": null
+  },
+  {
+   "id": "public-key-cryptography",
+   "term": "Public-key cryptography",
+   "aliases": [
+    "RSA",
+    "asymmetric encryption"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "security"
+   ],
+   "difficulty": 3,
+   "related": [
+    "hash-function",
+    "prime-number"
+   ],
+   "wikipedia": "Public-key cryptography",
+   "wikidata": null
+  },
+  {
+   "id": "quantum-computing",
+   "term": "Quantum computing",
+   "aliases": [
+    "qubit"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "quantum"
+   ],
+   "difficulty": 4,
+   "related": [
+    "quantum-entanglement",
+    "public-key-cryptography"
+   ],
+   "wikipedia": "Quantum computing",
+   "wikidata": null
+  },
+  {
+   "id": "recursion",
+   "term": "Recursion (computer science)",
+   "aliases": [],
+   "domain": "computer-science",
+   "tags": [
+    "programming"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Recursion (computer science)",
+   "wikidata": null
+  },
+  {
+   "id": "sorting-algorithm",
+   "term": "Sorting algorithm",
+   "aliases": [
+    "quicksort",
+    "merge sort"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "algorithms"
+   ],
+   "difficulty": 2,
+   "related": [
+    "big-o-notation"
+   ],
+   "wikipedia": "Sorting algorithm",
+   "wikidata": null
+  },
+  {
+   "id": "turing-machine",
+   "term": "Turing machine",
+   "aliases": [],
+   "domain": "computer-science",
+   "tags": [
+    "computability"
+   ],
+   "difficulty": 3,
+   "related": [
+    "halting-problem",
+    "alan-turing"
+   ],
+   "wikipedia": "Turing machine",
+   "wikidata": null
+  },
+  {
+   "id": "turing-test",
+   "term": "Turing test",
+   "aliases": [
+    "imitation game"
+   ],
+   "domain": "computer-science",
+   "tags": [
+    "AI",
+    "philosophy"
+   ],
+   "difficulty": 2,
+   "related": [
+    "chinese-room",
+    "neural-network"
+   ],
+   "wikipedia": "Turing test",
+   "wikidata": null
+  },
+  {
+   "id": "chicxulub-crater",
+   "term": "Chicxulub crater",
+   "aliases": [
+    "dinosaur-killing asteroid"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "impacts",
+    "extinction"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Chicxulub crater",
+   "wikidata": null
+  },
+  {
+   "id": "climate-change",
+   "term": "Climate change",
+   "aliases": [
+    "global warming"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "climate"
+   ],
+   "difficulty": 1,
+   "related": [
+    "greenhouse-effect",
+    "milankovitch-cycles"
+   ],
+   "wikipedia": "Climate change",
+   "wikidata": null
+  },
+  {
+   "id": "coriolis-force",
+   "term": "Coriolis force",
+   "aliases": [
+    "Coriolis effect"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "atmosphere",
+    "physics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "jet-stream"
+   ],
+   "wikipedia": "Coriolis force",
+   "wikidata": null
+  },
+  {
+   "id": "el-nino",
+   "term": "El Niño–Southern Oscillation",
+   "aliases": [
+    "ENSO",
+    "El Niño",
+    "La Niña"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "climate",
+    "oceans"
+   ],
+   "difficulty": 2,
+   "related": [
+    "thermohaline-circulation"
+   ],
+   "wikipedia": "El Niño–Southern Oscillation",
+   "wikidata": null
+  },
+  {
+   "id": "great-oxidation-event",
+   "term": "Great Oxidation Event",
+   "aliases": [],
+   "domain": "earth-science",
+   "tags": [
+    "deep time",
+    "atmosphere"
+   ],
+   "difficulty": 3,
+   "related": [
+    "photosynthesis",
+    "snowball-earth"
+   ],
+   "wikipedia": "Great Oxidation Event",
+   "wikidata": null
+  },
+  {
+   "id": "greenhouse-effect",
+   "term": "Greenhouse effect",
+   "aliases": [],
+   "domain": "earth-science",
+   "tags": [
+    "climate"
+   ],
+   "difficulty": 1,
+   "related": [
+    "climate-change",
+    "keeling-curve"
+   ],
+   "wikipedia": "Greenhouse effect",
+   "wikidata": null
+  },
+  {
+   "id": "ice-age",
+   "term": "Ice age",
+   "aliases": [
+    "glacial period"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "climate"
+   ],
+   "difficulty": 2,
+   "related": [
+    "milankovitch-cycles",
+    "snowball-earth"
+   ],
+   "wikipedia": "Ice age",
+   "wikidata": null
+  },
+  {
+   "id": "jet-stream",
+   "term": "Jet stream",
+   "aliases": [],
+   "domain": "earth-science",
+   "tags": [
+    "atmosphere",
+    "weather"
+   ],
+   "difficulty": 2,
+   "related": [
+    "coriolis-force"
+   ],
+   "wikipedia": "Jet stream",
+   "wikidata": null
+  },
+  {
+   "id": "keeling-curve",
+   "term": "Keeling Curve",
+   "aliases": [],
+   "domain": "earth-science",
+   "tags": [
+    "climate",
+    "measurement"
+   ],
+   "difficulty": 3,
+   "related": [
+    "greenhouse-effect"
+   ],
+   "wikipedia": "Keeling Curve",
+   "wikidata": null
+  },
+  {
+   "id": "milankovitch-cycles",
+   "term": "Milankovitch cycles",
+   "aliases": [],
+   "domain": "earth-science",
+   "tags": [
+    "climate",
+    "orbits"
+   ],
+   "difficulty": 4,
+   "related": [
+    "ice-age"
+   ],
+   "wikipedia": "Milankovitch cycles",
+   "wikidata": null
+  },
+  {
+   "id": "moment-magnitude-scale",
+   "term": "Moment magnitude scale",
+   "aliases": [
+    "Richter scale"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "earthquakes"
+   ],
+   "difficulty": 2,
+   "related": [
+    "ring-of-fire"
+   ],
+   "wikipedia": "Moment magnitude scale",
+   "wikidata": null
+  },
+  {
+   "id": "pangaea",
+   "term": "Pangaea",
+   "aliases": [
+    "Pangea"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "geology",
+    "supercontinents"
+   ],
+   "difficulty": 1,
+   "related": [
+    "plate-tectonics"
+   ],
+   "wikipedia": "Pangaea",
+   "wikidata": null
+  },
+  {
+   "id": "plate-tectonics",
+   "term": "Plate tectonics",
+   "aliases": [
+    "continental drift"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "geology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "pangaea",
+    "ring-of-fire"
+   ],
+   "wikipedia": "Plate tectonics",
+   "wikidata": null
+  },
+  {
+   "id": "ring-of-fire",
+   "term": "Ring of Fire",
+   "aliases": [
+    "Pacific Ring of Fire"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "volcanoes",
+    "earthquakes"
+   ],
+   "difficulty": 1,
+   "related": [
+    "plate-tectonics",
+    "arenal-volcano"
+   ],
+   "wikipedia": "Ring of Fire",
+   "wikidata": null
+  },
+  {
+   "id": "snowball-earth",
+   "term": "Snowball Earth",
+   "aliases": [],
+   "domain": "earth-science",
+   "tags": [
+    "climate",
+    "deep time"
+   ],
+   "difficulty": 3,
+   "related": [
+    "ice-age",
+    "great-oxidation-event"
+   ],
+   "wikipedia": "Snowball Earth",
+   "wikidata": null
+  },
+  {
+   "id": "thermohaline-circulation",
+   "term": "Thermohaline circulation",
+   "aliases": [
+    "ocean conveyor belt"
+   ],
+   "domain": "earth-science",
+   "tags": [
+    "oceans"
+   ],
+   "difficulty": 3,
+   "related": [
+    "el-nino"
+   ],
+   "wikipedia": "Thermohaline circulation",
+   "wikidata": null
+  },
+  {
+   "id": "comparative-advantage",
+   "term": "Comparative advantage",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "trade"
+   ],
+   "difficulty": 3,
+   "related": [
+    "opportunity-cost"
+   ],
+   "wikipedia": "Comparative advantage",
+   "wikidata": null
+  },
+  {
+   "id": "compound-interest",
+   "term": "Compound interest",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "finance"
+   ],
+   "difficulty": 1,
+   "related": [
+    "rule-of-72"
+   ],
+   "wikipedia": "Compound interest",
+   "wikidata": null
+  },
+  {
+   "id": "goodharts-law",
+   "term": "Goodhart's law",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "measurement",
+    "incentives"
+   ],
+   "difficulty": 2,
+   "related": [
+    "perverse-incentive"
+   ],
+   "wikipedia": "Goodhart's law",
+   "wikidata": null
+  },
+  {
+   "id": "great-depression",
+   "term": "Great Depression",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "crises",
+    "20th century"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Great Depression",
+   "wikidata": null
+  },
+  {
+   "id": "hyperinflation",
+   "term": "Hyperinflation",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "money",
+    "crises"
+   ],
+   "difficulty": 2,
+   "related": [
+    "inflation"
+   ],
+   "wikipedia": "Hyperinflation",
+   "wikidata": null
+  },
+  {
+   "id": "inflation",
+   "term": "Inflation",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "macroeconomics",
+    "money"
+   ],
+   "difficulty": 1,
+   "related": [
+    "hyperinflation"
+   ],
+   "wikipedia": "Inflation",
+   "wikidata": null
+  },
+  {
+   "id": "moral-hazard",
+   "term": "Moral hazard",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "incentives",
+    "insurance"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Moral hazard",
+   "wikidata": null
+  },
+  {
+   "id": "nash-equilibrium",
+   "term": "Nash equilibrium",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "game theory"
+   ],
+   "difficulty": 3,
+   "related": [
+    "prisoners-dilemma"
+   ],
+   "wikipedia": "Nash equilibrium",
+   "wikidata": null
+  },
+  {
+   "id": "opportunity-cost",
+   "term": "Opportunity cost",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "basics"
+   ],
+   "difficulty": 1,
+   "related": [
+    "comparative-advantage"
+   ],
+   "wikipedia": "Opportunity cost",
+   "wikidata": null
+  },
+  {
+   "id": "perverse-incentive",
+   "term": "Perverse incentive",
+   "aliases": [
+    "cobra effect"
+   ],
+   "domain": "economics",
+   "tags": [
+    "incentives"
+   ],
+   "difficulty": 2,
+   "related": [
+    "goodharts-law"
+   ],
+   "wikipedia": "Perverse incentive",
+   "wikidata": null
+  },
+  {
+   "id": "price-elasticity-of-demand",
+   "term": "Price elasticity of demand",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "markets"
+   ],
+   "difficulty": 3,
+   "related": [
+    "supply-and-demand"
+   ],
+   "wikipedia": "Price elasticity of demand",
+   "wikidata": null
+  },
+  {
+   "id": "prisoners-dilemma",
+   "term": "Prisoner's dilemma",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "game theory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "nash-equilibrium",
+    "tragedy-of-the-commons"
+   ],
+   "wikipedia": "Prisoner's dilemma",
+   "wikidata": null
+  },
+  {
+   "id": "rule-of-72",
+   "term": "Rule of 72",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "finance",
+    "mental math"
+   ],
+   "difficulty": 2,
+   "related": [
+    "compound-interest"
+   ],
+   "wikipedia": "Rule of 72",
+   "wikidata": null
+  },
+  {
+   "id": "supply-and-demand",
+   "term": "Supply and demand",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "markets"
+   ],
+   "difficulty": 1,
+   "related": [
+    "price-elasticity-of-demand"
+   ],
+   "wikipedia": "Supply and demand",
+   "wikidata": null
+  },
+  {
+   "id": "tragedy-of-the-commons",
+   "term": "Tragedy of the commons",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "public goods",
+    "game theory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prisoners-dilemma"
+   ],
+   "wikipedia": "Tragedy of the commons",
+   "wikidata": null
+  },
+  {
+   "id": "tulip-mania",
+   "term": "Tulip mania",
+   "aliases": [],
+   "domain": "economics",
+   "tags": [
+    "bubbles",
+    "history"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Tulip mania",
+   "wikidata": null
+  },
+  {
+   "id": "arch",
+   "term": "Arch",
+   "aliases": [
+    "keystone"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "structures"
+   ],
+   "difficulty": 1,
+   "related": [
+    "roman-concrete"
+   ],
+   "wikipedia": "Arch",
+   "wikidata": null
+  },
+  {
+   "id": "bernoulli-principle",
+   "term": "Bernoulli's principle",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "fluids"
+   ],
+   "difficulty": 2,
+   "related": [
+    "lift-force",
+    "magnus-effect"
+   ],
+   "wikipedia": "Bernoulli's principle",
+   "wikidata": null
+  },
+  {
+   "id": "carnot-cycle",
+   "term": "Carnot cycle",
+   "aliases": [
+    "heat engine efficiency"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "thermodynamics"
+   ],
+   "difficulty": 4,
+   "related": [
+    "entropy",
+    "steam-engine"
+   ],
+   "wikipedia": "Carnot cycle",
+   "wikidata": null
+  },
+  {
+   "id": "factor-of-safety",
+   "term": "Factor of safety",
+   "aliases": [
+    "safety factor"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "design"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Factor of safety",
+   "wikidata": null
+  },
+  {
+   "id": "feedback",
+   "term": "Feedback",
+   "aliases": [
+    "feedback loop"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "control"
+   ],
+   "difficulty": 2,
+   "related": [
+    "pid-controller"
+   ],
+   "wikipedia": "Feedback",
+   "wikidata": null
+  },
+  {
+   "id": "finite-element-method",
+   "term": "Finite element method",
+   "aliases": [
+    "FEM"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "simulation"
+   ],
+   "difficulty": 5,
+   "related": [],
+   "wikipedia": "Finite element method",
+   "wikidata": null
+  },
+  {
+   "id": "lift-force",
+   "term": "Lift (force)",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "aerodynamics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "bernoulli-principle"
+   ],
+   "wikipedia": "Lift (force)",
+   "wikidata": null
+  },
+  {
+   "id": "moores-law",
+   "term": "Moore's law",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "electronics",
+    "semiconductors"
+   ],
+   "difficulty": 2,
+   "related": [
+    "transistor"
+   ],
+   "wikipedia": "Moore's law",
+   "wikidata": null
+  },
+  {
+   "id": "pid-controller",
+   "term": "Proportional–integral–derivative controller",
+   "aliases": [
+    "PID controller"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "control"
+   ],
+   "difficulty": 4,
+   "related": [
+    "feedback"
+   ],
+   "wikipedia": "Proportional–integral–derivative controller",
+   "wikidata": null
+  },
+  {
+   "id": "resonance",
+   "term": "Resonance",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "vibration",
+    "physics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "tacoma-narrows-bridge",
+    "tuned-mass-damper"
+   ],
+   "wikipedia": "Resonance",
+   "wikidata": null
+  },
+  {
+   "id": "roman-concrete",
+   "term": "Roman concrete",
+   "aliases": [
+    "opus caementicium"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "materials"
+   ],
+   "difficulty": 3,
+   "related": [
+    "arch",
+    "pantheon"
+   ],
+   "wikipedia": "Roman concrete",
+   "wikidata": null
+  },
+  {
+   "id": "suspension-bridge",
+   "term": "Suspension bridge",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "bridges"
+   ],
+   "difficulty": 2,
+   "related": [
+    "tacoma-narrows-bridge"
+   ],
+   "wikipedia": "Suspension bridge",
+   "wikidata": null
+  },
+  {
+   "id": "tacoma-narrows-bridge",
+   "term": "Tacoma Narrows Bridge (1940)",
+   "aliases": [
+    "Galloping Gertie"
+   ],
+   "domain": "engineering",
+   "tags": [
+    "bridges",
+    "failure"
+   ],
+   "difficulty": 2,
+   "related": [
+    "resonance",
+    "suspension-bridge"
+   ],
+   "wikipedia": "Tacoma Narrows Bridge (1940)",
+   "wikidata": null
+  },
+  {
+   "id": "three-gorges-dam",
+   "term": "Three Gorges Dam",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "dams",
+    "energy"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Three Gorges Dam",
+   "wikidata": null
+  },
+  {
+   "id": "transistor",
+   "term": "Transistor",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "electronics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "moores-law"
+   ],
+   "wikipedia": "Transistor",
+   "wikidata": null
+  },
+  {
+   "id": "tuned-mass-damper",
+   "term": "Tuned mass damper",
+   "aliases": [],
+   "domain": "engineering",
+   "tags": [
+    "vibration",
+    "skyscrapers"
+   ],
+   "difficulty": 3,
+   "related": [
+    "resonance",
+    "taipei-101"
+   ],
+   "wikipedia": "Tuned mass damper",
+   "wikidata": null
+  },
+  {
+   "id": "a-space-odyssey",
+   "term": "2001: A Space Odyssey",
+   "aliases": [
+    "HAL 9000"
+   ],
+   "domain": "film",
+   "tags": [
+    "science fiction"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "2001: A Space Odyssey",
+   "wikidata": null
+  },
+  {
+   "id": "battleship-potemkin",
+   "term": "Battleship Potemkin",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "silent film",
+    "Soviet"
+   ],
+   "difficulty": 3,
+   "related": [
+    "montage"
+   ],
+   "wikipedia": "Battleship Potemkin",
+   "wikidata": null
+  },
+  {
+   "id": "bicycle-thieves",
+   "term": "Bicycle Thieves",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "classics",
+    "Italian"
+   ],
+   "difficulty": 3,
+   "related": [
+    "italian-neorealism"
+   ],
+   "wikipedia": "Bicycle Thieves",
+   "wikidata": null
+  },
+  {
+   "id": "citizen-kane",
+   "term": "Citizen Kane",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "classics"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Citizen Kane",
+   "wikidata": null
+  },
+  {
+   "id": "dolly-zoom",
+   "term": "Dolly zoom",
+   "aliases": [
+    "Vertigo effect"
+   ],
+   "domain": "film",
+   "tags": [
+    "camera technique"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Dolly zoom",
+   "wikidata": null
+  },
+  {
+   "id": "frame-rate",
+   "term": "Frame rate",
+   "aliases": [
+    "fps"
+   ],
+   "domain": "film",
+   "tags": [
+    "technology"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Frame rate",
+   "wikidata": null
+  },
+  {
+   "id": "french-new-wave",
+   "term": "French New Wave",
+   "aliases": [
+    "Nouvelle Vague"
+   ],
+   "domain": "film",
+   "tags": [
+    "movements"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "French New Wave",
+   "wikidata": null
+  },
+  {
+   "id": "german-expressionism",
+   "term": "German Expressionism",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "movements",
+    "silent film"
+   ],
+   "difficulty": 3,
+   "related": [
+    "metropolis"
+   ],
+   "wikipedia": "German Expressionism",
+   "wikidata": null
+  },
+  {
+   "id": "heros-journey",
+   "term": "Hero's journey",
+   "aliases": [
+    "monomyth"
+   ],
+   "domain": "film",
+   "tags": [
+    "storytelling"
+   ],
+   "difficulty": 2,
+   "related": [
+    "odyssey"
+   ],
+   "wikipedia": "Hero's journey",
+   "wikidata": null
+  },
+  {
+   "id": "italian-neorealism",
+   "term": "Italian neorealism",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "movements"
+   ],
+   "difficulty": 3,
+   "related": [
+    "bicycle-thieves"
+   ],
+   "wikipedia": "Italian neorealism",
+   "wikidata": null
+  },
+  {
+   "id": "kuleshov-effect",
+   "term": "Kuleshov effect",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "editing",
+    "perception"
+   ],
+   "difficulty": 3,
+   "related": [
+    "montage"
+   ],
+   "wikipedia": "Kuleshov effect",
+   "wikidata": null
+  },
+  {
+   "id": "macguffin",
+   "term": "MacGuffin",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "storytelling"
+   ],
+   "difficulty": 1,
+   "related": [
+    "chekhovs-gun"
+   ],
+   "wikipedia": "MacGuffin",
+   "wikidata": null
+  },
+  {
+   "id": "metropolis",
+   "term": "Metropolis (1927 film)",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "silent film",
+    "science fiction"
+   ],
+   "difficulty": 2,
+   "related": [
+    "german-expressionism"
+   ],
+   "wikipedia": "Metropolis (1927 film)",
+   "wikidata": null
+  },
+  {
+   "id": "montage",
+   "term": "Montage (filmmaking)",
+   "aliases": [],
+   "domain": "film",
+   "tags": [
+    "editing"
+   ],
+   "difficulty": 2,
+   "related": [
+    "kuleshov-effect",
+    "battleship-potemkin"
+   ],
+   "wikipedia": "Montage (filmmaking)",
+   "wikidata": null
+  },
+  {
+   "id": "seven-samurai",
+   "term": "Seven Samurai",
+   "aliases": [
+    "Kurosawa"
+   ],
+   "domain": "film",
+   "tags": [
+    "classics",
+    "Japanese"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Seven Samurai",
+   "wikidata": null
+  },
+  {
+   "id": "studio-ghibli",
+   "term": "Studio Ghibli",
+   "aliases": [
+    "Miyazaki"
+   ],
+   "domain": "film",
+   "tags": [
+    "animation"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Studio Ghibli",
+   "wikidata": null
+  },
+  {
+   "id": "caffeine",
+   "term": "Caffeine",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "stimulants",
+    "adenosine"
+   ],
+   "difficulty": 1,
+   "related": [
+    "coffee"
+   ],
+   "wikipedia": "Caffeine",
+   "wikidata": null
+  },
+  {
+   "id": "capsaicin",
+   "term": "Capsaicin",
+   "aliases": [
+    "Scoville scale"
+   ],
+   "domain": "food-science",
+   "tags": [
+    "taste",
+    "chemistry"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Capsaicin",
+   "wikidata": null
+  },
+  {
+   "id": "caramelization",
+   "term": "Caramelization",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "cooking chemistry",
+    "sugar"
+   ],
+   "difficulty": 2,
+   "related": [
+    "maillard-reaction"
+   ],
+   "wikipedia": "Caramelization",
+   "wikidata": null
+  },
+  {
+   "id": "cocoa-bean",
+   "term": "Cocoa bean",
+   "aliases": [
+    "cacao"
+   ],
+   "domain": "food-science",
+   "tags": [
+    "crops",
+    "chocolate"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Cocoa bean",
+   "wikidata": null
+  },
+  {
+   "id": "coffee",
+   "term": "Coffee",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "crops",
+    "caffeine"
+   ],
+   "difficulty": 1,
+   "related": [
+    "caffeine"
+   ],
+   "wikipedia": "Coffee",
+   "wikidata": null
+  },
+  {
+   "id": "emulsion",
+   "term": "Emulsion",
+   "aliases": [
+    "mayonnaise"
+   ],
+   "domain": "food-science",
+   "tags": [
+    "colloids"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Emulsion",
+   "wikidata": null
+  },
+  {
+   "id": "fermentation",
+   "term": "Fermentation",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "microbes"
+   ],
+   "difficulty": 1,
+   "related": [
+    "sourdough"
+   ],
+   "wikipedia": "Fermentation",
+   "wikidata": null
+  },
+  {
+   "id": "gluten",
+   "term": "Gluten",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "proteins",
+    "bread"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Gluten",
+   "wikidata": null
+  },
+  {
+   "id": "maillard-reaction",
+   "term": "Maillard reaction",
+   "aliases": [
+    "browning"
+   ],
+   "domain": "food-science",
+   "tags": [
+    "cooking chemistry"
+   ],
+   "difficulty": 2,
+   "related": [
+    "caramelization"
+   ],
+   "wikipedia": "Maillard reaction",
+   "wikidata": null
+  },
+  {
+   "id": "nixtamalization",
+   "term": "Nixtamalization",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "maize",
+    "Mesoamerica"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Nixtamalization",
+   "wikidata": null
+  },
+  {
+   "id": "pasteurization",
+   "term": "Pasteurization",
+   "aliases": [
+    "Louis Pasteur"
+   ],
+   "domain": "food-science",
+   "tags": [
+    "food safety"
+   ],
+   "difficulty": 1,
+   "related": [
+    "germ-theory"
+   ],
+   "wikipedia": "Pasteurization",
+   "wikidata": null
+  },
+  {
+   "id": "sourdough",
+   "term": "Sourdough",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "bread",
+    "microbes"
+   ],
+   "difficulty": 1,
+   "related": [
+    "fermentation",
+    "gluten"
+   ],
+   "wikipedia": "Sourdough",
+   "wikidata": null
+  },
+  {
+   "id": "sous-vide",
+   "term": "Sous vide",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "techniques"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Sous vide",
+   "wikidata": null
+  },
+  {
+   "id": "starch-gelatinization",
+   "term": "Starch gelatinization",
+   "aliases": [],
+   "domain": "food-science",
+   "tags": [
+    "starch"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Starch gelatinization",
+   "wikidata": null
+  },
+  {
+   "id": "umami",
+   "term": "Umami",
+   "aliases": [
+    "savory",
+    "MSG"
+   ],
+   "domain": "food-science",
+   "tags": [
+    "taste"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Umami",
+   "wikidata": null
+  },
+  {
+   "id": "amazon-river",
+   "term": "Amazon River",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "rivers",
+    "South America"
+   ],
+   "difficulty": 1,
+   "related": [
+    "amazon-rainforest",
+    "nile"
+   ],
+   "wikipedia": "Amazon River",
+   "wikidata": null
+  },
+  {
+   "id": "dead-sea",
+   "term": "Dead Sea",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "lakes",
+    "Middle East"
+   ],
+   "difficulty": 2,
+   "related": [
+    "dead-sea-scrolls"
+   ],
+   "wikipedia": "Dead Sea",
+   "wikidata": null
+  },
+  {
+   "id": "enclave-and-exclave",
+   "term": "Enclave and exclave",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "borders"
+   ],
+   "difficulty": 3,
+   "related": [
+    "landlocked-country"
+   ],
+   "wikipedia": "Enclave and exclave",
+   "wikidata": null
+  },
+  {
+   "id": "great-barrier-reef",
+   "term": "Great Barrier Reef",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "reefs",
+    "Australia"
+   ],
+   "difficulty": 1,
+   "related": [
+    "coral-reef"
+   ],
+   "wikipedia": "Great Barrier Reef",
+   "wikidata": null
+  },
+  {
+   "id": "international-date-line",
+   "term": "International Date Line",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "cartography",
+    "time"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prime-meridian"
+   ],
+   "wikipedia": "International Date Line",
+   "wikidata": null
+  },
+  {
+   "id": "lake-baikal",
+   "term": "Lake Baikal",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "lakes",
+    "Russia"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Lake Baikal",
+   "wikidata": null
+  },
+  {
+   "id": "landlocked-country",
+   "term": "Landlocked country",
+   "aliases": [
+    "doubly landlocked"
+   ],
+   "domain": "geography",
+   "tags": [
+    "borders"
+   ],
+   "difficulty": 2,
+   "related": [
+    "enclave-and-exclave"
+   ],
+   "wikipedia": "Landlocked country",
+   "wikidata": null
+  },
+  {
+   "id": "mariana-trench",
+   "term": "Mariana Trench",
+   "aliases": [
+    "Challenger Deep"
+   ],
+   "domain": "geography",
+   "tags": [
+    "oceans"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Mariana Trench",
+   "wikidata": null
+  },
+  {
+   "id": "mercator-projection",
+   "term": "Mercator projection",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "cartography",
+    "maps"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prime-meridian"
+   ],
+   "wikipedia": "Mercator projection",
+   "wikidata": null
+  },
+  {
+   "id": "mount-everest",
+   "term": "Mount Everest",
+   "aliases": [
+    "Chomolungma",
+    "Sagarmatha"
+   ],
+   "domain": "geography",
+   "tags": [
+    "mountains",
+    "Himalayas"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Mount Everest",
+   "wikidata": null
+  },
+  {
+   "id": "nile",
+   "term": "Nile",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "rivers",
+    "Africa"
+   ],
+   "difficulty": 1,
+   "related": [
+    "amazon-river"
+   ],
+   "wikipedia": "Nile",
+   "wikidata": null
+  },
+  {
+   "id": "okavango-delta",
+   "term": "Okavango Delta",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "wetlands",
+    "Botswana"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Okavango Delta",
+   "wikidata": null
+  },
+  {
+   "id": "prime-meridian",
+   "term": "Prime meridian",
+   "aliases": [
+    "Greenwich meridian"
+   ],
+   "domain": "geography",
+   "tags": [
+    "cartography"
+   ],
+   "difficulty": 2,
+   "related": [
+    "mercator-projection",
+    "international-date-line"
+   ],
+   "wikipedia": "Prime meridian",
+   "wikidata": null
+  },
+  {
+   "id": "sahara",
+   "term": "Sahara",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "deserts",
+    "Africa"
+   ],
+   "difficulty": 1,
+   "related": [
+    "atacama-desert"
+   ],
+   "wikipedia": "Sahara",
+   "wikidata": null
+  },
+  {
+   "id": "svalbard",
+   "term": "Svalbard",
+   "aliases": [],
+   "domain": "geography",
+   "tags": [
+    "Arctic",
+    "Norway"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Svalbard",
+   "wikidata": null
+  },
+  {
+   "id": "athenian-democracy",
+   "term": "Athenian democracy",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "ancient",
+    "Greece",
+    "politics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "separation-of-powers"
+   ],
+   "wikipedia": "Athenian democracy",
+   "wikidata": null
+  },
+  {
+   "id": "black-death",
+   "term": "Black Death",
+   "aliases": [
+    "bubonic plague pandemic"
+   ],
+   "domain": "history",
+   "tags": [
+    "medieval",
+    "pandemics"
+   ],
+   "difficulty": 1,
+   "related": [
+    "germ-theory"
+   ],
+   "wikipedia": "Black Death",
+   "wikidata": null
+  },
+  {
+   "id": "byzantine-empire",
+   "term": "Byzantine Empire",
+   "aliases": [
+    "Eastern Roman Empire"
+   ],
+   "domain": "history",
+   "tags": [
+    "medieval"
+   ],
+   "difficulty": 2,
+   "related": [
+    "fall-of-the-western-roman-empire",
+    "fall-of-constantinople",
+    "hagia-sophia"
+   ],
+   "wikipedia": "Byzantine Empire",
+   "wikidata": null
+  },
+  {
+   "id": "code-of-hammurabi",
+   "term": "Code of Hammurabi",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "ancient",
+    "law",
+    "Mesopotamia"
+   ],
+   "difficulty": 2,
+   "related": [
+    "rosetta-stone",
+    "cuneiform"
+   ],
+   "wikipedia": "Code of Hammurabi",
+   "wikidata": null
+  },
+  {
+   "id": "cold-war",
+   "term": "Cold War",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "20th century"
+   ],
+   "difficulty": 1,
+   "related": [
+    "cuban-missile-crisis",
+    "space-race",
+    "fall-of-the-berlin-wall"
+   ],
+   "wikipedia": "Cold War",
+   "wikidata": null
+  },
+  {
+   "id": "columbian-exchange",
+   "term": "Columbian exchange",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "early modern",
+    "Americas"
+   ],
+   "difficulty": 2,
+   "related": [
+    "cocoa-bean"
+   ],
+   "wikipedia": "Columbian exchange",
+   "wikidata": null
+  },
+  {
+   "id": "cuban-missile-crisis",
+   "term": "Cuban Missile Crisis",
+   "aliases": [
+    "October Crisis"
+   ],
+   "domain": "history",
+   "tags": [
+    "20th century",
+    "Cold War"
+   ],
+   "difficulty": 2,
+   "related": [
+    "cold-war",
+    "mutual-assured-destruction"
+   ],
+   "wikipedia": "Cuban Missile Crisis",
+   "wikidata": null
+  },
+  {
+   "id": "fall-of-constantinople",
+   "term": "Fall of Constantinople",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "medieval",
+    "Ottoman"
+   ],
+   "difficulty": 2,
+   "related": [
+    "byzantine-empire"
+   ],
+   "wikipedia": "Fall of Constantinople",
+   "wikidata": null
+  },
+  {
+   "id": "fall-of-the-berlin-wall",
+   "term": "Fall of the Berlin Wall",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "20th century",
+    "Cold War"
+   ],
+   "difficulty": 1,
+   "related": [
+    "cold-war"
+   ],
+   "wikipedia": "Fall of the Berlin Wall",
+   "wikidata": null
+  },
+  {
+   "id": "fall-of-the-western-roman-empire",
+   "term": "Fall of the Western Roman Empire",
+   "aliases": [
+    "fall of Rome"
+   ],
+   "domain": "history",
+   "tags": [
+    "ancient",
+    "Rome"
+   ],
+   "difficulty": 2,
+   "related": [
+    "byzantine-empire"
+   ],
+   "wikipedia": "Fall of the Western Roman Empire",
+   "wikidata": null
+  },
+  {
+   "id": "french-revolution",
+   "term": "French Revolution",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "modern",
+    "France"
+   ],
+   "difficulty": 2,
+   "related": [
+    "social-contract"
+   ],
+   "wikipedia": "French Revolution",
+   "wikidata": null
+  },
+  {
+   "id": "industrial-revolution",
+   "term": "Industrial Revolution",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "modern",
+    "technology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "steam-engine"
+   ],
+   "wikipedia": "Industrial Revolution",
+   "wikidata": null
+  },
+  {
+   "id": "library-of-alexandria",
+   "term": "Library of Alexandria",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "ancient",
+    "Egypt",
+    "knowledge"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Library of Alexandria",
+   "wikidata": null
+  },
+  {
+   "id": "magna-carta",
+   "term": "Magna Carta",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "medieval",
+    "law",
+    "England"
+   ],
+   "difficulty": 2,
+   "related": [
+    "habeas-corpus"
+   ],
+   "wikipedia": "Magna Carta",
+   "wikidata": null
+  },
+  {
+   "id": "meiji-restoration",
+   "term": "Meiji Restoration",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "modern",
+    "Japan"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Meiji Restoration",
+   "wikidata": null
+  },
+  {
+   "id": "mongol-empire",
+   "term": "Mongol Empire",
+   "aliases": [
+    "Genghis Khan"
+   ],
+   "domain": "history",
+   "tags": [
+    "medieval",
+    "Asia"
+   ],
+   "difficulty": 2,
+   "related": [
+    "silk-road"
+   ],
+   "wikipedia": "Mongol Empire",
+   "wikidata": null
+  },
+  {
+   "id": "rosetta-stone",
+   "term": "Rosetta Stone",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "ancient",
+    "Egypt",
+    "decipherment"
+   ],
+   "difficulty": 1,
+   "related": [
+    "egyptian-hieroglyphs"
+   ],
+   "wikipedia": "Rosetta Stone",
+   "wikidata": null
+  },
+  {
+   "id": "silk-road",
+   "term": "Silk Road",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "trade",
+    "medieval"
+   ],
+   "difficulty": 1,
+   "related": [
+    "mongol-empire"
+   ],
+   "wikipedia": "Silk Road",
+   "wikidata": null
+  },
+  {
+   "id": "space-race",
+   "term": "Space Race",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "20th century",
+    "space"
+   ],
+   "difficulty": 1,
+   "related": [
+    "cold-war",
+    "apollo-11"
+   ],
+   "wikipedia": "Space Race",
+   "wikidata": null
+  },
+  {
+   "id": "treaty-of-versailles",
+   "term": "Treaty of Versailles",
+   "aliases": [],
+   "domain": "history",
+   "tags": [
+    "20th century",
+    "diplomacy"
+   ],
+   "difficulty": 2,
+   "related": [
+    "world-war-i"
+   ],
+   "wikipedia": "Treaty of Versailles",
+   "wikidata": null
+  },
+  {
+   "id": "world-war-i",
+   "term": "World War I",
+   "aliases": [
+    "First World War",
+    "Great War"
+   ],
+   "domain": "history",
+   "tags": [
+    "20th century",
+    "war"
+   ],
+   "difficulty": 1,
+   "related": [
+    "treaty-of-versailles",
+    "trench-warfare"
+   ],
+   "wikipedia": "World War I",
+   "wikidata": null
+  },
+  {
+   "id": "barcode",
+   "term": "Barcode",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "retail"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Barcode",
+   "wikidata": null
+  },
+  {
+   "id": "compass",
+   "term": "Compass",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "navigation"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Compass",
+   "wikidata": null
+  },
+  {
+   "id": "gps",
+   "term": "Global Positioning System",
+   "aliases": [
+    "GPS"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "navigation",
+    "relativity"
+   ],
+   "difficulty": 2,
+   "related": [
+    "general-relativity"
+   ],
+   "wikipedia": "Global Positioning System",
+   "wikidata": null
+  },
+  {
+   "id": "gunpowder",
+   "term": "Gunpowder",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "China",
+    "chemistry"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Gunpowder",
+   "wikidata": null
+  },
+  {
+   "id": "hook-and-loop-fastener",
+   "term": "Hook-and-loop fastener",
+   "aliases": [
+    "Velcro",
+    "biomimicry"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "biomimicry"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Hook-and-loop fastener",
+   "wikidata": null
+  },
+  {
+   "id": "incandescent-light-bulb",
+   "term": "Incandescent light bulb",
+   "aliases": [
+    "Edison"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "electricity"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Incandescent light bulb",
+   "wikidata": null
+  },
+  {
+   "id": "lithium-ion-battery",
+   "term": "Lithium-ion battery",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "energy"
+   ],
+   "difficulty": 2,
+   "related": [
+    "redox"
+   ],
+   "wikipedia": "Lithium-ion battery",
+   "wikidata": null
+  },
+  {
+   "id": "microscope",
+   "term": "Microscope",
+   "aliases": [
+    "Leeuwenhoek"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "science"
+   ],
+   "difficulty": 1,
+   "related": [
+    "germ-theory"
+   ],
+   "wikipedia": "Microscope",
+   "wikidata": null
+  },
+  {
+   "id": "microwave-oven",
+   "term": "Microwave oven",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "accidental inventions",
+    "kitchen"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Microwave oven",
+   "wikidata": null
+  },
+  {
+   "id": "paper",
+   "term": "Paper",
+   "aliases": [
+    "Cai Lun"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "writing"
+   ],
+   "difficulty": 1,
+   "related": [
+    "printing-press"
+   ],
+   "wikipedia": "Paper",
+   "wikidata": null
+  },
+  {
+   "id": "post-it-note",
+   "term": "Post-it Note",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "accidental inventions"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Post-it Note",
+   "wikidata": null
+  },
+  {
+   "id": "printing-press",
+   "term": "Printing press",
+   "aliases": [
+    "Gutenberg"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "communication"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Printing press",
+   "wikidata": null
+  },
+  {
+   "id": "refrigeration",
+   "term": "Refrigeration",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "food",
+    "thermodynamics"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Refrigeration",
+   "wikidata": null
+  },
+  {
+   "id": "steam-engine",
+   "term": "Steam engine",
+   "aliases": [
+    "James Watt"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "energy"
+   ],
+   "difficulty": 1,
+   "related": [
+    "industrial-revolution"
+   ],
+   "wikipedia": "Steam engine",
+   "wikidata": null
+  },
+  {
+   "id": "telephone",
+   "term": "Telephone",
+   "aliases": [
+    "Alexander Graham Bell"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "communication"
+   ],
+   "difficulty": 1,
+   "related": [
+    "electrical-telegraph"
+   ],
+   "wikipedia": "Telephone",
+   "wikidata": null
+  },
+  {
+   "id": "telescope",
+   "term": "Telescope",
+   "aliases": [
+    "Galileo"
+   ],
+   "domain": "inventions",
+   "tags": [
+    "science"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Telescope",
+   "wikidata": null
+  },
+  {
+   "id": "wheel",
+   "term": "Wheel",
+   "aliases": [],
+   "domain": "inventions",
+   "tags": [
+    "ancient"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Wheel",
+   "wikidata": null
+  },
+  {
+   "id": "amazon-rainforest",
+   "term": "Amazon rainforest",
+   "aliases": [
+    "Amazonia"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "ecology",
+    "Brazil"
+   ],
+   "difficulty": 1,
+   "related": [
+    "amazon-river"
+   ],
+   "wikipedia": "Amazon rainforest",
+   "wikidata": null
+  },
+  {
+   "id": "arenal-volcano",
+   "term": "Arenal Volcano",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "volcanoes"
+   ],
+   "difficulty": 1,
+   "related": [
+    "ring-of-fire"
+   ],
+   "wikipedia": "Arenal Volcano",
+   "wikidata": null
+  },
+  {
+   "id": "atacama-desert",
+   "term": "Atacama Desert",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "deserts",
+    "Chile"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Atacama Desert",
+   "wikidata": null
+  },
+  {
+   "id": "costa-rica",
+   "term": "Costa Rica",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "countries",
+    "Central America"
+   ],
+   "difficulty": 1,
+   "related": [
+    "military-of-costa-rica",
+    "monteverde"
+   ],
+   "wikipedia": "Costa Rica",
+   "wikidata": null
+  },
+  {
+   "id": "galapagos-islands",
+   "term": "Galápagos Islands",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "Ecuador",
+    "evolution"
+   ],
+   "difficulty": 1,
+   "related": [
+    "natural-selection"
+   ],
+   "wikipedia": "Galápagos Islands",
+   "wikidata": null
+  },
+  {
+   "id": "inca-empire",
+   "term": "Inca Empire",
+   "aliases": [
+    "Tawantinsuyu"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Andes"
+   ],
+   "difficulty": 1,
+   "related": [
+    "machu-picchu",
+    "quipu"
+   ],
+   "wikipedia": "Inca Empire",
+   "wikidata": null
+  },
+  {
+   "id": "jose-figueres-ferrer",
+   "term": "José Figueres Ferrer",
+   "aliases": [
+    "Don Pepe"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "people"
+   ],
+   "difficulty": 2,
+   "related": [
+    "military-of-costa-rica"
+   ],
+   "wikipedia": "José Figueres Ferrer",
+   "wikidata": null
+  },
+  {
+   "id": "machu-picchu",
+   "term": "Machu Picchu",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "Andes",
+    "architecture"
+   ],
+   "difficulty": 1,
+   "related": [
+    "inca-empire"
+   ],
+   "wikipedia": "Machu Picchu",
+   "wikidata": null
+  },
+  {
+   "id": "maya-civilization",
+   "term": "Maya civilization",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "Mesoamerica"
+   ],
+   "difficulty": 1,
+   "related": [
+    "maya-numerals",
+    "popol-vuh"
+   ],
+   "wikipedia": "Maya civilization",
+   "wikidata": null
+  },
+  {
+   "id": "maya-numerals",
+   "term": "Maya numerals",
+   "aliases": [
+    "base 20",
+    "zero"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Mesoamerica",
+    "mathematics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "maya-civilization"
+   ],
+   "wikipedia": "Maya numerals",
+   "wikidata": null
+  },
+  {
+   "id": "military-of-costa-rica",
+   "term": "Military of Costa Rica",
+   "aliases": [
+    "abolition of the army 1948"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "history"
+   ],
+   "difficulty": 2,
+   "related": [
+    "jose-figueres-ferrer"
+   ],
+   "wikipedia": "Military of Costa Rica",
+   "wikidata": null
+  },
+  {
+   "id": "monteverde",
+   "term": "Monteverde Cloud Forest Reserve",
+   "aliases": [
+    "cloud forest"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "ecology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "resplendent-quetzal"
+   ],
+   "wikipedia": "Monteverde Cloud Forest Reserve",
+   "wikidata": null
+  },
+  {
+   "id": "panama-canal",
+   "term": "Panama Canal",
+   "aliases": [],
+   "domain": "latin-america",
+   "tags": [
+    "engineering",
+    "Central America"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Panama Canal",
+   "wikidata": null
+  },
+  {
+   "id": "payment-for-ecosystem-services",
+   "term": "Payment for ecosystem services",
+   "aliases": [
+    "PES",
+    "FONAFIFO"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "conservation",
+    "economics"
+   ],
+   "difficulty": 4,
+   "related": [
+    "costa-rica"
+   ],
+   "wikipedia": "Payment for ecosystem services",
+   "wikidata": null
+  },
+  {
+   "id": "quipu",
+   "term": "Quipu",
+   "aliases": [
+    "khipu"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Andes",
+    "record keeping"
+   ],
+   "difficulty": 3,
+   "related": [
+    "inca-empire"
+   ],
+   "wikipedia": "Quipu",
+   "wikidata": null
+  },
+  {
+   "id": "resplendent-quetzal",
+   "term": "Resplendent quetzal",
+   "aliases": [
+    "quetzal"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "birds",
+    "Central America"
+   ],
+   "difficulty": 2,
+   "related": [
+    "monteverde",
+    "quetzalcoatl"
+   ],
+   "wikipedia": "Resplendent quetzal",
+   "wikidata": null
+  },
+  {
+   "id": "simon-bolivar",
+   "term": "Simón Bolívar",
+   "aliases": [
+    "El Libertador"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "independence"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Simón Bolívar",
+   "wikidata": null
+  },
+  {
+   "id": "stone-spheres-of-costa-rica",
+   "term": "Stone spheres of Costa Rica",
+   "aliases": [
+    "Diquís spheres"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "archaeology"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Stone spheres of Costa Rica",
+   "wikidata": null
+  },
+  {
+   "id": "tortuguero-national-park",
+   "term": "Tortuguero National Park",
+   "aliases": [
+    "sea turtles"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "conservation"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Tortuguero National Park",
+   "wikidata": null
+  },
+  {
+   "id": "arrows-impossibility-theorem",
+   "term": "Arrow's impossibility theorem",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "voting"
+   ],
+   "difficulty": 4,
+   "related": [
+    "condorcet-paradox"
+   ],
+   "wikipedia": "Arrow's impossibility theorem",
+   "wikidata": null
+  },
+  {
+   "id": "civil-law",
+   "term": "Civil law (legal system)",
+   "aliases": [
+    "Napoleonic Code"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "legal systems"
+   ],
+   "difficulty": 3,
+   "related": [
+    "common-law"
+   ],
+   "wikipedia": "Civil law (legal system)",
+   "wikidata": null
+  },
+  {
+   "id": "common-law",
+   "term": "Common law",
+   "aliases": [
+    "case law"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "legal systems"
+   ],
+   "difficulty": 2,
+   "related": [
+    "civil-law"
+   ],
+   "wikipedia": "Common law",
+   "wikidata": null
+  },
+  {
+   "id": "condorcet-paradox",
+   "term": "Condorcet paradox",
+   "aliases": [
+    "voting paradox"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "voting"
+   ],
+   "difficulty": 3,
+   "related": [
+    "arrows-impossibility-theorem"
+   ],
+   "wikipedia": "Condorcet paradox",
+   "wikidata": null
+  },
+  {
+   "id": "filibuster",
+   "term": "Filibuster",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "legislatures"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Filibuster",
+   "wikidata": null
+  },
+  {
+   "id": "first-past-the-post",
+   "term": "First-past-the-post voting",
+   "aliases": [
+    "plurality voting"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "voting systems"
+   ],
+   "difficulty": 2,
+   "related": [
+    "proportional-representation"
+   ],
+   "wikipedia": "First-past-the-post voting",
+   "wikidata": null
+  },
+  {
+   "id": "gerrymandering",
+   "term": "Gerrymandering",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "elections"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Gerrymandering",
+   "wikidata": null
+  },
+  {
+   "id": "habeas-corpus",
+   "term": "Habeas corpus",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "rights",
+    "courts"
+   ],
+   "difficulty": 2,
+   "related": [
+    "magna-carta"
+   ],
+   "wikipedia": "Habeas corpus",
+   "wikidata": null
+  },
+  {
+   "id": "presumption-of-innocence",
+   "term": "Presumption of innocence",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "rights",
+    "courts"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Presumption of innocence",
+   "wikidata": null
+  },
+  {
+   "id": "proportional-representation",
+   "term": "Proportional representation",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "voting systems"
+   ],
+   "difficulty": 2,
+   "related": [
+    "first-past-the-post"
+   ],
+   "wikipedia": "Proportional representation",
+   "wikidata": null
+  },
+  {
+   "id": "rule-of-law",
+   "term": "Rule of law",
+   "aliases": [],
+   "domain": "law-politics",
+   "tags": [
+    "principles"
+   ],
+   "difficulty": 2,
+   "related": [
+    "separation-of-powers"
+   ],
+   "wikipedia": "Rule of law",
+   "wikidata": null
+  },
+  {
+   "id": "separation-of-powers",
+   "term": "Separation of powers",
+   "aliases": [
+    "Montesquieu"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "government"
+   ],
+   "difficulty": 2,
+   "related": [
+    "rule-of-law"
+   ],
+   "wikipedia": "Separation of powers",
+   "wikidata": null
+  },
+  {
+   "id": "social-contract",
+   "term": "Social contract",
+   "aliases": [
+    "Hobbes",
+    "Locke",
+    "Rousseau"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "political philosophy"
+   ],
+   "difficulty": 2,
+   "related": [
+    "original-position"
+   ],
+   "wikipedia": "Social contract",
+   "wikidata": null
+  },
+  {
+   "id": "un-security-council",
+   "term": "United Nations Security Council",
+   "aliases": [
+    "UNSC",
+    "veto"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "international law"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "United Nations Security Council",
+   "wikidata": null
+  },
+  {
+   "id": "universal-declaration-of-human-rights",
+   "term": "Universal Declaration of Human Rights",
+   "aliases": [
+    "UDHR"
+   ],
+   "domain": "law-politics",
+   "tags": [
+    "human rights"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Universal Declaration of Human Rights",
+   "wikidata": null
+  },
+  {
+   "id": "creole-language",
+   "term": "Creole language",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "contact languages"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Creole language",
+   "wikidata": null
+  },
+  {
+   "id": "cuneiform",
+   "term": "Cuneiform",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "writing systems",
+    "Mesopotamia"
+   ],
+   "difficulty": 2,
+   "related": [
+    "code-of-hammurabi"
+   ],
+   "wikipedia": "Cuneiform",
+   "wikidata": null
+  },
+  {
+   "id": "egyptian-hieroglyphs",
+   "term": "Egyptian hieroglyphs",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "writing systems"
+   ],
+   "difficulty": 2,
+   "related": [
+    "rosetta-stone"
+   ],
+   "wikipedia": "Egyptian hieroglyphs",
+   "wikidata": null
+  },
+  {
+   "id": "esperanto",
+   "term": "Esperanto",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "constructed languages"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Esperanto",
+   "wikidata": null
+  },
+  {
+   "id": "etymology",
+   "term": "Etymology",
+   "aliases": [
+    "word origins"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "words"
+   ],
+   "difficulty": 1,
+   "related": [
+    "loanword"
+   ],
+   "wikipedia": "Etymology",
+   "wikidata": null
+  },
+  {
+   "id": "false-friend",
+   "term": "False friend",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "words",
+    "translation"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "False friend",
+   "wikidata": null
+  },
+  {
+   "id": "great-vowel-shift",
+   "term": "Great Vowel Shift",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "English",
+    "sound change"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Great Vowel Shift",
+   "wikidata": null
+  },
+  {
+   "id": "grimms-law",
+   "term": "Grimm's law",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "sound change"
+   ],
+   "difficulty": 4,
+   "related": [
+    "proto-indo-european-language"
+   ],
+   "wikipedia": "Grimm's law",
+   "wikidata": null
+  },
+  {
+   "id": "indo-european-languages",
+   "term": "Indo-European languages",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "language families"
+   ],
+   "difficulty": 2,
+   "related": [
+    "proto-indo-european-language"
+   ],
+   "wikipedia": "Indo-European languages",
+   "wikidata": null
+  },
+  {
+   "id": "international-phonetic-alphabet",
+   "term": "International Phonetic Alphabet",
+   "aliases": [
+    "IPA"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "phonetics"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "International Phonetic Alphabet",
+   "wikidata": null
+  },
+  {
+   "id": "linear-b",
+   "term": "Linear B",
+   "aliases": [],
+   "domain": "linguistics",
+   "tags": [
+    "decipherment"
+   ],
+   "difficulty": 3,
+   "related": [
+    "linear-a"
+   ],
+   "wikipedia": "Linear B",
+   "wikidata": null
+  },
+  {
+   "id": "linguistic-relativity",
+   "term": "Linguistic relativity",
+   "aliases": [
+    "Sapir–Whorf hypothesis"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "language and thought"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Linguistic relativity",
+   "wikidata": null
+  },
+  {
+   "id": "loanword",
+   "term": "Loanword",
+   "aliases": [
+    "borrowing"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "words"
+   ],
+   "difficulty": 1,
+   "related": [
+    "etymology"
+   ],
+   "wikipedia": "Loanword",
+   "wikidata": null
+  },
+  {
+   "id": "proto-indo-european-language",
+   "term": "Proto-Indo-European language",
+   "aliases": [
+    "PIE"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "historical linguistics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "indo-european-languages",
+    "grimms-law"
+   ],
+   "wikipedia": "Proto-Indo-European language",
+   "wikidata": null
+  },
+  {
+   "id": "tone",
+   "term": "Tone (linguistics)",
+   "aliases": [
+    "tonal language"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "phonology"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Tone (linguistics)",
+   "wikidata": null
+  },
+  {
+   "id": "universal-grammar",
+   "term": "Universal grammar",
+   "aliases": [
+    "Chomsky"
+   ],
+   "domain": "linguistics",
+   "tags": [
+    "syntax"
+   ],
+   "difficulty": 4,
+   "related": [
+    "origin-of-language"
+   ],
+   "wikipedia": "Universal grammar",
+   "wikidata": null
+  },
+  {
+   "id": "brave-new-world",
+   "term": "Brave New World",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "dystopia"
+   ],
+   "difficulty": 1,
+   "related": [
+    "nineteen-eighty-four"
+   ],
+   "wikipedia": "Brave New World",
+   "wikidata": null
+  },
+  {
+   "id": "chekhovs-gun",
+   "term": "Chekhov's gun",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "narrative technique"
+   ],
+   "difficulty": 1,
+   "related": [
+    "macguffin"
+   ],
+   "wikipedia": "Chekhov's gun",
+   "wikidata": null
+  },
+  {
+   "id": "divine-comedy",
+   "term": "Divine Comedy",
+   "aliases": [
+    "Inferno",
+    "Dante"
+   ],
+   "domain": "literature",
+   "tags": [
+    "epic",
+    "Italian"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Divine Comedy",
+   "wikidata": null
+  },
+  {
+   "id": "don-quixote",
+   "term": "Don Quixote",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "Spanish",
+    "novels"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Don Quixote",
+   "wikidata": null
+  },
+  {
+   "id": "epic-of-gilgamesh",
+   "term": "Epic of Gilgamesh",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "epic",
+    "Mesopotamia"
+   ],
+   "difficulty": 2,
+   "related": [
+    "flood-myth"
+   ],
+   "wikipedia": "Epic of Gilgamesh",
+   "wikidata": null
+  },
+  {
+   "id": "frankenstein",
+   "term": "Frankenstein",
+   "aliases": [
+    "The Modern Prometheus"
+   ],
+   "domain": "literature",
+   "tags": [
+    "gothic",
+    "science fiction"
+   ],
+   "difficulty": 1,
+   "related": [
+    "prometheus"
+   ],
+   "wikipedia": "Frankenstein",
+   "wikidata": null
+  },
+  {
+   "id": "hamlet",
+   "term": "Hamlet",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "Shakespeare",
+    "tragedy"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Hamlet",
+   "wikidata": null
+  },
+  {
+   "id": "iliad",
+   "term": "Iliad",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "epic",
+    "Greek"
+   ],
+   "difficulty": 1,
+   "related": [
+    "odyssey",
+    "trojan-war"
+   ],
+   "wikipedia": "Iliad",
+   "wikidata": null
+  },
+  {
+   "id": "magical-realism",
+   "term": "Magical realism",
+   "aliases": [
+    "realismo mágico"
+   ],
+   "domain": "literature",
+   "tags": [
+    "movements"
+   ],
+   "difficulty": 2,
+   "related": [
+    "one-hundred-years-of-solitude"
+   ],
+   "wikipedia": "Magical realism",
+   "wikidata": null
+  },
+  {
+   "id": "nineteen-eighty-four",
+   "term": "Nineteen Eighty-Four",
+   "aliases": [
+    "1984",
+    "Big Brother"
+   ],
+   "domain": "literature",
+   "tags": [
+    "dystopia"
+   ],
+   "difficulty": 1,
+   "related": [
+    "brave-new-world"
+   ],
+   "wikipedia": "Nineteen Eighty-Four",
+   "wikidata": null
+  },
+  {
+   "id": "odyssey",
+   "term": "Odyssey",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "epic",
+    "Greek"
+   ],
+   "difficulty": 1,
+   "related": [
+    "iliad",
+    "heros-journey"
+   ],
+   "wikipedia": "Odyssey",
+   "wikidata": null
+  },
+  {
+   "id": "one-hundred-years-of-solitude",
+   "term": "One Hundred Years of Solitude",
+   "aliases": [
+    "Cien años de soledad"
+   ],
+   "domain": "literature",
+   "tags": [
+    "Latin American",
+    "magical realism"
+   ],
+   "difficulty": 2,
+   "related": [
+    "magical-realism"
+   ],
+   "wikipedia": "One Hundred Years of Solitude",
+   "wikidata": null
+  },
+  {
+   "id": "stream-of-consciousness",
+   "term": "Stream of consciousness",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "narrative technique",
+    "modernism"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Stream of consciousness",
+   "wikidata": null
+  },
+  {
+   "id": "the-library-of-babel",
+   "term": "The Library of Babel",
+   "aliases": [
+    "Borges"
+   ],
+   "domain": "literature",
+   "tags": [
+    "short stories",
+    "infinity"
+   ],
+   "difficulty": 3,
+   "related": [
+    "hilberts-hotel"
+   ],
+   "wikipedia": "The Library of Babel",
+   "wikidata": null
+  },
+  {
+   "id": "the-tale-of-genji",
+   "term": "The Tale of Genji",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "Japanese",
+    "novels"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "The Tale of Genji",
+   "wikidata": null
+  },
+  {
+   "id": "unreliable-narrator",
+   "term": "Unreliable narrator",
+   "aliases": [],
+   "domain": "literature",
+   "tags": [
+    "narrative technique"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Unreliable narrator",
+   "wikidata": null
+  },
+  {
+   "id": "ad-hominem",
+   "term": "Ad hominem",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "fallacies"
+   ],
+   "difficulty": 1,
+   "related": [
+    "straw-man"
+   ],
+   "wikipedia": "Ad hominem",
+   "wikidata": null
+  },
+  {
+   "id": "base-rate-fallacy",
+   "term": "Base rate fallacy",
+   "aliases": [
+    "base rate neglect"
+   ],
+   "domain": "logic",
+   "tags": [
+    "fallacies",
+    "probability"
+   ],
+   "difficulty": 3,
+   "related": [
+    "bayes-theorem"
+   ],
+   "wikipedia": "Base rate fallacy",
+   "wikidata": null
+  },
+  {
+   "id": "begging-the-question",
+   "term": "Begging the question",
+   "aliases": [
+    "circular reasoning"
+   ],
+   "domain": "logic",
+   "tags": [
+    "fallacies"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Begging the question",
+   "wikidata": null
+  },
+  {
+   "id": "correlation-does-not-imply-causation",
+   "term": "Correlation does not imply causation",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "causation",
+    "statistics"
+   ],
+   "difficulty": 1,
+   "related": [
+    "post-hoc-ergo-propter-hoc",
+    "simpsons-paradox"
+   ],
+   "wikipedia": "Correlation does not imply causation",
+   "wikidata": null
+  },
+  {
+   "id": "false-dilemma",
+   "term": "False dilemma",
+   "aliases": [
+    "false dichotomy"
+   ],
+   "domain": "logic",
+   "tags": [
+    "fallacies"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "False dilemma",
+   "wikidata": null
+  },
+  {
+   "id": "gamblers-fallacy",
+   "term": "Gambler's fallacy",
+   "aliases": [
+    "Monte Carlo fallacy"
+   ],
+   "domain": "logic",
+   "tags": [
+    "fallacies",
+    "probability"
+   ],
+   "difficulty": 2,
+   "related": [
+    "law-of-large-numbers"
+   ],
+   "wikipedia": "Gambler's fallacy",
+   "wikidata": null
+  },
+  {
+   "id": "knights-and-knaves",
+   "term": "Knights and Knaves",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "puzzles"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Knights and Knaves",
+   "wikidata": null
+  },
+  {
+   "id": "liar-paradox",
+   "term": "Liar paradox",
+   "aliases": [
+    "this sentence is false"
+   ],
+   "domain": "logic",
+   "tags": [
+    "paradoxes"
+   ],
+   "difficulty": 3,
+   "related": [
+    "godels-incompleteness-theorems"
+   ],
+   "wikipedia": "Liar paradox",
+   "wikidata": null
+  },
+  {
+   "id": "modus-ponens",
+   "term": "Modus ponens",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "rules of inference"
+   ],
+   "difficulty": 2,
+   "related": [
+    "modus-tollens",
+    "syllogism"
+   ],
+   "wikipedia": "Modus ponens",
+   "wikidata": null
+  },
+  {
+   "id": "modus-tollens",
+   "term": "Modus tollens",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "rules of inference"
+   ],
+   "difficulty": 3,
+   "related": [
+    "modus-ponens"
+   ],
+   "wikipedia": "Modus tollens",
+   "wikidata": null
+  },
+  {
+   "id": "post-hoc-ergo-propter-hoc",
+   "term": "Post hoc ergo propter hoc",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "fallacies",
+    "causation"
+   ],
+   "difficulty": 2,
+   "related": [
+    "correlation-does-not-imply-causation"
+   ],
+   "wikipedia": "Post hoc ergo propter hoc",
+   "wikidata": null
+  },
+  {
+   "id": "simpsons-paradox",
+   "term": "Simpson's paradox",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "statistics",
+    "paradoxes"
+   ],
+   "difficulty": 3,
+   "related": [
+    "correlation-does-not-imply-causation"
+   ],
+   "wikipedia": "Simpson's paradox",
+   "wikidata": null
+  },
+  {
+   "id": "slippery-slope",
+   "term": "Slippery slope",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "fallacies"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Slippery slope",
+   "wikidata": null
+  },
+  {
+   "id": "straw-man",
+   "term": "Straw man",
+   "aliases": [
+    "strawman"
+   ],
+   "domain": "logic",
+   "tags": [
+    "fallacies"
+   ],
+   "difficulty": 1,
+   "related": [
+    "ad-hominem"
+   ],
+   "wikipedia": "Straw man",
+   "wikidata": null
+  },
+  {
+   "id": "syllogism",
+   "term": "Syllogism",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "Aristotle",
+    "deduction"
+   ],
+   "difficulty": 2,
+   "related": [
+    "modus-ponens"
+   ],
+   "wikipedia": "Syllogism",
+   "wikidata": null
+  },
+  {
+   "id": "texas-sharpshooter-fallacy",
+   "term": "Texas sharpshooter fallacy",
+   "aliases": [],
+   "domain": "logic",
+   "tags": [
+    "fallacies"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Texas sharpshooter fallacy",
+   "wikidata": null
+  },
+  {
+   "id": "bayes-theorem",
+   "term": "Bayes' theorem",
+   "aliases": [
+    "Bayes' rule"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "probability"
+   ],
+   "difficulty": 3,
+   "related": [
+    "base-rate-fallacy",
+    "monty-hall-problem"
+   ],
+   "wikipedia": "Bayes' theorem",
+   "wikidata": null
+  },
+  {
+   "id": "birthday-problem",
+   "term": "Birthday problem",
+   "aliases": [
+    "birthday paradox"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "probability"
+   ],
+   "difficulty": 2,
+   "related": [
+    "monty-hall-problem"
+   ],
+   "wikipedia": "Birthday problem",
+   "wikidata": null
+  },
+  {
+   "id": "cantors-diagonal-argument",
+   "term": "Cantor's diagonal argument",
+   "aliases": [
+    "uncountable sets"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "set theory",
+    "infinity"
+   ],
+   "difficulty": 4,
+   "related": [
+    "hilberts-hotel"
+   ],
+   "wikipedia": "Cantor's diagonal argument",
+   "wikidata": null
+  },
+  {
+   "id": "chaos-theory",
+   "term": "Chaos theory",
+   "aliases": [
+    "butterfly effect"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "dynamical systems"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Chaos theory",
+   "wikidata": null
+  },
+  {
+   "id": "eulers-identity",
+   "term": "Euler's identity",
+   "aliases": [
+    "e^(iπ) + 1 = 0"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "constants",
+    "complex numbers"
+   ],
+   "difficulty": 3,
+   "related": [
+    "pi"
+   ],
+   "wikipedia": "Euler's identity",
+   "wikidata": null
+  },
+  {
+   "id": "fibonacci-sequence",
+   "term": "Fibonacci sequence",
+   "aliases": [
+    "Fibonacci numbers"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "sequences"
+   ],
+   "difficulty": 1,
+   "related": [
+    "golden-ratio"
+   ],
+   "wikipedia": "Fibonacci sequence",
+   "wikidata": null
+  },
+  {
+   "id": "four-color-theorem",
+   "term": "Four color theorem",
+   "aliases": [
+    "four colour theorem"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "graph theory",
+    "proofs"
+   ],
+   "difficulty": 3,
+   "related": [
+    "seven-bridges-of-konigsberg"
+   ],
+   "wikipedia": "Four color theorem",
+   "wikidata": null
+  },
+  {
+   "id": "fundamental-theorem-of-arithmetic",
+   "term": "Fundamental theorem of arithmetic",
+   "aliases": [
+    "unique factorization"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "number theory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prime-number"
+   ],
+   "wikipedia": "Fundamental theorem of arithmetic",
+   "wikidata": null
+  },
+  {
+   "id": "godels-incompleteness-theorems",
+   "term": "Gödel's incompleteness theorems",
+   "aliases": [
+    "incompleteness"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "logic",
+    "foundations"
+   ],
+   "difficulty": 5,
+   "related": [
+    "halting-problem",
+    "liar-paradox"
+   ],
+   "wikipedia": "Gödel's incompleteness theorems",
+   "wikidata": null
+  },
+  {
+   "id": "golden-ratio",
+   "term": "Golden ratio",
+   "aliases": [
+    "φ",
+    "phi"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "constants"
+   ],
+   "difficulty": 2,
+   "related": [
+    "fibonacci-sequence"
+   ],
+   "wikipedia": "Golden ratio",
+   "wikidata": null
+  },
+  {
+   "id": "hilberts-hotel",
+   "term": "Hilbert's paradox of the Grand Hotel",
+   "aliases": [
+    "Hilbert's hotel"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "infinity",
+    "set theory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "cantors-diagonal-argument"
+   ],
+   "wikipedia": "Hilbert's paradox of the Grand Hotel",
+   "wikidata": null
+  },
+  {
+   "id": "law-of-large-numbers",
+   "term": "Law of large numbers",
+   "aliases": [],
+   "domain": "mathematics",
+   "tags": [
+    "probability"
+   ],
+   "difficulty": 2,
+   "related": [
+    "gamblers-fallacy"
+   ],
+   "wikipedia": "Law of large numbers",
+   "wikidata": null
+  },
+  {
+   "id": "monty-hall-problem",
+   "term": "Monty Hall problem",
+   "aliases": [],
+   "domain": "mathematics",
+   "tags": [
+    "probability",
+    "puzzles"
+   ],
+   "difficulty": 2,
+   "related": [
+    "bayes-theorem",
+    "birthday-problem"
+   ],
+   "wikipedia": "Monty Hall problem",
+   "wikidata": null
+  },
+  {
+   "id": "pi",
+   "term": "Pi",
+   "aliases": [
+    "π"
+   ],
+   "domain": "mathematics",
+   "tags": [
+    "constants"
+   ],
+   "difficulty": 1,
+   "related": [
+    "eulers-identity"
+   ],
+   "wikipedia": "Pi",
+   "wikidata": null
+  },
+  {
+   "id": "prime-number",
+   "term": "Prime number",
+   "aliases": [],
+   "domain": "mathematics",
+   "tags": [
+    "number theory"
+   ],
+   "difficulty": 1,
+   "related": [
+    "riemann-hypothesis",
+    "fundamental-theorem-of-arithmetic",
+    "goldbachs-conjecture"
+   ],
+   "wikipedia": "Prime number",
+   "wikidata": null
+  },
+  {
+   "id": "pythagorean-theorem",
+   "term": "Pythagorean theorem",
+   "aliases": [],
+   "domain": "mathematics",
+   "tags": [
+    "geometry"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Pythagorean theorem",
+   "wikidata": null
+  },
+  {
+   "id": "seven-bridges-of-konigsberg",
+   "term": "Seven Bridges of Königsberg",
+   "aliases": [],
+   "domain": "mathematics",
+   "tags": [
+    "graph theory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "four-color-theorem"
+   ],
+   "wikipedia": "Seven Bridges of Königsberg",
+   "wikidata": null
+  },
+  {
+   "id": "anesthesia",
+   "term": "Anesthesia",
+   "aliases": [
+    "anaesthesia"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "surgery"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Anesthesia",
+   "wikidata": null
+  },
+  {
+   "id": "antibiotic",
+   "term": "Antibiotic",
+   "aliases": [],
+   "domain": "medicine",
+   "tags": [
+    "drugs",
+    "bacteria"
+   ],
+   "difficulty": 1,
+   "related": [
+    "penicillin",
+    "antimicrobial-resistance"
+   ],
+   "wikipedia": "Antibiotic",
+   "wikidata": null
+  },
+  {
+   "id": "antimicrobial-resistance",
+   "term": "Antimicrobial resistance",
+   "aliases": [
+    "antibiotic resistance",
+    "superbugs"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "bacteria",
+    "evolution"
+   ],
+   "difficulty": 3,
+   "related": [
+    "antibiotic",
+    "horizontal-gene-transfer"
+   ],
+   "wikipedia": "Antimicrobial resistance",
+   "wikidata": null
+  },
+  {
+   "id": "autoimmunity",
+   "term": "Autoimmunity",
+   "aliases": [
+    "autoimmune disease"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "immunology"
+   ],
+   "difficulty": 3,
+   "related": [
+    "immune-system"
+   ],
+   "wikipedia": "Autoimmunity",
+   "wikidata": null
+  },
+  {
+   "id": "basic-reproduction-number",
+   "term": "Basic reproduction number",
+   "aliases": [
+    "R0",
+    "R naught"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "epidemiology"
+   ],
+   "difficulty": 3,
+   "related": [
+    "herd-immunity"
+   ],
+   "wikipedia": "Basic reproduction number",
+   "wikidata": null
+  },
+  {
+   "id": "germ-theory",
+   "term": "Germ theory of disease",
+   "aliases": [],
+   "domain": "medicine",
+   "tags": [
+    "history of medicine",
+    "microbes"
+   ],
+   "difficulty": 2,
+   "related": [
+    "vaccine",
+    "john-snow",
+    "microscope"
+   ],
+   "wikipedia": "Germ theory of disease",
+   "wikidata": null
+  },
+  {
+   "id": "herd-immunity",
+   "term": "Herd immunity",
+   "aliases": [
+    "community immunity"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "epidemiology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "vaccine",
+    "basic-reproduction-number"
+   ],
+   "wikipedia": "Herd immunity",
+   "wikidata": null
+  },
+  {
+   "id": "immune-system",
+   "term": "Immune system",
+   "aliases": [],
+   "domain": "medicine",
+   "tags": [
+    "immunology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "vaccine",
+    "autoimmunity"
+   ],
+   "wikipedia": "Immune system",
+   "wikidata": null
+  },
+  {
+   "id": "insulin",
+   "term": "Insulin",
+   "aliases": [],
+   "domain": "medicine",
+   "tags": [
+    "hormones",
+    "diabetes"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Insulin",
+   "wikidata": null
+  },
+  {
+   "id": "john-snow",
+   "term": "John Snow",
+   "aliases": [
+    "Broad Street pump"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "epidemiology",
+    "cholera"
+   ],
+   "difficulty": 2,
+   "related": [
+    "germ-theory"
+   ],
+   "wikipedia": "John Snow",
+   "wikidata": null
+  },
+  {
+   "id": "penicillin",
+   "term": "Penicillin",
+   "aliases": [
+    "Fleming"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "drugs",
+    "discovery"
+   ],
+   "difficulty": 1,
+   "related": [
+    "antibiotic"
+   ],
+   "wikipedia": "Penicillin",
+   "wikidata": null
+  },
+  {
+   "id": "placebo",
+   "term": "Placebo",
+   "aliases": [
+    "placebo effect"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "clinical trials"
+   ],
+   "difficulty": 2,
+   "related": [
+    "randomized-controlled-trial"
+   ],
+   "wikipedia": "Placebo",
+   "wikidata": null
+  },
+  {
+   "id": "randomized-controlled-trial",
+   "term": "Randomized controlled trial",
+   "aliases": [
+    "RCT"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "clinical trials",
+    "statistics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "placebo"
+   ],
+   "wikipedia": "Randomized controlled trial",
+   "wikidata": null
+  },
+  {
+   "id": "smallpox",
+   "term": "Smallpox",
+   "aliases": [
+    "variola"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "diseases",
+    "eradication"
+   ],
+   "difficulty": 2,
+   "related": [
+    "vaccine"
+   ],
+   "wikipedia": "Smallpox",
+   "wikidata": null
+  },
+  {
+   "id": "thalidomide",
+   "term": "Thalidomide",
+   "aliases": [],
+   "domain": "medicine",
+   "tags": [
+    "drugs",
+    "regulation"
+   ],
+   "difficulty": 3,
+   "related": [
+    "chirality"
+   ],
+   "wikipedia": "Thalidomide",
+   "wikidata": null
+  },
+  {
+   "id": "vaccine",
+   "term": "Vaccine",
+   "aliases": [
+    "vaccination"
+   ],
+   "domain": "medicine",
+   "tags": [
+    "immunology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "herd-immunity",
+    "smallpox",
+    "immune-system"
+   ],
+   "wikipedia": "Vaccine",
+   "wikidata": null
+  },
+  {
+   "id": "battle-of-cannae",
+   "term": "Battle of Cannae",
+   "aliases": [
+    "Hannibal"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "ancient battles",
+    "tactics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "pincer-movement"
+   ],
+   "wikipedia": "Battle of Cannae",
+   "wikidata": null
+  },
+  {
+   "id": "battle-of-hastings",
+   "term": "Battle of Hastings",
+   "aliases": [
+    "1066"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "medieval battles"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Battle of Hastings",
+   "wikidata": null
+  },
+  {
+   "id": "battle-of-thermopylae",
+   "term": "Battle of Thermopylae",
+   "aliases": [
+    "300 Spartans"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "ancient battles"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Battle of Thermopylae",
+   "wikidata": null
+  },
+  {
+   "id": "blitzkrieg",
+   "term": "Blitzkrieg",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "WWII",
+    "tactics"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Blitzkrieg",
+   "wikidata": null
+  },
+  {
+   "id": "fog-of-war",
+   "term": "Fog of war",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "concepts"
+   ],
+   "difficulty": 2,
+   "related": [
+    "on-war"
+   ],
+   "wikipedia": "Fog of war",
+   "wikidata": null
+  },
+  {
+   "id": "guerrilla-warfare",
+   "term": "Guerrilla warfare",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "irregular warfare"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Guerrilla warfare",
+   "wikidata": null
+  },
+  {
+   "id": "military-logistics",
+   "term": "Military logistics",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "supply"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Military logistics",
+   "wikidata": null
+  },
+  {
+   "id": "mutual-assured-destruction",
+   "term": "Mutual assured destruction",
+   "aliases": [
+    "MAD",
+    "deterrence"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "nuclear strategy",
+    "Cold War"
+   ],
+   "difficulty": 2,
+   "related": [
+    "cold-war"
+   ],
+   "wikipedia": "Mutual assured destruction",
+   "wikidata": null
+  },
+  {
+   "id": "normandy-landings",
+   "term": "Normandy landings",
+   "aliases": [
+    "D-Day"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "WWII"
+   ],
+   "difficulty": 1,
+   "related": [
+    "operation-fortitude"
+   ],
+   "wikipedia": "Normandy landings",
+   "wikidata": null
+  },
+  {
+   "id": "on-war",
+   "term": "On War",
+   "aliases": [
+    "Clausewitz"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "treatises"
+   ],
+   "difficulty": 3,
+   "related": [
+    "fog-of-war",
+    "the-art-of-war"
+   ],
+   "wikipedia": "On War",
+   "wikidata": null
+  },
+  {
+   "id": "ooda-loop",
+   "term": "OODA loop",
+   "aliases": [
+    "observe orient decide act"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "decision making"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "OODA loop",
+   "wikidata": null
+  },
+  {
+   "id": "operation-fortitude",
+   "term": "Operation Fortitude",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "WWII",
+    "deception"
+   ],
+   "difficulty": 3,
+   "related": [
+    "normandy-landings"
+   ],
+   "wikipedia": "Operation Fortitude",
+   "wikidata": null
+  },
+  {
+   "id": "pincer-movement",
+   "term": "Pincer movement",
+   "aliases": [
+    "double envelopment"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "tactics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "battle-of-cannae"
+   ],
+   "wikipedia": "Pincer movement",
+   "wikidata": null
+  },
+  {
+   "id": "siege-of-leningrad",
+   "term": "Siege of Leningrad",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "WWII"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Siege of Leningrad",
+   "wikidata": null
+  },
+  {
+   "id": "the-art-of-war",
+   "term": "The Art of War",
+   "aliases": [
+    "Sun Tzu"
+   ],
+   "domain": "military-strategy",
+   "tags": [
+    "treatises",
+    "China"
+   ],
+   "difficulty": 1,
+   "related": [
+    "on-war"
+   ],
+   "wikipedia": "The Art of War",
+   "wikidata": null
+  },
+  {
+   "id": "trench-warfare",
+   "term": "Trench warfare",
+   "aliases": [],
+   "domain": "military-strategy",
+   "tags": [
+    "WWI"
+   ],
+   "difficulty": 1,
+   "related": [
+    "world-war-i"
+   ],
+   "wikipedia": "Trench warfare",
+   "wikidata": null
+  },
+  {
+   "id": "four-thirty-three",
+   "term": "4′33″",
+   "aliases": [
+    "John Cage"
+   ],
+   "domain": "music",
+   "tags": [
+    "experimental"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "4′33″",
+   "wikidata": null
+  },
+  {
+   "id": "absolute-pitch",
+   "term": "Absolute pitch",
+   "aliases": [
+    "perfect pitch"
+   ],
+   "domain": "music",
+   "tags": [
+    "perception"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Absolute pitch",
+   "wikidata": null
+  },
+  {
+   "id": "blues",
+   "term": "Blues",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "genres"
+   ],
+   "difficulty": 1,
+   "related": [
+    "jazz"
+   ],
+   "wikipedia": "Blues",
+   "wikidata": null
+  },
+  {
+   "id": "bossa-nova",
+   "term": "Bossa nova",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "genres",
+    "Brazil"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Bossa nova",
+   "wikidata": null
+  },
+  {
+   "id": "circle-of-fifths",
+   "term": "Circle of fifths",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "theory"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Circle of fifths",
+   "wikidata": null
+  },
+  {
+   "id": "counterpoint",
+   "term": "Counterpoint",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "theory",
+    "Baroque"
+   ],
+   "difficulty": 3,
+   "related": [
+    "fugue"
+   ],
+   "wikipedia": "Counterpoint",
+   "wikidata": null
+  },
+  {
+   "id": "earworm",
+   "term": "Earworm",
+   "aliases": [
+    "involuntary musical imagery"
+   ],
+   "domain": "music",
+   "tags": [
+    "perception",
+    "psychology"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Earworm",
+   "wikidata": null
+  },
+  {
+   "id": "equal-temperament",
+   "term": "Equal temperament",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "tuning"
+   ],
+   "difficulty": 4,
+   "related": [
+    "harmonic-series"
+   ],
+   "wikipedia": "Equal temperament",
+   "wikidata": null
+  },
+  {
+   "id": "fugue",
+   "term": "Fugue",
+   "aliases": [
+    "Bach"
+   ],
+   "domain": "music",
+   "tags": [
+    "forms"
+   ],
+   "difficulty": 3,
+   "related": [
+    "counterpoint"
+   ],
+   "wikipedia": "Fugue",
+   "wikidata": null
+  },
+  {
+   "id": "harmonic-series",
+   "term": "Harmonic series (music)",
+   "aliases": [
+    "overtones"
+   ],
+   "domain": "music",
+   "tags": [
+    "acoustics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "equal-temperament"
+   ],
+   "wikipedia": "Harmonic series (music)",
+   "wikidata": null
+  },
+  {
+   "id": "jazz",
+   "term": "Jazz",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "genres",
+    "improvisation"
+   ],
+   "difficulty": 1,
+   "related": [
+    "blues"
+   ],
+   "wikipedia": "Jazz",
+   "wikidata": null
+  },
+  {
+   "id": "salsa-music",
+   "term": "Salsa music",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "genres",
+    "Caribbean"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Salsa music",
+   "wikidata": null
+  },
+  {
+   "id": "sonata-form",
+   "term": "Sonata form",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "forms",
+    "Classical"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Sonata form",
+   "wikidata": null
+  },
+  {
+   "id": "beethovens-ninth",
+   "term": "Symphony No. 9 (Beethoven)",
+   "aliases": [
+    "Ode to Joy"
+   ],
+   "domain": "music",
+   "tags": [
+    "symphonies"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Symphony No. 9 (Beethoven)",
+   "wikidata": null
+  },
+  {
+   "id": "theremin",
+   "term": "Theremin",
+   "aliases": [],
+   "domain": "music",
+   "tags": [
+    "instruments",
+    "electronic"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Theremin",
+   "wikidata": null
+  },
+  {
+   "id": "twelve-tone-technique",
+   "term": "Twelve-tone technique",
+   "aliases": [
+    "dodecaphony",
+    "Schoenberg"
+   ],
+   "domain": "music",
+   "tags": [
+    "modernism",
+    "composition"
+   ],
+   "difficulty": 4,
+   "related": [],
+   "wikipedia": "Twelve-tone technique",
+   "wikidata": null
+  },
+  {
+   "id": "ball-lightning",
+   "term": "Ball lightning",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "atmosphere"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Ball lightning",
+   "wikidata": null
+  },
+  {
+   "id": "bloop",
+   "term": "Bloop",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "oceans",
+    "sound"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Bloop",
+   "wikidata": null
+  },
+  {
+   "id": "dyatlov-pass-incident",
+   "term": "Dyatlov Pass incident",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "expeditions"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Dyatlov Pass incident",
+   "wikidata": null
+  },
+  {
+   "id": "oumuamua",
+   "term": "ʻOumuamua",
+   "aliases": [
+    "1I/2017 U1"
+   ],
+   "domain": "mysteries",
+   "tags": [
+    "interstellar objects"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "ʻOumuamua",
+   "wikidata": null
+  },
+  {
+   "id": "kryptos",
+   "term": "Kryptos",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "cryptography",
+    "sculpture"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Kryptos",
+   "wikidata": null
+  },
+  {
+   "id": "linear-a",
+   "term": "Linear A",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "scripts",
+    "undeciphered",
+    "Minoan"
+   ],
+   "difficulty": 3,
+   "related": [
+    "linear-b",
+    "voynich-manuscript",
+    "phaistos-disc"
+   ],
+   "wikipedia": "Linear A",
+   "wikidata": null
+  },
+  {
+   "id": "mary-celeste",
+   "term": "Mary Celeste",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "ships"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Mary Celeste",
+   "wikidata": null
+  },
+  {
+   "id": "mpemba-effect",
+   "term": "Mpemba effect",
+   "aliases": [
+    "hot water freezes faster"
+   ],
+   "domain": "mysteries",
+   "tags": [
+    "physics",
+    "anomalies"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Mpemba effect",
+   "wikidata": null
+  },
+  {
+   "id": "nazca-lines",
+   "term": "Nazca Lines",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "geoglyphs",
+    "Peru"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Nazca Lines",
+   "wikidata": null
+  },
+  {
+   "id": "phaistos-disc",
+   "term": "Phaistos Disc",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "scripts",
+    "undeciphered"
+   ],
+   "difficulty": 3,
+   "related": [
+    "linear-a"
+   ],
+   "wikipedia": "Phaistos Disc",
+   "wikidata": null
+  },
+  {
+   "id": "roanoke-colony",
+   "term": "Roanoke Colony",
+   "aliases": [
+    "Lost Colony"
+   ],
+   "domain": "mysteries",
+   "tags": [
+    "colonial America"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Roanoke Colony",
+   "wikidata": null
+  },
+  {
+   "id": "tabbys-star",
+   "term": "Tabby's Star",
+   "aliases": [
+    "KIC 8462852"
+   ],
+   "domain": "mysteries",
+   "tags": [
+    "stars"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Tabby's Star",
+   "wikidata": null
+  },
+  {
+   "id": "the-hum",
+   "term": "The Hum",
+   "aliases": [
+    "Taos Hum"
+   ],
+   "domain": "mysteries",
+   "tags": [
+    "acoustics"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "The Hum",
+   "wikidata": null
+  },
+  {
+   "id": "tunguska-event",
+   "term": "Tunguska event",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "impacts",
+    "Siberia"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Tunguska event",
+   "wikidata": null
+  },
+  {
+   "id": "voynich-manuscript",
+   "term": "Voynich manuscript",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "manuscripts",
+    "undeciphered"
+   ],
+   "difficulty": 2,
+   "related": [
+    "linear-a"
+   ],
+   "wikipedia": "Voynich manuscript",
+   "wikidata": null
+  },
+  {
+   "id": "wow-signal",
+   "term": "Wow! signal",
+   "aliases": [],
+   "domain": "mysteries",
+   "tags": [
+    "SETI",
+    "radio"
+   ],
+   "difficulty": 2,
+   "related": [
+    "fermi-paradox"
+   ],
+   "wikipedia": "Wow! signal",
+   "wikidata": null
+  },
+  {
+   "id": "animal-echolocation",
+   "term": "Animal echolocation",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "bats",
+    "dolphins",
+    "senses"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Animal echolocation",
+   "wikidata": null
+  },
+  {
+   "id": "axolotl",
+   "term": "Axolotl",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "amphibians",
+    "regeneration"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Axolotl",
+   "wikidata": null
+  },
+  {
+   "id": "bioluminescence",
+   "term": "Bioluminescence",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "light",
+    "deep sea"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Bioluminescence",
+   "wikidata": null
+  },
+  {
+   "id": "bird-migration",
+   "term": "Bird migration",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "birds",
+    "behavior"
+   ],
+   "difficulty": 1,
+   "related": [
+    "monarch-butterfly-migration"
+   ],
+   "wikipedia": "Bird migration",
+   "wikidata": null
+  },
+  {
+   "id": "convergent-evolution",
+   "term": "Convergent evolution",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "evolution"
+   ],
+   "difficulty": 3,
+   "related": [
+    "natural-selection"
+   ],
+   "wikipedia": "Convergent evolution",
+   "wikidata": null
+  },
+  {
+   "id": "coral-reef",
+   "term": "Coral reef",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "oceans",
+    "ecology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "great-barrier-reef"
+   ],
+   "wikipedia": "Coral reef",
+   "wikidata": null
+  },
+  {
+   "id": "extremophile",
+   "term": "Extremophile",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "microbes"
+   ],
+   "difficulty": 2,
+   "related": [
+    "tardigrade"
+   ],
+   "wikipedia": "Extremophile",
+   "wikidata": null
+  },
+  {
+   "id": "wolves-in-yellowstone",
+   "term": "History of wolves in Yellowstone",
+   "aliases": [
+    "trophic cascade"
+   ],
+   "domain": "nature",
+   "tags": [
+    "ecology",
+    "reintroduction"
+   ],
+   "difficulty": 2,
+   "related": [
+    "keystone-species"
+   ],
+   "wikipedia": "History of wolves in Yellowstone",
+   "wikidata": null
+  },
+  {
+   "id": "keystone-species",
+   "term": "Keystone species",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "ecology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "wolves-in-yellowstone"
+   ],
+   "wikipedia": "Keystone species",
+   "wikidata": null
+  },
+  {
+   "id": "monarch-butterfly-migration",
+   "term": "Monarch butterfly migration",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "insects",
+    "migration"
+   ],
+   "difficulty": 2,
+   "related": [
+    "bird-migration"
+   ],
+   "wikipedia": "Monarch butterfly migration",
+   "wikidata": null
+  },
+  {
+   "id": "mycorrhiza",
+   "term": "Mycorrhiza",
+   "aliases": [
+    "wood wide web"
+   ],
+   "domain": "nature",
+   "tags": [
+    "fungi",
+    "plants"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Mycorrhiza",
+   "wikidata": null
+  },
+  {
+   "id": "octopus",
+   "term": "Octopus",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "cephalopods",
+    "intelligence"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Octopus",
+   "wikidata": null
+  },
+  {
+   "id": "periodical-cicadas",
+   "term": "Periodical cicadas",
+   "aliases": [
+    "17-year cicada"
+   ],
+   "domain": "nature",
+   "tags": [
+    "insects",
+    "prime numbers"
+   ],
+   "difficulty": 3,
+   "related": [
+    "prime-number"
+   ],
+   "wikipedia": "Periodical cicadas",
+   "wikidata": null
+  },
+  {
+   "id": "sloth",
+   "term": "Sloth",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "mammals",
+    "Costa Rica"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Sloth",
+   "wikidata": null
+  },
+  {
+   "id": "tardigrade",
+   "term": "Tardigrade",
+   "aliases": [
+    "water bear"
+   ],
+   "domain": "nature",
+   "tags": [
+    "invertebrates",
+    "extremophiles"
+   ],
+   "difficulty": 1,
+   "related": [
+    "extremophile"
+   ],
+   "wikipedia": "Tardigrade",
+   "wikidata": null
+  },
+  {
+   "id": "waggle-dance",
+   "term": "Waggle dance",
+   "aliases": [],
+   "domain": "nature",
+   "tags": [
+    "bees",
+    "communication"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Waggle dance",
+   "wikidata": null
+  },
+  {
+   "id": "action-potential",
+   "term": "Action potential",
+   "aliases": [
+    "nerve impulse",
+    "spike"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "signaling"
+   ],
+   "difficulty": 3,
+   "related": [
+    "neuron"
+   ],
+   "wikipedia": "Action potential",
+   "wikidata": null
+  },
+  {
+   "id": "blindsight",
+   "term": "Blindsight",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "vision",
+    "consciousness"
+   ],
+   "difficulty": 4,
+   "related": [
+    "hard-problem-of-consciousness"
+   ],
+   "wikipedia": "Blindsight",
+   "wikidata": null
+  },
+  {
+   "id": "dopamine",
+   "term": "Dopamine",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "neurotransmitters",
+    "reward"
+   ],
+   "difficulty": 2,
+   "related": [
+    "neurotransmitter",
+    "reward-system"
+   ],
+   "wikipedia": "Dopamine",
+   "wikidata": null
+  },
+  {
+   "id": "glia",
+   "term": "Glia",
+   "aliases": [
+    "neuroglia",
+    "glial cells"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "cells"
+   ],
+   "difficulty": 3,
+   "related": [
+    "neuron"
+   ],
+   "wikipedia": "Glia",
+   "wikidata": null
+  },
+  {
+   "id": "hebbian-theory",
+   "term": "Hebbian theory",
+   "aliases": [
+    "cells that fire together wire together"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "learning"
+   ],
+   "difficulty": 3,
+   "related": [
+    "neuroplasticity"
+   ],
+   "wikipedia": "Hebbian theory",
+   "wikidata": null
+  },
+  {
+   "id": "henry-molaison",
+   "term": "Henry Molaison",
+   "aliases": [
+    "Patient H.M."
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "memory",
+    "case study"
+   ],
+   "difficulty": 3,
+   "related": [
+    "hippocampus"
+   ],
+   "wikipedia": "Henry Molaison",
+   "wikidata": null
+  },
+  {
+   "id": "hippocampus",
+   "term": "Hippocampus",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "memory",
+    "anatomy"
+   ],
+   "difficulty": 2,
+   "related": [
+    "long-term-potentiation",
+    "henry-molaison",
+    "sleep-and-memory"
+   ],
+   "wikipedia": "Hippocampus",
+   "wikidata": null
+  },
+  {
+   "id": "long-term-potentiation",
+   "term": "Long-term potentiation",
+   "aliases": [
+    "LTP"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "memory",
+    "learning"
+   ],
+   "difficulty": 4,
+   "related": [
+    "neuroplasticity",
+    "hippocampus"
+   ],
+   "wikipedia": "Long-term potentiation",
+   "wikidata": null
+  },
+  {
+   "id": "neuron",
+   "term": "Neuron",
+   "aliases": [
+    "nerve cell"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "cells"
+   ],
+   "difficulty": 1,
+   "related": [
+    "synapse",
+    "action-potential",
+    "glia"
+   ],
+   "wikipedia": "Neuron",
+   "wikidata": null
+  },
+  {
+   "id": "neuroplasticity",
+   "term": "Neuroplasticity",
+   "aliases": [
+    "brain plasticity"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "learning"
+   ],
+   "difficulty": 2,
+   "related": [
+    "long-term-potentiation",
+    "hebbian-theory"
+   ],
+   "wikipedia": "Neuroplasticity",
+   "wikidata": null
+  },
+  {
+   "id": "neurotransmitter",
+   "term": "Neurotransmitter",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "chemistry",
+    "signaling"
+   ],
+   "difficulty": 2,
+   "related": [
+    "dopamine",
+    "synapse"
+   ],
+   "wikipedia": "Neurotransmitter",
+   "wikidata": null
+  },
+  {
+   "id": "phineas-gage",
+   "term": "Phineas Gage",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "case study"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prefrontal-cortex"
+   ],
+   "wikipedia": "Phineas Gage",
+   "wikidata": null
+  },
+  {
+   "id": "prefrontal-cortex",
+   "term": "Prefrontal cortex",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "executive function",
+    "anatomy"
+   ],
+   "difficulty": 2,
+   "related": [
+    "working-memory",
+    "phineas-gage"
+   ],
+   "wikipedia": "Prefrontal cortex",
+   "wikidata": null
+  },
+  {
+   "id": "reward-system",
+   "term": "Reward system",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "motivation"
+   ],
+   "difficulty": 3,
+   "related": [
+    "dopamine"
+   ],
+   "wikipedia": "Reward system",
+   "wikidata": null
+  },
+  {
+   "id": "sleep-and-memory",
+   "term": "Sleep and memory",
+   "aliases": [
+    "memory consolidation"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "memory",
+    "sleep"
+   ],
+   "difficulty": 3,
+   "related": [
+    "hippocampus",
+    "spacing-effect"
+   ],
+   "wikipedia": "Sleep and memory",
+   "wikidata": null
+  },
+  {
+   "id": "split-brain",
+   "term": "Split-brain",
+   "aliases": [
+    "corpus callosotomy"
+   ],
+   "domain": "neuroscience",
+   "tags": [
+    "hemispheres"
+   ],
+   "difficulty": 3,
+   "related": [
+    "prefrontal-cortex"
+   ],
+   "wikipedia": "Split-brain",
+   "wikidata": null
+  },
+  {
+   "id": "synapse",
+   "term": "Synapse",
+   "aliases": [],
+   "domain": "neuroscience",
+   "tags": [
+    "signaling"
+   ],
+   "difficulty": 2,
+   "related": [
+    "neuron",
+    "neurotransmitter"
+   ],
+   "wikipedia": "Synapse",
+   "wikidata": null
+  },
+  {
+   "id": "allegory-of-the-cave",
+   "term": "Allegory of the cave",
+   "aliases": [
+    "Plato's cave"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "epistemology",
+    "Plato"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Allegory of the cave",
+   "wikidata": null
+  },
+  {
+   "id": "brain-in-a-vat",
+   "term": "Brain in a vat",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "epistemology",
+    "skepticism"
+   ],
+   "difficulty": 3,
+   "related": [
+    "cogito-ergo-sum"
+   ],
+   "wikipedia": "Brain in a vat",
+   "wikidata": null
+  },
+  {
+   "id": "categorical-imperative",
+   "term": "Categorical imperative",
+   "aliases": [
+    "Kant"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "ethics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "utilitarianism"
+   ],
+   "wikipedia": "Categorical imperative",
+   "wikidata": null
+  },
+  {
+   "id": "chinese-room",
+   "term": "Chinese room",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "mind",
+    "AI"
+   ],
+   "difficulty": 3,
+   "related": [
+    "turing-test",
+    "hard-problem-of-consciousness"
+   ],
+   "wikipedia": "Chinese room",
+   "wikidata": null
+  },
+  {
+   "id": "cogito-ergo-sum",
+   "term": "Cogito, ergo sum",
+   "aliases": [
+    "I think therefore I am",
+    "Descartes"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "epistemology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "brain-in-a-vat"
+   ],
+   "wikipedia": "Cogito, ergo sum",
+   "wikidata": null
+  },
+  {
+   "id": "existentialism",
+   "term": "Existentialism",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "modern"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Existentialism",
+   "wikidata": null
+  },
+  {
+   "id": "falsifiability",
+   "term": "Falsifiability",
+   "aliases": [
+    "Popper"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "philosophy of science"
+   ],
+   "difficulty": 2,
+   "related": [
+    "problem-of-induction"
+   ],
+   "wikipedia": "Falsifiability",
+   "wikidata": null
+  },
+  {
+   "id": "hard-problem-of-consciousness",
+   "term": "Hard problem of consciousness",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "mind"
+   ],
+   "difficulty": 4,
+   "related": [
+    "chinese-room"
+   ],
+   "wikipedia": "Hard problem of consciousness",
+   "wikidata": null
+  },
+  {
+   "id": "occams-razor",
+   "term": "Occam's razor",
+   "aliases": [
+    "law of parsimony"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "reasoning"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Occam's razor",
+   "wikidata": null
+  },
+  {
+   "id": "original-position",
+   "term": "Original position",
+   "aliases": [
+    "veil of ignorance",
+    "Rawls"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "political philosophy",
+    "justice"
+   ],
+   "difficulty": 3,
+   "related": [
+    "social-contract"
+   ],
+   "wikipedia": "Original position",
+   "wikidata": null
+  },
+  {
+   "id": "problem-of-induction",
+   "term": "Problem of induction",
+   "aliases": [
+    "Hume"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "epistemology"
+   ],
+   "difficulty": 3,
+   "related": [
+    "falsifiability"
+   ],
+   "wikipedia": "Problem of induction",
+   "wikidata": null
+  },
+  {
+   "id": "ship-of-theseus",
+   "term": "Ship of Theseus",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "identity",
+    "metaphysics"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Ship of Theseus",
+   "wikidata": null
+  },
+  {
+   "id": "socratic-method",
+   "term": "Socratic method",
+   "aliases": [
+    "elenchus"
+   ],
+   "domain": "philosophy",
+   "tags": [
+    "reasoning",
+    "teaching"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Socratic method",
+   "wikidata": null
+  },
+  {
+   "id": "stoicism",
+   "term": "Stoicism",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "ethics",
+    "Hellenistic"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Stoicism",
+   "wikidata": null
+  },
+  {
+   "id": "trolley-problem",
+   "term": "Trolley problem",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "ethics",
+    "thought experiment"
+   ],
+   "difficulty": 1,
+   "related": [
+    "utilitarianism"
+   ],
+   "wikipedia": "Trolley problem",
+   "wikidata": null
+  },
+  {
+   "id": "utilitarianism",
+   "term": "Utilitarianism",
+   "aliases": [],
+   "domain": "philosophy",
+   "tags": [
+    "ethics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "trolley-problem",
+    "categorical-imperative"
+   ],
+   "wikipedia": "Utilitarianism",
+   "wikidata": null
+  },
+  {
+   "id": "bells-theorem",
+   "term": "Bell's theorem",
+   "aliases": [
+    "Bell inequality"
+   ],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics",
+    "locality"
+   ],
+   "difficulty": 5,
+   "related": [
+    "quantum-entanglement"
+   ],
+   "wikipedia": "Bell's theorem",
+   "wikidata": null
+  },
+  {
+   "id": "conservation-of-energy",
+   "term": "Conservation of energy",
+   "aliases": [
+    "first law of thermodynamics"
+   ],
+   "domain": "physics",
+   "tags": [
+    "thermodynamics",
+    "symmetry"
+   ],
+   "difficulty": 1,
+   "related": [
+    "noethers-theorem",
+    "entropy"
+   ],
+   "wikipedia": "Conservation of energy",
+   "wikidata": null
+  },
+  {
+   "id": "double-slit-experiment",
+   "term": "Double-slit experiment",
+   "aliases": [
+    "Young's experiment"
+   ],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics",
+    "optics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "wave-particle-duality",
+    "quantum-superposition"
+   ],
+   "wikipedia": "Double-slit experiment",
+   "wikidata": null
+  },
+  {
+   "id": "entropy",
+   "term": "Entropy",
+   "aliases": [
+    "second law of thermodynamics",
+    "disorder"
+   ],
+   "domain": "physics",
+   "tags": [
+    "thermodynamics",
+    "information theory"
+   ],
+   "difficulty": 3,
+   "related": [
+    "heat-death-of-the-universe",
+    "maxwells-demon",
+    "information-theory",
+    "arrow-of-time"
+   ],
+   "wikipedia": "Entropy",
+   "wikidata": null
+  },
+  {
+   "id": "general-relativity",
+   "term": "General relativity",
+   "aliases": [
+    "curved spacetime"
+   ],
+   "domain": "physics",
+   "tags": [
+    "relativity",
+    "gravity",
+    "Einstein"
+   ],
+   "difficulty": 4,
+   "related": [
+    "special-relativity",
+    "black-hole",
+    "gravitational-wave",
+    "gps"
+   ],
+   "wikipedia": "General relativity",
+   "wikidata": null
+  },
+  {
+   "id": "heat-death-of-the-universe",
+   "term": "Heat death of the universe",
+   "aliases": [
+    "big freeze"
+   ],
+   "domain": "physics",
+   "tags": [
+    "cosmology",
+    "thermodynamics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "entropy",
+    "dark-energy"
+   ],
+   "wikipedia": "Heat death of the universe",
+   "wikidata": null
+  },
+  {
+   "id": "higgs-boson",
+   "term": "Higgs boson",
+   "aliases": [
+    "God particle"
+   ],
+   "domain": "physics",
+   "tags": [
+    "particles",
+    "CERN"
+   ],
+   "difficulty": 3,
+   "related": [
+    "standard-model"
+   ],
+   "wikipedia": "Higgs boson",
+   "wikidata": null
+  },
+  {
+   "id": "maxwells-demon",
+   "term": "Maxwell's demon",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "thermodynamics",
+    "thought experiment"
+   ],
+   "difficulty": 4,
+   "related": [
+    "entropy",
+    "information-theory"
+   ],
+   "wikipedia": "Maxwell's demon",
+   "wikidata": null
+  },
+  {
+   "id": "neutrino",
+   "term": "Neutrino",
+   "aliases": [
+    "ghost particle"
+   ],
+   "domain": "physics",
+   "tags": [
+    "particles"
+   ],
+   "difficulty": 3,
+   "related": [
+    "standard-model",
+    "supernova"
+   ],
+   "wikipedia": "Neutrino",
+   "wikidata": null
+  },
+  {
+   "id": "noethers-theorem",
+   "term": "Noether's theorem",
+   "aliases": [
+    "symmetry and conservation laws"
+   ],
+   "domain": "physics",
+   "tags": [
+    "symmetry",
+    "mathematics"
+   ],
+   "difficulty": 5,
+   "related": [
+    "conservation-of-energy"
+   ],
+   "wikipedia": "Noether's theorem",
+   "wikidata": null
+  },
+  {
+   "id": "photoelectric-effect",
+   "term": "Photoelectric effect",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics",
+    "light",
+    "Einstein"
+   ],
+   "difficulty": 2,
+   "related": [
+    "wave-particle-duality"
+   ],
+   "wikipedia": "Photoelectric effect",
+   "wikidata": null
+  },
+  {
+   "id": "quantum-entanglement",
+   "term": "Quantum entanglement",
+   "aliases": [
+    "spooky action at a distance"
+   ],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics"
+   ],
+   "difficulty": 4,
+   "related": [
+    "bells-theorem",
+    "quantum-superposition",
+    "quantum-computing"
+   ],
+   "wikipedia": "Quantum entanglement",
+   "wikidata": null
+  },
+  {
+   "id": "quantum-superposition",
+   "term": "Quantum superposition",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics"
+   ],
+   "difficulty": 3,
+   "related": [
+    "schrodingers-cat",
+    "double-slit-experiment"
+   ],
+   "wikipedia": "Quantum superposition",
+   "wikidata": null
+  },
+  {
+   "id": "schrodingers-cat",
+   "term": "Schrödinger's cat",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics",
+    "thought experiment"
+   ],
+   "difficulty": 2,
+   "related": [
+    "quantum-superposition"
+   ],
+   "wikipedia": "Schrödinger's cat",
+   "wikidata": null
+  },
+  {
+   "id": "special-relativity",
+   "term": "Special relativity",
+   "aliases": [
+    "E=mc²",
+    "time dilation"
+   ],
+   "domain": "physics",
+   "tags": [
+    "relativity",
+    "Einstein"
+   ],
+   "difficulty": 3,
+   "related": [
+    "general-relativity",
+    "twin-paradox"
+   ],
+   "wikipedia": "Special relativity",
+   "wikidata": null
+  },
+  {
+   "id": "standard-model",
+   "term": "Standard Model",
+   "aliases": [
+    "particle physics"
+   ],
+   "domain": "physics",
+   "tags": [
+    "particles",
+    "forces"
+   ],
+   "difficulty": 4,
+   "related": [
+    "higgs-boson",
+    "neutrino"
+   ],
+   "wikipedia": "Standard Model",
+   "wikidata": null
+  },
+  {
+   "id": "superconductivity",
+   "term": "Superconductivity",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "condensed matter",
+    "materials"
+   ],
+   "difficulty": 4,
+   "related": [],
+   "wikipedia": "Superconductivity",
+   "wikidata": null
+  },
+  {
+   "id": "twin-paradox",
+   "term": "Twin paradox",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "relativity",
+    "thought experiment"
+   ],
+   "difficulty": 3,
+   "related": [
+    "special-relativity"
+   ],
+   "wikipedia": "Twin paradox",
+   "wikidata": null
+  },
+  {
+   "id": "wave-particle-duality",
+   "term": "Wave–particle duality",
+   "aliases": [],
+   "domain": "physics",
+   "tags": [
+    "quantum mechanics",
+    "light"
+   ],
+   "difficulty": 3,
+   "related": [
+    "double-slit-experiment",
+    "photoelectric-effect"
+   ],
+   "wikipedia": "Wave–particle duality",
+   "wikidata": null
+  },
+  {
+   "id": "anchoring-effect",
+   "term": "Anchoring effect",
+   "aliases": [
+    "anchoring bias"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "cognitive biases",
+    "judgment"
+   ],
+   "difficulty": 2,
+   "related": [
+    "availability-heuristic"
+   ],
+   "wikipedia": "Anchoring effect",
+   "wikidata": null
+  },
+  {
+   "id": "availability-heuristic",
+   "term": "Availability heuristic",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "heuristics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "anchoring-effect"
+   ],
+   "wikipedia": "Availability heuristic",
+   "wikidata": null
+  },
+  {
+   "id": "bystander-effect",
+   "term": "Bystander effect",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "social psychology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "milgram-experiment"
+   ],
+   "wikipedia": "Bystander effect",
+   "wikidata": null
+  },
+  {
+   "id": "confirmation-bias",
+   "term": "Confirmation bias",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "cognitive biases"
+   ],
+   "difficulty": 1,
+   "related": [
+    "dunning-kruger-effect",
+    "anchoring-effect"
+   ],
+   "wikipedia": "Confirmation bias",
+   "wikidata": null
+  },
+  {
+   "id": "dual-process-theory",
+   "term": "Dual process theory",
+   "aliases": [
+    "System 1 and System 2",
+    "thinking fast and slow"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "decision making"
+   ],
+   "difficulty": 3,
+   "related": [
+    "prospect-theory"
+   ],
+   "wikipedia": "Dual process theory",
+   "wikidata": null
+  },
+  {
+   "id": "dunning-kruger-effect",
+   "term": "Dunning–Kruger effect",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "cognitive biases",
+    "metacognition"
+   ],
+   "difficulty": 1,
+   "related": [
+    "confirmation-bias"
+   ],
+   "wikipedia": "Dunning–Kruger effect",
+   "wikidata": null
+  },
+  {
+   "id": "flow",
+   "term": "Flow (psychology)",
+   "aliases": [
+    "being in the zone"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "motivation"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Flow (psychology)",
+   "wikidata": null
+  },
+  {
+   "id": "forgetting-curve",
+   "term": "Forgetting curve",
+   "aliases": [
+    "Ebbinghaus"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "memory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "spacing-effect"
+   ],
+   "wikipedia": "Forgetting curve",
+   "wikidata": null
+  },
+  {
+   "id": "loss-aversion",
+   "term": "Loss aversion",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "prospect theory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prospect-theory",
+    "sunk-cost"
+   ],
+   "wikipedia": "Loss aversion",
+   "wikidata": null
+  },
+  {
+   "id": "milgram-experiment",
+   "term": "Milgram experiment",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "social psychology",
+    "obedience"
+   ],
+   "difficulty": 2,
+   "related": [
+    "bystander-effect"
+   ],
+   "wikipedia": "Milgram experiment",
+   "wikidata": null
+  },
+  {
+   "id": "prospect-theory",
+   "term": "Prospect theory",
+   "aliases": [
+    "Kahneman and Tversky"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "decision making"
+   ],
+   "difficulty": 3,
+   "related": [
+    "loss-aversion",
+    "dual-process-theory"
+   ],
+   "wikipedia": "Prospect theory",
+   "wikidata": null
+  },
+  {
+   "id": "spacing-effect",
+   "term": "Spacing effect",
+   "aliases": [
+    "spaced repetition"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "memory",
+    "learning"
+   ],
+   "difficulty": 2,
+   "related": [
+    "testing-effect",
+    "forgetting-curve"
+   ],
+   "wikipedia": "Spacing effect",
+   "wikidata": null
+  },
+  {
+   "id": "stroop-effect",
+   "term": "Stroop effect",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "attention"
+   ],
+   "difficulty": 2,
+   "related": [
+    "working-memory"
+   ],
+   "wikipedia": "Stroop effect",
+   "wikidata": null
+  },
+  {
+   "id": "sunk-cost",
+   "term": "Sunk cost",
+   "aliases": [
+    "sunk cost fallacy"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "cognitive biases",
+    "economics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "loss-aversion"
+   ],
+   "wikipedia": "Sunk cost",
+   "wikidata": null
+  },
+  {
+   "id": "testing-effect",
+   "term": "Testing effect",
+   "aliases": [
+    "retrieval practice"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "memory",
+    "learning"
+   ],
+   "difficulty": 2,
+   "related": [
+    "spacing-effect"
+   ],
+   "wikipedia": "Testing effect",
+   "wikidata": null
+  },
+  {
+   "id": "magical-number-seven",
+   "term": "The Magical Number Seven, Plus or Minus Two",
+   "aliases": [
+    "Miller's law"
+   ],
+   "domain": "psychology",
+   "tags": [
+    "memory"
+   ],
+   "difficulty": 2,
+   "related": [
+    "working-memory"
+   ],
+   "wikipedia": "The Magical Number Seven, Plus or Minus Two",
+   "wikidata": null
+  },
+  {
+   "id": "working-memory",
+   "term": "Working memory",
+   "aliases": [],
+   "domain": "psychology",
+   "tags": [
+    "memory",
+    "executive function"
+   ],
+   "difficulty": 2,
+   "related": [
+    "magical-number-seven"
+   ],
+   "wikipedia": "Working memory",
+   "wikidata": null
+  },
+  {
+   "id": "axial-age",
+   "term": "Axial Age",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "history of religion"
+   ],
+   "difficulty": 4,
+   "related": [],
+   "wikipedia": "Axial Age",
+   "wikidata": null
+  },
+  {
+   "id": "book-of-the-dead",
+   "term": "Book of the Dead",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Egyptian"
+   ],
+   "difficulty": 2,
+   "related": [
+    "maat"
+   ],
+   "wikipedia": "Book of the Dead",
+   "wikidata": null
+  },
+  {
+   "id": "dead-sea-scrolls",
+   "term": "Dead Sea Scrolls",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "texts",
+    "archaeology"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Dead Sea Scrolls",
+   "wikidata": null
+  },
+  {
+   "id": "dharma",
+   "term": "Dharma",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Hinduism",
+    "Buddhism"
+   ],
+   "difficulty": 2,
+   "related": [
+    "four-noble-truths"
+   ],
+   "wikipedia": "Dharma",
+   "wikidata": null
+  },
+  {
+   "id": "flood-myth",
+   "term": "Flood myth",
+   "aliases": [
+    "great flood"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "comparative mythology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "epic-of-gilgamesh"
+   ],
+   "wikipedia": "Flood myth",
+   "wikidata": null
+  },
+  {
+   "id": "four-noble-truths",
+   "term": "Four Noble Truths",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Buddhism"
+   ],
+   "difficulty": 2,
+   "related": [
+    "dharma"
+   ],
+   "wikipedia": "Four Noble Truths",
+   "wikidata": null
+  },
+  {
+   "id": "maat",
+   "term": "Maat",
+   "aliases": [
+    "Ma'at"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "Egyptian",
+    "concepts"
+   ],
+   "difficulty": 3,
+   "related": [
+    "book-of-the-dead"
+   ],
+   "wikipedia": "Maat",
+   "wikidata": null
+  },
+  {
+   "id": "pachamama",
+   "term": "Pachamama",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Andean"
+   ],
+   "difficulty": 2,
+   "related": [
+    "inca-empire"
+   ],
+   "wikipedia": "Pachamama",
+   "wikidata": null
+  },
+  {
+   "id": "popol-vuh",
+   "term": "Popol Vuh",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Maya",
+    "sacred texts"
+   ],
+   "difficulty": 3,
+   "related": [
+    "maya-civilization"
+   ],
+   "wikipedia": "Popol Vuh",
+   "wikidata": null
+  },
+  {
+   "id": "prometheus",
+   "term": "Prometheus",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Greek mythology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "frankenstein"
+   ],
+   "wikipedia": "Prometheus",
+   "wikidata": null
+  },
+  {
+   "id": "quetzalcoatl",
+   "term": "Quetzalcoatl",
+   "aliases": [
+    "feathered serpent"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "Aztec",
+    "Mesoamerican"
+   ],
+   "difficulty": 2,
+   "related": [
+    "resplendent-quetzal"
+   ],
+   "wikipedia": "Quetzalcoatl",
+   "wikidata": null
+  },
+  {
+   "id": "ragnarok",
+   "term": "Ragnarök",
+   "aliases": [],
+   "domain": "religion-mythology",
+   "tags": [
+    "Norse mythology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "yggdrasil"
+   ],
+   "wikipedia": "Ragnarök",
+   "wikidata": null
+  },
+  {
+   "id": "taoism",
+   "term": "Taoism",
+   "aliases": [
+    "Daoism",
+    "Tao Te Ching"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "Chinese philosophy"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Taoism",
+   "wikidata": null
+  },
+  {
+   "id": "trickster",
+   "term": "Trickster",
+   "aliases": [
+    "Loki",
+    "Anansi"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "archetypes"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Trickster",
+   "wikidata": null
+  },
+  {
+   "id": "trojan-war",
+   "term": "Trojan War",
+   "aliases": [
+    "Trojan horse"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "Greek mythology"
+   ],
+   "difficulty": 1,
+   "related": [
+    "iliad"
+   ],
+   "wikipedia": "Trojan War",
+   "wikidata": null
+  },
+  {
+   "id": "yggdrasil",
+   "term": "Yggdrasil",
+   "aliases": [
+    "world tree"
+   ],
+   "domain": "religion-mythology",
+   "tags": [
+    "Norse mythology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "ragnarok"
+   ],
+   "wikipedia": "Yggdrasil",
+   "wikidata": null
+  },
+  {
+   "id": "altitude-training",
+   "term": "Altitude training",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "endurance"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Altitude training",
+   "wikidata": null
+  },
+  {
+   "id": "delayed-onset-muscle-soreness",
+   "term": "Delayed onset muscle soreness",
+   "aliases": [
+    "DOMS"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "recovery"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Delayed onset muscle soreness",
+   "wikidata": null
+  },
+  {
+   "id": "doping-in-sport",
+   "term": "Doping in sport",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "ethics",
+    "drugs"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Doping in sport",
+   "wikidata": null
+  },
+  {
+   "id": "four-minute-mile",
+   "term": "Four-minute mile",
+   "aliases": [
+    "Roger Bannister"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "records",
+    "running"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Four-minute mile",
+   "wikidata": null
+  },
+  {
+   "id": "high-intensity-interval-training",
+   "term": "High-intensity interval training",
+   "aliases": [
+    "HIIT"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "training"
+   ],
+   "difficulty": 1,
+   "related": [
+    "vo2-max"
+   ],
+   "wikipedia": "High-intensity interval training",
+   "wikidata": null
+  },
+  {
+   "id": "lactate-threshold",
+   "term": "Lactate threshold",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "endurance"
+   ],
+   "difficulty": 3,
+   "related": [
+    "vo2-max"
+   ],
+   "wikipedia": "Lactate threshold",
+   "wikidata": null
+  },
+  {
+   "id": "magnus-effect",
+   "term": "Magnus effect",
+   "aliases": [
+    "curveball"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "ball sports",
+    "physics"
+   ],
+   "difficulty": 2,
+   "related": [
+    "bernoulli-principle"
+   ],
+   "wikipedia": "Magnus effect",
+   "wikidata": null
+  },
+  {
+   "id": "marathon",
+   "term": "Marathon",
+   "aliases": [
+    "Pheidippides"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "running"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Marathon",
+   "wikidata": null
+  },
+  {
+   "id": "mental-chronometry",
+   "term": "Mental chronometry",
+   "aliases": [
+    "reaction time"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "perception"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Mental chronometry",
+   "wikidata": null
+  },
+  {
+   "id": "muscle-hypertrophy",
+   "term": "Muscle hypertrophy",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "strength"
+   ],
+   "difficulty": 2,
+   "related": [
+    "progressive-overload"
+   ],
+   "wikipedia": "Muscle hypertrophy",
+   "wikidata": null
+  },
+  {
+   "id": "progressive-overload",
+   "term": "Progressive overload",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "training principles"
+   ],
+   "difficulty": 1,
+   "related": [
+    "muscle-hypertrophy"
+   ],
+   "wikipedia": "Progressive overload",
+   "wikidata": null
+  },
+  {
+   "id": "proprioception",
+   "term": "Proprioception",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "senses"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Proprioception",
+   "wikidata": null
+  },
+  {
+   "id": "skeletal-muscle",
+   "term": "Skeletal muscle",
+   "aliases": [
+    "fast-twitch fibres",
+    "slow-twitch fibres"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "muscles"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Skeletal muscle",
+   "wikidata": null
+  },
+  {
+   "id": "sports-periodization",
+   "term": "Sports periodization",
+   "aliases": [
+    "periodization"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "training"
+   ],
+   "difficulty": 3,
+   "related": [
+    "supercompensation"
+   ],
+   "wikipedia": "Sports periodization",
+   "wikidata": null
+  },
+  {
+   "id": "supercompensation",
+   "term": "Supercompensation",
+   "aliases": [],
+   "domain": "sports-science",
+   "tags": [
+    "training principles"
+   ],
+   "difficulty": 3,
+   "related": [
+    "progressive-overload"
+   ],
+   "wikipedia": "Supercompensation",
+   "wikidata": null
+  },
+  {
+   "id": "vo2-max",
+   "term": "VO2 max",
+   "aliases": [
+    "maximal oxygen uptake"
+   ],
+   "domain": "sports-science",
+   "tags": [
+    "endurance",
+    "physiology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "lactate-threshold",
+    "high-intensity-interval-training"
+   ],
+   "wikipedia": "VO2 max",
+   "wikidata": null
+  },
+  {
+   "id": "ada-lovelace",
+   "term": "Ada Lovelace",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "people",
+    "computing"
+   ],
+   "difficulty": 1,
+   "related": [
+    "analytical-engine"
+   ],
+   "wikipedia": "Ada Lovelace",
+   "wikidata": null
+  },
+  {
+   "id": "alan-turing",
+   "term": "Alan Turing",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "people",
+    "computing"
+   ],
+   "difficulty": 1,
+   "related": [
+    "turing-machine",
+    "enigma-machine"
+   ],
+   "wikipedia": "Alan Turing",
+   "wikidata": null
+  },
+  {
+   "id": "analytical-engine",
+   "term": "Analytical engine",
+   "aliases": [
+    "Babbage"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "computing"
+   ],
+   "difficulty": 3,
+   "related": [
+    "ada-lovelace"
+   ],
+   "wikipedia": "Analytical engine",
+   "wikidata": null
+  },
+  {
+   "id": "antikythera-mechanism",
+   "term": "Antikythera mechanism",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "ancient",
+    "computing"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Antikythera mechanism",
+   "wikidata": null
+  },
+  {
+   "id": "apollo-11",
+   "term": "Apollo 11",
+   "aliases": [
+    "Moon landing"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "space"
+   ],
+   "difficulty": 1,
+   "related": [
+    "space-race",
+    "apollo-guidance-computer"
+   ],
+   "wikipedia": "Apollo 11",
+   "wikidata": null
+  },
+  {
+   "id": "apollo-guidance-computer",
+   "term": "Apollo Guidance Computer",
+   "aliases": [
+    "AGC"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "computing",
+    "space"
+   ],
+   "difficulty": 3,
+   "related": [
+    "apollo-11"
+   ],
+   "wikipedia": "Apollo Guidance Computer",
+   "wikidata": null
+  },
+  {
+   "id": "arpanet",
+   "term": "ARPANET",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "internet"
+   ],
+   "difficulty": 2,
+   "related": [
+    "world-wide-web"
+   ],
+   "wikipedia": "ARPANET",
+   "wikidata": null
+  },
+  {
+   "id": "claude-shannon",
+   "term": "Claude Shannon",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "people",
+    "information"
+   ],
+   "difficulty": 2,
+   "related": [
+    "information-theory"
+   ],
+   "wikipedia": "Claude Shannon",
+   "wikidata": null
+  },
+  {
+   "id": "electrical-telegraph",
+   "term": "Electrical telegraph",
+   "aliases": [
+    "Morse code"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "communication"
+   ],
+   "difficulty": 2,
+   "related": [
+    "telephone"
+   ],
+   "wikipedia": "Electrical telegraph",
+   "wikidata": null
+  },
+  {
+   "id": "eniac",
+   "term": "ENIAC",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "computing"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "ENIAC",
+   "wikidata": null
+  },
+  {
+   "id": "enigma-machine",
+   "term": "Enigma machine",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "cryptography",
+    "WWII"
+   ],
+   "difficulty": 2,
+   "related": [
+    "alan-turing"
+   ],
+   "wikipedia": "Enigma machine",
+   "wikidata": null
+  },
+  {
+   "id": "first-iphone",
+   "term": "iPhone (1st generation)",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "smartphones"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "iPhone (1st generation)",
+   "wikidata": null
+  },
+  {
+   "id": "xerox-parc",
+   "term": "PARC (company)",
+   "aliases": [
+    "Xerox PARC"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "computing",
+    "GUI"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "PARC (company)",
+   "wikidata": null
+  },
+  {
+   "id": "unix",
+   "term": "Unix",
+   "aliases": [],
+   "domain": "technology-history",
+   "tags": [
+    "operating systems"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Unix",
+   "wikidata": null
+  },
+  {
+   "id": "world-wide-web",
+   "term": "World Wide Web",
+   "aliases": [
+    "WWW",
+    "Tim Berners-Lee"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "internet"
+   ],
+   "difficulty": 1,
+   "related": [
+    "arpanet"
+   ],
+   "wikipedia": "World Wide Web",
+   "wikidata": null
+  },
+  {
+   "id": "year-2000-problem",
+   "term": "Year 2000 problem",
+   "aliases": [
+    "Y2K",
+    "millennium bug"
+   ],
+   "domain": "technology-history",
+   "tags": [
+    "software"
+   ],
+   "difficulty": 1,
+   "related": [],
+   "wikipedia": "Year 2000 problem",
+   "wikidata": null
+  },
+  {
+   "id": "abiogenesis",
+   "term": "Abiogenesis",
+   "aliases": [
+    "origin of life"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "biology"
+   ],
+   "difficulty": 3,
+   "related": [],
+   "wikipedia": "Abiogenesis",
+   "wikidata": null
+  },
+  {
+   "id": "arrow-of-time",
+   "term": "Arrow of time",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "physics",
+    "time"
+   ],
+   "difficulty": 3,
+   "related": [
+    "entropy"
+   ],
+   "wikipedia": "Arrow of time",
+   "wikidata": null
+  },
+  {
+   "id": "baryon-asymmetry",
+   "term": "Baryon asymmetry",
+   "aliases": [
+    "matter–antimatter asymmetry"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "physics",
+    "cosmology"
+   ],
+   "difficulty": 4,
+   "related": [],
+   "wikipedia": "Baryon asymmetry",
+   "wikidata": null
+  },
+  {
+   "id": "collatz-conjecture",
+   "term": "Collatz conjecture",
+   "aliases": [
+    "3n + 1 problem"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "mathematics"
+   ],
+   "difficulty": 2,
+   "related": [],
+   "wikipedia": "Collatz conjecture",
+   "wikidata": null
+  },
+  {
+   "id": "goldbachs-conjecture",
+   "term": "Goldbach's conjecture",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "mathematics",
+    "primes"
+   ],
+   "difficulty": 2,
+   "related": [
+    "prime-number",
+    "twin-prime"
+   ],
+   "wikipedia": "Goldbach's conjecture",
+   "wikidata": null
+  },
+  {
+   "id": "hilberts-problems",
+   "term": "Hilbert's problems",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "mathematics",
+    "history"
+   ],
+   "difficulty": 3,
+   "related": [
+    "riemann-hypothesis"
+   ],
+   "wikipedia": "Hilbert's problems",
+   "wikidata": null
+  },
+  {
+   "id": "hubbles-law",
+   "term": "Hubble's law",
+   "aliases": [
+    "Hubble tension",
+    "expansion of the universe"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "cosmology"
+   ],
+   "difficulty": 4,
+   "related": [
+    "dark-energy"
+   ],
+   "wikipedia": "Hubble's law",
+   "wikidata": null
+  },
+  {
+   "id": "lonely-runner-conjecture",
+   "term": "Lonely runner conjecture",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "mathematics"
+   ],
+   "difficulty": 4,
+   "related": [],
+   "wikipedia": "Lonely runner conjecture",
+   "wikidata": null
+  },
+  {
+   "id": "navier-stokes",
+   "term": "Navier–Stokes existence and smoothness",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "physics",
+    "Millennium Prize"
+   ],
+   "difficulty": 5,
+   "related": [],
+   "wikipedia": "Navier–Stokes existence and smoothness",
+   "wikidata": null
+  },
+  {
+   "id": "origin-of-language",
+   "term": "Origin of language",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "linguistics",
+    "evolution"
+   ],
+   "difficulty": 3,
+   "related": [
+    "universal-grammar"
+   ],
+   "wikipedia": "Origin of language",
+   "wikidata": null
+  },
+  {
+   "id": "p-versus-np",
+   "term": "P versus NP problem",
+   "aliases": [
+    "P = NP"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "computer science",
+    "Millennium Prize"
+   ],
+   "difficulty": 4,
+   "related": [
+    "public-key-cryptography",
+    "big-o-notation"
+   ],
+   "wikipedia": "P versus NP problem",
+   "wikidata": null
+  },
+  {
+   "id": "quantum-gravity",
+   "term": "Quantum gravity",
+   "aliases": [
+    "theory of everything"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "physics"
+   ],
+   "difficulty": 5,
+   "related": [
+    "general-relativity"
+   ],
+   "wikipedia": "Quantum gravity",
+   "wikidata": null
+  },
+  {
+   "id": "riemann-hypothesis",
+   "term": "Riemann hypothesis",
+   "aliases": [],
+   "domain": "unsolved",
+   "tags": [
+    "mathematics",
+    "Millennium Prize"
+   ],
+   "difficulty": 5,
+   "related": [
+    "prime-number"
+   ],
+   "wikipedia": "Riemann hypothesis",
+   "wikidata": null
+  },
+  {
+   "id": "sleep",
+   "term": "Sleep",
+   "aliases": [
+    "why do we sleep?"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "biology"
+   ],
+   "difficulty": 2,
+   "related": [
+    "sleep-and-memory"
+   ],
+   "wikipedia": "Sleep",
+   "wikidata": null
+  },
+  {
+   "id": "twin-prime",
+   "term": "Twin prime",
+   "aliases": [
+    "twin prime conjecture"
+   ],
+   "domain": "unsolved",
+   "tags": [
+    "mathematics",
+    "primes"
+   ],
+   "difficulty": 3,
+   "related": [
+    "prime-number"
+   ],
+   "wikipedia": "Twin prime",
+   "wikidata": null
+  }
+ ]
+}

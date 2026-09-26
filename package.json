@@ -1,0 +1,30 @@
+{
+  "name": "mind-gym",
+  "productName": "Mind Gym",
+  "version": "0.1.0",
+  "description": "Brain training and curiosity: puzzles, games, a searchable keyword bank, and anti-AI-dependence exercises. Offline-first, private, no telemetry.",
+  "main": "src/main/main.js",
+  "author": "Nicolas",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test \"test/*.test.js\" \"test/*.test.mjs\"",
+    "keywords:build": "node scripts/build-keywords.js",
+    "words:build": "node scripts/build-words.js",
+    "icons": "node scripts/make-icons.js",
+    "dist": "electron-builder --win nsis --publish never"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Niick-pixel/Level-up-IQ.git"
+  },
+  "devDependencies": {
+    "an-array-of-english-words": "^2.0.0",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9",
+    "fuse.js": "^7.5.0"
+  }
+}

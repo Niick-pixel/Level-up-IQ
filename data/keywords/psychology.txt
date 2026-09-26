@@ -1,0 +1,17 @@
+confirmation-bias | Confirmation bias | | cognitive biases | 1 | dunning-kruger-effect, anchoring-effect |
+dunning-kruger-effect | Dunning–Kruger effect | | cognitive biases, metacognition | 1 | confirmation-bias |
+anchoring-effect | Anchoring effect | anchoring bias | cognitive biases, judgment | 2 | availability-heuristic |
+availability-heuristic | Availability heuristic | | heuristics | 2 | anchoring-effect |
+sunk-cost | Sunk cost | sunk cost fallacy | cognitive biases, economics | 2 | loss-aversion |
+loss-aversion | Loss aversion | | prospect theory | 2 | prospect-theory, sunk-cost |
+prospect-theory | Prospect theory | Kahneman and Tversky | decision making | 3 | loss-aversion, dual-process-theory |
+dual-process-theory | Dual process theory | System 1 and System 2; thinking fast and slow | decision making | 3 | prospect-theory |
+spacing-effect | Spacing effect | spaced repetition | memory, learning | 2 | testing-effect, forgetting-curve |
+testing-effect | Testing effect | retrieval practice | memory, learning | 2 | spacing-effect |
+forgetting-curve | Forgetting curve | Ebbinghaus | memory | 2 | spacing-effect |
+working-memory | Working memory | | memory, executive function | 2 | magical-number-seven |
+magical-number-seven | The Magical Number Seven, Plus or Minus Two | Miller's law | memory | 2 | working-memory |
+stroop-effect | Stroop effect | | attention | 2 | working-memory |
+flow | Flow (psychology) | being in the zone | motivation | 2 | |
+milgram-experiment | Milgram experiment | | social psychology, obedience | 2 | bystander-effect |
+bystander-effect | Bystander effect | | social psychology | 2 | milgram-experiment |

@@ -1,0 +1,16 @@
+modus-ponens | Modus ponens | | rules of inference | 2 | modus-tollens, syllogism |
+modus-tollens | Modus tollens | | rules of inference | 3 | modus-ponens |
+syllogism | Syllogism | | Aristotle, deduction | 2 | modus-ponens |
+straw-man | Straw man | strawman | fallacies | 1 | ad-hominem |
+ad-hominem | Ad hominem | | fallacies | 1 | straw-man |
+slippery-slope | Slippery slope | | fallacies | 1 | |
+false-dilemma | False dilemma | false dichotomy | fallacies | 1 | |
+post-hoc-ergo-propter-hoc | Post hoc ergo propter hoc | | fallacies, causation | 2 | correlation-does-not-imply-causation |
+correlation-does-not-imply-causation | Correlation does not imply causation | | causation, statistics | 1 | post-hoc-ergo-propter-hoc, simpsons-paradox |
+simpsons-paradox | Simpson's paradox | | statistics, paradoxes | 3 | correlation-does-not-imply-causation |
+base-rate-fallacy | Base rate fallacy | base rate neglect | fallacies, probability | 3 | bayes-theorem |
+gamblers-fallacy | Gambler's fallacy | Monte Carlo fallacy | fallacies, probability | 2 | law-of-large-numbers |
+begging-the-question | Begging the question | circular reasoning | fallacies | 2 | |
+liar-paradox | Liar paradox | this sentence is false | paradoxes | 3 | godels-incompleteness-theorems |
+knights-and-knaves | Knights and Knaves | | puzzles | 2 | |
+texas-sharpshooter-fallacy | Texas sharpshooter fallacy | | fallacies | 2 | |

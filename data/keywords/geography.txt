@@ -1,0 +1,15 @@
+mount-everest | Mount Everest | Chomolungma; Sagarmatha | mountains, Himalayas | 1 | |
+mariana-trench | Mariana Trench | Challenger Deep | oceans | 2 | |
+sahara | Sahara | | deserts, Africa | 1 | atacama-desert |
+amazon-river | Amazon River | | rivers, South America | 1 | amazon-rainforest, nile |
+nile | Nile | | rivers, Africa | 1 | amazon-river |
+dead-sea | Dead Sea | | lakes, Middle East | 2 | dead-sea-scrolls |
+lake-baikal | Lake Baikal | | lakes, Russia | 2 | |
+prime-meridian | Prime meridian | Greenwich meridian | cartography | 2 | mercator-projection, international-date-line |
+mercator-projection | Mercator projection | | cartography, maps | 2 | prime-meridian |
+international-date-line | International Date Line | | cartography, time | 2 | prime-meridian |
+enclave-and-exclave | Enclave and exclave | | borders | 3 | landlocked-country |
+landlocked-country | Landlocked country | doubly landlocked | borders | 2 | enclave-and-exclave |
+svalbard | Svalbard | | Arctic, Norway | 2 | |
+great-barrier-reef | Great Barrier Reef | | reefs, Australia | 1 | coral-reef |
+okavango-delta | Okavango Delta | | wetlands, Botswana | 3 | |

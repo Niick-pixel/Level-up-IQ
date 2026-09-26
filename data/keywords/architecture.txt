@@ -1,0 +1,16 @@
+pantheon | Pantheon, Rome | | Roman, domes | 2 | roman-concrete |
+hagia-sophia | Hagia Sophia | | Byzantine, domes | 2 | byzantine-empire |
+gothic-architecture | Gothic architecture | | styles, medieval | 2 | flying-buttress |
+flying-buttress | Flying buttress | | structures | 3 | gothic-architecture |
+great-pyramid-of-giza | Great Pyramid of Giza | | ancient, Egypt | 1 | |
+bauhaus | Bauhaus | | modernism, design | 2 | |
+brutalist-architecture | Brutalist architecture | brutalism | modernism | 2 | |
+fallingwater | Fallingwater | Frank Lloyd Wright | houses, modernism | 2 | |
+sagrada-familia | Sagrada Família | Gaudí | churches, Barcelona | 1 | |
+burj-khalifa | Burj Khalifa | | skyscrapers | 1 | taipei-101 |
+taipei-101 | Taipei 101 | | skyscrapers | 2 | tuned-mass-damper |
+geodesic-dome | Geodesic dome | Buckminster Fuller | structures | 3 | |
+angkor-wat | Angkor Wat | | temples, Khmer | 1 | |
+alhambra | Alhambra | | Islamic, palaces | 2 | |
+leaning-tower-of-pisa | Leaning Tower of Pisa | | foundations, Italy | 1 | |
+vernacular-architecture | Vernacular architecture | | styles | 3 | |

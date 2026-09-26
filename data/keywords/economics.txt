@@ -1,0 +1,16 @@
+supply-and-demand | Supply and demand | | markets | 1 | price-elasticity-of-demand |
+price-elasticity-of-demand | Price elasticity of demand | | markets | 3 | supply-and-demand |
+inflation | Inflation | | macroeconomics, money | 1 | hyperinflation |
+hyperinflation | Hyperinflation | | money, crises | 2 | inflation |
+opportunity-cost | Opportunity cost | | basics | 1 | comparative-advantage |
+comparative-advantage | Comparative advantage | | trade | 3 | opportunity-cost |
+tragedy-of-the-commons | Tragedy of the commons | | public goods, game theory | 2 | prisoners-dilemma |
+prisoners-dilemma | Prisoner's dilemma | | game theory | 2 | nash-equilibrium, tragedy-of-the-commons |
+nash-equilibrium | Nash equilibrium | | game theory | 3 | prisoners-dilemma |
+compound-interest | Compound interest | | finance | 1 | rule-of-72 |
+rule-of-72 | Rule of 72 | | finance, mental math | 2 | compound-interest |
+tulip-mania | Tulip mania | | bubbles, history | 2 | |
+great-depression | Great Depression | | crises, 20th century | 1 | |
+goodharts-law | Goodhart's law | | measurement, incentives | 2 | perverse-incentive |
+perverse-incentive | Perverse incentive | cobra effect | incentives | 2 | goodharts-law |
+moral-hazard | Moral hazard | | incentives, insurance | 3 | |

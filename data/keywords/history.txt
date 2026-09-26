@@ -1,0 +1,21 @@
+code-of-hammurabi | Code of Hammurabi | | ancient, law, Mesopotamia | 2 | rosetta-stone, cuneiform |
+rosetta-stone | Rosetta Stone | | ancient, Egypt, decipherment | 1 | egyptian-hieroglyphs |
+library-of-alexandria | Library of Alexandria | | ancient, Egypt, knowledge | 2 | |
+athenian-democracy | Athenian democracy | | ancient, Greece, politics | 2 | separation-of-powers |
+fall-of-the-western-roman-empire | Fall of the Western Roman Empire | fall of Rome | ancient, Rome | 2 | byzantine-empire |
+byzantine-empire | Byzantine Empire | Eastern Roman Empire | medieval | 2 | fall-of-the-western-roman-empire, fall-of-constantinople, hagia-sophia |
+fall-of-constantinople | Fall of Constantinople | | medieval, Ottoman | 2 | byzantine-empire |
+black-death | Black Death | bubonic plague pandemic | medieval, pandemics | 1 | germ-theory |
+magna-carta | Magna Carta | | medieval, law, England | 2 | habeas-corpus |
+mongol-empire | Mongol Empire | Genghis Khan | medieval, Asia | 2 | silk-road |
+silk-road | Silk Road | | trade, medieval | 1 | mongol-empire |
+columbian-exchange | Columbian exchange | | early modern, Americas | 2 | cocoa-bean |
+french-revolution | French Revolution | | modern, France | 2 | social-contract |
+industrial-revolution | Industrial Revolution | | modern, technology | 1 | steam-engine |
+meiji-restoration | Meiji Restoration | | modern, Japan | 3 | |
+world-war-i | World War I | First World War; Great War | 20th century, war | 1 | treaty-of-versailles, trench-warfare |
+treaty-of-versailles | Treaty of Versailles | | 20th century, diplomacy | 2 | world-war-i |
+cold-war | Cold War | | 20th century | 1 | cuban-missile-crisis, space-race, fall-of-the-berlin-wall |
+cuban-missile-crisis | Cuban Missile Crisis | October Crisis | 20th century, Cold War | 2 | cold-war, mutual-assured-destruction |
+fall-of-the-berlin-wall | Fall of the Berlin Wall | | 20th century, Cold War | 1 | cold-war |
+space-race | Space Race | | 20th century, space | 1 | cold-war, apollo-11 |

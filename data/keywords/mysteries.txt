@@ -1,0 +1,16 @@
+voynich-manuscript | Voynich manuscript | | manuscripts, undeciphered | 2 | linear-a |
+linear-a | Linear A | | scripts, undeciphered, Minoan | 3 | linear-b, voynich-manuscript, phaistos-disc |
+wow-signal | Wow! signal | | SETI, radio | 2 | fermi-paradox |
+tunguska-event | Tunguska event | | impacts, Siberia | 2 | |
+roanoke-colony | Roanoke Colony | Lost Colony | colonial America | 2 | |
+mary-celeste | Mary Celeste | | ships | 2 | |
+dyatlov-pass-incident | Dyatlov Pass incident | | expeditions | 2 | |
+nazca-lines | Nazca Lines | | geoglyphs, Peru | 2 | |
+kryptos | Kryptos | | cryptography, sculpture | 3 | |
+the-hum | The Hum | Taos Hum | acoustics | 3 | |
+ball-lightning | Ball lightning | | atmosphere | 2 | |
+tabbys-star | Tabby's Star | KIC 8462852 | stars | 3 | |
+oumuamua | ʻOumuamua | 1I/2017 U1 | interstellar objects | 3 | |
+phaistos-disc | Phaistos Disc | | scripts, undeciphered | 3 | linear-a |
+bloop | Bloop | | oceans, sound | 2 | |
+mpemba-effect | Mpemba effect | hot water freezes faster | physics, anomalies | 2 | |

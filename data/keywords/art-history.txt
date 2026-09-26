@@ -1,0 +1,16 @@
+renaissance | Renaissance | | periods | 1 | perspective |
+perspective | Perspective (graphical) | vanishing point; linear perspective | techniques | 2 | renaissance |
+chiaroscuro | Chiaroscuro | | techniques | 3 | caravaggio |
+caravaggio | Caravaggio | | Baroque, painters | 2 | chiaroscuro |
+mona-lisa | Mona Lisa | La Gioconda | paintings, Leonardo | 1 | sfumato |
+sfumato | Sfumato | | techniques | 3 | mona-lisa |
+impressionism | Impressionism | | movements | 1 | |
+cubism | Cubism | Picasso; Braque | movements | 2 | guernica |
+the-starry-night | The Starry Night | Van Gogh | paintings | 1 | |
+guernica | Guernica (Picasso) | | paintings, war | 2 | cubism |
+surrealism | Surrealism | Dalí; Magritte | movements | 2 | |
+lascaux | Lascaux | cave paintings | prehistoric | 2 | |
+frida-kahlo | Frida Kahlo | | painters, Mexico | 1 | mexican-muralism |
+mexican-muralism | Mexican muralism | Diego Rivera | movements, Mexico | 3 | frida-kahlo |
+ukiyo-e | Ukiyo-e | The Great Wave | Japanese, prints | 2 | |
+fountain-duchamp | Fountain (Duchamp) | readymade | conceptual art | 3 | |

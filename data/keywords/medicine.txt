@@ -1,0 +1,16 @@
+germ-theory | Germ theory of disease | | history of medicine, microbes | 2 | vaccine, john-snow, microscope |
+vaccine | Vaccine | vaccination | immunology | 1 | herd-immunity, smallpox, immune-system |
+herd-immunity | Herd immunity | community immunity | epidemiology | 2 | vaccine, basic-reproduction-number |
+basic-reproduction-number | Basic reproduction number | R0; R naught | epidemiology | 3 | herd-immunity |
+smallpox | Smallpox | variola | diseases, eradication | 2 | vaccine |
+antibiotic | Antibiotic | | drugs, bacteria | 1 | penicillin, antimicrobial-resistance |
+penicillin | Penicillin | Fleming | drugs, discovery | 1 | antibiotic |
+antimicrobial-resistance | Antimicrobial resistance | antibiotic resistance; superbugs | bacteria, evolution | 3 | antibiotic, horizontal-gene-transfer |
+placebo | Placebo | placebo effect | clinical trials | 2 | randomized-controlled-trial |
+randomized-controlled-trial | Randomized controlled trial | RCT | clinical trials, statistics | 3 | placebo |
+john-snow | John Snow | Broad Street pump | epidemiology, cholera | 2 | germ-theory |
+anesthesia | Anesthesia | anaesthesia | surgery | 2 | |
+insulin | Insulin | | hormones, diabetes | 2 | |
+immune-system | Immune system | | immunology | 1 | vaccine, autoimmunity |
+autoimmunity | Autoimmunity | autoimmune disease | immunology | 3 | immune-system |
+thalidomide | Thalidomide | | drugs, regulation | 3 | chirality |
