@@ -1,0 +1,28 @@
+/* The puzzles draw dark ink on a light background, so the canvas is always a soft "paper"
+   colour that matches the Mind Gym theme, even in the dark themes. */
+:root { --paper: #dedbeb; --ink: #1b1a24; --chrome: #12131f; --chrome-text: #e8e6f6; --line: rgba(255,255,255,0.12); }
+:root[data-theme="dusk"] { --paper: #eadbe4; --chrome: #1c1426; --chrome-text: #f4e6ef; }
+:root[data-theme="forest"] { --paper: #d7e6dd; --chrome: #0f1a17; --chrome-text: #e2f0e8; }
+:root[data-theme="sand"] { --paper: #f4eee4; --chrome: #f3eee6; --chrome-text: #3b342e; --line: rgba(80,60,40,0.15); }
+
+html, body { margin: 0; background: var(--chrome); color: var(--chrome-text);
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; font-size: 13px; }
+.hidden { display: none !important; }
+#gamemenu ul { list-style: none; margin: 0 0 8px; padding: 0; display: flex; gap: 6px; justify-content: center; }
+#gamemenu button {
+  font: inherit; color: inherit; background: transparent; border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px 12px; cursor: pointer;
+}
+#gamemenu button:hover { background: var(--line); }
+#gamemenu button:disabled { opacity: 0.45; cursor: default; }
+#resizable { position: relative; margin: 0 auto; }
+#puzzlecanvas { display: block; width: 100%; font-family: sans-serif; background: var(--paper); border-radius: 10px; outline: none; }
+#puzzlecanvas:focus-visible { box-shadow: 0 0 0 2px #b6a6ff; }
+#statusbar { margin-top: 6px; min-height: 18px; text-align: center; opacity: 0.8; }
+#resizehandle { position: absolute; right: -12px; bottom: 18px; cursor: se-resize; color: var(--chrome-text); opacity: 0.5; }
+#apology { text-align: center; padding: 40px; opacity: 0.7; }
+#cover { position: fixed; inset: 0; background: var(--chrome); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+#cover[hidden] { display: none; }
+/* Dialogs the puzzles may open (e.g. Mines' first click never needs one, but keep them usable) */
+#dlgdimmer { position: fixed; inset: 0; background: rgba(0,0,0,0.4); }
+#dlgform { position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background: var(--chrome); color: var(--chrome-text); padding: 16px; border-radius: 10px; border: 1px solid var(--line); }

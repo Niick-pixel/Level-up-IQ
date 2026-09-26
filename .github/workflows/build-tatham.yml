@@ -1,0 +1,90 @@
+name: Build Tatham puzzles
+
+# Builds 24 puzzles from Simon Tatham's Portable Puzzle Collection (MIT licence) to WebAssembly
+# and commits them to assets/tatham/ on the branch this runs on. Run it by hand from the
+# Actions tab; it only needs to run again to update the puzzles.
+#
+# One addition to upstream: a tiny exported function, mg_status(), that tells Mind Gym when a
+# puzzle is solved (it just returns midend_status()). Nothing else in the puzzles is changed.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Upstream commit or branch to build (default: main)'
+        default: 'main'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: 3.1.74
+
+      - name: Get the upstream source
+        run: |
+          git clone https://git.tartarus.org/simon/puzzles.git upstream
+          cd upstream
+          git checkout "${{ inputs.ref }}"
+          git log -1 --format='%H %cs' | tee ../upstream-commit.txt
+
+      - name: Add the mg_status() export
+        run: |
+          cd upstream
+          grep -q '^static midend \*me;' emcc.c
+          cat >> emcc.c <<'EOF'
+
+          /* Added by Mind Gym: lets the page ask whether the puzzle is solved (1), lost (-1) or in progress (0). */
+          #include <emscripten.h>
+          EMSCRIPTEN_KEEPALIVE int mg_status(void) { return me ? midend_status(me) : 0; }
+          EOF
+
+      - name: Build
+        run: |
+          emcmake cmake -S upstream -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build -j4 --target solo keen towers unequal pattern loopy lightup bridges net tents range galaxies magnets signpost dominosa filling palisade undead mines pearl tracks unruly map mosaic
+
+      - name: Collect the output
+        run: |
+          rm -rf assets/tatham
+          mkdir -p assets/tatham
+          for p in solo keen towers unequal pattern loopy lightup bridges net tents range galaxies magnets signpost dominosa filling palisade undead mines pearl tracks unruly map mosaic; do
+            cp build/$p.js build/$p.wasm assets/tatham/
+          done
+          cp upstream/LICENCE assets/tatham/LICENCE
+          {
+            echo "Built from https://git.tartarus.org/simon/puzzles.git"
+            echo "Commit: $(cat upstream-commit.txt)"
+            echo "Emscripten 3.1.74, $(date -u +%Y-%m-%d)"
+            echo "Change: emcc.c gains an exported mg_status() that returns midend_status()."
+          } > assets/tatham/VERSION
+          ls -la assets/tatham
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Record each puzzle's presets (headless Chromium)
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+          node scripts/tatham-presets.cjs
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/tatham
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Build Tatham puzzles ($(cut -c1-12 upstream-commit.txt))"
+            git push
+          fi

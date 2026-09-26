@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Puzzle</title>
+<link rel="stylesheet" href="host.css" />
+<!-- Host page for Simon Tatham's Portable Puzzle Collection (MIT licence, see /assets/tatham/LICENCE).
+     The element ids below are the ones the puzzles' own web front end (emccpre.js) looks for. -->
+</head>
+<body>
+<main id="puzzle" style="display: none">
+<form id="gamemenu"><ul>
+  <li class="hidden"><div tabindex="0">Game<ul>
+    <li><button type="button" id="specific">Enter game ID...</button></li>
+    <li><button type="button" id="random">Enter random seed...</button></li>
+    <li><button type="button" id="save">Download save file...</button></li>
+    <li><button type="button" id="load">Upload save file...</button></li>
+    <li><button type="button" id="prefs">Preferences...</button></li>
+  </ul></div></li>
+  <li class="hidden"><div tabindex="0">Type<ul role="menu" id="gametype"></ul></div></li>
+  <li class="hidden"><button type="button" id="new">New game</button></li>
+  <li><button type="button" id="restart" title="Restart (keeps the same puzzle)">Restart</button></li>
+  <li><button type="button" id="undo" title="Undo (U)">Undo</button></li>
+  <li><button type="button" id="redo" title="Redo (R)">Redo</button></li>
+  <li><button type="button" id="solve" title="Show the solution (ends the round)">Show solution</button></li>
+</ul></form>
+<div id="resizable">
+  <canvas id="puzzlecanvas" tabindex="0"></canvas>
+  <div id="statusbar"></div>
+  <svg id="resizehandle" aria-hidden="true" width="10" height="10"><path d="M8.5,1.5l-7,7m7,-4l-4,4m4,-1l-1,1" stroke="currentColor" stroke-linecap="round"></path></svg>
+</div>
+<p class="hidden"><a id="permalink-desc">by game ID</a> <a id="permalink-seed">by random seed</a></p>
+</main>
+<div id="apology"><p>Loading the puzzle…</p></div>
+<div id="cover" hidden><p>Paused</p></div>
+<script src="host.js"></script>
+</body>
+</html>
