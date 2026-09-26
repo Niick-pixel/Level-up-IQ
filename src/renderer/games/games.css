@@ -1,0 +1,119 @@
+/* Shared pieces for the game screens */
+.play-stage { position: relative; min-height: 440px; }
+.g-center { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 24px 0; }
+.g-big { font-size: 44px; font-weight: 600; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+.g-tally { font-size: 13px; }
+.g-answer {
+  font-size: 28px;
+  width: 220px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  outline: none;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.15s;
+}
+.g-answer:focus { border-color: var(--accent); }
+.g-answer.ok { border-color: var(--ok); }
+.g-answer.bad { border-color: var(--bad); }
+.g-timebar { width: min(520px, 90%); height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.g-timefill { height: 100%; width: 100%; background: var(--accent); transform-origin: left; }
+.g-msg { min-height: 20px; font-size: 13px; }
+.g-msg.bad { color: var(--bad); }
+.g-msg.ok { color: var(--ok); }
+
+/* Overlay used for intro, pause and results */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay);
+  border-radius: var(--radius);
+  z-index: 5;
+}
+.play-panel { max-width: 520px; width: 100%; text-align: center; padding: 28px; }
+.play-panel ul { text-align: left; margin: 10px auto 18px; max-width: 380px; padding-left: 20px; }
+.play-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.play-head .seed { font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+.results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+.results-grid .num { font-size: 22px; font-weight: 600; }
+.stepper { display: inline-flex; align-items: center; gap: 8px; }
+.stepper output { min-width: 26px; font-weight: 600; font-size: 18px; }
+
+/* Stroop: the stimulus sits on a fixed dark panel so every ink colour reads well in every theme */
+.stroop-stage {
+  position: relative;
+  width: 420px;
+  height: 240px;
+  border-radius: 16px;
+  background: #1b1b24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stroop-word { font-size: 52px; font-weight: 800; letter-spacing: 0.04em; color: #f2f2f2; }
+.stroop-stage.spatial .stroop-word { position: absolute; font-size: 30px; }
+.stroop-stage.spatial .pos-0 { left: 22px; top: 50%; transform: translateY(-50%); }
+.stroop-stage.spatial .pos-1 { right: 22px; top: 50%; transform: translateY(-50%); }
+.stroop-stage.spatial .pos-2 { top: 16px; left: 50%; transform: translateX(-50%); }
+.stroop-stage.spatial .pos-3 { bottom: 16px; left: 50%; transform: translateX(-50%); }
+.stroop-keys { display: flex; gap: 10px; }
+.stroop-keys .btn { min-width: 92px; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+
+/* n-back */
+.nback-grid { display: grid; grid-template-columns: repeat(3, 92px); gap: 8px; }
+.nback-cell {
+  width: 92px;
+  height: 92px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+}
+.nback-cell.on { background: var(--accent); color: var(--accent-ink); }
+.nback-keys .btn.hit { border-color: var(--ok); }
+.nback-keys .btn.miss { border-color: var(--bad); }
+.nback-keys .btn.pressed { background: var(--surface-2); }
+
+/* Schulte */
+.schulte-grid { display: grid; gap: 6px; }
+.schulte-grid button {
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 22px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.schulte-grid button.found { opacity: 0.35; }
+.schulte-grid button.cursor { outline: 2px solid var(--accent); outline-offset: 1px; }
+.schulte-grid button.wrong { border-color: var(--bad); }
+.schulte-grid.big button { width: 56px; height: 56px; font-size: 18px; }
+
+/* Word ladder */
+.ladder { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ladder .rung {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  min-width: 140px;
+  text-align: center;
+}
+.ladder .rung.end { border-color: var(--accent); }
+.ladder .rung .changed { color: var(--accent); }

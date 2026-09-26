@@ -21,7 +21,7 @@ class KeywordBank {
         { name: 'tags', weight: 1 },
         { name: 'domainLabel', weight: 0.5 },
       ],
-      threshold: 0.35,
+      threshold: 0.3,
       ignoreLocation: true,
       includeScore: true,
     });

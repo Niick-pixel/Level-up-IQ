@@ -14,17 +14,50 @@
     "icons": "node scripts/make-icons.js",
     "dist": "electron-builder --win nsis --publish never"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Niick-pixel/Level-up-IQ.git"
+  "build": {
+    "appId": "com.mindgym.app",
+    "productName": "Mind Gym",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Mind Gym",
+      "artifactName": "MindGym-Setup-${version}.${ext}"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Niick-pixel",
+        "repo": "Level-up-IQ"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9",
+    "fuse.js": "^7.5.0"
   },
   "devDependencies": {
     "an-array-of-english-words": "^2.0.0",
     "electron": "^44.4.5",
     "electron-builder": "^26.15.3"
   },
-  "dependencies": {
-    "electron-updater": "^6.8.9",
-    "fuse.js": "^7.5.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Niick-pixel/Level-up-IQ.git"
   }
 }

@@ -1,6 +1,13 @@
 # Mind Gym: Phase 0 plan
 
-Status: **plan only, no app code yet.** Waiting for your review before Phase 1.
+Status: **approved.** Phase 1 is built (see [`CHANGELOG.md`](../CHANGELOG.md)).
+
+> **Decisions (2026-09-26):**
+> 1. Build Mind Gym in this repository under the new name "Mind Gym"; updates publish from this repo's Releases.
+> 2. Stockfish: option (a), download the unmodified GPL-3.0 engine on first use and run it as a separate worker; Mind Gym stays MIT.
+> 3. The Trivia API (CC BY-NC): keep it; Mind Gym stays free.
+> 4. Network allowlist for the cloud dev environment: optional, instructions given.
+> 5. Word games are English-only for now; Spanish comes later.
 Date: 2026-09-26. Spec: [`MIND_GYM_SPEC.md`](MIND_GYM_SPEC.md).
 
 ---

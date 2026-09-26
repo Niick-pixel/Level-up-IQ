@@ -31,6 +31,8 @@ if (!app.requestSingleInstanceLock()) {
 }
 
 app.setAppUserModelId('com.mindgym.app');
+// Development and tests can point the data folder somewhere else.
+if (process.env.MIND_GYM_DATA_DIR) app.setPath('userData', process.env.MIND_GYM_DATA_DIR);
 registerSchemes(protocol);
 
 let store;
