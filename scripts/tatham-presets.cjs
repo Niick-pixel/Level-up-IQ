@@ -34,14 +34,18 @@ function serve() {
   const server = await serve();
   const base = `http://127.0.0.1:${server.address().port}`;
   const browser = await chromium.launch();
-  const page = await browser.newPage();
+  let page = await browser.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   const out = {};
 
-  for (const name of PUZZLES) {
+  const open = async (name) => {
     await page.goto(`${base}/tatham/host.html?p=${name}&t=night`);
     await page.waitForFunction(() => document.getElementById('puzzle').style.display === '', null, { timeout: 60000 });
+  };
+
+  for (const name of PUZZLES) {
+    await open(name);
     const hasStatus = await page.evaluate(() => typeof Module._mg_status === 'function');
     if (!hasStatus) throw new Error(`${name}: mg_status export missing (patch not applied?)`);
     const presets = await page.evaluate(() => window.mgPresets());
@@ -49,8 +53,19 @@ function serve() {
     for (const p of presets) {
       const before = await page.evaluate(() => window.mgPermalink());
       const t = Date.now();
-      await page.evaluate((v) => window.mgPickPreset(v), p.value);
-      await page.waitForFunction((b) => window.mgPermalink() !== b, before, { timeout: 60000 });
+      try {
+        await page.evaluate((v) => window.mgPickPreset(v), p.value);
+        await page.waitForFunction((b) => window.mgPermalink() !== b, before, { timeout: 15000 });
+      } catch {
+        // Too slow to generate (the page is busy): note it, reload, carry on.
+        console.log(`${name.padEnd(9)} ${p.name.padEnd(28)} (too slow, skipped)`);
+        list.push({ name: p.name, params: null, generateMs: 99999 });
+        await page.close();
+        page = await browser.newPage();
+        page.on('pageerror', (e) => errors.push(e.message));
+        await open(name);
+        continue;
+      }
       const ms = Date.now() - t;
       const link = await page.evaluate(() => window.mgPermalink());
       const params = link.split('#')[0];

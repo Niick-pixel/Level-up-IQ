@@ -76,6 +76,7 @@ export async function mountGame(el, opts) {
     let pausedAt = 0;
     let pausedTotal = 0;
     const ctx = {
+      gameId: meta.id,
       difficulty,
       seed,
       rng: makeRng(`${meta.id}:${difficulty}:${seed}`),
@@ -92,7 +93,7 @@ export async function mountGame(el, opts) {
     };
     entry.load().then((mod) => {
       if (phase !== 'playing') return;
-      instance = mod.start(board, ctx);
+      instance = (mod.start || mod.game.start)(board, ctx);
       instance._ctx = ctx;
     }).catch((err) => {
       board.append(h('p', { class: 'g-msg bad' }, `Could not start the game: ${err.message}`));
@@ -177,6 +178,8 @@ export async function mountGame(el, opts) {
       play();
     }
   };
+  // Pause when the app window loses focus (a Focus Point break, Alt+Tab…). This comes from the
+  // main process, because focus moving into an embedded puzzle frame also blurs the page.
   const onBlur = () => {
     if (phase === 'playing') {
       pausedByBlur = true;
@@ -184,8 +187,8 @@ export async function mountGame(el, opts) {
     }
   };
   document.addEventListener('keydown', onKey);
-  window.addEventListener('blur', onBlur);
-  cleanups.push(() => document.removeEventListener('keydown', onKey), () => window.removeEventListener('blur', onBlur));
+  const offBlur = window.api.onBlur(onBlur);
+  cleanups.push(() => document.removeEventListener('keydown', onKey), offBlur);
 
   if (opts.autostart) play();
   else intro();

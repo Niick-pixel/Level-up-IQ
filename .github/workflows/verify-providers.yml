@@ -45,7 +45,11 @@ jobs:
 
       - name: Build the offline Lichess puzzle pack
         if: inputs.build_puzzle_pack
-        run: node scripts/build-lichess-subset.js
+        run: |
+          curl -L --fail -A "MindGym (+https://github.com/Niick-pixel/Level-up-IQ)" -o db.csv.zst https://database.lichess.org/lichess_db_puzzle.csv.zst
+          file db.csv.zst
+          zstd -dc db.csv.zst | node scripts/build-lichess-subset.js
+          rm db.csv.zst
 
       - name: Upload report
         uses: actions/upload-artifact@v5

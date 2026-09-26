@@ -1,17 +1,14 @@
 // Builds assets/packs/lichess-puzzles.json: an offline set of ~30,000 chess puzzles from the
 // Lichess puzzle database (CC0, https://database.lichess.org/#puzzles), spread evenly across
-// ratings 400–3000 and limited to popular, well-tested puzzles. Streams the ~250 MB download;
-// nothing is written to disk but the result. Needs Node 22.15+ (zstd support). Run from CI.
+// ratings 400–3000 and limited to popular, well-tested puzzles. Reads the decompressed CSV
+// from stdin. Run from CI:
+//   curl -L --fail -o db.csv.zst https://database.lichess.org/lichess_db_puzzle.csv.zst
+//   zstd -dc db.csv.zst | node scripts/build-lichess-subset.js
 //
 // CSV columns: PuzzleId,FEN,Moves,Rating,RatingDeviation,Popularity,NbPlays,Themes,GameUrl,OpeningTags
 const fs = require('fs');
 const path = require('path');
-const zlib = require('zlib');
 const readline = require('readline');
-const { Readable } = require('stream');
-const pkg = require('../package.json');
-
-const URL_DB = 'https://database.lichess.org/lichess_db_puzzle.csv.zst';
 const OUT = path.join(__dirname, '..', 'assets', 'packs', 'lichess-puzzles.json');
 const MIN = 400, MAX = 3000, BUCKET = 100;
 const PER_BUCKET = Math.ceil(30000 / ((MAX - MIN) / BUCKET));
@@ -29,16 +26,17 @@ function rng(seed) {
 }
 
 (async () => {
-  if (typeof zlib.createZstdDecompress !== 'function') throw new Error('Needs Node 22.15+ for zstd');
-  const res = await fetch(URL_DB, { headers: { 'User-Agent': `MindGym/${pkg.version} (+https://github.com/Niick-pixel/Level-up-IQ)` } });
-  if (!res.ok) throw new Error(`Download failed: ${res.status}`);
-  const lines = readline.createInterface({ input: Readable.fromWeb(res.body).pipe(zlib.createZstdDecompress()), crlfDelay: Infinity });
+  const lines = readline.createInterface({ input: process.stdin, crlfDelay: Infinity });
   const random = rng(20260926);
   const buckets = new Map();
   let seen = 0;
   let header = true;
   for await (const line of lines) {
-    if (header) { header = false; continue; }
+    if (header) {
+      header = false;
+      if (!line.startsWith('PuzzleId,')) throw new Error(`Unexpected CSV header: ${line.slice(0, 80)}`);
+      continue;
+    }
     const [id, fen, moves, rating, , popularity, plays, themes] = line.split(',');
     const r = Number(rating);
     if (!(r >= MIN && r < MAX) || Number(popularity) < 85 || Number(plays) < 500) continue;
@@ -54,6 +52,7 @@ function rng(seed) {
     }
     if (++seen % 500000 === 0) console.log(`${seen} candidate puzzles read…`);
   }
+  if (!seen) throw new Error('No puzzles read');
   const puzzles = [...buckets.keys()].sort((a, b) => a - b).flatMap((b) => buckets.get(b).items).sort((a, b) => a[3] - b[3]);
   fs.writeFileSync(OUT, JSON.stringify({
     source: 'Lichess puzzle database (https://database.lichess.org/#puzzles)',
