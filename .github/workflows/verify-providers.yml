@@ -1,0 +1,69 @@
+name: Verify online sources
+
+# Checks that every online source Mind Gym uses still answers the way the app expects,
+# that every keyword's Wikipedia title resolves to a Wikidata item, and that the offline
+# country capitals match Wikidata. The report appears in the run's summary.
+#
+# Run it by hand (Actions → Verify online sources → Run workflow) to also:
+#   - save the keyword → Wikidata IDs and rebuild assets/keywords.json, and/or
+#   - rebuild the offline Lichess puzzle pack,
+# committing the results to the branch you ran it on.
+on:
+  schedule:
+    - cron: '17 6 * * 1' # Mondays
+  workflow_dispatch:
+    inputs:
+      commit_keyword_ids:
+        description: 'Save keyword Wikidata IDs and commit them'
+        type: boolean
+        default: false
+      build_puzzle_pack:
+        description: 'Rebuild the offline Lichess puzzle pack and commit it'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Check providers, keywords and capitals
+        run: node scripts/verify-providers.js ${{ inputs.commit_keyword_ids && '--write' || '' }}
+
+      - name: Rebuild keywords with the new Wikidata IDs
+        if: inputs.commit_keyword_ids
+        run: npm run keywords:build
+
+      - name: Build the offline Lichess puzzle pack
+        if: inputs.build_puzzle_pack
+        run: node scripts/build-lichess-subset.js
+
+      - name: Upload report
+        uses: actions/upload-artifact@v5
+        with:
+          name: verify-report
+          path: verify-report.json
+
+      - name: Commit results
+        if: inputs.commit_keyword_ids || inputs.build_puzzle_pack
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in data/keywords/wikidata.json assets/keywords.json assets/packs/lichess-puzzles.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Update data from the online-source verification run"
+            git push
+          fi

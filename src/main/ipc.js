@@ -12,7 +12,7 @@ const ID = /^[a-z0-9-]{1,80}$/;
  */
 function registerIpc({
   ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard,
-  onSettingsChanged,
+  onSettingsChanged, cache, providers, learning, sessions,
 }) {
   const handle = (channel, fn) => ipcMain.handle(channel, (_e, ...args) => fn(...args));
 
@@ -55,6 +55,51 @@ function registerIpc({
     return Boolean(k);
   });
   handle('keywords:count', () => bank.keywords.length);
+  handle('keywords:user', () => learning.userKeywords());
+  handle('keywords:add', async (title, domain) => {
+    if (!bank.domains.some((d) => d.id === domain)) throw new Error('Pick a domain');
+    const summary = await providers.wikipedia.summary(str(title, 300));
+    if (summary.type === 'disambiguation') throw new Error('That title is a disambiguation page; pick a more specific article.');
+    const known = bank.keywords.find((k) => k.wikipedia.toLowerCase() === summary.title.toLowerCase());
+    if (known) return known;
+    return bank.add(learning.addUserKeyword({ summary, domain, taken: (id) => Boolean(bank.get(id)) }));
+  });
+  handle('keywords:remove', (id) => {
+    if (!ID.test(id || '')) return false;
+    return bank.remove(id) && learning.removeUserKeyword(id);
+  });
+  handle('keywords:suggest', (id) => (ID.test(id || '') ? sessions.suggestions(id) : []));
+  handle('wiki:search', (q) => providers.wikipedia.search(str(q, 100)));
+  handle('wiki:random', () => providers.wikipedia.random());
+
+  // --- keyword sessions (spec §2)
+  const kid = (id) => {
+    if (!ID.test(id || '')) throw new Error('Unknown keyword');
+    return id;
+  };
+  handle('session:learn', (id) => sessions.learn(kid(id)));
+  handle('session:quiz', (id, seed) => sessions.quiz(kid(id), str(seed, 40) || undefined));
+  handle('session:puzzle', (id) => sessions.puzzleFor(kid(id)));
+  handle('session:compare', (id, text) => sessions.compare(kid(id), str(text, 5000)));
+  handle('session:finish', (id, r = {}) => sessions.finish(kid(id), {
+    quizCorrect: Math.max(0, Math.min(20, Number(r.quizCorrect) || 0)),
+    quizTotal: Math.max(0, Math.min(20, Number(r.quizTotal) || 0)),
+    explainScore: Math.max(0, Math.min(1, Number(r.explainScore) || 0)),
+    activeMs: Math.max(0, Math.min(3 * 3600 * 1000, Number(r.activeMs) || 0)),
+    predicted: Boolean(r.predicted),
+    explained: Boolean(r.explained),
+  }));
+  handle('home:extras', () => sessions.homeExtras(dateKey()));
+  handle('cards:count', () => learning.cardCount());
+  handle('cards:recent', () => learning.recentCards(50));
+
+  // --- online sources and cache
+  handle('providers:list', () => ({ offline: store.get().offlineMode, providers: providers.list() }));
+  handle('cache:size', () => cache.sizeBytes());
+  handle('cache:clear', () => {
+    cache.clear();
+    return true;
+  });
 
   // --- games, stats, ratings
   handle('rating:suggest', (skills) => ratings.suggest(Array.isArray(skills) ? skills : [], store.get().difficultyBias));

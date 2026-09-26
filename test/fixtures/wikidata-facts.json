@@ -1,0 +1,27 @@
+{
+  "head": { "vars": ["prop", "value", "valueLabel", "precision"] },
+  "results": { "bindings": [
+    { "prop": { "type": "uri", "value": "http://www.wikidata.org/entity/P577" },
+      "value": { "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "type": "literal", "value": "1605-01-01T00:00:00Z" },
+      "valueLabel": { "type": "literal", "value": "1605-01-01T00:00:00Z" },
+      "precision": { "datatype": "http://www.w3.org/2001/XMLSchema#integer", "type": "literal", "value": "9" } },
+    { "prop": { "type": "uri", "value": "http://www.wikidata.org/entity/P577" },
+      "value": { "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "type": "literal", "value": "1615-01-01T00:00:00Z" },
+      "valueLabel": { "type": "literal", "value": "1615-01-01T00:00:00Z" },
+      "precision": { "datatype": "http://www.w3.org/2001/XMLSchema#integer", "type": "literal", "value": "9" } },
+    { "prop": { "type": "uri", "value": "http://www.wikidata.org/entity/P571" },
+      "value": { "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "type": "literal", "value": "1600-01-01T00:00:00Z" },
+      "valueLabel": { "type": "literal", "value": "1600-01-01T00:00:00Z" },
+      "precision": { "datatype": "http://www.w3.org/2001/XMLSchema#integer", "type": "literal", "value": "7" } },
+    { "prop": { "type": "uri", "value": "http://www.wikidata.org/entity/P50" },
+      "value": { "type": "uri", "value": "http://www.wikidata.org/entity/Q5682" },
+      "valueLabel": { "xml:lang": "en", "type": "literal", "value": "Miguel de Cervantes" } },
+    { "prop": { "type": "uri", "value": "http://www.wikidata.org/entity/P17" },
+      "value": { "type": "uri", "value": "http://www.wikidata.org/entity/Q999999999" },
+      "valueLabel": { "type": "literal", "value": "Q999999999" } },
+    { "prop": { "type": "uri", "value": "http://www.wikidata.org/entity/P585" },
+      "value": { "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "type": "literal", "value": "-0480-08-01T00:00:00Z" },
+      "valueLabel": { "type": "literal", "value": "-0480-08-01T00:00:00Z" },
+      "precision": { "datatype": "http://www.w3.org/2001/XMLSchema#integer", "type": "literal", "value": "11" } }
+  ] }
+}

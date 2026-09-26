@@ -1,6 +1,6 @@
 const path = require('path');
 const {
-  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, Notification, nativeImage,
+  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, net, Notification, nativeImage,
 } = require('electron');
 const { Store } = require('./store');
 const { Stats } = require('./stats');
@@ -8,7 +8,11 @@ const { Ratings } = require('./rating');
 const { KeywordBank } = require('./keywords');
 const { createUpdater } = require('./updater');
 const { guardWindow } = require('./window-guard');
-const { registerSchemes, handleProtocol, appUrl, SCHEME } = require('./protocol');
+const { registerSchemes, handleProtocol, handleCacheProtocol, appUrl, SCHEME, CACHE_SCHEME } = require('./protocol');
+const { DiskCache } = require('./cache');
+const { createProviders } = require('./providers/registry');
+const { Learning } = require('./learning');
+const { KeywordSessions } = require('./session');
 const { isAllowedLink } = require('./links');
 const { registerIpc } = require('./ipc');
 const { localDateKey } = require('../shared/rng.js');
@@ -40,6 +44,10 @@ let stats;
 let ratings;
 let bank;
 let updater;
+let cache;
+let providers;
+let learning;
+let sessions;
 let win = null;
 let guard = null;
 let tray = null;
@@ -203,19 +211,36 @@ app.whenReady().then(() => {
   stats = new Stats(dir, { dateKey });
   ratings = new Ratings(dir, { dateKey });
   bank = KeywordBank.load();
+  learning = new Learning(dir);
+  for (const k of learning.userKeywords()) bank.add(k);
 
-  // The renderer never talks to the network in this phase; deny any permission requests too.
+  // Online content is fetched only here in the main process, through the providers, on a
+  // separate network session. The pages themselves can't reach the network at all.
+  cache = new DiskCache(path.join(dir, 'cache'));
+  const userAgent = `MindGym/${app.getVersion()} (+https://github.com/Niick-pixel/Level-up-IQ)`;
+  const netSession = session.fromPartition('mind-gym-net');
+  netSession.setUserAgent(userAgent); // Wikimedia asks every client to identify itself
+  providers = createProviders({
+    fetch: (url, opts) => netSession.fetch(url, opts),
+    cache,
+    userAgent,
+    isOnline: () => net.isOnline(),
+    getSettings: () => store.get(),
+  });
+  sessions = new KeywordSessions({ bank, providers, learning, stats, ratings, dateKey });
+
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
-    const ok = details.url.startsWith(`${SCHEME}://`) || details.url.startsWith('devtools://') || details.url.startsWith('data:');
+    const ok = [`${SCHEME}://`, `${CACHE_SCHEME}://`, 'devtools://', 'data:'].some((p) => details.url.startsWith(p));
     cb({ cancel: !ok });
   });
   handleProtocol(protocol);
+  handleCacheProtocol(protocol, cache);
 
   updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
 
   registerIpc({
-    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, guard: {
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, guard: {
       setFullscreen: (on) => guard?.setFullscreen(on),
       toggleMaximize: () => guard?.toggleMaximize(),
     },

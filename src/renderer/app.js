@@ -5,10 +5,11 @@ import { renderHome } from './views/home.js';
 import { renderMix } from './views/mix.js';
 import { renderGames } from './views/games.js';
 import { renderPlay } from './views/play.js';
-import { renderKeywords, renderKeyword } from './views/keywords.js';
+import { renderKeywords } from './views/keywords.js';
+import { renderSession } from './views/session.js';
 import { renderStats } from './views/stats.js';
 import { renderSettings } from './views/settings.js';
-import { renderLicenses, renderComingSoon } from './views/misc.js';
+import { renderLicenses, renderComingSoon, renderReview } from './views/misc.js';
 
 const view = document.getElementById('view');
 
@@ -19,12 +20,11 @@ const ROUTES = [
   [/^\/games$/, 'games', renderGames],
   [/^\/play\/([a-z0-9-]+)$/, 'games', renderPlay],
   [/^\/keywords$/, 'keywords', renderKeywords],
-  [/^\/keyword\/([a-z0-9-]+)$/, 'keywords', renderKeyword],
+  [/^\/keyword\/([a-z0-9-]+)$/, 'keywords', renderSession],
   [/^\/stats$/, 'stats', renderStats],
   [/^\/settings$/, 'settings', renderSettings],
   [/^\/licenses$/, 'settings', renderLicenses],
-  [/^\/review$/, 'review', renderComingSoon('Review queue',
-    'Spaced repetition (FSRS) arrives in a later phase: facts from keyword sessions, vocabulary and video recall will come back here right before you would forget them.')],
+  [/^\/review$/, 'review', renderReview],
   [/^\/watch$/, 'watch', renderComingSoon('Watch later',
     'Documentary and video suggestions from curated channels arrive in a later phase, with three recall questions after each video.')],
 ];

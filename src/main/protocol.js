@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SCHEME = 'app';
+const CACHE_SCHEME = 'mg-cache'; // cached images: mg-cache://img/<sha1>
 const HOST = 'mind-gym';
 const ROOT = path.join(__dirname, '..', '..');
 
@@ -12,6 +13,7 @@ const ROOT = path.join(__dirname, '..', '..');
 const MOUNTS = [
   ['/shared/', path.join(ROOT, 'src', 'shared')],
   ['/assets/', path.join(ROOT, 'assets')],
+  ['/vendor/flags/', path.join(ROOT, 'node_modules', 'flag-icons', 'flags')],
   ['/', path.join(ROOT, 'src', 'renderer')],
 ];
 
@@ -51,6 +53,7 @@ function resolvePath(urlPath) {
 function registerSchemes(protocol) {
   protocol.registerSchemesAsPrivileged([
     { scheme: SCHEME, privileges: { standard: true, secure: true, supportFetchAPI: true } },
+    { scheme: CACHE_SCHEME, privileges: { standard: true, secure: true } },
   ]);
 }
 
@@ -69,6 +72,17 @@ function handleProtocol(protocol) {
   });
 }
 
+/** Serves images the main process downloaded into the cache (never fetches anything itself). */
+function handleCacheProtocol(protocol, cache) {
+  protocol.handle(CACHE_SCHEME, (request) => {
+    const url = new URL(request.url);
+    const hash = url.host === 'img' ? url.pathname.slice(1) : '';
+    const img = cache.getImage(hash);
+    if (!img) return new Response('Not found', { status: 404 });
+    return new Response(img.buffer, { headers: { 'content-type': img.type, 'x-content-type-options': 'nosniff' } });
+  });
+}
+
 const appUrl = (p = '/index.html') => `${SCHEME}://${HOST}${p}`;
 
-module.exports = { registerSchemes, handleProtocol, resolvePath, appUrl, SCHEME, HOST };
+module.exports = { registerSchemes, handleProtocol, handleCacheProtocol, resolvePath, appUrl, SCHEME, CACHE_SCHEME, HOST };

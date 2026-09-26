@@ -231,3 +231,32 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ---- keyword session ---- */
+.stepper-bar { list-style: none; display: flex; gap: 6px; padding: 0; margin: 0 0 16px; flex-wrap: wrap; }
+.stepper-bar button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+.stepper-bar li.done button { color: var(--text); }
+.stepper-bar li.current button { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 600; }
+.stepper-bar button:disabled { cursor: default; }
+.session .card.hero p { max-width: 70ch; }
+.summary-img { float: right; max-width: 220px; max-height: 220px; margin: 0 0 12px 18px; border-radius: 10px; object-fit: cover; }
+.prediction { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 6px; margin-bottom: 14px; }
+.facts th { width: 200px; }
+.options { display: grid; gap: 8px; margin: 14px 0; max-width: 640px; }
+.btn.option { text-align: left; border-radius: 12px; padding: 10px 14px; font-size: 14px; }
+.btn.option.right { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 18%, transparent); }
+.btn.option.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 18%, transparent); }
+.btn.option:disabled { opacity: 1; }
+blockquote { margin: 8px 0; padding: 10px 14px; border-left: 3px solid var(--line); background: var(--surface); border-radius: 6px; max-width: 70ch; }
+.chip.ok { border-color: var(--ok); }
+.cards-list { padding-left: 18px; }
+.cards-list li { margin-bottom: 8px; }
+.attrib { margin-top: 12px; }
+details summary { cursor: pointer; color: var(--muted); }

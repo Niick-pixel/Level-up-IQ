@@ -59,11 +59,19 @@ class Stats {
     return { newBest };
   }
 
-  /** Marks a keyword as explored (feeds "outside my comfort zone"). */
-  exploreKeyword(id, domain) {
+  /**
+   * Marks a keyword as explored (feeds "outside my comfort zone" and the curiosity map).
+   * @param {{ quiz: number, explain: number }} [mastery] best scores from a finished session
+   */
+  exploreKeyword(id, domain, mastery) {
     const k = this.data.keywords[id] || { first: this.now(), count: 0, domain };
     k.count += 1;
     k.last = this.now();
+    if (mastery) {
+      k.sessions = (k.sessions || 0) + 1;
+      k.bestQuiz = Math.max(k.bestQuiz || 0, mastery.quiz || 0);
+      k.bestExplain = Math.max(k.bestExplain || 0, mastery.explain || 0);
+    }
     this.data.keywords[id] = k;
     writeJson(this.file, this.data);
   }

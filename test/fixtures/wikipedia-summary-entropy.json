@@ -1,0 +1,15 @@
+{
+  "type": "standard",
+  "title": "Entropy",
+  "displaytitle": "<span class=\"mw-page-title-main\">Entropy</span>",
+  "wikibase_item": "Q45003",
+  "titles": { "canonical": "Entropy", "normalized": "Entropy", "display": "Entropy" },
+  "pageid": 9891,
+  "thumbnail": { "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Example.png/320px-Example.png", "width": 320, "height": 213 },
+  "lang": "en",
+  "dir": "ltr",
+  "description": "Property of a thermodynamic system",
+  "content_urls": { "desktop": { "page": "https://en.wikipedia.org/wiki/Entropy" }, "mobile": { "page": "https://en.m.wikipedia.org/wiki/Entropy" } },
+  "extract": "Entropy is a scientific concept that is most commonly associated with a state of disorder, randomness, or uncertainty. The term and the concept are used in diverse fields, from classical thermodynamics, where it was first recognized, to the microscopic description of nature in statistical physics, and to the principles of information theory. The thermodynamic concept was referred to by Scottish scientist and engineer William Rankine in 1850 with the names thermodynamic function and heat-potential. In 1865, German physicist Rudolf Clausius, one of the leading founders of the field of thermodynamics, defined it as the quotient of an infinitesimal amount of heat to the instantaneous temperature.",
+  "extract_html": "<p><b>Entropy</b> is a scientific concept…</p>"
+}

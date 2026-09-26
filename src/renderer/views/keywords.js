@@ -1,8 +1,58 @@
-import { h, clear, extLink, wikipediaUrl } from '../ui.js';
+import { h, clear, toast } from '../ui.js';
+
+const errText = (err) => String(err?.message || err).replace(/^Error invoking remote method '[^']+': (Error: )?/, '');
 
 const kwCard = (k) => h('a', { class: 'card', href: `#/keyword/${k.id}` },
   h('div', { class: 'kw-term' }, k.term),
-  h('div', { class: 'kw-meta' }, `${k.domainLabel} · level ${k.difficulty}`));
+  h('div', { class: 'kw-meta' }, `${k.domainLabel} · level ${k.difficulty}${k.user ? ' · yours' : ''}`));
+
+/** "Add a keyword": search Wikipedia, pick an article and a domain. */
+function addKeywordCard(domains) {
+  const input = h('input', { type: 'text', placeholder: 'Any topic, e.g. “Tardigrade”', 'aria-label': 'Topic to add', style: { width: '280px' } });
+  const domainSel = h('select', { 'aria-label': 'Domain' }, domains.map((d) => h('option', { value: d.id }, d.label)));
+  const list = h('div', { class: 'chips', style: { marginTop: '10px' } });
+  const msg = h('span', { class: 'muted small' });
+  let t = 0;
+  const add = async (title) => {
+    msg.textContent = 'Adding…';
+    try {
+      const k = await window.api.addKeyword(title, domainSel.value);
+      location.hash = `#/keyword/${k.id}`;
+    } catch (err) {
+      msg.textContent = errText(err);
+    }
+  };
+  input.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(async () => {
+      if (!input.value.trim()) return clear(list);
+      try {
+        const results = await window.api.wikiSearch(input.value);
+        msg.textContent = results.length ? 'Pick the article you mean:' : 'No Wikipedia articles found.';
+        clear(list).append(...results.map((r) => h('button', { class: 'chip', type: 'button', title: r.description, onclick: () => add(r.title) }, `+ ${r.title}`)));
+      } catch (err) {
+        msg.textContent = `Needs Wikipedia (online): ${errText(err)}`;
+      }
+    }, 300);
+  });
+  const surprise = async () => {
+    msg.textContent = 'Rolling…';
+    try {
+      const r = await window.api.wikiRandom();
+      msg.textContent = r.description ? `${r.title}: ${r.description}` : r.title;
+      clear(list).append(
+        h('button', { class: 'chip', type: 'button', onclick: () => add(r.title) }, `+ Add “${r.title}”`),
+        h('button', { class: 'chip', type: 'button', onclick: surprise }, 'Another'));
+    } catch (err) {
+      msg.textContent = `Needs Wikipedia (online): ${errText(err)}`;
+    }
+  };
+  return h('div', { class: 'card', style: { marginBottom: '16px' } },
+    h('h3', {}, 'Add a keyword'),
+    h('div', { class: 'row' }, input, h('span', { class: 'muted small' }, 'in'), domainSel,
+      h('button', { class: 'btn small', type: 'button', onclick: surprise }, 'Random Wikipedia article')),
+    list, msg);
+}
 
 /** Keyword browser: search, domain filter, and the random modes. */
 export async function renderKeywords(el) {
@@ -47,40 +97,7 @@ export async function renderKeywords(el) {
       h('button', { class: 'btn small', type: 'button', onclick: () => go(domain ? { mode: 'domain', domain } : { mode: 'any' }) }, 'Random in domain'),
       h('button', { class: 'btn small', type: 'button', onclick: () => go({ mode: 'comfort' }), title: 'Weighted toward domains you have explored least' }, 'Outside my comfort zone')),
     h('div', { class: 'chips', style: { marginBottom: '16px' } }, chips),
+    addKeywordCard(domains),
     list));
   refresh();
-}
-
-/** One keyword. Full sessions (summary, quiz, videos) arrive with online content in Phase 2. */
-export async function renderKeyword(el, params) {
-  const k = await window.api.getKeyword(params.id);
-  if (!k) {
-    el.append(h('div', { class: 'page' }, h('p', {}, 'Keyword not found.')));
-    return;
-  }
-  window.api.exploreKeyword(k.id);
-  const rabbit = async () => {
-    const next = await window.api.randomKeyword({ mode: 'rabbit', fromId: k.id });
-    location.hash = `#/keyword/${next.id}`;
-  };
-  const predict = h('textarea', { placeholder: 'Predict first: in one sentence, what do you think this is? (Stays on this screen; nothing is saved yet.)', 'aria-label': 'Your prediction' });
-
-  el.append(h('div', { class: 'page' },
-    h('div', { class: 'page-head' },
-      h('div', {}, h('div', { class: 'eyebrow muted small' }, `${k.domainLabel} · level ${k.difficulty}`), h('h1', {}, k.term)),
-      h('div', { class: 'row' },
-        h('button', { class: 'btn small', type: 'button', onclick: rabbit }, 'Rabbit hole →'),
-        h('a', { class: 'btn small', href: '#/keywords' }, 'All keywords'))),
-    k.aliases.length ? h('p', { class: 'muted' }, `Also: ${k.aliases.join(', ')}`) : null,
-    h('div', { class: 'chips', style: { marginBottom: '16px' } }, k.tags.map((t) => h('span', { class: 'chip' }, t))),
-    h('div', { class: 'card hero' },
-      h('h3', {}, '1 · Predict first'),
-      predict,
-      h('p', { class: 'muted small', style: { marginTop: '10px' } },
-        'The full keyword session (summary, quiz, puzzle tie-in, explain-it-back and videos) arrives in the next phase. For now, read about it on ',
-        extLink(wikipediaUrl(k.wikipedia), 'Wikipedia'), ' after you\'ve made your prediction.')),
-    k.neighbours.length ? [
-      h('h2', { style: { marginTop: '22px' } }, 'Related'),
-      h('div', { class: 'chips' }, k.neighbours.map((n) => h('a', { class: 'chip', href: `#/keyword/${n.id}` }, n.term))),
-    ] : null));
 }

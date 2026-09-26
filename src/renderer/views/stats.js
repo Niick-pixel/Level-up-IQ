@@ -33,7 +33,7 @@ function radar(ratings) {
 export async function renderStats(el) {
   const sum = await window.api.statsSummary();
   const max = Math.max(1, ...sum.recent.map((d) => d.ms));
-  const nameOf = (id) => GAMES.find((g) => g.meta.id === id)?.meta.name || id;
+  const nameOf = (id) => (id === 'keyword-session' ? 'Keyword sessions' : GAMES.find((g) => g.meta.id === id)?.meta.name || id);
   const exp = async (format) => {
     const file = await window.api.exportStats(format);
     if (file) toast(`Saved ${file}`);

@@ -1,0 +1,9 @@
+{
+  "events": [
+    { "text": "The first Voyager Golden Record is launched into space aboard Voyager 2.", "year": 1977,
+      "pages": [ { "title": "Voyager_Golden_Record", "titles": { "normalized": "Voyager Golden Record" }, "content_urls": { "desktop": { "page": "https://en.wikipedia.org/wiki/Voyager_Golden_Record" } } } ] },
+    { "text": "An unrelated event happens.", "year": 1602,
+      "pages": [ { "title": "Something_else", "titles": { "normalized": "Something else" }, "content_urls": { "desktop": { "page": "https://en.wikipedia.org/wiki/Something_else" } } } ] },
+    { "text": "Malformed event without a year." }
+  ]
+}

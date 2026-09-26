@@ -1,0 +1,8 @@
+{ "response_code": 0, "results": [
+  { "type": "multiple", "difficulty": "medium", "category": "Science%20%26%20Nature",
+    "question": "What%20is%20the%20chemical%20symbol%20for%20%22gold%22%3F",
+    "correct_answer": "Au", "incorrect_answers": ["Ag", "Gd", "Go"] },
+  { "type": "multiple", "difficulty": "easy", "category": "Science%20%26%20Nature",
+    "question": "Which%20planet%20is%20known%20as%20the%20Red%20Planet%3F",
+    "correct_answer": "Mars", "incorrect_answers": ["Venus", "Jupiter", "Mercury"] }
+] }

@@ -1,4 +1,4 @@
-import { h, toast } from '../ui.js';
+import { h, toast, clear } from '../ui.js';
 import { state } from '../state.js';
 
 export async function renderSettings(el) {
@@ -50,6 +50,9 @@ export async function renderSettings(el) {
       field('Word games language', 'Spanish support comes later.', select('wordLanguage', [['en', 'English']])),
       field('Colour-blind mode', 'Stroop switches to a spatial version that never relies on colour.', toggle('colorblind'))),
 
+    h('h2', { style: { marginTop: '22px' } }, 'Online sources'),
+    await onlineSection(save),
+
     h('h2', { style: { marginTop: '22px' } }, 'Window and Focus Point'),
     h('div', { class: 'card' },
       field('Keep Focus Point breaks working when maximized',
@@ -93,4 +96,37 @@ export async function renderSettings(el) {
       field('Attributions and licenses', null, h('a', { class: 'btn small', href: '#/licenses' }, 'Open'))),
   ));
   return off;
+}
+
+async function onlineSection(save) {
+  const box = h('div', { class: 'card' });
+  const fmtBytes = (b) => (b > 1048576 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.round(b / 1024)} KB`);
+  async function draw() {
+    const [{ offline, providers }, size] = await Promise.all([window.api.providers(), window.api.cacheSize()]);
+    const s = state.settings;
+    const offlineToggle = h('input', {
+      type: 'checkbox', class: 'switch', role: 'switch', checked: offline,
+      onchange: async (e) => { await save({ offlineMode: e.target.checked }); draw(); },
+    });
+    const rows = providers.map((p) => {
+      const status = !p.enabled ? 'Off' : p.lockedFor ? 'Resting (asked us to slow down)' : p.lastError ? `Last try failed: ${p.lastError}` : p.requests ? 'Working' : 'Ready';
+      const toggle = h('input', {
+        type: 'checkbox', class: 'switch', role: 'switch', checked: s.providers[p.id] !== false, disabled: offline || null,
+        onchange: async (e) => { await save({ providers: { [p.id]: e.target.checked } }); draw(); },
+      });
+      return h('div', { class: 'field' },
+        h('div', {}, h('div', {}, p.name), h('div', { class: 'hint' }, `${p.license} · ${status}`)),
+        h('div', {}, toggle));
+    });
+    clear(box).append(
+      h('div', { class: 'field' },
+        h('div', {}, h('div', {}, 'Offline mode'), h('div', { class: 'hint' }, 'Never go online. Everything still works from the keyword bank and anything already cached.')),
+        h('div', {}, offlineToggle)),
+      ...rows,
+      h('div', { class: 'field' },
+        h('div', {}, h('div', {}, 'Cache'), h('div', { class: 'hint' }, `${fmtBytes(size)} of saved summaries, facts and images (kept for offline use).`)),
+        h('div', {}, h('button', { class: 'btn small', type: 'button', onclick: async () => { await window.api.clearCache(); toast('Cache cleared.'); draw(); } }, 'Clear cache'))));
+  }
+  await draw();
+  return box;
 }

@@ -1,5 +1,43 @@
 # Changelog
 
+## 0.2.0: Phase 2 (online content)
+
+**Added**
+- **Provider framework** (`src/main/providers/`):
+  - Every online source declares its hosts, license, attribution, rate limit and cache TTL.
+  - Requests run through one pipeline: host allowlist (redirects included), fresh-cache check, offline / turned-off / rate-limited checks, a per-source rate limiter, our identifying User-Agent and a timeout, then the cache.
+  - A 429 or 503 pauses that source for `Retry-After` (or its default), and requests stop meanwhile.
+  - If the network fails, the last saved copy is used.
+- **Disk cache** in `%APPDATA%/Mind Gym/cache/`: stale entries still show when offline, and the cache is capped at 200 MB (least recently used files go first).
+  - Images are downloaded by the main process and shown through a private `mg-cache://` protocol, so the pages still can't reach the network.
+- **Sources:**
+  - **Wikipedia:** summaries, lead images, "On this day", topic search, and page links.
+  - **Wikidata:** dated key facts, with date precision respected.
+  - **Open Trivia DB:** bonus trivia per domain, with a session token so questions don't repeat, and a 5.5-second spacing between requests.
+  - **Lichess:** the daily puzzle; one request at a time, with a one-minute pause after a 429.
+- **The full keyword session** (spec §2): predict → learn → quiz → puzzle tie-in → explain it back → watch → remember.
+  - The quiz has 5–8 seeded questions: "which topic is this?", Wikidata dates, fill-the-gap from the summary, related topics, aliases and bonus trivia.
+  - Offline, it still builds at least 5 questions from the keyword bank alone. A test checks this for every keyword.
+  - Explain-it-back is checked locally against the summary's key ideas (bank topics, names, frequent words), and you see exactly what you covered and missed.
+  - Finishing a session saves review cards and updates your stats and your Knowledge and Deep-thinking ratings.
+- **Add your own keywords:** search Wikipedia, or roll a random article, pick a domain, and add it. Each keyword page can also suggest more topics from its Wikipedia links.
+- **Home:** an "On this day" event (linked to a keyword when one matches) and the Lichess daily puzzle. Both are hidden when offline.
+- **Settings:** offline mode, per-source switches with live status, cache size, and "clear cache". The Licenses page credits every source.
+- **Review page:** lists the cards saved from sessions. FSRS scheduling arrives in Phase 5.
+- **Offline countries pack** (195 countries, capitals, continents, flags from `flag-icons`), replacing the REST Countries API. REST Countries v3.1 was switched off on 2026-09-10, and v5 needs an API key.
+- **`verify-providers` workflow** (weekly, plus manual):
+  - Checks every live endpoint, resolves every keyword's Wikipedia title to a Wikidata ID, and compares capitals with Wikidata.
+  - Can commit the keyword IDs, and can build the 30,000-puzzle offline Lichess pack (`scripts/build-lichess-subset.js`).
+- 72 tests, including recorded API responses for every provider, offline fallback with the network mocked off, rate limiting, lockouts, host checks, and cache pruning.
+
+**Fixed**
+- Windows CI: pinned LF line endings (`.gitattributes`), since the keyword check failed on CRLF checkouts.
+
+**Not in this phase**
+- Live checks against the real APIs happen in CI; this development sandbox can't reach them.
+- The offline Lichess puzzle pack is built by the workflow; the chess games that use it arrive in Phase 3.
+- Video suggestions (the "Watch" step) arrive in Phase 4. For now the step offers a YouTube search and the full article.
+
 ## 0.1.0: Phase 1 (skeleton)
 
 **Added**

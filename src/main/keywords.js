@@ -27,6 +27,25 @@ class KeywordBank {
     });
   }
 
+  /** Adds a keyword (e.g. one you added from Wikipedia). */
+  add(k) {
+    if (this.byId.has(k.id)) return this.byId.get(k.id);
+    k.domainLabel = this.domains.find((d) => d.id === k.domain)?.label || k.domain;
+    this.keywords.push(k);
+    this.byId.set(k.id, k);
+    this.fuse.add(k);
+    return k;
+  }
+
+  remove(id) {
+    const k = this.byId.get(id);
+    if (!k || !k.user) return false;
+    this.keywords.splice(this.keywords.indexOf(k), 1);
+    this.byId.delete(id);
+    this.fuse.remove((doc) => doc.id === id);
+    return true;
+  }
+
   static load(file = BANK_FILE) {
     return new KeywordBank(JSON.parse(fs.readFileSync(file, 'utf8')));
   }
@@ -76,7 +95,7 @@ class KeywordBank {
 
   /** Deterministic per local date, so it's the same all day. */
   ofTheDay(dateKey) {
-    return makeRng(`kotd:${dateKey}`).pick(this.keywords);
+    return makeRng(`kotd:${dateKey}`).pick(this.keywords.filter((k) => !k.user));
   }
 
   /** Keywords that list this one as related, plus the ones it lists. */

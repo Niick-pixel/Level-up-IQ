@@ -1,0 +1,12 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "normalized": [ { "fromencoded": false, "from": "entropy", "to": "Entropy" } ],
+    "redirects": [ { "from": "Pangea", "to": "Pangaea" } ],
+    "pages": [
+      { "pageid": 9891, "ns": 0, "title": "Entropy", "pageprops": { "wikibase_item": "Q45003" } },
+      { "pageid": 23330, "ns": 0, "title": "Pangaea", "pageprops": { "wikibase_item": "Q36125" } },
+      { "ns": 0, "title": "Not a real article xyz", "missing": true }
+    ]
+  }
+}

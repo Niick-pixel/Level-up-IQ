@@ -1,11 +1,12 @@
-import { h, fmtMinutes, plural } from '../ui.js';
+import { h, fmtMinutes, plural, clear } from '../ui.js';
 import { GAMES } from '../games/registry.js';
 
 export async function renderHome(el) {
-  const [kotd, summary, count] = await Promise.all([
+  const [kotd, summary, count, cards] = await Promise.all([
     window.api.keywordOfTheDay(),
     window.api.statsSummary(),
     window.api.keywordCount(),
+    window.api.cardCount(),
   ]);
   const today = summary.today;
   const hour = new Date().getHours();
@@ -21,6 +22,24 @@ export async function renderHome(el) {
       location.hash = `#/keyword/${k.id}`;
     }
   }
+
+  // Online extras load in the background and simply don't appear when offline.
+  const extras = h('div', { class: 'grid', style: { marginTop: '14px' } });
+  window.api.homeExtras().then(({ onThisDay, dailyPuzzle }) => {
+    clear(extras);
+    if (onThisDay) {
+      extras.append(h(onThisDay.keywordId ? 'a' : 'div', { class: 'card', href: onThisDay.keywordId ? `#/keyword/${onThisDay.keywordId}` : null, style: { gridColumn: 'span 2' } },
+        h('div', { class: 'eyebrow' }, `On this day · ${onThisDay.year < 0 ? `${-onThisDay.year} BC` : onThisDay.year}`),
+        h('div', {}, onThisDay.text),
+        h('div', { class: 'muted small', style: { marginTop: '6px' } }, onThisDay.keywordId ? 'Open the keyword →' : 'From Wikipedia')));
+    }
+    if (dailyPuzzle) {
+      extras.append(h('button', { class: 'card', type: 'button', onclick: () => window.api.openExternal(dailyPuzzle.url) },
+        h('div', { class: 'eyebrow' }, 'Daily chess puzzle'),
+        h('div', {}, `Rated ${dailyPuzzle.rating}`),
+        h('div', { class: 'muted small' }, 'Solve it on Lichess →')));
+    }
+  }).catch(() => {});
 
   el.append(h('div', { class: 'page' },
     h('div', { class: 'page-head' },
@@ -49,13 +68,15 @@ export async function renderHome(el) {
         h('div', {}, `${count} keywords to explore`)),
       h('a', { class: 'card', href: '#/review' },
         h('div', { class: 'eyebrow' }, 'Review queue'),
-        h('div', {}, 'Spaced repetition (coming soon)')),
+        h('div', {}, cards ? `${plural(cards, 'card')} saved from your sessions` : 'Cards from keyword sessions land here')),
       h('a', { class: 'card', href: '#/watch' },
         h('div', { class: 'eyebrow' }, 'Watch later'),
         h('div', {}, 'Documentaries (coming soon)')),
       h('a', { class: 'card', href: '#/stats' },
         h('div', { class: 'eyebrow' }, 'Stats'),
         h('div', {}, `${plural(summary.totals.games, 'round')} · ${plural(summary.totals.keywords, 'keyword')} explored`))),
+
+    extras,
 
     h('h2', { style: { marginTop: '26px' } }, 'Games'),
     h('div', { class: 'grid' }, GAMES.map(({ meta }) => h('a', { class: 'card', href: `#/play/${meta.id}` },

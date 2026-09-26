@@ -23,6 +23,10 @@ const DEFAULTS = {
   safeMaximize: true, // keep Focus Point breaks working when maximized without a visible taskbar
   allowFullscreen: false, // opt-in; true fullscreen can delay Focus Point breaks
 
+  // Online sources (all optional; the app works fully offline)
+  offlineMode: false,
+  providers: { wikipedia: true, wikidata: true, opentdb: true, lichess: true },
+
   autoUpdate: true,
   windowBounds: null, // { x, y, width, height }
 };
@@ -38,6 +42,12 @@ function sanitize(partial) {
       case 'thinkingTimerSec': out[k] = clampInt(v, 0, 300); break;
       case 'wordLanguage': if (v === 'en') out[k] = v; break;
       case 'dailyReminderTime': if (/^([01]\d|2[0-3]):[0-5]\d$/.test(v)) out[k] = v; break;
+      case 'providers':
+        if (v && typeof v === 'object') {
+          out[k] = { ...DEFAULTS.providers };
+          for (const id of Object.keys(DEFAULTS.providers)) if (typeof v[id] === 'boolean') out[k][id] = v[id];
+        }
+        break;
       case 'windowBounds':
         if (v === null || (v && ['x', 'y', 'width', 'height'].every((p) => Number.isFinite(v[p])))) out[k] = v;
         break;
@@ -45,6 +55,12 @@ function sanitize(partial) {
         if (typeof v === typeof DEFAULTS[k]) out[k] = v;
     }
   }
+  return out;
+}
+
+function pickBooleans(obj) {
+  const out = {};
+  for (const id of Object.keys(DEFAULTS.providers)) if (typeof obj?.[id] === 'boolean') out[id] = obj[id];
   return out;
 }
 
@@ -57,7 +73,8 @@ class Store {
   /** @param {string|null} dir app-data folder; null keeps everything in memory (tests) */
   constructor(dir) {
     this.file = dir ? path.join(dir, 'settings.json') : null;
-    this.data = { ...DEFAULTS, ...sanitize(readJson(this.file, {})) };
+    const saved = sanitize(readJson(this.file, {}));
+    this.data = { ...structuredClone(DEFAULTS), ...saved };
   }
 
   get() {
@@ -65,7 +82,9 @@ class Store {
   }
 
   set(partial) {
-    this.data = { ...this.data, ...sanitize(partial) };
+    const clean = sanitize(partial);
+    if (clean.providers) clean.providers = { ...this.data.providers, ...pickBooleans(partial.providers) };
+    this.data = { ...this.data, ...clean };
     writeJson(this.file, this.data);
     return this.get();
   }

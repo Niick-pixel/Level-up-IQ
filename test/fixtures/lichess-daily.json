@@ -1,0 +1,6 @@
+{
+  "game": { "id": "abcd1234", "perf": { "key": "blitz", "name": "Blitz" }, "rated": true,
+    "players": [ { "name": "White", "color": "white", "rating": 1900 }, { "name": "Black", "color": "black", "rating": 1880 } ],
+    "pgn": "e4 e5 Nf3 Nc6 Bc4 Nd4 Nxe5 Qg5", "clock": "3+0" },
+  "puzzle": { "id": "K69di", "rating": 1873, "plays": 12345, "solution": ["c4f7", "e8d8", "e5c6"], "themes": ["middlegame", "short", "fork"], "initialPly": 7 }
+}

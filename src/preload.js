@@ -23,6 +23,27 @@ contextBridge.exposeInMainWorld('api', {
   randomKeyword: call('keywords:random'),
   exploreKeyword: call('keywords:explore'),
   keywordCount: call('keywords:count'),
+  userKeywords: call('keywords:user'),
+  addKeyword: call('keywords:add'),
+  removeKeyword: call('keywords:remove'),
+  suggestKeywords: call('keywords:suggest'),
+  wikiSearch: call('wiki:search'),
+  wikiRandom: call('wiki:random'),
+
+  // keyword sessions
+  sessionLearn: call('session:learn'),
+  sessionQuiz: call('session:quiz'),
+  sessionPuzzle: call('session:puzzle'),
+  sessionCompare: call('session:compare'),
+  sessionFinish: call('session:finish'),
+  homeExtras: call('home:extras'),
+  cardCount: call('cards:count'),
+  recentCards: call('cards:recent'),
+
+  // online sources
+  providers: call('providers:list'),
+  cacheSize: call('cache:size'),
+  clearCache: call('cache:clear'),
 
   // games, stats, ratings
   suggestDifficulty: call('rating:suggest'),
