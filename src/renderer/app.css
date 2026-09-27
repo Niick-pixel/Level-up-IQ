@@ -260,3 +260,4 @@ blockquote { margin: 8px 0; padding: 10px 14px; border-left: 3px solid var(--lin
 .cards-list li { margin-bottom: 8px; }
 .attrib { margin-top: 12px; }
 details summary { cursor: pointer; color: var(--muted); }
+.license-text { white-space: pre-wrap; font-size: 12px; max-height: 320px; overflow: auto; background: var(--bg-2); padding: 12px; border-radius: 8px; }

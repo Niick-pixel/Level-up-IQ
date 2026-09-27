@@ -339,3 +339,4 @@ g.wrong .wm-land, g.wrong .wm-dot { fill: var(--cb-vermillion); }
 .chrono-item.wrong { border-color: var(--cb-vermillion); }
 .chrono-year { font-variant-numeric: tabular-nums; font-weight: 600; }
 .chrono-btns { display: inline-flex; gap: 4px; }
+.riddle.rebus { font: 700 26px/1.25 ui-monospace, 'Cascadia Mono', Consolas, monospace; white-space: pre; text-align: center; letter-spacing: 0.06em; padding: 18px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); max-width: none; overflow-x: auto; }

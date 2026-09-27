@@ -7,7 +7,7 @@ import { clock, matches, clamp01 } from './common.js';
 /**
  * items(rng, difficulty) → [{ prompt, answers: string[], answerText, explain?, hint? }]
  */
-export function revealGame({ meta, makeItems, perRound = 5, guessable = true }) {
+export function revealGame({ meta, makeItems, perRound = 5, guessable = true, promptClass = '' }) {
   return {
     meta,
     start(root, ctx) {
@@ -39,7 +39,7 @@ export function revealGame({ meta, makeItems, perRound = 5, guessable = true }) 
           h('button', { class: 'btn', type: 'button', onclick: () => grade(0) }, 'I didn\'t'));
         fill(card, 
           h('div', { class: 'muted small' }, `${i + 1} / ${items.length}`),
-          h('p', { class: 'riddle' }, it.prompt),
+          h('p', { class: `riddle ${promptClass}` }, it.prompt),
           input ? h('div', { class: 'row' }, input, hintBtn, reveal) : h('div', { class: 'row' }, hintBtn, reveal),
           feedback, answer, selfGrade);
         (input || reveal).focus();

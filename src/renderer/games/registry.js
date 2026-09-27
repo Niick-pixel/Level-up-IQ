@@ -49,6 +49,13 @@ import { meta as guessArticle } from './guess-article/logic.js';
 import { meta as chronology } from './chronology/logic.js';
 import { meta as flags } from './flags/logic.js';
 import { meta as capitals } from './capitals/logic.js';
+import { meta as explainBack } from './explain-back/logic.js';
+import { meta as steelman } from './steelman/logic.js';
+import { meta as firstPrinciples } from './first-principles/logic.js';
+import { meta as noAiChallenge } from './no-ai-challenge/logic.js';
+import { meta as riddles } from './riddles/logic.js';
+import { meta as situationPuzzles } from './situation-puzzles/logic.js';
+import { meta as rebus } from './rebus/logic.js';
 import { TATHAM } from './tatham/logic.js';
 
 const G = (meta, load) => ({ meta, load });
@@ -111,6 +118,15 @@ export const GAMES = [
   G(chronology, () => import('./chronology/index.js')),
   G(flags, () => import('./flags/index.js')),
   G(capitals, () => import('./capitals/index.js')),
+  // deep thinking
+  G(explainBack, () => import('./explain-back/index.js')),
+  G(steelman, () => import('./steelman/index.js')),
+  G(firstPrinciples, () => import('./first-principles/index.js')),
+  G(noAiChallenge, () => import('./no-ai-challenge/index.js')),
+  // riddles and lateral thinking
+  G(riddles, () => import('./riddles/index.js')),
+  G(situationPuzzles, () => import('./situation-puzzles/index.js')),
+  G(rebus, () => import('./rebus/index.js')),
   // Simon Tatham's Portable Puzzle Collection
   ...TATHAM.map((t) => G(t.meta, () => import('./tatham/index.js'))),
 ];

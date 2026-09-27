@@ -1,5 +1,5 @@
-// Daily Mix (Phase 1 version): a fixed arc of speed → math → memory → words → keyword →
-// explain-it-back. Weighting by weak skills and recent play arrives with adaptivity (Phase 5).
+// Daily Mix: a fixed arc of speed → math → memory → words → keyword → explain-it-back, with
+// the game in each slot rotating by date. Weighting by weak skills and recent play arrives with adaptivity (Phase 5).
 import { h, clear, fmtMinutes, fill } from '../ui.js';
 import { mountGame } from './play.js';
 import { makeRng, localDateKey } from '../../shared/rng.js';
@@ -9,10 +9,10 @@ export async function renderMix(el) {
   el.append(page);
   const rng = makeRng(`mix:${localDateKey()}`);
   const plan = [
-    { gameId: rng.pick(['stroop', 'schulte']), label: 'Warm-up' },
-    { gameId: 'mental-math', label: 'Math' },
-    { gameId: 'nback', label: 'Memory' },
-    { gameId: 'word-ladder', label: 'Words' },
+    { gameId: rng.pick(['stroop', 'schulte', 'flanker', 'go-no-go', 'visual-search']), label: 'Warm-up' },
+    { gameId: rng.pick(['mental-math', 'game-24', 'countdown-numbers', 'sequences']), label: 'Math' },
+    { gameId: rng.pick(['nback', 'digit-span', 'corsi', 'kims-game']), label: 'Memory' },
+    { gameId: rng.pick(['word-ladder', 'anagram', 'wordle', 'countdown-letters']), label: 'Words' },
   ];
   const kotd = await window.api.keywordOfTheDay();
   let step = -1;

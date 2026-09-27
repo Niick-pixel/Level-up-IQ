@@ -46,15 +46,16 @@ class Engines {
   constructor(dir, deps) {
     this.dir = dir;
     this.deps = deps;
+    this.spec = deps.spec || STOCKFISH; // tests pass a small fake engine
     this.installing = null;
   }
 
   folder() {
-    return path.join(this.dir, `${STOCKFISH.id}-${STOCKFISH.version}`);
+    return path.join(this.dir, `${this.spec.id}-${this.spec.version}`);
   }
 
   info() {
-    const { urls, files, ...rest } = STOCKFISH;
+    const { urls, files, ...rest } = this.spec;
     return { ...rest, bytes: files.reduce((s, f) => s + f.size, 0), hosts: HOSTS };
   }
 
@@ -65,13 +66,13 @@ class Engines {
       ...this.info(),
       installed: this.verified,
       installing: Boolean(this.installing),
-      url: this.verified ? `/engines/${STOCKFISH.id}-${STOCKFISH.version}/${STOCKFISH.files[0].name}` : null,
+      url: this.verified ? `/engines/${this.spec.id}-${this.spec.version}/${this.spec.files[0].name}` : null,
     };
   }
 
   #verifyAll() {
     try {
-      return STOCKFISH.files.every((f) => sha256(fs.readFileSync(path.join(this.folder(), f.name))) === f.sha256);
+      return this.spec.files.every((f) => sha256(fs.readFileSync(path.join(this.folder(), f.name))) === f.sha256);
     } catch {
       return false;
     }
@@ -88,15 +89,15 @@ class Engines {
     if (this.status().installed) return this.status();
     if (this.deps.getSettings().offlineMode) throw new Error('Offline mode is on. Turn it off in Settings to download the engine.');
     if (!this.deps.isOnline()) throw new Error('You seem to be offline.');
-    const total = STOCKFISH.files.reduce((s, f) => s + f.size, 0);
+    const total = this.spec.files.reduce((s, f) => s + f.size, 0);
     let before = 0;
     const tmp = `${this.folder()}.part`;
     fs.rmSync(tmp, { recursive: true, force: true });
     fs.mkdirSync(tmp, { recursive: true });
-    for (const f of STOCKFISH.files) {
+    for (const f of this.spec.files) {
       let lastErr = null;
       let buf = null;
-      for (const url of STOCKFISH.urls(f.name)) {
+      for (const url of this.spec.urls(f.name)) {
         try {
           buf = await this.#download(url, f, (n) => onProgress({ received: before + n, total }));
           break;
@@ -108,7 +109,7 @@ class Engines {
       fs.writeFileSync(path.join(tmp, f.name), buf);
       before += f.size;
     }
-    if (this.deps.bundledLicense) fs.writeFileSync(path.join(tmp, STOCKFISH.licenseFile), fs.readFileSync(this.deps.bundledLicense)); // (works inside asar too)
+    if (this.deps.bundledLicense) fs.writeFileSync(path.join(tmp, this.spec.licenseFile), fs.readFileSync(this.deps.bundledLicense)); // (works inside asar too)
     fs.rmSync(this.folder(), { recursive: true, force: true });
     fs.renameSync(tmp, this.folder());
     this.verified = undefined;

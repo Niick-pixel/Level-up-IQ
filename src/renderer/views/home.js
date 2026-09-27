@@ -1,5 +1,19 @@
 import { h, fmtMinutes, plural, clear } from '../ui.js';
-import { GAMES } from '../games/registry.js';
+import { GAMES, byId } from '../games/registry.js';
+import { makeRng, localDateKey } from '../../shared/rng.js';
+
+// A handful of games shown on Home, a different set each day (one per kind, roughly).
+const FEATURE_POOLS = [
+  ['stroop', 'schulte', 'flanker', 'go-no-go', 'visual-search', 'reaction-time', 'rsvp'],
+  ['nback', 'digit-span', 'corsi', 'card-pairs', 'kims-game', 'memory-palace'],
+  ['mental-math', 'game-24', 'countdown-numbers', 'fermi', 'sequences', 'probability', 'kakuro'],
+  ['wordle', 'word-ladder', 'anagram', 'cryptogram', 'crossword', 'countdown-letters', 'rebus'],
+  ['zebra', 'knights', 'mastermind', 'syllogism', 'fallacy', 'riddles', 'situation-puzzles'],
+  ['mental-rotation', 'rush-hour', 'fifteen', 'map-quiz'],
+  ['chess-puzzles', 'connect-four', 'nim', 'chess-engine'],
+  ['trivia', 'flags', 'capitals', 'chronology', 'guess-article', 'magnitude', 'higher-lower'],
+  ['tatham-solo', 'tatham-loopy', 'tatham-bridges', 'tatham-net', 'tatham-pattern', 'tatham-keen', 'tatham-lightup', 'tatham-tents'],
+];
 
 export async function renderHome(el) {
   const [kotd, summary, count, cards] = await Promise.all([
@@ -15,7 +29,8 @@ export async function renderHome(el) {
   async function randomAnything() {
     // Half the time a game, half the time a keyword
     if (Math.random() < 0.5) {
-      const g = GAMES[Math.floor(Math.random() * GAMES.length)];
+      const pool = GAMES.filter((g) => !(g.meta.needsCards && !cards));
+      const g = pool[Math.floor(Math.random() * pool.length)];
       location.hash = `#/play/${g.meta.id}`;
     } else {
       const k = await window.api.randomKeyword({ mode: 'any' });
@@ -78,9 +93,17 @@ export async function renderHome(el) {
 
     extras,
 
-    h('h2', { style: { marginTop: '26px' } }, 'Games'),
-    h('div', { class: 'grid' }, GAMES.map(({ meta }) => h('a', { class: 'card', href: `#/play/${meta.id}` },
+    h('div', { class: 'row', style: { marginTop: '26px', justifyContent: 'space-between' } },
+      h('h2', { style: { margin: 0 } }, 'Games for today'),
+      h('a', { class: 'btn small', href: '#/games' }, `All ${GAMES.length} games →`)),
+    h('div', { class: 'grid', style: { marginTop: '10px' } }, featured().map(({ meta }) => h('a', { class: 'card', href: `#/play/${meta.id}` },
       h('div', { class: 'eyebrow' }, meta.skills.join(' · ')),
       h('div', { class: 'kw-term' }, meta.name),
       h('div', { class: 'muted small' }, meta.blurb))))));
+}
+
+/** One game from each pool, chosen by today's date (so Home is stable through the day). */
+function featured() {
+  const rng = makeRng(`home:${localDateKey()}`);
+  return FEATURE_POOLS.map((pool) => byId(rng.pick(pool))).filter(Boolean);
 }
