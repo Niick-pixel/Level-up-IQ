@@ -86,5 +86,6 @@ jobs:
             echo "Nothing changed."
           else
             git commit -m "Build Tatham puzzles ($(cut -c1-12 upstream-commit.txt))"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi

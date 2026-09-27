@@ -69,5 +69,6 @@ jobs:
             echo "Nothing changed."
           else
             git commit -m "Update data from the online-source verification run"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
