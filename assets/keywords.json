@@ -10158,6 +10158,24 @@
    "wikidata": null
   },
   {
+   "id": "costa-ricans",
+   "term": "Costa Ricans",
+   "aliases": [
+    "ticos"
+   ],
+   "domain": "latin-america",
+   "tags": [
+    "Costa Rica",
+    "people"
+   ],
+   "difficulty": 1,
+   "related": [
+    "costa-rica"
+   ],
+   "wikipedia": "Costa Ricans",
+   "wikidata": null
+  },
+  {
    "id": "cuban-revolution",
    "term": "Cuban Revolution",
    "aliases": [],
@@ -10599,22 +10617,6 @@
    "difficulty": 3,
    "related": [],
    "wikipedia": "Potosí",
-   "wikidata": null
-  },
-  {
-   "id": "pura-vida",
-   "term": "Pura vida",
-   "aliases": [],
-   "domain": "latin-america",
-   "tags": [
-    "Costa Rica",
-    "culture"
-   ],
-   "difficulty": 1,
-   "related": [
-    "costa-rica"
-   ],
-   "wikipedia": "Pura vida",
    "wikidata": null
   },
   {

@@ -172,10 +172,15 @@ test('apod: images only, credit kept; new endpoint parsed defensively; legacy re
   assert.equal(legacy[0].url, 'https://apod.nasa.gov/apod/ap260101.html');
   assert.equal(normalizeWp({ title: { rendered: 'M31' }, content: { rendered: '<img src="https://apod.nasa.gov/apod/image/m31.jpg">' }, date: '2026-12-02T00:00:00' }).title, 'M31');
   assert.equal(normalizeWp({ title: 'x', content: '<img src="https://evil.example/x.jpg">' }), null);
+  // the shape the new endpoint actually returns (checked live 2026-09-27)
+  const live = normalizeWp({ date: '2026-09-26', post_id: 1, title: 'Green Aurora', permalink: 'https://science.nasa.gov/apod/x', media_type: 'image', explanation: 'An aurora.', credit: 'NASA', copyright: 'J. Smith', url: 'https://apod.nasa.gov/apod/image/aurora.jpg' });
+  assert.equal(live.imageUrl, 'https://apod.nasa.gov/apod/image/aurora.jpg');
+  assert.equal(live.credit, '© J. Smith');
+  assert.equal(normalizeWp({ title: 'Clip', media_type: 'video', url: 'https://apod.nasa.gov/x.mp4' }), null);
   let now = LEGACY_END - 1000;
   const { providers, fetch } = providersWith([
     ['api.nasa.gov', { body: json('apod-legacy.json') }],
-    ['science.nasa.gov', { body: [{ title: { rendered: 'Aurora' }, content: { rendered: '<img src="https://science.nasa.gov/a.jpg">' }, date: '2026-12-05' }] }],
+    ['science.nasa.gov', { body: [{ title: 'Aurora', media_type: 'image', url: 'https://apod.nasa.gov/apod/image/a.jpg', date: '2026-12-05' }] }],
   ], { now: () => now });
   assert.equal((await providers.apod.random(3)).length, 1);
   assert.ok(fetch.calls.at(-1).url.includes('DEMO_KEY'));

@@ -22,7 +22,7 @@ guanacaste | Guanacaste Province |  | Costa Rica, regions | 2 | costa-rica |
 corcovado | Corcovado National Park |  | Costa Rica, parks | 2 | costa-rica |
 poas-volcano | Poás Volcano |  | Costa Rica, volcanoes | 2 | arenal-volcano |
 san-jose-cr | San José, Costa Rica |  | Costa Rica, cities | 1 | costa-rica |
-pura-vida | Pura vida |  | Costa Rica, culture | 1 | costa-rica |
+costa-ricans | Costa Ricans | ticos | Costa Rica, people | 1 | costa-rica |
 gallo-pinto | Gallo pinto |  | food, Costa Rica | 1 | |
 sea-turtle | Sea turtle |  | wildlife, Costa Rica | 1 | tortuguero-national-park |
 aztec-empire | Aztec Empire |  | Mesoamerica, empires | 1 | |

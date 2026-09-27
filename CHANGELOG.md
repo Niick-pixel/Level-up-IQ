@@ -24,8 +24,8 @@
 
 **Not in this phase**
 - Recall questions are generic (main idea, a fact, the topic). Questions about the video's actual content need its transcript or an AI model; that comes with the optional Claude features in Phase 6.
-- The new NASA APOD endpoint's response format isn't documented yet, so its parser is defensive and the verify workflow reports what it actually returns. The legacy endpoint is used until it closes on 2026-12-01.
-- Channel IDs, museum and species endpoints couldn't be called from this sandbox. Tests use recorded responses, and the verify workflow checks them live.
+- The legacy NASA APOD endpoint is used until it closes on 2026-12-01; the new science.nasa.gov endpoint is ready (its format was checked live) and takes over automatically.
+- Live check (verify workflow, 2026-09-27): all 15 sources answer; 35 of 36 channel feeds match (Vsauce's feed is valid but has no recent videos); 1,540 of 1,541 keywords resolved; the one that didn’t (“Pura vida”, no Wikipedia article) was replaced with “Costa Ricans”.
 - Free Dictionary and Datamuse aren't used yet: the word games don't need them.
 
 

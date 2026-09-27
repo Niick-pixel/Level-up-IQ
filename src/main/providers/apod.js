@@ -35,23 +35,29 @@ function normalizeLegacy(e) {
   };
 }
 
-/** New WordPress endpoint entry → our shape. Its schema isn't documented yet, so this is defensive. */
+/**
+ * New science.nasa.gov endpoint entry → our shape. Checked live on 2026-09-27: entries are flat
+ * (date, title, explanation, url, hdurl, media_type, credit, copyright, permalink, alt), like the
+ * legacy API. Older WordPress-style fields ({ rendered }) are still accepted, just in case.
+ */
 function normalizeWp(e) {
   if (!e) return null;
+  if (e.media_type && e.media_type !== 'image') return null;
   const title = strip(e.title?.rendered ?? e.title);
-  const html = String(e.content?.rendered ?? e.content ?? '');
-  const img = e.apod_image_url || e.image_url || e.featured_image_url || e.jetpack_featured_media_url || (/<img[^>]+src="([^"]+)"/i.exec(html) || [])[1];
-  const date = String(e.apod_date || e.date || '').slice(0, 10);
+  const html = String(e.content?.rendered ?? e.basic_html ?? '');
+  const img = e.url || e.hdurl || (/<img[^>]+src="([^"]+)"/i.exec(html) || [])[1];
+  const date = String(e.date || '').slice(0, 10);
   if (!title || !img || !/^https:\/\/(apod|science)\.nasa\.gov\//.test(img)) return null;
+  const copyright = strip(e.copyright);
   return {
     id: `apod:${date}`,
     source: 'apod',
     date,
     title,
-    explanation: strip(e.apod_explanation || e.excerpt?.rendered || html).slice(0, 1200),
+    explanation: strip(e.explanation || e.excerpt?.rendered || html).slice(0, 1200),
     imageUrl: img,
-    credit: e.apod_copyright ? `© ${strip(e.apod_copyright)}` : strip(e.apod_credit) || 'NASA',
-    url: e.link || 'https://apod.nasa.gov/',
+    credit: copyright ? `© ${copyright}` : strip(e.credit) || 'NASA',
+    url: e.permalink || e.link || 'https://apod.nasa.gov/',
   };
 }
 
