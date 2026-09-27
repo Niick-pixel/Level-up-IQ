@@ -11,7 +11,7 @@ const ID = /^[a-z0-9-]{1,80}$/;
  * @param {Electron.IpcMain} deps.ipcMain
  */
 function registerIpc({
-  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard,
+  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge,
   onSettingsChanged, cache, providers, learning, sessions,
 }) {
   const handle = (channel, fn) => ipcMain.handle(channel, (_e, ...args) => fn(...args));
@@ -92,8 +92,24 @@ function registerIpc({
   handle('home:extras', () => sessions.homeExtras(dateKey()));
   handle('cards:count', () => learning.cardCount());
   handle('cards:recent', () => learning.recentCards(50));
+  handle('cards:recall', () => learning.recallCards(6));
 
   // --- online sources and cache
+  const num = (x, lo, hi, dflt) => (Number.isFinite(Number(x)) ? Math.min(hi, Math.max(lo, Math.round(Number(x)))) : dflt);
+  handle('knowledge:trivia', (o = {}) => knowledge.trivia({ seed: str(o.seed, 40), amount: num(o.amount, 1, 12, 8), difficulty: num(o.difficulty, 1, 10, 5) }));
+  handle('knowledge:guess', (o = {}) => knowledge.guess({ seed: str(o.seed, 40), count: num(o.count, 1, 8, 5), difficulty: num(o.difficulty, 1, 10, 5) }));
+  handle('knowledge:onThisDay', (o = {}) => knowledge.onThisDay({ seed: str(o.seed, 40) }));
+  handle('engine:status', () => engines.status());
+  ipcMain.handle('engine:install', async (e) => {
+    let last = 0;
+    return engines.install((p) => {
+      const now = Date.now();
+      if (now - last < 100 && p.received < p.total) return;
+      last = now;
+      if (!e.sender.isDestroyed()) e.sender.send('engine:progress', p);
+    });
+  });
+  handle('engine:remove', () => engines.remove());
   handle('providers:list', () => ({ offline: store.get().offlineMode, providers: providers.list() }));
   handle('cache:size', () => cache.sizeBytes());
   handle('cache:clear', () => {

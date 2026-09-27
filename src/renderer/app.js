@@ -1,4 +1,4 @@
-import { h, clear } from './ui.js';
+import { h, clear, fill } from './ui.js';
 import { state } from './state.js';
 import { searchGames } from './games/registry.js';
 import { renderHome } from './views/home.js';
@@ -101,7 +101,7 @@ function setupSearch() {
       .map((k) => ({ label: k.term, kind: k.domainLabel, href: `#/keyword/${k.id}` }));
     items = [...games, ...kws];
     active = items.length ? 0 : -1;
-    clear(list).append(...(items.length
+    fill(list, ...(items.length
       ? items.map((it, i) => h('li', { role: 'option', onmousedown: (e) => { e.preventDefault(); go(items[i]); } },
         h('span', {}, it.label), h('span', { class: 'kind' }, it.kind)))
       : [h('li', { class: 'muted' }, 'No matches')]));

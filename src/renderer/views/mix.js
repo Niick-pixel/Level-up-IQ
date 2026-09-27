@@ -1,6 +1,6 @@
 // Daily Mix (Phase 1 version): a fixed arc of speed → math → memory → words → keyword →
 // explain-it-back. Weighting by weak skills and recent play arrives with adaptivity (Phase 5).
-import { h, clear, fmtMinutes } from '../ui.js';
+import { h, clear, fmtMinutes, fill } from '../ui.js';
 import { mountGame } from './play.js';
 import { makeRng, localDateKey } from '../../shared/rng.js';
 
@@ -20,7 +20,7 @@ export async function renderMix(el) {
   let totalMs = 0;
 
   const intro = () => {
-    clear(page).append(
+    fill(page, 
       h('div', { class: 'page-head' }, h('h1', {}, 'Daily Mix')),
       h('div', { class: 'card hero' },
         h('p', {}, 'Four short rounds, then a few minutes with today\'s keyword. Levels adjust to you as you play.'),
@@ -70,7 +70,7 @@ export async function renderMix(el) {
   }
 
   function finish() {
-    clear(page).append(
+    fill(page, 
       h('div', { class: 'page-head' }, h('h1', {}, 'Mix complete')),
       h('div', { class: 'card hero' },
         h('p', {}, `Nice work. ${fmtMinutes(totalMs)} of focused thinking, all without AI.`),

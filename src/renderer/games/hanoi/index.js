@@ -1,5 +1,5 @@
 import { meta, discsFor, optimalMoves, move, solved } from './logic.js';
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock } from '../_engine/common.js';
 
 export { meta };
@@ -17,7 +17,7 @@ export function start(root, ctx) {
   root.append(h('div', { class: 'g-center' }, h('p', { class: 'muted' }, `${n} discs · best possible: ${optimalMoves(n)} moves`), board, info));
 
   function draw() {
-    clear(board).append(...pegs.map((stack, i) => h('button', {
+    fill(board, ...pegs.map((stack, i) => h('button', {
       class: `peg-col${held === i ? ' held' : ''}`, type: 'button', 'aria-label': `Peg ${i + 1}: ${stack.length} discs`, onclick: () => pick(i),
     }, h('div', { class: 'rod' }), ...stack.map((d) => h('div', { class: 'disc', style: { width: `${30 + (d / n) * 70}%` } })).reverse(), h('span', { class: 'peg-label' }, String(i + 1)))));
     info.textContent = `${moves} moves`;

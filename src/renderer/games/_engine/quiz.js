@@ -1,7 +1,7 @@
 // Multiple-choice rounds. A game supplies meta and a question maker:
 //   makeQuestions(rng, difficulty, data) → [{ prompt, detail?, options: string[], answer: index, explain? }]
 // Optional: load() → data (async), secondsPerQuestion(difficulty), layout: 'list' | 'grid'.
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock, clamp01 } from './common.js';
 
 export function quizGame({ meta, makeQuestions, load, secondsPerQuestion, render }) {
@@ -29,7 +29,7 @@ export function quizGame({ meta, makeQuestions, load, secondsPerQuestion, render
         if (!qs.length) throw new Error('No questions available');
         show();
       })().catch((err) => {
-        clear(card).append(h('p', { class: 'g-msg bad' }, `Couldn't start: ${err.message}`));
+        fill(card, h('p', { class: 'g-msg bad' }, `Couldn't start: ${err.message}`));
       });
 
       function show() {
@@ -41,7 +41,7 @@ export function quizGame({ meta, makeQuestions, load, secondsPerQuestion, render
         const buttons = q.options.map((opt, k) => h('button', { class: 'btn option', type: 'button', onclick: () => choose(k) },
           q.options.length <= 9 ? h('kbd', {}, String(k + 1)) : null, ' ', opt));
         const bar = limit ? h('div', { class: 'g-timebar' }, h('div', { class: 'g-timefill' })) : null;
-        clear(card).append(
+        fill(card, 
           h('div', { class: 'muted small' }, `${i + 1} / ${qs.length}`),
           bar,
           render ? render(q) : null,

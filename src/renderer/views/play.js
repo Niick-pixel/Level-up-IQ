@@ -1,5 +1,5 @@
 // The game shell: intro → play (with pause) → results. Used on its own and by the Daily Mix.
-import { h, clear, pct, fmtSeconds, toast } from '../ui.js';
+import { h, clear, pct, fmtSeconds, toast, fill } from '../ui.js';
 import { byId } from '../games/registry.js';
 import { makeRng, randomSeed, formatSeedCode } from '../../shared/rng.js';
 import { SKILL_LABELS } from '../../shared/game-contract.js';
@@ -61,7 +61,7 @@ export async function mountGame(el, opts) {
           out,
           h('button', { class: 'btn small', type: 'button', 'aria-label': 'Harder', onclick: () => set(difficulty + 1) }, '+'))),
       startBtn));
-    clear(stage).append(overlay);
+    fill(stage, overlay);
     startBtn.focus();
   }
 

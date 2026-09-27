@@ -2,7 +2,7 @@
 //   makeItems(rng, difficulty, data) → [{ prompt, detail?, check(answer) → true | false | number 0..1,
 //                                         answerText, explain?, placeholder?, inputmode? }]
 // A number from check() is partial credit (e.g. how close a Fermi estimate was).
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock, clamp01 } from './common.js';
 
 export function inputGame({ meta, makeItems, load, attempts = 1, hintFor }) {
@@ -26,7 +26,7 @@ export function inputGame({ meta, makeItems, load, attempts = 1, hintFor }) {
         if (destroyed) return;
         items = makeItems(ctx.rng, ctx.difficulty, data);
         show();
-      })().catch((err) => clear(card).append(h('p', { class: 'g-msg bad' }, `Couldn't start: ${err.message}`)));
+      })().catch((err) => fill(card, h('p', { class: 'g-msg bad' }, `Couldn't start: ${err.message}`)));
 
       function show() {
         const it = items[i];
@@ -43,7 +43,7 @@ export function inputGame({ meta, makeItems, load, attempts = 1, hintFor }) {
           feedback.textContent = hintFor(it);
           feedback.className = 'g-msg';
         } }, 'Hint') : null;
-        clear(card).append(
+        fill(card, 
           h('div', { class: 'muted small' }, `${i + 1} / ${items.length}`),
           h('h3', { class: 'quiz-prompt' }, it.prompt),
           it.detail ? h('blockquote', {}, it.detail) : null,

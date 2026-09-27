@@ -1,6 +1,6 @@
 // Deep-thinking prompts: write for a few minutes without help, then rate yourself honestly
 // against a short checklist. There's no right answer to grade, only the habit of thinking it through.
-import { h, clear } from '../../ui.js';
+import { h } from '../../ui.js';
 import { clock, clamp01 } from './common.js';
 
 /**

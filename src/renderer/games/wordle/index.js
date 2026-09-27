@@ -1,6 +1,6 @@
 import { meta, score, MAX_TRIES } from './logic.js';
 import { loadWordPack } from '../_engine/words.js';
-import { h, clear } from '../../ui.js';
+import { h, clear, fill } from '../../ui.js';
 import { clock } from '../_engine/common.js';
 
 export { meta };
@@ -23,7 +23,7 @@ export function start(root, ctx) {
     const msg = h('div', { class: 'g-msg', 'aria-live': 'polite' });
     const keyState = {};
     const keys = h('div', { class: 'kb' });
-    clear(wrap).append(board, msg, keys);
+    fill(wrap, board, msg, keys);
 
     function draw() {
       clear(board);
@@ -34,7 +34,7 @@ export function start(root, ctx) {
           class: `wd-cell ${row ? row.res[i] : ''}`, 'aria-label': row ? `${ch} ${row.res[i]}` : ch,
         }, ch.trim() ? ch.toUpperCase() : '', row ? h('small', {}, MARK[row.res[i]]) : null))));
       }
-      clear(keys).append(...['qwertyuiop', 'asdfghjkl', 'zxcvbnm'].map((line, li) => h('div', { class: 'kb-row' },
+      fill(keys, ...['qwertyuiop', 'asdfghjkl', 'zxcvbnm'].map((line, li) => h('div', { class: 'kb-row' },
         li === 2 ? h('button', { class: 'kb-key wide', type: 'button', onclick: () => press('Enter') }, 'Enter') : null,
         [...line].map((ch) => h('button', { class: `kb-key ${keyState[ch] || ''}`, type: 'button', onclick: () => press(ch) }, ch.toUpperCase())),
         li === 2 ? h('button', { class: 'kb-key wide', type: 'button', onclick: () => press('Backspace') }, '⌫') : null)));

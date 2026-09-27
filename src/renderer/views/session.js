@@ -1,5 +1,5 @@
 // The keyword session (spec §2): predict → learn → quiz → puzzle → explain it back → watch → remember.
-import { h, clear, extLink, wikipediaUrl, pct, toast, plural } from '../ui.js';
+import { h, clear, extLink, wikipediaUrl, pct, toast, plural, fill } from '../ui.js';
 import { mountGame } from './play.js';
 import { byId as gameById } from '../games/registry.js';
 import { SKILL_LABELS } from '../../shared/game-contract.js';
@@ -73,7 +73,7 @@ export async function renderSession(el, params) {
   el.append(page);
 
   function renderStepper() {
-    clear(stepper).append(...STEPS.map((name, i) => h('li', {
+    fill(stepper, ...STEPS.map((name, i) => h('li', {
       class: i === s.step ? 'current' : i < s.step ? 'done' : '',
       'aria-current': i === s.step ? 'step' : null,
     }, h('button', {
@@ -118,7 +118,7 @@ export async function renderSession(el, params) {
     try {
       d = await s.learnPromise;
     } catch (err) {
-      clear(card).append(h('p', { class: 'g-msg bad' }, errText(err)), nextBtn('Next: quiz'));
+      fill(card, h('p', { class: 'g-msg bad' }, errText(err)), nextBtn('Next: quiz'));
       return;
     }
     if (destroyed || s.step !== 1) return;
@@ -155,7 +155,7 @@ export async function renderSession(el, params) {
       s.quizPromise ||= window.api.sessionQuiz(k.id);
       s.quiz ||= (await s.quizPromise).questions;
     } catch (err) {
-      clear(card).append(h('p', { class: 'g-msg bad' }, `Couldn't build a quiz: ${errText(err)}`), nextBtn('Next: puzzle'));
+      fill(card, h('p', { class: 'g-msg bad' }, `Couldn't build a quiz: ${errText(err)}`), nextBtn('Next: puzzle'));
       return;
     }
     if (destroyed || s.step !== 2) return;
@@ -294,14 +294,14 @@ export async function renderSession(el, params) {
           explained: Boolean(s.compare),
         });
       } catch (err) {
-        clear(card).append(h('p', { class: 'g-msg bad' }, `Couldn't save the session: ${errText(err)}`));
+        fill(card, h('p', { class: 'g-msg bad' }, `Couldn't save the session: ${errText(err)}`));
         return;
       }
       renderStepper();
     }
     const f = s.finished;
     const knowledge = f.changes.knowledge;
-    clear(card).append(
+    fill(card, 
       h('h2', {}, 'Session complete'),
       h('p', {}, `${plural(f.cards.length, 'new review card')} saved.${knowledge ? ` Knowledge rating ${knowledge.after} (${knowledge.after - knowledge.before >= 0 ? '+' : ''}${knowledge.after - knowledge.before}).` : ''}`),
       f.cards.length ? h('ul', { class: 'cards-list' }, f.cards.map((c) => h('li', {}, h('strong', {}, c.front), h('div', { class: 'muted' }, c.back)))) : null,
@@ -344,7 +344,7 @@ function relatedBlock(k) {
       btn.textContent = 'Looking…';
       try {
         const titles = await window.api.suggestKeywords(k.id);
-        clear(sugg).append(...(titles.length ? titles.map((t) => h('button', {
+        fill(sugg, ...(titles.length ? titles.map((t) => h('button', {
           class: 'chip', type: 'button', title: `Add “${t}” as a ${k.domainLabel} keyword`,
           onclick: async (e) => {
             try {

@@ -1,7 +1,7 @@
 // Riddles and lateral-thinking puzzles: think, optionally type a guess (checked against the
 // accepted answers), and reveal once the thinking timer allows. You can mark a revealed answer
 // "I had it", because riddle answers are often phrased differently.
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock, matches, clamp01 } from './common.js';
 
 /**
@@ -37,7 +37,7 @@ export function revealGame({ meta, makeItems, perRound = 5, guessable = true }) 
         const selfGrade = h('div', { class: 'row', hidden: true },
           h('button', { class: 'btn primary', type: 'button', onclick: () => grade(hinted ? 0.7 : 1) }, 'I had it'),
           h('button', { class: 'btn', type: 'button', onclick: () => grade(0) }, 'I didn\'t'));
-        clear(card).append(
+        fill(card, 
           h('div', { class: 'muted small' }, `${i + 1} / ${items.length}`),
           h('p', { class: 'riddle' }, it.prompt),
           input ? h('div', { class: 'row' }, input, hintBtn, reveal) : h('div', { class: 'row' }, hintBtn, reveal),
@@ -62,7 +62,7 @@ export function revealGame({ meta, makeItems, perRound = 5, guessable = true }) 
           updateLocks();
           if (input) input.disabled = true;
           answer.hidden = false;
-          clear(answer).append(h('strong', {}, it.answerText), it.explain ? h('p', { class: 'muted small' }, it.explain) : null);
+          fill(answer, h('strong', {}, it.answerText), it.explain ? h('p', { class: 'muted small' }, it.explain) : null);
           if (correct) {
             feedback.textContent = 'Correct!';
             feedback.className = 'g-msg ok';

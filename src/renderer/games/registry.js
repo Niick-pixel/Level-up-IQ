@@ -25,6 +25,30 @@ import { meta as wordle } from './wordle/logic.js';
 import { meta as cryptogram } from './cryptogram/logic.js';
 import { meta as crossword } from './crossword/logic.js';
 import { meta as etymology } from './etymology/logic.js';
+import { meta as digitSpan } from './digit-span/logic.js';
+import { meta as corsi } from './corsi/logic.js';
+import { meta as cardPairs } from './card-pairs/logic.js';
+import { meta as kimsGame } from './kims-game/logic.js';
+import { meta as memoryPalace } from './memory-palace/logic.js';
+import { meta as yesterday } from './yesterday/logic.js';
+import { meta as flanker } from './flanker/logic.js';
+import { meta as goNoGo } from './go-no-go/logic.js';
+import { meta as reactionTime } from './reaction-time/logic.js';
+import { meta as visualSearch } from './visual-search/logic.js';
+import { meta as rsvp } from './rsvp/logic.js';
+import { meta as mentalRotation } from './mental-rotation/logic.js';
+import { meta as fifteen } from './fifteen/logic.js';
+import { meta as rushHour } from './rush-hour/logic.js';
+import { meta as mapQuiz } from './map-quiz/logic.js';
+import { meta as chessPuzzles } from './chess-puzzles/logic.js';
+import { meta as chessEngine } from './chess-engine/logic.js';
+import { meta as connectFour } from './connect-four/logic.js';
+import { meta as nim } from './nim/logic.js';
+import { meta as trivia } from './trivia/logic.js';
+import { meta as guessArticle } from './guess-article/logic.js';
+import { meta as chronology } from './chronology/logic.js';
+import { meta as flags } from './flags/logic.js';
+import { meta as capitals } from './capitals/logic.js';
 import { TATHAM } from './tatham/logic.js';
 
 const G = (meta, load) => ({ meta, load });
@@ -33,8 +57,19 @@ export const GAMES = [
   // attention and speed
   G(stroop, () => import('./stroop/index.js')),
   G(schulte, () => import('./schulte/index.js')),
+  G(flanker, () => import('./flanker/index.js')),
+  G(goNoGo, () => import('./go-no-go/index.js')),
+  G(reactionTime, () => import('./reaction-time/index.js')),
+  G(visualSearch, () => import('./visual-search/index.js')),
+  G(rsvp, () => import('./rsvp/index.js')),
   // memory
   G(nback, () => import('./nback/index.js')),
+  G(digitSpan, () => import('./digit-span/index.js')),
+  G(corsi, () => import('./corsi/index.js')),
+  G(cardPairs, () => import('./card-pairs/index.js')),
+  G(kimsGame, () => import('./kims-game/index.js')),
+  G(memoryPalace, () => import('./memory-palace/index.js')),
+  G(yesterday, () => import('./yesterday/index.js')),
   // math
   G(mentalMath, () => import('./mental-math/index.js')),
   G(countdownNumbers, () => import('./countdown-numbers/index.js')),
@@ -58,9 +93,24 @@ export const GAMES = [
   G(cryptogram, () => import('./cryptogram/index.js')),
   G(crossword, () => import('./crossword/index.js')),
   G(etymology, () => import('./etymology/index.js')),
+  // spatial
+  G(mentalRotation, () => import('./mental-rotation/index.js')),
+  G(fifteen, () => import('./fifteen/index.js')),
+  G(rushHour, () => import('./rush-hour/index.js')),
+  G(mapQuiz, () => import('./map-quiz/index.js')),
+  // strategy
+  G(chessPuzzles, () => import('./chess-puzzles/index.js')),
+  G(chessEngine, () => import('./chess-engine/index.js')),
+  G(connectFour, () => import('./connect-four/index.js')),
+  G(nim, () => import('./nim/index.js')),
   // knowledge
   G(magnitude, () => import('./magnitude/index.js')),
   G(higherLower, () => import('./higher-lower/index.js')),
+  G(trivia, () => import('./trivia/index.js')),
+  G(guessArticle, () => import('./guess-article/index.js')),
+  G(chronology, () => import('./chronology/index.js')),
+  G(flags, () => import('./flags/index.js')),
+  G(capitals, () => import('./capitals/index.js')),
   // Simon Tatham's Portable Puzzle Collection
   ...TATHAM.map((t) => G(t.meta, () => import('./tatham/index.js'))),
 ];

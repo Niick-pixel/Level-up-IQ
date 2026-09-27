@@ -38,7 +38,7 @@ async function check(name, fn) {
 }
 
 async function checkProviders() {
-  const { wikipedia, wikidata, opentdb, lichess } = providers;
+  const { wikipedia, wikidata, opentdb, triviaapi, lichess } = providers;
   await check('Wikipedia summary', async () => {
     const s = await wikipedia.summary('Entropy');
     if (!s.extract || !s.qid) throw new Error('summary missing extract or wikibase_item');
@@ -51,6 +51,11 @@ async function checkProviders() {
   await check('Wikidata facts (Don Quixote, Q480)', async () => (await wikidata.facts('Q480')).map((f) => `${f.label}: ${f.display}`).join('; ') || 'no facts');
   await check('Open Trivia DB', async () => {
     const qs = await opentdb.questions('physics', 2);
+    if (!qs.length) throw new Error('no questions');
+    return qs[0].question;
+  });
+  await check('The Trivia API', async () => {
+    const qs = await triviaapi.questions(2, 'easy');
     if (!qs.length) throw new Error('no questions');
     return qs[0].question;
   });

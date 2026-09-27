@@ -53,12 +53,12 @@ class OpenTdb extends Provider {
     this.token = data.token;
   }
 
-  /** Multiple-choice questions for a domain. */
-  async questions(domain, amount = 3) {
-    const category = CATEGORY[domain] ?? 9;
+  /** Multiple-choice questions for a domain (or any category with domain null). */
+  async questions(domain, amount = 3, difficulty = null) {
+    const category = domain === null ? null : CATEGORY[domain] ?? 9;
     if (!this.token) await this.#newToken();
     for (let attempt = 0; attempt < 2; attempt++) {
-      const url = `${API}/api.php?amount=${amount}&type=multiple&encode=url3986&category=${category}&token=${this.token}`;
+      const url = `${API}/api.php?amount=${amount}&type=multiple&encode=url3986${category ? `&category=${category}` : ''}${difficulty ? `&difficulty=${difficulty}` : ''}&token=${this.token}`;
       const { data } = await this.getJson(url, { cache: false, accept: (d) => typeof d?.response_code === 'number' });
       if (data.response_code === 0) return data.results.map(decodeQuestion);
       if (data.response_code === 3 || data.response_code === 4) {

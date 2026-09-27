@@ -1,0 +1,21 @@
+// Everyday objects as emoji, with names (for screen readers and answer options). Emoji are text,
+// so they work offline with the system font; no images to license.
+export const OBJECTS = [
+  ['🍎', 'apple'], ['🍌', 'banana'], ['🍇', 'grapes'], ['🍓', 'strawberry'], ['🍍', 'pineapple'], ['🥕', 'carrot'],
+  ['🌽', 'corn'], ['🍄', 'mushroom'], ['🥐', 'croissant'], ['🧀', 'cheese'], ['🍕', 'pizza'], ['🍩', 'doughnut'],
+  ['🎂', 'cake'], ['☕', 'coffee'], ['🍵', 'tea'], ['🥚', 'egg'], ['🌶️', 'chilli'], ['🥑', 'avocado'],
+  ['🐶', 'dog'], ['🐱', 'cat'], ['🐭', 'mouse'], ['🐰', 'rabbit'], ['🦊', 'fox'], ['🐻', 'bear'],
+  ['🐼', 'panda'], ['🐸', 'frog'], ['🐵', 'monkey'], ['🐧', 'penguin'], ['🦉', 'owl'], ['🐢', 'turtle'],
+  ['🐙', 'octopus'], ['🦀', 'crab'], ['🐝', 'bee'], ['🦋', 'butterfly'], ['🐌', 'snail'], ['🐘', 'elephant'],
+  ['🦒', 'giraffe'], ['🦓', 'zebra'], ['🐪', 'camel'], ['🦔', 'hedgehog'], ['🐳', 'whale'], ['🦈', 'shark'],
+  ['⚽', 'football'], ['🏀', 'basketball'], ['🎾', 'tennis ball'], ['🎲', 'die'], ['🧩', 'puzzle piece'], ['🎸', 'guitar'],
+  ['🎺', 'trumpet'], ['🥁', 'drum'], ['🎻', 'violin'], ['🎹', 'keyboard'], ['🔑', 'key'], ['🔒', 'padlock'],
+  ['🔨', 'hammer'], ['🪛', 'screwdriver'], ['✂️', 'scissors'], ['📎', 'paper clip'], ['📌', 'pin'], ['✏️', 'pencil'],
+  ['📚', 'books'], ['📷', 'camera'], ['💡', 'light bulb'], ['🕯️', 'candle'], ['⏰', 'alarm clock'], ['⌛', 'hourglass'],
+  ['📱', 'phone'], ['💻', 'laptop'], ['🎧', 'headphones'], ['🔭', 'telescope'], ['🔬', 'microscope'], ['🧲', 'magnet'],
+  ['🧭', 'compass'], ['🗺️', 'map'], ['⛵', 'sailboat'], ['🚲', 'bicycle'], ['🚗', 'car'], ['🚂', 'locomotive'],
+  ['✈️', 'aeroplane'], ['🚀', 'rocket'], ['🚁', 'helicopter'], ['⚓', 'anchor'], ['🎈', 'balloon'], ['🎁', 'gift'],
+  ['👑', 'crown'], ['🎩', 'top hat'], ['👓', 'glasses'], ['🧤', 'gloves'], ['🧣', 'scarf'], ['👟', 'trainer'],
+  ['☂️', 'umbrella'], ['🌂', 'closed umbrella'], ['🌵', 'cactus'], ['🌻', 'sunflower'], ['🌹', 'rose'], ['🍁', 'maple leaf'],
+  ['🌙', 'moon'], ['⭐', 'star'], ['☀️', 'sun'], ['❄️', 'snowflake'], ['🔥', 'fire'], ['🌈', 'rainbow'],
+].map(([glyph, name]) => ({ glyph, name }));

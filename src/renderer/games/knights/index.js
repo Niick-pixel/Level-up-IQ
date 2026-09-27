@@ -1,5 +1,5 @@
 import { meta, generate, text, NAMES } from './logic.js';
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock } from '../_engine/common.js';
 
 export { meta };
@@ -34,7 +34,7 @@ export function start(root, ctx) {
         says.length ? says.map((q) => h('p', {}, q)) : h('p', { class: 'muted' }, '(says nothing)'),
         h('div', { class: 'row seg' }, toggles));
     });
-    clear(card).append(h('div', { class: 'muted small' }, `Island ${round + 1} of ${ROUNDS}`), h('div', { class: 'grid islanders' }, people), h('div', { class: 'row' }, check), feedback);
+    fill(card, h('div', { class: 'muted small' }, `Island ${round + 1} of ${ROUNDS}`), h('div', { class: 'grid islanders' }, people), h('div', { class: 'row' }, check), feedback);
 
     function submit() {
       check.disabled = true;

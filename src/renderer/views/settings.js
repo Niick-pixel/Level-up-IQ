@@ -1,4 +1,4 @@
-import { h, toast, clear } from '../ui.js';
+import { h, toast, fill } from '../ui.js';
 import { state } from '../state.js';
 
 export async function renderSettings(el) {
@@ -118,7 +118,7 @@ async function onlineSection(save) {
         h('div', {}, h('div', {}, p.name), h('div', { class: 'hint' }, `${p.license} · ${status}`)),
         h('div', {}, toggle));
     });
-    clear(box).append(
+    fill(box, 
       h('div', { class: 'field' },
         h('div', {}, h('div', {}, 'Offline mode'), h('div', { class: 'hint' }, 'Never go online. Everything still works from the keyword bank and anything already cached.')),
         h('div', {}, offlineToggle)),

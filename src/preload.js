@@ -39,6 +39,18 @@ contextBridge.exposeInMainWorld('api', {
   homeExtras: call('home:extras'),
   cardCount: call('cards:count'),
   recentCards: call('cards:recent'),
+  recallCards: call('cards:recall'),
+
+  // knowledge games (online extras; each falls back to offline packs)
+  triviaQuestions: call('knowledge:trivia'),
+  guessArticle: call('knowledge:guess'),
+  onThisDay: call('knowledge:onThisDay'),
+
+  // downloadable engines (Stockfish)
+  engineStatus: call('engine:status'),
+  installEngine: call('engine:install'),
+  removeEngine: call('engine:remove'),
+  onEngineProgress: on('engine:progress'),
 
   // online sources
   providers: call('providers:list'),

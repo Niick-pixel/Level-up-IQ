@@ -1,4 +1,4 @@
-import { h, clear, toast } from '../ui.js';
+import { h, clear, toast, fill } from '../ui.js';
 
 const errText = (err) => String(err?.message || err).replace(/^Error invoking remote method '[^']+': (Error: )?/, '');
 
@@ -29,7 +29,7 @@ function addKeywordCard(domains) {
       try {
         const results = await window.api.wikiSearch(input.value);
         msg.textContent = results.length ? 'Pick the article you mean:' : 'No Wikipedia articles found.';
-        clear(list).append(...results.map((r) => h('button', { class: 'chip', type: 'button', title: r.description, onclick: () => add(r.title) }, `+ ${r.title}`)));
+        fill(list, ...results.map((r) => h('button', { class: 'chip', type: 'button', title: r.description, onclick: () => add(r.title) }, `+ ${r.title}`)));
       } catch (err) {
         msg.textContent = `Needs Wikipedia (online): ${errText(err)}`;
       }
@@ -40,7 +40,7 @@ function addKeywordCard(domains) {
     try {
       const r = await window.api.wikiRandom();
       msg.textContent = r.description ? `${r.title}: ${r.description}` : r.title;
-      clear(list).append(
+      fill(list, 
         h('button', { class: 'chip', type: 'button', onclick: () => add(r.title) }, `+ Add “${r.title}”`),
         h('button', { class: 'chip', type: 'button', onclick: surprise }, 'Another'));
     } catch (err) {
@@ -64,7 +64,7 @@ export async function renderKeywords(el) {
 
   async function refresh() {
     const results = await window.api.searchKeywords(input.value, { domain, limit: 100 });
-    clear(list).append(...results.map(kwCard));
+    fill(list, ...results.map(kwCard));
     count.textContent = results.length === 100 ? 'Showing the first 100' : `${results.length} keyword${results.length === 1 ? '' : 's'}`;
   }
 

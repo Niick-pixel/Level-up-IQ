@@ -14,6 +14,7 @@ const MOUNTS = [
   ['/shared/', path.join(ROOT, 'src', 'shared')],
   ['/assets/', path.join(ROOT, 'assets')],
   ['/vendor/flags/', path.join(ROOT, 'node_modules', 'flag-icons', 'flags')],
+  ['/vendor/chess/', path.join(ROOT, 'node_modules', 'chess.js', 'dist', 'esm')],
   ['/', path.join(ROOT, 'src', 'renderer')],
 ];
 
@@ -31,6 +32,11 @@ const TYPES = {
   '.wasm': 'application/wasm',
   '.txt': 'text/plain; charset=utf-8',
 };
+
+/** Adds a folder outside the app (e.g. downloaded engines in userData). Checked before '/'. */
+function addMount(prefix, dir) {
+  MOUNTS.splice(MOUNTS.length - 1, 0, [prefix, path.resolve(dir)]);
+}
 
 /** Maps a URL path to a file inside one of the mounts, or null. Exported for tests. */
 function resolvePath(urlPath) {
@@ -85,4 +91,4 @@ function handleCacheProtocol(protocol, cache) {
 
 const appUrl = (p = '/index.html') => `${SCHEME}://${HOST}${p}`;
 
-module.exports = { registerSchemes, handleProtocol, handleCacheProtocol, resolvePath, appUrl, SCHEME, CACHE_SCHEME, HOST };
+module.exports = { registerSchemes, handleProtocol, handleCacheProtocol, resolvePath, addMount, appUrl, SCHEME, CACHE_SCHEME, HOST, ROOT };

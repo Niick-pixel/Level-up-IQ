@@ -1,5 +1,5 @@
 import { meta, PEGS, MAX_GUESSES, levelShape, makeCode, feedback } from './logic.js';
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock } from '../_engine/common.js';
 
 export { meta };
@@ -24,7 +24,7 @@ export function start(root, ctx) {
     history, row, palette,
     h('div', { class: 'row' }, h('button', { class: 'btn', type: 'button', onclick: back }, 'Remove (Backspace)'), submitBtn), msg));
 
-  const drawRow = () => clear(row).append(...[...Array(shape.length)].map((_, i) => (current[i] !== undefined ? peg(current[i]) : h('span', { class: 'peg empty' }, '·'))));
+  const drawRow = () => fill(row, ...[...Array(shape.length)].map((_, i) => (current[i] !== undefined ? peg(current[i]) : h('span', { class: 'peg empty' }, '·'))));
   drawRow();
 
   function add(i) {
@@ -64,7 +64,7 @@ export function start(root, ctx) {
     time.pause();
     msg.textContent = won ? `Cracked in ${guesses} guesses!` : 'Out of guesses.';
     msg.className = `g-msg ${won ? 'ok' : 'bad'}`;
-    clear(row).append(...code.map(peg));
+    fill(row, ...code.map(peg));
     const performance = won ? Math.min(1, 0.45 + (MAX_GUESSES - guesses + 1) * 0.08) : 0;
     setTimeout(() => ctx.onFinish({ score: Math.round(performance * 800 * (1 + ctx.difficulty / 5)), accuracy: won ? 1 : 0, performance, timeMs: time.ms(), difficulty: ctx.difficulty }), 1200);
   }

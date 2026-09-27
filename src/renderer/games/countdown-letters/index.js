@@ -1,6 +1,6 @@
 import { meta, makeRound, secondsFor } from './logic.js';
 import { loadDictionary, canMake } from '../_engine/words.js';
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock } from '../_engine/common.js';
 
 export { meta };
@@ -15,7 +15,7 @@ export function start(root, ctx) {
   const card = h('div', { class: 'quiz-card' }, h('p', { class: 'muted' }, 'Loading the dictionary…'));
   root.append(card);
 
-  loadDictionary().then((dict) => play(dict)).catch((e) => clear(card).append(h('p', { class: 'g-msg bad' }, e.message)));
+  loadDictionary().then((dict) => play(dict)).catch((e) => fill(card, h('p', { class: 'g-msg bad' }, e.message)));
 
   function play(dict) {
     const { letters, best } = makeRound(ctx.rng, dict);
@@ -26,7 +26,7 @@ export function start(root, ctx) {
     const fill = h('div', { class: 'g-timefill' });
     const input = h('input', { class: 'g-answer wide', autocomplete: 'off', spellcheck: 'false', 'aria-label': 'Your word' });
     const msg = h('div', { class: 'g-msg', 'aria-live': 'polite' });
-    clear(card).append(
+    fill(card, 
       h('div', { class: 'muted small' }, `Round ${round + 1} of ${ROUNDS}`),
       h('div', { class: 'g-timebar' }, fill),
       h('div', { class: 'tiles' }, [...letters].map((ch) => h('span', { class: 'tile' }, ch.toUpperCase()))),

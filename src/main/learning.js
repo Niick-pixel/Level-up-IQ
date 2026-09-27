@@ -84,6 +84,26 @@ class Learning {
     return this.cards.slice(-limit).reverse().map((c) => ({ ...c }));
   }
 
+  /**
+   * Cards for "yesterday" recall: some from about 1, 3 and 7 days ago (spacing makes recall
+   * stick), topped up with any other card at least a few hours old. Newest-first within a bucket.
+   */
+  recallCards(max = 6) {
+    const DAY = 24 * 3600 * 1000;
+    const age = (c) => (this.now() - c.createdAt) / DAY;
+    const buckets = [[0.5, 2], [2, 5], [5, 10]];
+    const per = Math.ceil(max / buckets.length);
+    const picked = [];
+    for (const [lo, hi] of buckets) {
+      picked.push(...this.cards.filter((c) => age(c) >= lo && age(c) < hi).slice(-per));
+    }
+    for (const c of this.cards.slice().reverse()) {
+      if (picked.length >= max) break;
+      if (age(c) >= 0.125 && !picked.includes(c)) picked.push(c);
+    }
+    return picked.slice(0, max).map((c) => ({ ...c, daysAgo: Math.round(age(c)) }));
+  }
+
   cardCount() {
     return this.cards.length;
   }

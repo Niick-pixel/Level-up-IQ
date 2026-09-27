@@ -8,13 +8,15 @@ const { Ratings } = require('./rating');
 const { KeywordBank } = require('./keywords');
 const { createUpdater } = require('./updater');
 const { guardWindow } = require('./window-guard');
-const { registerSchemes, handleProtocol, handleCacheProtocol, appUrl, SCHEME, CACHE_SCHEME } = require('./protocol');
+const { registerSchemes, handleProtocol, handleCacheProtocol, addMount, appUrl, SCHEME, CACHE_SCHEME, ROOT } = require('./protocol');
 const { DiskCache } = require('./cache');
 const { createProviders } = require('./providers/registry');
 const { Learning } = require('./learning');
 const { KeywordSessions } = require('./session');
 const { isAllowedLink } = require('./links');
 const { registerIpc } = require('./ipc');
+const { Engines } = require('./engines');
+const { Knowledge } = require('./knowledge');
 const { localDateKey } = require('../shared/rng.js');
 
 const ASSETS = path.join(__dirname, '..', '..', 'assets');
@@ -228,6 +230,15 @@ app.whenReady().then(() => {
     getSettings: () => store.get(),
   });
   sessions = new KeywordSessions({ bank, providers, learning, stats, ratings, dateKey });
+  // Downloaded engines (Stockfish, GPL-3.0) live outside the app folder and are served read-only.
+  const engines = new Engines(path.join(dir, 'engines'), {
+    fetch: (url, opts) => netSession.fetch(url, opts),
+    isOnline: () => net.isOnline(),
+    getSettings: () => store.get(),
+    bundledLicense: path.join(ROOT, 'assets', 'licenses', 'GPL-3.0.txt'),
+  });
+  addMount('/engines/', path.join(dir, 'engines'));
+  const knowledge = new Knowledge({ bank, providers });
 
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
@@ -240,7 +251,7 @@ app.whenReady().then(() => {
   updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
 
   registerIpc({
-    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, guard: {
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, guard: {
       setFullscreen: (on) => guard?.setFullscreen(on),
       toggleMaximize: () => guard?.toggleMaximize(),
     },

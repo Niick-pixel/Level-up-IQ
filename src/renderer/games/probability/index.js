@@ -1,5 +1,5 @@
 import { meta, SCENARIOS, scoreGuess } from './logic.js';
-import { h, clear } from '../../ui.js';
+import { h, fill } from '../../ui.js';
 import { clock } from '../_engine/common.js';
 
 export { meta };
@@ -25,7 +25,7 @@ export function start(root, ctx) {
     slider.addEventListener('input', () => { guess = Number(slider.value) / 100; out.textContent = `${slider.value}%`; });
     const lock = h('button', { class: 'btn primary', type: 'button', onclick: run }, 'Lock in my prediction');
     const sim = h('div', { class: 'sim' });
-    clear(card).append(
+    fill(card, 
       h('div', { class: 'muted small' }, `${i + 1} / ${ROUNDS} · ${s.title}`),
       h('p', { class: 'riddle' }, s.text),
       h('div', { class: 'row' }, slider, out), lock, sim);

@@ -3,8 +3,9 @@ const { Wikipedia } = require('./wikipedia');
 const { Wikidata } = require('./wikidata');
 const { OpenTdb } = require('./opentdb');
 const { Lichess } = require('./lichess');
+const { TriviaApi } = require('./triviaapi');
 
-const PROVIDER_IDS = ['wikipedia', 'wikidata', 'opentdb', 'lichess'];
+const PROVIDER_IDS = ['wikipedia', 'wikidata', 'opentdb', 'triviaapi', 'lichess'];
 
 /**
  * @param {{ fetch, cache, userAgent, isOnline?, now?, sleep?, getSettings }} deps
@@ -21,6 +22,7 @@ function createProviders(deps) {
     wikipedia: new Wikipedia(shared),
     wikidata: new Wikidata(shared),
     opentdb: new OpenTdb(shared),
+    triviaapi: new TriviaApi(shared),
     lichess: new Lichess(shared),
   };
   return {
