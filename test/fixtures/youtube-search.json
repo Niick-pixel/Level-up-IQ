@@ -1,0 +1,4 @@
+{"kind":"youtube#searchListResponse","items":[
+ {"kind":"youtube#searchResult","id":{"kind":"youtube#video","videoId":"Xyz_1234567"},"snippet":{"publishedAt":"2024-03-01T12:00:00Z","channelId":"UCabc","title":"What&#39;s entropy? &amp; why it matters","description":"An explainer.","thumbnails":{"high":{"url":"https://i.ytimg.com/vi/Xyz_1234567/hqdefault.jpg"}},"channelTitle":"Some Channel"}},
+ {"kind":"youtube#searchResult","id":{"kind":"youtube#channel","channelId":"UCdef"},"snippet":{"title":"A channel"}}
+]}

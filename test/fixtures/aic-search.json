@@ -1,0 +1,4 @@
+{"pagination":{"total":2},"data":[
+ {"id":27992,"title":"A Sunday on La Grande Jatte — 1884","artist_title":"Georges Seurat","artist_display":"Georges Seurat\nFrench, 1859-1891","date_display":"1884–86","date_start":1884,"date_end":1886,"image_id":"abc-123","place_of_origin":"France","medium_display":"Oil on canvas","credit_line":"Helen Birch Bartlett Memorial Collection","is_public_domain":true},
+ {"id":1,"title":"Modern work","artist_title":"Someone","date_start":1990,"date_end":1990,"image_id":"def-456","is_public_domain":false}
+]}

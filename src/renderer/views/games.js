@@ -26,7 +26,8 @@ export function renderGames(el) {
   const card = ({ meta }) => h('a', { class: 'card', href: `#/play/${meta.id}`, 'data-search': `${meta.name} ${meta.blurb} ${meta.skills.join(' ')}`.toLowerCase() },
     h('div', { class: 'kw-term' }, meta.name),
     h('div', { class: 'muted small' }, meta.blurb),
-    h('div', { class: 'chips', style: { marginTop: '8px' } }, meta.skills.map((s) => h('span', { class: 'chip' }, SKILL_LABELS[s]))));
+    h('div', { class: 'chips', style: { marginTop: '8px' } }, meta.skills.map((s) => h('span', { class: 'chip' }, SKILL_LABELS[s])),
+      meta.offline === false ? h('span', { class: 'chip', title: 'Pictures come from online collections; the ones you’ve seen are saved for offline play.' }, 'Needs internet the first time') : ''));
   const blocks = sections.map((sec) => {
     const grid = h('div', { class: 'grid' }, sec.games.map(card));
     return { el: h('section', {}, h('h2', { style: { marginTop: '18px' } }, sec.title), sec.note ? h('p', { class: 'muted small' }, sec.note) : '', grid), grid };

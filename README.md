@@ -4,11 +4,11 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Status: Phase 3 of 6.** 80 game types (56 of our own plus 24 of Simon Tatham's puzzles), 1,541 keywords, full keyword sessions with online content, stats and settings work. Videos, spaced repetition and optional AI features are coming. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Status: Phase 4 of 6.** 83 game types (59 of our own plus 24 of Simon Tatham's puzzles), 1,541 keywords, keyword sessions, videos with recall, stats and settings work. Spaced repetition, adaptive mixes and optional AI features are coming. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
 ## Features (so far)
 
-- **80 game types, all playable offline and seeded.**
+- **83 game types, seeded, and all but three playable fully offline** (the picture quizzes need the internet the first time).
   - **Logic:** logic grids (zebra, unique solution guaranteed), knights and knaves, Mastermind, Tower of Hanoi, syllogisms, spot the fallacy (46 fallacies), and **24 puzzles from Simon Tatham's Portable Puzzle Collection** (Solo, Keen, Towers, Unequal, Pattern, Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines, Pearl, Tracks, Unruly, Map, Mosaic).
   - **Math:** mental math sprint, Countdown numbers and the 24 game (a solver proves every puzzle solvable), Fermi estimation (scored on log error), sequences, Kakuro (unique solution), probability intuition (predict, then watch it simulated), orders of magnitude.
   - **Language:** Countdown letters, anagrams, word ladder, Wordle-style, cryptograms (public-domain quotes), mini crosswords from the keyword bank, etymology.
@@ -16,7 +16,7 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
   - **Attention and speed:** Stroop (with a colour-blind mode), Schulte tables, Flanker, Go/No-Go, reaction time (simple and choice), visual search, RSVP speed reading with comprehension questions.
   - **Spatial:** 3D mental rotation, 15-puzzle, Rush Hour (every puzzle's minimum move count is exact), map geography.
   - **Strategy:** rated chess puzzles (Lichess database), a full game against Stockfish at your level, Connect Four against minimax, and Nim with a "discover the winning rule" mode.
-  - **Knowledge:** trivia (two open databases plus an offline bank), guess the Wikipedia article, chronology ("On this day" or an offline set), flags, capitals, higher or lower.
+  - **Knowledge:** trivia (two open databases plus an offline bank), guess the Wikipedia article, chronology ("On this day" or an offline set), flags, capitals, higher or lower, and three picture quizzes: art through time (The Met and the Art Institute of Chicago), name that species (iNaturalist, Costa Rica by default) and "What am I looking at?" (NASA's Astronomy Picture of the Day).
   - **Deep thinking:** explain it back (Feynman technique), steelman the other side, first principles, and a no-AI challenge of the day.
   - **Riddles and lateral thinking:** 112 riddles, 42 situation puzzles and 50 rebuses.
 - **Every puzzle has a seed code** like `stroop:4:k9x2mf`. Replay it, or share it, and you get exactly the same puzzle.
@@ -38,6 +38,10 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
 
   Offline, the session still works from the keyword bank alone.
 - **Add your own keywords** from Wikipedia (search, or roll a random article), and let any keyword suggest more topics from its Wikipedia links.
+- **Watch and learn.** The latest videos from 36 curated channels (Veritasium, Kurzgesagt, 3Blue1Brown, PBS Space Time and more; switch any off or add your own), public-domain documentaries from the Internet Archive, and, with your own optional key, YouTube search.
+  - Each keyword session suggests matching videos. Add them to your watch-later list; videos always open in your browser.
+  - When you've watched one: three recall questions (the main idea, one fact, and which topic it was about). Your answers become a review card and an entry in **Things I've learned**.
+- **Optional API keys** (YouTube Data API, NASA) are encrypted with Windows' own protection (DPAPI through Electron `safeStorage`) and never written to settings or shown again.
 - **On this day and the daily chess puzzle** on the home screen, when online.
 - **Daily Mix.** A short guided set: warm-up, math, memory and words, then the keyword of the day and an explain-it-back prompt.
 - **Stats that stay on your computer.** Minutes per day, rounds, "thinking without AI" time, personal bests, a skill radar, and export to JSON or CSV.
@@ -62,6 +66,13 @@ Focus Point holds its breaks while a fullscreen game or video is in front. Mind 
 | [Wikidata](https://www.wikidata.org/) | Key facts, dated quiz questions | CC0 | One small query at a time, cached 30 days |
 | [Open Trivia DB](https://opentdb.com/) | Bonus trivia, the trivia game | CC BY-SA 4.0 | One request every 5.5 s, session tokens |
 | [The Trivia API](https://the-trivia-api.com/) | The trivia game | CC BY-NC 4.0 (fine while Mind Gym is free) | One request every 2 s |
+| YouTube channel feeds | Latest videos from curated channels | YouTube Terms of Service (we only link out) | Cached 6 h; a failing feed falls back to its last copy |
+| YouTube Data API (your key, optional) | Video search in the Watch step | YouTube API Services Terms | Cached 7 days, at most 20 searches a day |
+| [Internet Archive](https://archive.org/) | Documentary films | Only items marked public domain, CC0, CC BY or CC BY-SA (or the Prelinger Archives) | One request every 1.5 s, cached 14 days |
+| [The Met](https://www.metmuseum.org/hubs/open-access) | Art quiz | CC0 (Open Access objects only) | ≤ 2 requests/s, cached 30 days |
+| [Art Institute of Chicago](https://api.artic.edu/docs/) | Art quiz | CC0 (public-domain works only) | ≤ 60 requests/min, identified with `AIC-User-Agent` |
+| [iNaturalist](https://www.inaturalist.org/) | Species quiz | Per photo: CC0, CC BY or CC BY-NC only, author credited | ≤ 1 request/s, lists cached 30 days |
+| [NASA APOD](https://apod.nasa.gov/) | Space quiz | Per image, credit shown | DEMO_KEY (or yours); batches cached a year; switches to the new endpoint on 2026-12-01 |
 | [Lichess](https://lichess.org/) | Daily puzzle; offline puzzle pack from the CC0 database | CC0 | One request at a time, 1 min pause after a 429 |
 
 All requests happen in the main process, only to these hosts, and are cached on disk. The pages themselves can't reach the network. The *Verify online sources* workflow checks every endpoint weekly from GitHub Actions.
@@ -135,7 +146,9 @@ Then run `npm run keywords:build`. The build fails on duplicate ids, duplicate W
 | Shared game engines: quiz, typed answers, riddles, reflection, speeded trials, span staircase, chessboard | `src/renderer/games/_engine/` |
 | Simon Tatham's puzzles: WebAssembly build, host page, bridge | `.github/workflows/build-tatham.yml`, `scripts/tatham-presets.cjs`, `src/renderer/tatham/` |
 | Stockfish download and integrity checks | `src/main/engines.js` |
-| Online extras for the knowledge games | `src/main/knowledge.js` |
+| Online extras for the knowledge games, picture pools for offline play | `src/main/knowledge.js` |
+| Watch list, recall, video suggestions, curated channels | `src/main/media.js`, `src/main/channels.js` |
+| Encrypted API keys | `src/main/secrets.js` |
 | Prebuilt packs: Rush Hour puzzles, world map | `scripts/build-rush-hour.mjs`, `scripts/build-map.mjs` |
 | Views: home, Daily Mix, games, keywords, stats, settings | `src/renderer/views/` |
 

@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.4.0: Phase 4 (watch and learn)
+
+**Added**
+- **Videos from 36 curated channels** through their public RSS feeds (no key). Each channel is tagged with topics. Feeds are cached for 6 hours, and a feed that fails falls back to its last good copy. Shorts are left out. You can switch channels off or add your own by channel ID (Settings).
+- **Internet Archive documentaries**: only items licensed public domain, CC0, CC BY or CC BY-SA (or from the Prelinger Archives); everything else is hidden.
+- **YouTube search with your own key (optional)**: cached for 7 days, at most 20 searches a day.
+- **Watch page**: your list, the latest videos from your channels (filter by topic), and what you've watched. Thumbnails come through the main process and load as they scroll into view. Videos always open in your browser; nothing is embedded or downloaded.
+- **The keyword session's Watch step** now suggests videos that match the topic (the full name in the title counts most), plus archive films, with "Watch later".
+- **Recall after watching**: three questions (the main idea, one fact, and which topic it was about, or what you still wonder). Your answers become a review card and an entry in **Things I've learned**, which also lists your finished keyword sessions by day.
+- **Three picture quizzes** (83 game types in total):
+  - **Art through time**: public-domain works from The Met and the Art Institute of Chicago; guess the era, the century (level 8+) or the artist.
+  - **Name that species**: iNaturalist photos, Costa Rica by default, each credited to its photographer.
+  - **What am I looking at?**: NASA's Astronomy Picture of the Day, with the astronomer's explanation afterwards.
+  - Pictures you've seen are kept, so these quizzes also work offline after the first time.
+- **Encrypted API keys** (YouTube, NASA) with Electron `safeStorage` (DPAPI on Windows) in `secrets.bin`. The page can set a key and see whether it's set, never read it. With no system encryption, keys are refused rather than stored in plain text.
+- **The verify workflow** now checks every new source, the AIC image header, the new NASA endpoint, and each channel's feed title.
+- 114 tests (16 new), with recorded responses for every new source.
+
+**Fixed**
+- The Trivia API couldn't be switched off in Settings (it was missing from the settings' list of sources).
+- Art quiz centuries BC were off by one (300 BC is the 3rd century BC); found by the new tests before release.
+
+**Not in this phase**
+- Recall questions are generic (main idea, a fact, the topic). Questions about the video's actual content need its transcript or an AI model; that comes with the optional Claude features in Phase 6.
+- The new NASA APOD endpoint's response format isn't documented yet, so its parser is defensive and the verify workflow reports what it actually returns. The legacy endpoint is used until it closes on 2026-12-01.
+- Channel IDs, museum and species endpoints couldn't be called from this sandbox. Tests use recorded responses, and the verify workflow checks them live.
+- Free Dictionary and Datamuse aren't used yet: the word games don't need them.
+
+
 ## 0.3.0: Phase 3 (variety)
 
 **Added**

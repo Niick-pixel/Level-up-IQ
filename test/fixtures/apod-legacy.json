@@ -1,0 +1,4 @@
+[
+ {"date":"2026-01-01","title":"The Horsehead Nebula","explanation":"One of the most famous nebulae on the sky. It is a dark cloud of dust. Behind it glows hydrogen gas.","url":"https://apod.nasa.gov/apod/image/2601/horsehead.jpg","hdurl":"https://apod.nasa.gov/apod/image/2601/horsehead_big.jpg","media_type":"image","copyright":"\nJane Doe\n","service_version":"v1"},
+ {"date":"2026-01-02","title":"A Video of an Eclipse","explanation":"Watch the Moon cover the Sun.","url":"https://www.youtube.com/embed/xyz","media_type":"video","service_version":"v1"}
+]

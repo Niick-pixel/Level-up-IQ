@@ -56,6 +56,9 @@ import { meta as noAiChallenge } from './no-ai-challenge/logic.js';
 import { meta as riddles } from './riddles/logic.js';
 import { meta as situationPuzzles } from './situation-puzzles/logic.js';
 import { meta as rebus } from './rebus/logic.js';
+import { meta as artQuiz } from './art-quiz/logic.js';
+import { meta as speciesQuiz } from './species-quiz/logic.js';
+import { meta as apodQuiz } from './apod-quiz/logic.js';
 import { TATHAM } from './tatham/logic.js';
 
 const G = (meta, load) => ({ meta, load });
@@ -118,6 +121,9 @@ export const GAMES = [
   G(chronology, () => import('./chronology/index.js')),
   G(flags, () => import('./flags/index.js')),
   G(capitals, () => import('./capitals/index.js')),
+  G(artQuiz, () => import('./art-quiz/index.js')),
+  G(speciesQuiz, () => import('./species-quiz/index.js')),
+  G(apodQuiz, () => import('./apod-quiz/index.js')),
   // deep thinking
   G(explainBack, () => import('./explain-back/index.js')),
   G(steelman, () => import('./steelman/index.js')),

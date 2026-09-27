@@ -15,10 +15,12 @@ const { createProviders } = require('../src/main/providers/registry');
 const { build: buildKeywords } = require('./build-keywords');
 const { build: buildCountries } = require('./build-countries');
 const pkg = require('../package.json');
+const { CHANNELS } = require('../src/main/channels');
+const { makeRng } = require('../src/shared/rng.js');
 
 const ROOT = path.join(__dirname, '..');
 const WRITE = process.argv.includes('--write');
-const report = { at: new Date().toISOString(), providers: [], keywords: {}, countries: {} };
+const report = { at: new Date().toISOString(), providers: [], keywords: {}, countries: {}, channels: {} };
 
 const providers = createProviders({
   fetch: (url, opts) => fetch(url, opts),
@@ -59,11 +61,67 @@ async function checkProviders() {
     if (!qs.length) throw new Error('no questions');
     return qs[0].question;
   });
+  const { youtube, archive, met, aic, inaturalist, apod } = providers;
+  const rng = makeRng(report.at);
+  await check('Internet Archive search', async () => {
+    const films = await archive.films('volcano');
+    if (!films.length) throw new Error('no openly licensed films found');
+    return `${films.length} films, e.g. ${films[0].title} (${films[0].license})`;
+  });
+  await check('The Met object', async () => {
+    const art = await met.sample(rng, 1);
+    if (!art.length) throw new Error('no public-domain object with an image');
+    const hash = await met.cacheImage(art[0].imageUrl);
+    return `${art[0].title} (${art[0].date})${hash ? ', image OK' : ', IMAGE FAILED'}`;
+  });
+  await check('Art Institute of Chicago (with AIC-User-Agent)', async () => {
+    const art = await aic.sample(rng, 1);
+    if (!art.length) throw new Error('no public-domain artwork');
+    const hash = await aic.cacheImage(art[0].imageUrl);
+    if (!hash) throw new Error(`IIIF image refused: ${aic.lastError || 'unknown'}`);
+    return `${art[0].title} (${art[0].date}), image OK`;
+  });
+  await check('iNaturalist species (Costa Rica, place 6924)', async () => {
+    const list = await inaturalist.species({ group: 'Aves', costaRica: true, perPage: 20 });
+    if (list.length < 5) throw new Error(`only ${list.length} species with open photos`);
+    return `${list.length} birds, e.g. ${list[0].name}`;
+  });
+  await check('NASA APOD', async () => {
+    const pics = await apod.random(3, rng);
+    if (!pics.length) throw new Error('no images');
+    return `${pics[0].title} (${pics[0].date})`;
+  });
+  await check('NASA APOD (new science.nasa.gov endpoint)', async () => {
+    const res = await fetch('https://science.nasa.gov/wp-json/wp/v2/apod-basic?per_page=2', { headers: { 'User-Agent': 'MindGym verification' } });
+    if (!res.ok) throw new Error(`answered ${res.status}`);
+    const data = await res.json();
+    const { normalizeWp } = require('../src/main/providers/apod');
+    const ok = Array.isArray(data) ? data.map(normalizeWp).filter(Boolean) : [];
+    return ok.length ? `parsed: ${ok[0].title}` : `answered, but our parser found no images; keys: ${Object.keys((Array.isArray(data) ? data[0] : data) || {}).slice(0, 12).join(', ')}`;
+  });
   await check('Lichess daily puzzle', async () => {
     const p = await lichess.daily();
     if (!p) throw new Error('unexpected shape');
     return `${p.id} (${p.rating})`;
   });
+}
+
+/** Every curated channel's feed answers, and its title is the name we show. */
+async function checkChannels() {
+  const bad = [];
+  let ok = 0;
+  for (const c of CHANNELS) {
+    try {
+      const { title, videos } = await providers.youtube.channel(c);
+      const norm = (x) => x.toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (norm(title) !== norm(c.name)) bad.push(`${c.name} (${c.id}): feed title is “${title}”`);
+      else if (!videos.length) bad.push(`${c.name} (${c.id}): no videos in the feed`);
+      else ok += 1;
+    } catch (err) {
+      bad.push(`${c.name} (${c.id}): ${err.message}`);
+    }
+  }
+  report.channels = { total: CHANNELS.length, ok, bad };
 }
 
 async function checkKeywords() {
@@ -128,6 +186,9 @@ function markdown() {
   const k = report.keywords;
   lines.push('', `## Keywords`, '', k.error ? `❌ ${k.error}` : `${k.resolved} of ${k.total} keywords resolved to a Wikidata item.`);
   if (k.missing?.length) lines.push('', 'Titles to fix:', '', ...k.missing.map((m) => `- ${m}`));
+  const ch = report.channels;
+  lines.push('', '## YouTube channels', '', ch.error ? `❌ ${ch.error}` : `${ch.ok} of ${ch.total} channel feeds answer with the expected title.`);
+  if (ch.bad?.length) lines.push('', ...ch.bad.map((m) => `- ${m}`));
   const c = report.countries;
   lines.push('', '## Country capitals', '', c.error ? `❌ ${c.error}` : `${c.total - c.mismatches.length} of ${c.total} match Wikidata.`);
   if (c.mismatches?.length) lines.push('', ...c.mismatches.map((m) => `- ${m}`));
@@ -136,6 +197,7 @@ function markdown() {
 
 (async () => {
   await checkProviders();
+  try { await checkChannels(); } catch (err) { report.channels = { error: err.message }; }
   try { await checkKeywords(); } catch (err) { report.keywords = { error: err.message }; }
   try { await checkCountries(); } catch (err) { report.countries = { error: err.message }; }
   const md = markdown();

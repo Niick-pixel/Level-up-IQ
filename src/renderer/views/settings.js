@@ -52,6 +52,14 @@ export async function renderSettings(el) {
 
     h('h2', { style: { marginTop: '22px' } }, 'Online sources'),
     await onlineSection(save),
+    h('div', { class: 'card', style: { marginTop: '10px' } },
+      field('Species quiz: Costa Rica only', 'Off: species from anywhere in the world.', toggle('speciesCostaRica'))),
+
+    h('h2', { style: { marginTop: '22px' } }, 'API keys (optional)'),
+    await keysSection(),
+
+    h('h2', { style: { marginTop: '22px' } }, 'YouTube channels'),
+    await channelsSection(save),
 
     h('h2', { style: { marginTop: '22px' } }, 'Window and Focus Point'),
     h('div', { class: 'card' },
@@ -109,7 +117,7 @@ async function onlineSection(save) {
       onchange: async (e) => { await save({ offlineMode: e.target.checked }); draw(); },
     });
     const rows = providers.map((p) => {
-      const status = !p.enabled ? 'Off' : p.lockedFor ? 'Resting (asked us to slow down)' : p.lastError ? `Last try failed: ${p.lastError}` : p.requests ? 'Working' : 'Ready';
+      const status = p.id === 'youtubeapi' && s.providers[p.id] !== false && !p.enabled ? 'Needs your API key (below)' : !p.enabled ? 'Off' : p.lockedFor ? 'Resting (asked us to slow down)' : p.lastError ? `Last try failed: ${p.lastError}` : p.requests ? 'Working' : 'Ready';
       const toggle = h('input', {
         type: 'checkbox', class: 'switch', role: 'switch', checked: s.providers[p.id] !== false, disabled: offline || null,
         onchange: async (e) => { await save({ providers: { [p.id]: e.target.checked } }); draw(); },
@@ -126,6 +134,74 @@ async function onlineSection(save) {
       h('div', { class: 'field' },
         h('div', {}, h('div', {}, 'Cache'), h('div', { class: 'hint' }, `${fmtBytes(size)} of saved summaries, facts and images (kept for offline use).`)),
         h('div', {}, h('button', { class: 'btn small', type: 'button', onclick: async () => { await window.api.clearCache(); toast('Cache cleared.'); draw(); } }, 'Clear cache'))));
+  }
+  await draw();
+  return box;
+}
+
+/** Keys are encrypted by the system (Windows DPAPI) and never shown again, only "set" / "not set". */
+async function keysSection() {
+  const box = h('div', { class: 'card' });
+  const help = {
+    youtube: ['Lets the Watch step search all of YouTube for a keyword (100 searches a day are free; Mind Gym uses at most 20). Without it, suggestions come from your channels and the Internet Archive.', 'https://developers.google.com/youtube/v3/getting-started'],
+    nasa: ['Only needed if the shared demo key runs out (50 requests a day per computer) in the space quiz.', 'https://api.nasa.gov/'],
+  };
+  async function draw() {
+    const st = await window.api.secretsStatus();
+    if (!st.available) {
+      fill(box, h('p', { class: 'muted' }, 'This system can’t encrypt secrets, so API keys can’t be stored. Everything else works without them.'));
+      return;
+    }
+    fill(box, Object.entries(st.keys).map(([name, k]) => {
+      const input = h('input', { type: 'password', placeholder: k.set ? '•••••••• (set)' : 'Paste your key', autocomplete: 'off', spellcheck: 'false', 'aria-label': k.label, style: { width: '220px' } });
+      const saveKey = async (value) => {
+        try {
+          await window.api.setSecret(name, value);
+          toast(value ? 'Key saved (encrypted).' : 'Key removed.');
+          draw();
+        } catch (err) {
+          toast(String(err.message || err).replace(/^Error invoking remote method '[^']+': (Error: )?/, ''));
+        }
+      };
+      return h('div', { class: 'field' },
+        h('div', {}, h('div', {}, k.label), h('div', { class: 'hint' }, help[name][0], ' ', h('a', { href: '#', onclick: (e) => { e.preventDefault(); window.api.openExternal(help[name][1]); } }, 'How to get one'))),
+        h('div', { class: 'row' }, input,
+          h('button', { class: 'btn small', type: 'button', onclick: () => input.value.trim() && saveKey(input.value.trim()) }, 'Save'),
+          k.set ? h('button', { class: 'btn small ghost', type: 'button', onclick: () => saveKey('') }, 'Remove') : ''));
+    }));
+  }
+  await draw();
+  return box;
+}
+
+/** Curated channels on/off, plus your own (by channel ID). */
+async function channelsSection(save) {
+  const box = h('div', { class: 'card' });
+  const domains = await window.api.keywordDomains();
+  async function draw() {
+    const { curated } = await window.api.channels();
+    const ch = state.settings.channels;
+    const off = new Set(ch.disabled);
+    const setChannels = async (next) => { await save({ channels: next }); draw(); };
+    const rows = curated.map((c) => h('label', { class: 'check chan' },
+      h('input', { type: 'checkbox', checked: !off.has(c.id), onchange: (e) => setChannels({ ...ch, disabled: e.target.checked ? ch.disabled.filter((x) => x !== c.id) : [...ch.disabled, c.id] }) }),
+      ' ', c.name));
+    const idInput = h('input', { type: 'text', placeholder: 'Channel ID (starts with UC…)', 'aria-label': 'Channel ID', style: { width: '260px' } });
+    const nameInput = h('input', { type: 'text', placeholder: 'Name', 'aria-label': 'Channel name', style: { width: '160px' } });
+    const domainSel = h('select', { 'aria-label': 'Topic' }, domains.map((d) => h('option', { value: d.id }, d.label)));
+    fill(box,
+      h('p', { class: 'muted small' }, 'Videos come from these channels’ public feeds. Untick the ones you don’t want.'),
+      h('div', { class: 'chan-grid' }, rows),
+      ch.custom.length ? h('div', { style: { marginTop: '12px' } }, h('div', {}, 'Your channels'), ch.custom.map((c) => h('div', { class: 'row' },
+        h('span', {}, `${c.name} `, h('span', { class: 'muted small' }, c.id)),
+        h('button', { class: 'btn small ghost', type: 'button', onclick: () => setChannels({ ...ch, custom: ch.custom.filter((x) => x.id !== c.id) }) }, 'Remove')))) : '',
+      h('div', { class: 'row', style: { marginTop: '12px' } }, idInput, nameInput, domainSel,
+        h('button', { class: 'btn small', type: 'button', onclick: () => {
+          const id = idInput.value.trim();
+          if (!/^UC[A-Za-z0-9_-]{22}$/.test(id)) { toast('A channel ID is 24 characters and starts with UC (find it in the channel’s page source or “About → Share channel”).'); return; }
+          if (ch.custom.some((x) => x.id === id) || curated.some((x) => x.id === id)) { toast('Already in the list.'); return; }
+          setChannels({ ...ch, custom: [...ch.custom, { id, name: nameInput.value.trim() || id, domains: [domainSel.value] }] });
+        } }, 'Add channel')));
   }
   await draw();
   return box;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA"/>
+ <id>yt:channel:HnyfMqiRRG1u-2MsSQLbXA</id>
+ <yt:channelId>HnyfMqiRRG1u-2MsSQLbXA</yt:channelId>
+ <title>Veritasium</title>
+ <author><name>Veritasium</name><uri>https://www.youtube.com/channel/UCHnyfMqiRRG1u-2MsSQLbXA</uri></author>
+ <published>2010-07-21T07:18:02+00:00</published>
+ <entry>
+  <id>yt:video:abcdefghijk</id>
+  <yt:videoId>abcdefghijk</yt:videoId>
+  <yt:channelId>UCHnyfMqiRRG1u-2MsSQLbXA</yt:channelId>
+  <title>The Most Misunderstood Concept in Physics: Entropy</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=abcdefghijk"/>
+  <author><name>Veritasium</name></author>
+  <published>2026-09-20T14:00:00+00:00</published>
+  <media:group>
+   <media:title>The Most Misunderstood Concept in Physics: Entropy</media:title>
+   <media:thumbnail url="https://i.ytimg.com/vi/abcdefghijk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Why does heat flow from hot to cold? Entropy &amp; the arrow of time.</media:description>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:shortsShort</id>
+  <yt:videoId>shortsShort</yt:videoId>
+  <title>Quick one #shorts</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/shortsShort"/>
+  <published>2026-09-19T14:00:00+00:00</published>
+  <media:group><media:description>short</media:description></media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ZYXWVUTSRQP</id>
+  <yt:videoId>ZYXWVUTSRQP</yt:videoId>
+  <title>Why Glass Is Transparent</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ZYXWVUTSRQP"/>
+  <published>2026-09-10T14:00:00+00:00</published>
+  <media:group>
+   <media:thumbnail url="https://i.ytimg.com/vi/ZYXWVUTSRQP/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Electrons, photons and band gaps.</media:description>
+  </media:group>
+ </entry>
+</feed>

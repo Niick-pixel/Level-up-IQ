@@ -1,0 +1,7 @@
+{"responseHeader":{"status":0},"response":{"numFound":5,"start":0,"docs":[
+ {"identifier":"pd_film","title":"Volcanoes of the World (1952)","licenseurl":"http://creativecommons.org/publicdomain/mark/1.0/","year":"1952","description":"<p>A classic educational film about entropy and volcanoes.</p>","collection":["feature_films"]},
+ {"identifier":"cc_by_film","title":"Entropy Explained","licenseurl":"https://creativecommons.org/licenses/by/4.0/","year":2019,"collection":"opensource_movies"},
+ {"identifier":"nc_film","title":"Entropy lecture","licenseurl":"https://creativecommons.org/licenses/by-nc/4.0/","collection":["opensource_movies"]},
+ {"identifier":"all_rights","title":"A TV documentary on entropy","collection":["television"]},
+ {"identifier":"prelinger_film","title":"Heat and Energy (1946)","collection":["prelinger_archives","ephemera"]}
+]}}
