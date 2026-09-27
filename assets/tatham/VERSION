@@ -1,0 +1,4 @@
+Built from https://git.tartarus.org/simon/puzzles.git
+Commit: 616da16f25da428ccda805536209095bd062676e 2026-09-22
+Emscripten 3.1.74, 2026-09-27
+Change: emcc.c gains an exported mg_status() that returns midend_status().

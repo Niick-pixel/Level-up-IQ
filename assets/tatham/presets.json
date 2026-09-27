@@ -1,0 +1,1355 @@
+{
+ "solo": [
+  {
+   "name": "2x2 Trivial",
+   "params": "2x2",
+   "generateMs": 8
+  },
+  {
+   "name": "2x3 Basic",
+   "params": "2x3db",
+   "generateMs": 12
+  },
+  {
+   "name": "3x3 Trivial",
+   "params": "3x3",
+   "generateMs": 8
+  },
+  {
+   "name": "3x3 Basic",
+   "params": "3x3db",
+   "generateMs": 5
+  },
+  {
+   "name": "3x3 Basic X",
+   "params": "3x3xdb",
+   "generateMs": 6
+  },
+  {
+   "name": "3x3 Intermediate",
+   "params": "3x3di",
+   "generateMs": 13
+  },
+  {
+   "name": "3x3 Advanced",
+   "params": "3x3da",
+   "generateMs": 25
+  },
+  {
+   "name": "3x3 Advanced X",
+   "params": "3x3xda",
+   "generateMs": 24
+  },
+  {
+   "name": "3x3 Extreme",
+   "params": "3x3de",
+   "generateMs": 43
+  },
+  {
+   "name": "3x3 Unreasonable",
+   "params": "3x3du",
+   "generateMs": 101
+  },
+  {
+   "name": "3x3 Killer",
+   "params": "3x3ka",
+   "generateMs": 6
+  },
+  {
+   "name": "9 Jigsaw Basic",
+   "params": "9jdb",
+   "generateMs": 23
+  },
+  {
+   "name": "9 Jigsaw Basic X",
+   "params": "9jxdb",
+   "generateMs": 157
+  },
+  {
+   "name": "9 Jigsaw Advanced",
+   "params": "9jda",
+   "generateMs": 170
+  },
+  {
+   "name": "3x4 Basic",
+   "params": "3x4db",
+   "generateMs": 8
+  },
+  {
+   "name": "4x4 Basic",
+   "params": "4x4db",
+   "generateMs": 24
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "keen": [
+  {
+   "name": "4x4 Easy",
+   "params": "4de",
+   "generateMs": 5
+  },
+  {
+   "name": "5x5 Easy",
+   "params": "5de",
+   "generateMs": 4
+  },
+  {
+   "name": "5x5 Easy, multiplication only",
+   "params": "5dem",
+   "generateMs": 3
+  },
+  {
+   "name": "6x6 Easy",
+   "params": "6de",
+   "generateMs": 6
+  },
+  {
+   "name": "6x6 Normal",
+   "params": "6dn",
+   "generateMs": 6
+  },
+  {
+   "name": "6x6 Normal, multiplication only",
+   "params": "6dnm",
+   "generateMs": 69
+  },
+  {
+   "name": "6x6 Hard",
+   "params": "6dh",
+   "generateMs": 6
+  },
+  {
+   "name": "6x6 Extreme",
+   "params": "6dx",
+   "generateMs": 19
+  },
+  {
+   "name": "6x6 Unreasonable",
+   "params": "6du",
+   "generateMs": 3
+  },
+  {
+   "name": "9x9 Normal",
+   "params": "9dn",
+   "generateMs": 25
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "towers": [
+  {
+   "name": "4x4 Easy",
+   "params": "4de",
+   "generateMs": 6
+  },
+  {
+   "name": "5x5 Easy",
+   "params": "5de",
+   "generateMs": 6
+  },
+  {
+   "name": "5x5 Hard",
+   "params": "5dh",
+   "generateMs": 5
+  },
+  {
+   "name": "6x6 Easy",
+   "params": "6de",
+   "generateMs": 11
+  },
+  {
+   "name": "6x6 Hard",
+   "params": "6dh",
+   "generateMs": 13
+  },
+  {
+   "name": "6x6 Extreme",
+   "params": "6dx",
+   "generateMs": 12
+  },
+  {
+   "name": "6x6 Unreasonable",
+   "params": "6du",
+   "generateMs": 32
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "unequal": [
+  {
+   "name": "Unequal: 4x4 Easy",
+   "params": "4de",
+   "generateMs": 4
+  },
+  {
+   "name": "Unequal: 5x5 Easy",
+   "params": "5de",
+   "generateMs": 6
+  },
+  {
+   "name": "Unequal: 5x5 Tricky",
+   "params": "5dk",
+   "generateMs": 26
+  },
+  {
+   "name": "Adjacent: 5x5 Tricky",
+   "params": "5adk",
+   "generateMs": 4
+  },
+  {
+   "name": "Unequal: 5x5 Extreme",
+   "params": "5dx",
+   "generateMs": 5
+  },
+  {
+   "name": "Unequal: 6x6 Easy",
+   "params": "6de",
+   "generateMs": 5
+  },
+  {
+   "name": "Unequal: 6x6 Tricky",
+   "params": "6dk",
+   "generateMs": 12
+  },
+  {
+   "name": "Adjacent: 6x6 Tricky",
+   "params": "6adk",
+   "generateMs": 4
+  },
+  {
+   "name": "Unequal: 6x6 Extreme",
+   "params": "6dx",
+   "generateMs": 8
+  },
+  {
+   "name": "Unequal: 7x7 Tricky",
+   "params": "7dk",
+   "generateMs": 10
+  },
+  {
+   "name": "Adjacent: 7x7 Tricky",
+   "params": "7adk",
+   "generateMs": 4
+  },
+  {
+   "name": "Unequal: 7x7 Extreme",
+   "params": "7dx",
+   "generateMs": 15
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "pattern": [
+  {
+   "name": "10x10",
+   "params": "10x10",
+   "generateMs": 6
+  },
+  {
+   "name": "15x15",
+   "params": "15x15",
+   "generateMs": 11
+  },
+  {
+   "name": "20x20",
+   "params": "20x20",
+   "generateMs": 12
+  },
+  {
+   "name": "25x25",
+   "params": "25x25",
+   "generateMs": 18
+  },
+  {
+   "name": "30x30",
+   "params": "30x30",
+   "generateMs": 28
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "loopy": [
+  {
+   "name": "7x7 Squares - Easy",
+   "params": "7x7t0de",
+   "generateMs": 9
+  },
+  {
+   "name": "10x10 Squares - Easy",
+   "params": "10x10t0de",
+   "generateMs": 11
+  },
+  {
+   "name": "7x7 Squares - Normal",
+   "params": "7x7t0dn",
+   "generateMs": 5
+  },
+  {
+   "name": "10x10 Squares - Normal",
+   "params": "10x10t0dn",
+   "generateMs": 12
+  },
+  {
+   "name": "7x7 Squares - Hard",
+   "params": "7x7t0dh",
+   "generateMs": 10
+  },
+  {
+   "name": "10x10 Squares - Hard",
+   "params": "10x10t0dh",
+   "generateMs": 26
+  },
+  {
+   "name": "10x12 Triangular - Hard",
+   "params": "12x10t1dh",
+   "generateMs": 80
+  },
+  {
+   "name": "7x7 Snub-Square - Hard",
+   "params": "7x7t3dh",
+   "generateMs": 33
+  },
+  {
+   "name": "9x9 Cairo - Hard",
+   "params": "9x9t4dh",
+   "generateMs": 116
+  },
+  {
+   "name": "5x5 Kites - Hard",
+   "params": "5x5t7dh",
+   "generateMs": 85
+  },
+  {
+   "name": "10x10 Penrose (kite/dart) - Hard",
+   "params": "10x10t11dh",
+   "generateMs": 16
+  },
+  {
+   "name": "10x10 Penrose (rhombs) - Hard",
+   "params": "10x10t12dh",
+   "generateMs": 9
+  },
+  {
+   "name": "10x10 Honeycomb - Hard",
+   "params": "10x10t2dh",
+   "generateMs": 69
+  },
+  {
+   "name": "4x5 Great-Hexagonal - Hard",
+   "params": "5x4t5dh",
+   "generateMs": 21
+  },
+  {
+   "name": "4x5 Kagome - Hard",
+   "params": "5x4t14dh",
+   "generateMs": 12
+  },
+  {
+   "name": "7x7 Octagonal - Hard",
+   "params": "7x7t6dh",
+   "generateMs": 36
+  },
+  {
+   "name": "5x5 Floret - Hard",
+   "params": "5x5t8dh",
+   "generateMs": 45
+  },
+  {
+   "name": "4x5 Dodecagonal - Hard",
+   "params": "5x4t9dh",
+   "generateMs": 22
+  },
+  {
+   "name": "4x5 Great-Dodecagonal - Hard",
+   "params": "5x4t10dh",
+   "generateMs": 61
+  },
+  {
+   "name": "3x5 Great-Great-Dodecagonal - Hard",
+   "params": "5x3t13dh",
+   "generateMs": 61
+  },
+  {
+   "name": "4x5 Compass-Dodecagonal - Hard",
+   "params": "5x4t15dh",
+   "generateMs": 26
+  },
+  {
+   "name": "10x10 Hats - Hard",
+   "params": "10x10t16dh",
+   "generateMs": 53
+  },
+  {
+   "name": "10x10 Spectres - Hard",
+   "params": "10x10t17dh",
+   "generateMs": 39
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "lightup": [
+  {
+   "name": "7x7 easy",
+   "params": "7x7b20s4d0",
+   "generateMs": 5
+  },
+  {
+   "name": "7x7 tricky",
+   "params": "7x7b20s4d1",
+   "generateMs": 11
+  },
+  {
+   "name": "7x7 hard",
+   "params": "7x7b20s4d2",
+   "generateMs": 25
+  },
+  {
+   "name": "10x10 easy",
+   "params": "10x10b20s2d0",
+   "generateMs": 6
+  },
+  {
+   "name": "10x10 tricky",
+   "params": "10x10b20s2d1",
+   "generateMs": 6
+  },
+  {
+   "name": "10x10 hard",
+   "params": "10x10b20s2d2",
+   "generateMs": 36
+  },
+  {
+   "name": "14x14 easy",
+   "params": "14x14b20s2d0",
+   "generateMs": 13
+  },
+  {
+   "name": "14x14 tricky",
+   "params": "14x14b20s2d1",
+   "generateMs": 36
+  },
+  {
+   "name": "14x14 hard",
+   "params": "14x14b20s2d2",
+   "generateMs": 67
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "bridges": [
+  {
+   "name": "7x7 easy",
+   "params": "7x7i30e10m2d0",
+   "generateMs": 5
+  },
+  {
+   "name": "7x7 medium",
+   "params": "7x7i30e10m2d1",
+   "generateMs": 13
+  },
+  {
+   "name": "7x7 hard",
+   "params": "7x7i30e10m2d2",
+   "generateMs": 8
+  },
+  {
+   "name": "10x10 easy",
+   "params": "10x10i30e10m2d0",
+   "generateMs": 5
+  },
+  {
+   "name": "10x10 medium",
+   "params": "10x10i30e10m2d1",
+   "generateMs": 7
+  },
+  {
+   "name": "10x10 hard",
+   "params": "10x10i30e10m2d2",
+   "generateMs": 4
+  },
+  {
+   "name": "15x15 easy",
+   "params": "15x15i30e10m2d0",
+   "generateMs": 9
+  },
+  {
+   "name": "15x15 medium",
+   "params": "15x15i30e10m2d1",
+   "generateMs": 13
+  },
+  {
+   "name": "15x15 hard",
+   "params": "15x15i30e10m2d2",
+   "generateMs": 18
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "net": [
+  {
+   "name": "5x5",
+   "params": "5x5",
+   "generateMs": 4
+  },
+  {
+   "name": "7x7",
+   "params": "7x7",
+   "generateMs": 5
+  },
+  {
+   "name": "9x9",
+   "params": "9x9",
+   "generateMs": 7
+  },
+  {
+   "name": "11x11",
+   "params": "11x11",
+   "generateMs": 9
+  },
+  {
+   "name": "13x11",
+   "params": "13x11",
+   "generateMs": 9
+  },
+  {
+   "name": "5x5 wrapping",
+   "params": "5x5w",
+   "generateMs": 4
+  },
+  {
+   "name": "7x7 wrapping",
+   "params": "7x7w",
+   "generateMs": 4
+  },
+  {
+   "name": "9x9 wrapping",
+   "params": "9x9w",
+   "generateMs": 5
+  },
+  {
+   "name": "11x11 wrapping",
+   "params": "11x11w",
+   "generateMs": 5
+  },
+  {
+   "name": "13x11 wrapping",
+   "params": "13x11w",
+   "generateMs": 8
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "tents": [
+  {
+   "name": "8x8 Easy",
+   "params": "8x8de",
+   "generateMs": 4
+  },
+  {
+   "name": "8x8 Tricky",
+   "params": "8x8dt",
+   "generateMs": 5
+  },
+  {
+   "name": "10x10 Easy",
+   "params": "10x10de",
+   "generateMs": 6
+  },
+  {
+   "name": "10x10 Tricky",
+   "params": "10x10dt",
+   "generateMs": 5
+  },
+  {
+   "name": "15x15 Easy",
+   "params": "15x15de",
+   "generateMs": 9
+  },
+  {
+   "name": "15x15 Tricky",
+   "params": "15x15dt",
+   "generateMs": 8
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "range": [
+  {
+   "name": "9 x 6",
+   "params": "9x6",
+   "generateMs": 5
+  },
+  {
+   "name": "12 x 8",
+   "params": "12x8",
+   "generateMs": 5
+  },
+  {
+   "name": "13 x 9",
+   "params": "13x9",
+   "generateMs": 8
+  },
+  {
+   "name": "16 x 11",
+   "params": "16x11",
+   "generateMs": 14
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "galaxies": [
+  {
+   "name": "7x7 Normal",
+   "params": "7x7dn",
+   "generateMs": 6
+  },
+  {
+   "name": "7x7 Unreasonable",
+   "params": "7x7du",
+   "generateMs": 30
+  },
+  {
+   "name": "10x10 Normal",
+   "params": "10x10dn",
+   "generateMs": 7
+  },
+  {
+   "name": "10x10 Unreasonable",
+   "params": "10x10du",
+   "generateMs": 21
+  },
+  {
+   "name": "15x15 Normal",
+   "params": "15x15dn",
+   "generateMs": 14
+  },
+  {
+   "name": "15x15 Unreasonable",
+   "params": "15x15du",
+   "generateMs": 12
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "magnets": [
+  {
+   "name": "6x5 Easy",
+   "params": "6x5de",
+   "generateMs": 5
+  },
+  {
+   "name": "6x5 Tricky",
+   "params": "6x5dt",
+   "generateMs": 3
+  },
+  {
+   "name": "6x5 Tricky, strip clues",
+   "params": "6x5dtS",
+   "generateMs": 3
+  },
+  {
+   "name": "8x7 Easy",
+   "params": "8x7de",
+   "generateMs": 4
+  },
+  {
+   "name": "8x7 Tricky",
+   "params": "8x7dt",
+   "generateMs": 4
+  },
+  {
+   "name": "8x7 Tricky, strip clues",
+   "params": "8x7dtS",
+   "generateMs": 5
+  },
+  {
+   "name": "10x9 Tricky",
+   "params": "10x9dt",
+   "generateMs": 7
+  },
+  {
+   "name": "10x9 Tricky, strip clues",
+   "params": "10x9dtS",
+   "generateMs": 15
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "signpost": [
+  {
+   "name": "4x4",
+   "params": "4x4c",
+   "generateMs": 4
+  },
+  {
+   "name": "4x4, free ends",
+   "params": "4x4",
+   "generateMs": 3
+  },
+  {
+   "name": "5x5",
+   "params": "5x5c",
+   "generateMs": 4
+  },
+  {
+   "name": "5x5, free ends",
+   "params": "5x5",
+   "generateMs": 4
+  },
+  {
+   "name": "6x6",
+   "params": "6x6c",
+   "generateMs": 5
+  },
+  {
+   "name": "7x7",
+   "params": "7x7c",
+   "generateMs": 6
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "dominosa": [
+  {
+   "name": "Order 3, Trivial",
+   "params": "3dt",
+   "generateMs": 4
+  },
+  {
+   "name": "Order 4, Trivial",
+   "params": "4dt",
+   "generateMs": 2
+  },
+  {
+   "name": "Order 5, Trivial",
+   "params": "5dt",
+   "generateMs": 6
+  },
+  {
+   "name": "Order 6, Trivial",
+   "params": "6dt",
+   "generateMs": 5
+  },
+  {
+   "name": "Order 4, Basic",
+   "params": "4db",
+   "generateMs": 6
+  },
+  {
+   "name": "Order 5, Basic",
+   "params": "5db",
+   "generateMs": 5
+  },
+  {
+   "name": "Order 6, Basic",
+   "params": "6db",
+   "generateMs": 4
+  },
+  {
+   "name": "Order 7, Basic",
+   "params": "7db",
+   "generateMs": 8
+  },
+  {
+   "name": "Order 8, Basic",
+   "params": "8db",
+   "generateMs": 10
+  },
+  {
+   "name": "Order 9, Basic",
+   "params": "9db",
+   "generateMs": 8
+  },
+  {
+   "name": "Order 6, Hard",
+   "params": "6dh",
+   "generateMs": 13
+  },
+  {
+   "name": "Order 6, Extreme",
+   "params": "6de",
+   "generateMs": 164
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "filling": [
+  {
+   "name": "9x7",
+   "params": "9x7",
+   "generateMs": 8
+  },
+  {
+   "name": "13x9",
+   "params": "13x9",
+   "generateMs": 20
+  },
+  {
+   "name": "17x13",
+   "params": "17x13",
+   "generateMs": 73
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "palisade": [
+  {
+   "name": "5 x 5, regions of size 5",
+   "params": "5x5n5",
+   "generateMs": 4
+  },
+  {
+   "name": "8 x 6, regions of size 6",
+   "params": "8x6n6",
+   "generateMs": 11
+  },
+  {
+   "name": "10 x 8, regions of size 8",
+   "params": "10x8n8",
+   "generateMs": 18
+  },
+  {
+   "name": "15 x 12, regions of size 10",
+   "params": "15x12n10",
+   "generateMs": 132
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "undead": [
+  {
+   "name": "4x4 Easy",
+   "params": "4x4de",
+   "generateMs": 5
+  },
+  {
+   "name": "4x4 Normal",
+   "params": "4x4dn",
+   "generateMs": 4
+  },
+  {
+   "name": "4x4 Tricky",
+   "params": "4x4dt",
+   "generateMs": 4
+  },
+  {
+   "name": "5x5 Easy",
+   "params": "5x5de",
+   "generateMs": 5
+  },
+  {
+   "name": "5x5 Normal",
+   "params": "5x5dn",
+   "generateMs": 5
+  },
+  {
+   "name": "5x5 Tricky",
+   "params": "5x5dt",
+   "generateMs": 4
+  },
+  {
+   "name": "7x7 Easy",
+   "params": "7x7de",
+   "generateMs": 8
+  },
+  {
+   "name": "7x7 Normal",
+   "params": "7x7dn",
+   "generateMs": 329
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "mines": [
+  {
+   "name": "9x9, 10 mines, Squares",
+   "params": "9x9n10",
+   "generateMs": 8
+  },
+  {
+   "name": "9x9, 35 mines, Squares",
+   "params": "9x9n35",
+   "generateMs": 4
+  },
+  {
+   "name": "16x16, 40 mines, Squares",
+   "params": "16x16n40",
+   "generateMs": 10
+  },
+  {
+   "name": "16x16, 99 mines, Squares",
+   "params": "16x16n99",
+   "generateMs": 12
+  },
+  {
+   "name": "30x16, 99 mines, Squares",
+   "params": "30x16n99",
+   "generateMs": 15
+  },
+  {
+   "name": "30x16, 170 mines, Squares",
+   "params": "30x16n170",
+   "generateMs": 14
+  },
+  {
+   "name": "9x9, 25% mines, Squares wrapping",
+   "params": "9x9t1p25",
+   "generateMs": 5
+  },
+  {
+   "name": "10x10, 20% mines, Honeycomb",
+   "params": "10x10t2p20",
+   "generateMs": 12
+  },
+  {
+   "name": "8x8, 25% mines, Honeycomb wrapping",
+   "params": "8x8t3p25",
+   "generateMs": 9
+  },
+  {
+   "name": "7x7, 35% mines, Triangular",
+   "params": "7x7t5p35",
+   "generateMs": 5
+  },
+  {
+   "name": "10x10, 35% mines, Triangular",
+   "params": "10x10t5p35",
+   "generateMs": 8
+  },
+  {
+   "name": "5x6, 35% mines, Triangular wrapping",
+   "params": "5x6t6p35",
+   "generateMs": 4
+  },
+  {
+   "name": "9x9, 15% mines, Octagonal",
+   "params": "9x9t4p15",
+   "generateMs": 12
+  },
+  {
+   "name": "5x5, 30% mines, Snub-Square",
+   "params": "5x5t7p30",
+   "generateMs": 4
+  },
+  {
+   "name": "7x7, 20% mines, Cairo",
+   "params": "7x7t8p20",
+   "generateMs": 8
+  },
+  {
+   "name": "4x4, 15% mines, Kites",
+   "params": "4x4t9p15",
+   "generateMs": 7
+  },
+  {
+   "name": "5x4, 25% mines, Great Hexagonal",
+   "params": "5x4t10p25",
+   "generateMs": 8
+  },
+  {
+   "name": "5x4, 25% mines, Kagome",
+   "params": "5x4t11p25",
+   "generateMs": 6
+  },
+  {
+   "name": "4x4, 20% mines, Floret",
+   "params": "4x4t12p20",
+   "generateMs": 9
+  },
+  {
+   "name": "5x4, 25% mines, Great-Dodecagonal",
+   "params": "5x4t14p25",
+   "generateMs": 27
+  },
+  {
+   "name": "3x2, 30% mines, Great-Great-Dodecagonal",
+   "params": "3x2t15p30",
+   "generateMs": 11
+  },
+  {
+   "name": "9x9, 25% mines, Penrose Rhombs",
+   "params": "9x9t17p25",
+   "generateMs": 7
+  },
+  {
+   "name": "10x10, 25% mines, Penrose Kite/Dart",
+   "params": "10x10t19p25",
+   "generateMs": 7
+  },
+  {
+   "name": "10x10, 35% mines, Hats",
+   "params": "10x10t18p35",
+   "generateMs": 89
+  },
+  {
+   "name": "10x10, 35% mines, Spectres",
+   "params": "10x10t20p35",
+   "generateMs": 77
+  },
+  {
+   "name": "16x16, 15% mines, Octagonal",
+   "params": "16x16t4p15",
+   "generateMs": 33
+  },
+  {
+   "name": "30x16, 20% mines, Octagonal",
+   "params": "30x16t4p20",
+   "generateMs": 60
+  },
+  {
+   "name": "30x16, 30% mines, Octagonal",
+   "params": "30x16t4p30",
+   "generateMs": 58
+  },
+  {
+   "name": "7x7, 30% mines, Snub-Square",
+   "params": "7x7t7p30",
+   "generateMs": 9
+  },
+  {
+   "name": "9x9, 20% mines, Cairo",
+   "params": "9x9t8p20",
+   "generateMs": 11
+  },
+  {
+   "name": "9x7, 10% mines, Kites",
+   "params": "9x7t9p10",
+   "generateMs": 17
+  },
+  {
+   "name": "9x5, 20% mines, Great Hexagonal",
+   "params": "9x5t10p20",
+   "generateMs": 14
+  },
+  {
+   "name": "7x6, 15% mines, Kagome",
+   "params": "7x6t11p15",
+   "generateMs": 10
+  },
+  {
+   "name": "5x5, 15% mines, Floret",
+   "params": "5x5t12p15",
+   "generateMs": 12
+  },
+  {
+   "name": "7x6, 30% mines, Great-Dodecagonal",
+   "params": "7x6t14p30",
+   "generateMs": 54
+  },
+  {
+   "name": "5x3, 20% mines, Great-Great-Dodecagonal",
+   "params": "5x3t15p20",
+   "generateMs": 25
+  },
+  {
+   "name": "16x16, 20% mines, Penrose Rhombs",
+   "params": "16x16t17p20",
+   "generateMs": 12
+  },
+  {
+   "name": "16x16, 20% mines, Penrose Kite/Dart",
+   "params": "16x16t19p20",
+   "generateMs": 16
+  },
+  {
+   "name": "16x16, 35% mines, Hats",
+   "params": "16x16t18p35",
+   "generateMs": 232
+  },
+  {
+   "name": "16x16, 35% mines, Spectres",
+   "params": "16x16t20p35",
+   "generateMs": 213
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "pearl": [
+  {
+   "name": "6x6 Easy",
+   "params": "6x6de",
+   "generateMs": 9
+  },
+  {
+   "name": "6x6 Tricky",
+   "params": "6x6dt",
+   "generateMs": 7
+  },
+  {
+   "name": "8x8 Easy",
+   "params": "8x8de",
+   "generateMs": 13
+  },
+  {
+   "name": "8x8 Tricky",
+   "params": "8x8dt",
+   "generateMs": 14
+  },
+  {
+   "name": "10x10 Easy",
+   "params": "10x10de",
+   "generateMs": 446
+  },
+  {
+   "name": "10x10 Tricky",
+   "params": "10x10dt",
+   "generateMs": 365
+  },
+  {
+   "name": "12x8 Easy",
+   "params": "12x8de",
+   "generateMs": 107
+  },
+  {
+   "name": "12x8 Tricky",
+   "params": "12x8dt",
+   "generateMs": 87
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "tracks": [
+  {
+   "name": "8x8 Easy",
+   "params": "8x8de",
+   "generateMs": 6
+  },
+  {
+   "name": "8x8 Tricky",
+   "params": "8x8dt",
+   "generateMs": 7
+  },
+  {
+   "name": "10x8 Easy",
+   "params": "10x8de",
+   "generateMs": 4
+  },
+  {
+   "name": "10x8 Tricky",
+   "params": "10x8dt",
+   "generateMs": 6
+  },
+  {
+   "name": "10x10 Easy",
+   "params": "10x10de",
+   "generateMs": 10
+  },
+  {
+   "name": "10x10 Tricky",
+   "params": "10x10dt",
+   "generateMs": 7
+  },
+  {
+   "name": "10x10 Hard",
+   "params": "10x10dh",
+   "generateMs": 12
+  },
+  {
+   "name": "15x10 Easy",
+   "params": "15x10de",
+   "generateMs": 10
+  },
+  {
+   "name": "15x10 Tricky",
+   "params": "15x10dt",
+   "generateMs": 7
+  },
+  {
+   "name": "15x15 Easy",
+   "params": "15x15de",
+   "generateMs": 13
+  },
+  {
+   "name": "15x15 Tricky",
+   "params": "15x15dt",
+   "generateMs": 23
+  },
+  {
+   "name": "15x15 Hard",
+   "params": "15x15dh",
+   "generateMs": 29
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "unruly": [
+  {
+   "name": "8x8 Trivial",
+   "params": "8x8dt",
+   "generateMs": 4
+  },
+  {
+   "name": "8x8 Easy",
+   "params": "8x8de",
+   "generateMs": 3
+  },
+  {
+   "name": "8x8 Normal",
+   "params": "8x8dn",
+   "generateMs": 3
+  },
+  {
+   "name": "10x10 Easy",
+   "params": "10x10de",
+   "generateMs": 5
+  },
+  {
+   "name": "10x10 Normal",
+   "params": "10x10dn",
+   "generateMs": 4
+  },
+  {
+   "name": "14x14 Easy",
+   "params": "14x14de",
+   "generateMs": 14
+  },
+  {
+   "name": "14x14 Normal",
+   "params": "14x14dn",
+   "generateMs": 14
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "map": [
+  {
+   "name": "20x15, 30 regions, Easy",
+   "params": "20x15n30de",
+   "generateMs": 5
+  },
+  {
+   "name": "20x15, 30 regions, Normal",
+   "params": "20x15n30dn",
+   "generateMs": 7
+  },
+  {
+   "name": "20x15, 30 regions, Hard",
+   "params": "20x15n30dh",
+   "generateMs": 27
+  },
+  {
+   "name": "20x15, 30 regions, Unreasonable",
+   "params": "20x15n30du",
+   "generateMs": 17
+  },
+  {
+   "name": "30x25, 75 regions, Normal",
+   "params": "30x25n75dn",
+   "generateMs": 9
+  },
+  {
+   "name": "30x25, 75 regions, Hard",
+   "params": "30x25n75dh",
+   "generateMs": 11
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ],
+ "mosaic": [
+  {
+   "name": "Size: 3x3",
+   "params": "3x3",
+   "generateMs": 3
+  },
+  {
+   "name": "Size: 5x5",
+   "params": "5x5",
+   "generateMs": 4
+  },
+  {
+   "name": "Size: 10x10",
+   "params": "10x10",
+   "generateMs": 6
+  },
+  {
+   "name": "Size: 15x15",
+   "params": "15x15",
+   "generateMs": 14
+  },
+  {
+   "name": "Size: 25x25",
+   "params": "25x25",
+   "generateMs": 99
+  },
+  {
+   "name": "Size: 50x50",
+   "params": "50x50h0",
+   "generateMs": 51
+  },
+  {
+   "name": "Custom...",
+   "params": null,
+   "generateMs": 99999
+  }
+ ]
+}
