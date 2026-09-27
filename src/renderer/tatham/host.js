@@ -26,7 +26,14 @@
   var post = function (msg) { if (window.parent !== window) window.parent.postMessage(Object.assign({ source: 'mg-tatham' }, msg), location.origin); };
 
   // Using "Show solution" ends the round as revealed.
-  solveButton.addEventListener('click', function () { revealed = true; }, true);
+  // Some puzzles (e.g. Mines, Undead) don't count a shown solution as solved, so end the round
+  // ourselves shortly after the solution appears.
+  solveButton.addEventListener('click', function () {
+    revealed = true;
+    setTimeout(function () {
+      if (!reported) { reported = true; post({ type: 'revealed' }); }
+    }, 1200);
+  }, true);
 
   function status() {
     try {

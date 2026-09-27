@@ -52,6 +52,10 @@ export const MAX_GENERATE_MS = 6000;
 // to use, easiest first. Other puzzles use their menu order (which runs small/easy to large/hard).
 export const LADDERS = {
   solo: ['3x3 Trivial', '3x3 Basic', '3x3 Intermediate', '3x3 Advanced', '3x3 Extreme', '3x3 Unreasonable'],
+  keen: ['4x4 Easy', '5x5 Easy', '6x6 Easy', '6x6 Normal', '6x6 Hard', '6x6 Extreme', '6x6 Unreasonable'],
+  unequal: ['Unequal: 4x4 Easy', 'Unequal: 5x5 Easy', 'Unequal: 5x5 Tricky', 'Unequal: 6x6 Tricky', 'Unequal: 5x5 Extreme', 'Unequal: 6x6 Extreme', 'Unequal: 7x7 Extreme'],
+  loopy: ['7x7 Squares - Easy', '10x10 Squares - Easy', '7x7 Squares - Normal', '10x10 Squares - Normal', '10x10 Honeycomb - Hard', '7x7 Squares - Hard', '10x10 Squares - Hard'],
+  mines: ['9x9, 10 mines, Squares', '10x10, 20% mines, Honeycomb', '16x16, 40 mines, Squares', '9x9, 25% mines, Squares wrapping', '16x16, 99 mines, Squares', '30x16, 99 mines, Squares'],
 };
 
 /**
