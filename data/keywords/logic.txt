@@ -14,3 +14,35 @@ begging-the-question | Begging the question | circular reasoning | fallacies | 2
 liar-paradox | Liar paradox | this sentence is false | paradoxes | 3 | godels-incompleteness-theorems |
 knights-and-knaves | Knights and Knaves | | puzzles | 2 | |
 texas-sharpshooter-fallacy | Texas sharpshooter fallacy | | fallacies | 2 | |
+# Phase 3 additions
+deductive-reasoning | Deductive reasoning |  | reasoning | 2 | inductive-reasoning |
+inductive-reasoning | Inductive reasoning |  | reasoning | 2 | deductive-reasoning |
+abductive-reasoning | Abductive reasoning | inference to the best explanation | reasoning | 3 | |
+validity-logic | Validity (logic) |  | reasoning, arguments | 3 | soundness |
+soundness | Soundness |  | reasoning, arguments | 3 | validity-logic |
+contrapositive | Contraposition |  | propositional logic | 3 | modus-tollens |
+de-morgans-laws | De Morgan's laws |  | propositional logic | 3 | |
+truth-table | Truth table |  | propositional logic | 2 | |
+venn-diagram | Venn diagram |  | sets, diagrams | 1 | |
+proof-by-contradiction | Proof by contradiction | reductio ad absurdum | proof | 3 | |
+mathematical-induction | Mathematical induction |  | proof | 3 | |
+necessity-and-sufficiency | Necessity and sufficiency |  | conditions | 3 | |
+appeal-to-authority | Argument from authority |  | fallacies | 2 | |
+appeal-to-emotion | Appeal to emotion |  | fallacies | 1 | |
+bandwagon | Argumentum ad populum | bandwagon fallacy | fallacies | 2 | |
+red-herring | Red herring |  | fallacies | 1 | |
+tu-quoque | Tu quoque | whataboutism | fallacies | 2 | ad-hominem |
+no-true-scotsman | No true Scotsman |  | fallacies | 2 | |
+composition-fallacy | Fallacy of composition |  | fallacies | 3 | |
+equivocation | Equivocation |  | fallacies, language | 3 | |
+loaded-question | Loaded question |  | fallacies | 2 | |
+cherry-picking | Cherry picking |  | fallacies, evidence | 1 | |
+burden-of-proof | Burden of proof (philosophy) | Russell's teapot | arguments | 3 | |
+sunk-cost-fallacy | Escalation of commitment |  | fallacies, decisions | 3 | sunk-cost |
+motte-and-bailey | Motte-and-bailey fallacy |  | fallacies | 4 | |
+paradox | Paradox |  | paradoxes | 1 | liar-paradox |
+barber-paradox | Barber paradox | Russell's paradox | paradoxes, sets | 3 | liar-paradox |
+unexpected-hanging | Unexpected hanging paradox | surprise exam | paradoxes | 4 | |
+newcombs-paradox | Newcomb's paradox |  | paradoxes, decisions | 4 | |
+two-envelopes | Two envelopes problem |  | paradoxes, probability | 4 | |
+fuzzy-logic | Fuzzy logic |  | non-classical logic | 3 | |

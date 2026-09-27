@@ -14,3 +14,33 @@ delayed-onset-muscle-soreness | Delayed onset muscle soreness | DOMS | recovery 
 sports-periodization | Sports periodization | periodization | training | 3 | supercompensation |
 four-minute-mile | Four-minute mile | Roger Bannister | records, running | 1 | |
 marathon | Marathon | Pheidippides | running | 1 | |
+# Phase 3 additions
+aerobic-exercise | Aerobic exercise |  | training | 1 | vo2-max |
+anaerobic-exercise | Anaerobic exercise |  | training | 2 | aerobic-exercise |
+strength-training | Strength training |  | training | 1 | progressive-overload |
+stretching | Stretching |  | flexibility | 1 | |
+heart-rate | Heart rate |  | physiology | 1 | |
+glycogen | Glycogen |  | energy, physiology | 2 | |
+hitting-the-wall | Hitting the wall | bonking | endurance | 2 | glycogen |
+carbohydrate-loading | Carbohydrate loading |  | nutrition | 3 | glycogen |
+dehydration | Dehydration |  | hydration | 1 | |
+creatine | Creatine |  | supplements | 2 | |
+overtraining | Overtraining |  | recovery | 2 | |
+concussions-in-sport | Concussions in sport |  | injury | 2 | |
+anterior-cruciate-ligament | Anterior cruciate ligament injury | ACL injury | injury | 3 | |
+biomechanics | Biomechanics |  | movement | 2 | |
+running-economy | Running economy |  | endurance, efficiency | 4 | |
+fosbury-flop | Fosbury flop |  | technique, high jump | 2 | |
+swimming-technique | Front crawl |  | swimming, technique | 2 | |
+tour-de-france | Tour de France |  | cycling | 1 | |
+drafting | Drafting (aerodynamics) | slipstream | aerodynamics | 3 | |
+curveball | Curveball |  | baseball, physics | 2 | magnus-effect |
+moneyball | Moneyball | sabermetrics | analytics | 2 | |
+hot-hand | Hot hand |  | statistics, streaks | 3 | |
+home-advantage | Home advantage |  | psychology | 2 | |
+choking-sport | Choke (sports) |  | pressure, psychology | 3 | |
+deliberate-practice | Deliberate practice |  | expertise, learning | 2 | |
+outliers-book | Outliers (book) | 10,000-hour rule | expertise | 3 | deliberate-practice |
+olympic-games | Olympic Games |  | events | 1 | |
+paralympic-games | Paralympic Games |  | events | 1 | olympic-games |
+usain-bolt | Usain Bolt |  | athletes, sprinting | 1 | |

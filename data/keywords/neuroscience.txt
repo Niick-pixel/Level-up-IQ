@@ -15,3 +15,34 @@ split-brain | Split-brain | corpus callosotomy | hemispheres | 3 | prefrontal-co
 sleep-and-memory | Sleep and memory | memory consolidation | memory, sleep | 3 | hippocampus, spacing-effect |
 glia | Glia | neuroglia; glial cells | cells | 3 | neuron |
 blindsight | Blindsight | | vision, consciousness | 4 | hard-problem-of-consciousness |
+# Phase 3 additions
+brain | Human brain |  | anatomy | 1 | neuron |
+cerebral-cortex | Cerebral cortex |  | anatomy, brain | 2 | |
+cerebellum | Cerebellum |  | anatomy, movement | 2 | |
+amygdala | Amygdala |  | emotion, anatomy | 2 | |
+thalamus | Thalamus |  | anatomy, senses | 3 | |
+brainstem | Brainstem |  | anatomy, survival | 3 | |
+corpus-callosum | Corpus callosum |  | anatomy, hemispheres | 3 | split-brain |
+broca-area | Broca's area |  | language, anatomy | 2 | wernicke-area |
+wernicke-area | Wernicke's area |  | language, anatomy | 3 | broca-area |
+lateralization | Lateralization of brain function | left brain right brain | hemispheres | 2 | split-brain |
+serotonin | Serotonin |  | neurotransmitters, mood | 2 | neurotransmitter |
+oxytocin | Oxytocin |  | hormones, bonding | 2 | |
+cortisol | Cortisol | stress hormone | hormones, stress | 2 | |
+myelin | Myelin |  | neurons, speed | 3 | glia |
+mirror-neuron | Mirror neuron |  | neurons, imitation | 3 | |
+place-cell | Place cell |  | navigation, hippocampus | 4 | hippocampus |
+grid-cell | Grid cell |  | navigation | 4 | place-cell |
+eeg | Electroencephalography | EEG | methods, brain waves | 3 | |
+fmri | Functional magnetic resonance imaging | fMRI | methods, imaging | 3 | |
+optogenetics | Optogenetics |  | methods, genetics | 4 | |
+neurogenesis | Adult neurogenesis |  | neurons, plasticity | 4 | neuroplasticity |
+default-mode-network | Default mode network |  | networks, rest | 4 | |
+synesthesia | Synesthesia |  | perception | 2 | |
+phantom-limb | Phantom limb |  | perception, pain | 2 | |
+prosopagnosia | Prosopagnosia | face blindness | perception, faces | 3 | |
+rem-sleep | Rapid eye movement sleep | REM sleep | sleep, dreams | 2 | sleep-and-memory |
+dream | Dream |  | sleep | 1 | rem-sleep |
+alzheimers | Alzheimer's disease |  | disorders, memory | 2 | |
+parkinsons | Parkinson's disease |  | disorders, movement | 2 | dopamine |
+concussion | Concussion |  | injury | 2 | |

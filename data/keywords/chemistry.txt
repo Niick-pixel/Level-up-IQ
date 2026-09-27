@@ -15,3 +15,35 @@ haber-process | Haber process | Haber–Bosch process | industry, fertiliser | 3
 chirality | Chirality (chemistry) | handedness; enantiomer | stereochemistry | 4 | thalidomide |
 redox | Redox | oxidation-reduction; rust | reactions | 2 | lithium-ion-battery |
 polymer | Polymer | plastics; macromolecule | materials | 2 | |
+# Phase 3 additions
+atom | Atom |  | matter, particles | 1 | chemical-element |
+electron-configuration | Electron configuration |  | atoms, orbitals | 3 | |
+atomic-orbital | Atomic orbital |  | quantum, atoms | 3 | electron-configuration |
+covalent-bond | Covalent bond |  | bonding | 2 | |
+ionic-bonding | Ionic bonding |  | bonding, salts | 2 | covalent-bond |
+van-der-waals | Van der Waals force |  | intermolecular forces | 3 | |
+mole-unit | Mole (unit) | Avogadro's number | measurement, stoichiometry | 2 | |
+avogadro-constant | Avogadro constant |  | measurement | 3 | mole-unit |
+stoichiometry | Stoichiometry |  | reactions, measurement | 3 | |
+chemical-equilibrium | Chemical equilibrium | Le Chatelier's principle | reactions | 3 | |
+activation-energy | Activation energy |  | reactions, kinetics | 2 | |
+exothermic-reaction | Exothermic reaction |  | reactions, energy | 1 | |
+acid-base | Acid–base reaction |  | acids, bases | 2 | |
+combustion | Combustion | fire | reactions, energy | 1 | |
+oxidation-rust | Rust |  | corrosion, iron | 1 | |
+noble-gas | Noble gas |  | elements, periodic table | 1 | |
+alkali-metal | Alkali metal |  | elements, periodic table | 2 | noble-gas |
+carbon | Carbon |  | elements, life | 1 | |
+allotropes-of-carbon | Allotropes of carbon | diamond, graphite | carbon, materials | 2 | graphene |
+graphene | Graphene |  | carbon, materials | 2 | |
+fullerene | Fullerene | buckyball | carbon, nanotechnology | 3 | graphene |
+organic-chemistry | Organic chemistry |  | carbon, molecules | 2 | carbon |
+benzene | Benzene |  | aromatic, organic | 3 | |
+chromatography | Chromatography |  | lab techniques, separation | 2 | |
+spectroscopy | Spectroscopy |  | lab techniques, light | 3 | |
+state-of-matter | State of matter |  | solid, liquid, gas | 1 | |
+plasma-physics | Plasma (physics) |  | states of matter | 2 | state-of-matter |
+ideal-gas-law | Ideal gas law |  | gases | 2 | |
+electrolysis | Electrolysis |  | electrochemistry | 2 | |
+marie-curie | Marie Curie |  | scientists, radioactivity | 1 | radioactive-decay |
+dmitri-mendeleev | Dmitri Mendeleev |  | scientists, periodic table | 2 | periodic-table |

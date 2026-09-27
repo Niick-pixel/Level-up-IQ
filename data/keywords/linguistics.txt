@@ -14,3 +14,36 @@ false-friend | False friend | | words, translation | 1 | |
 tone | Tone (linguistics) | tonal language | phonology | 3 | |
 international-phonetic-alphabet | International Phonetic Alphabet | IPA | phonetics | 2 | |
 esperanto | Esperanto | | constructed languages | 1 | |
+# Phase 3 additions
+alphabet | Alphabet |  | writing systems | 1 | |
+phoenician-alphabet | Phoenician alphabet |  | writing systems, history | 2 | alphabet |
+greek-alphabet | Greek alphabet |  | writing systems | 1 | phoenician-alphabet |
+cyrillic-script | Cyrillic script |  | writing systems | 2 | greek-alphabet |
+chinese-characters | Chinese characters |  | writing systems | 2 | |
+hangul | Hangul | Korean alphabet | writing systems | 2 | |
+maya-script | Maya script |  | writing systems, decipherment | 3 | |
+rongorongo | Rongorongo |  | undeciphered scripts | 4 | |
+phoneme | Phoneme |  | phonology | 3 | |
+morpheme | Morpheme |  | morphology | 3 | |
+syntax | Syntax |  | grammar | 2 | |
+semantics | Semantics |  | meaning | 2 | |
+pragmatics | Pragmatics |  | meaning, context | 3 | |
+dialect | Dialect |  | variation | 1 | |
+pidgin | Pidgin |  | contact languages | 2 | creole-language |
+language-family | Language family |  | classification | 2 | indo-european-languages |
+language-isolate | Language isolate | Basque | classification | 3 | |
+endangered-language | Endangered language | language death | language loss | 2 | |
+sign-language | Sign language |  | languages, deaf culture | 1 | |
+nicaraguan-sign-language | Nicaraguan Sign Language |  | language emergence | 3 | sign-language |
+language-acquisition | Language acquisition |  | learning | 2 | |
+critical-period | Critical period hypothesis |  | learning, development | 3 | language-acquisition |
+bilingualism | Multilingualism | bilingualism | languages | 2 | |
+code-switching | Code-switching |  | bilingualism | 3 | |
+zipfs-law | Zipf's law |  | statistics, words | 3 | |
+palindrome | Palindrome |  | wordplay | 1 | |
+anagram-wordplay | Anagram |  | wordplay | 1 | |
+onomatopoeia | Onomatopoeia |  | words, sound | 1 | |
+eponym | Eponym |  | words, names | 2 | |
+neologism | Neologism |  | new words | 2 | |
+lingua-franca | Lingua franca |  | languages, trade | 2 | |
+latin | Latin |  | languages, history | 1 | |

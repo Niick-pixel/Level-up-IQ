@@ -14,3 +14,35 @@ axial-age | Axial Age | | history of religion | 4 | |
 flood-myth | Flood myth | great flood | comparative mythology | 2 | epic-of-gilgamesh |
 trickster | Trickster | Loki; Anansi | archetypes | 2 | |
 pachamama | Pachamama | | Andean | 2 | inca-empire |
+# Phase 3 additions
+zeus | Zeus |  | Greek mythology | 1 | |
+greek-mythology | Greek mythology |  | mythology | 1 | zeus |
+odysseus | Odysseus |  | Greek mythology, heroes | 1 | trojan-war |
+hercules | Heracles | Hercules | Greek mythology, heroes | 1 | |
+medusa | Medusa |  | Greek mythology, monsters | 1 | |
+pandoras-box | Pandora's box |  | Greek mythology | 1 | prometheus |
+icarus | Icarus |  | Greek mythology | 1 | |
+minotaur | Minotaur | labyrinth | Greek mythology, monsters | 1 | |
+roman-mythology | Roman mythology |  | mythology | 2 | greek-mythology |
+odin | Odin |  | Norse mythology | 1 | yggdrasil |
+thor | Thor |  | Norse mythology | 1 | odin |
+loki | Loki |  | Norse mythology, tricksters | 1 | trickster |
+ra | Ra |  | Egyptian mythology | 1 | |
+osiris | Osiris |  | Egyptian mythology | 2 | book-of-the-dead |
+anubis | Anubis |  | Egyptian mythology | 1 | |
+enkidu | Enkidu |  | Mesopotamian mythology | 3 | |
+hinduism | Hinduism |  | religions | 1 | dharma |
+mahabharata | Mahabharata | Bhagavad Gita | Hinduism, epics | 2 | hinduism |
+ramayana | Ramayana |  | Hinduism, epics | 2 | hinduism |
+buddhism | Buddhism |  | religions | 1 | four-noble-truths |
+judaism | Judaism |  | religions | 1 | |
+christianity | Christianity |  | religions | 1 | |
+islam | Islam |  | religions | 1 | |
+sikhism | Sikhism |  | religions | 2 | |
+zoroastrianism | Zoroastrianism |  | religions, Persia | 3 | |
+shinto | Shinto |  | religions, Japan | 2 | |
+confucianism | Confucianism |  | philosophy, China | 2 | |
+aztec-religion | Aztec religion |  | Mesoamerica | 3 | quetzalcoatl |
+anansi | Anansi |  | African folklore, tricksters | 2 | trickster |
+dreamtime | Dreaming (spirituality) | Dreamtime | Aboriginal Australian | 3 | |
+creation-myth | Creation myth |  | mythology, themes | 2 | |

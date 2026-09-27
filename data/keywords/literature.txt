@@ -14,3 +14,35 @@ stream-of-consciousness | Stream of consciousness | | narrative technique, moder
 chekhovs-gun | Chekhov's gun | | narrative technique | 1 | macguffin |
 unreliable-narrator | Unreliable narrator | | narrative technique | 2 | |
 the-library-of-babel | The Library of Babel | Borges | short stories, infinity | 3 | hilberts-hotel |
+# Phase 3 additions
+william-shakespeare | William Shakespeare |  | playwrights | 1 | hamlet |
+macbeth | Macbeth |  | Shakespeare, tragedy | 1 | william-shakespeare |
+romeo-and-juliet | Romeo and Juliet |  | Shakespeare, tragedy | 1 | william-shakespeare |
+sonnet | Sonnet |  | poetry, forms | 2 | |
+haiku | Haiku |  | poetry, Japan | 1 | |
+the-canterbury-tales | The Canterbury Tales | Chaucer | medieval | 2 | |
+beowulf | Beowulf |  | epic, Old English | 2 | |
+one-thousand-and-one-nights | One Thousand and One Nights | Arabian Nights | frame stories | 2 | |
+aesops-fables | Aesop's Fables |  | fables | 1 | |
+pride-and-prejudice | Pride and Prejudice | Jane Austen | novels | 1 | |
+moby-dick | Moby-Dick |  | novels, American | 2 | |
+war-and-peace | War and Peace | Tolstoy | novels, Russian | 2 | |
+crime-and-punishment | Crime and Punishment | Dostoevsky | novels, Russian | 2 | |
+les-miserables | Les Misérables | Victor Hugo | novels, French | 2 | |
+the-metamorphosis | The Metamorphosis | Kafka | novellas | 2 | |
+ulysses-novel | Ulysses (novel) | James Joyce | modernism | 4 | stream-of-consciousness |
+the-great-gatsby | The Great Gatsby |  | novels, American | 1 | |
+things-fall-apart | Things Fall Apart | Chinua Achebe | novels, African | 2 | |
+the-little-prince | The Little Prince |  | novellas, French | 1 | |
+alice-in-wonderland | Alice's Adventures in Wonderland |  | children's literature, nonsense | 1 | |
+dracula | Dracula |  | gothic | 1 | frankenstein |
+sherlock-holmes | Sherlock Holmes |  | detective fiction | 1 | |
+agatha-christie | Agatha Christie |  | detective fiction | 1 | sherlock-holmes |
+jorge-luis-borges | Jorge Luis Borges |  | Latin American, short stories | 2 | the-library-of-babel |
+pablo-neruda | Pablo Neruda |  | poets, Latin American | 2 | |
+tragedy | Tragedy |  | drama, genres | 2 | |
+satire | Satire |  | genres | 2 | |
+dystopia | Dystopia |  | genres | 2 | nineteen-eighty-four |
+science-fiction | Science fiction |  | genres | 1 | |
+in-medias-res | In medias res |  | narrative | 3 | |
+deus-ex-machina | Deus ex machina |  | narrative, plot devices | 2 | |

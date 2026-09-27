@@ -4,21 +4,26 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Status: Phase 2 of 6.** Five games, the keyword bank, full keyword sessions with online content (Wikipedia, Wikidata, Open Trivia DB, Lichess), stats and settings work. 60+ game types, videos, spaced repetition and optional AI features are coming. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Status: Phase 3 of 6.** 80 game types (56 of our own plus 24 of Simon Tatham's puzzles), 1,541 keywords, full keyword sessions with online content, stats and settings work. Videos, spaced repetition and optional AI features are coming. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
 ## Features (so far)
 
-- **Five games, all offline and seeded.**
-  - **Mental math sprint.** As many as you can in 60 seconds, from single-digit sums up to two-digit multiplication and percentages.
-  - **Stroop.** Name the ink colour, not the word. The colours come from the Okabe–Ito palette, and **colour-blind mode** switches to a spatial Stroop that never relies on colour.
-  - **Dual n-back.** Positions and letters at the same time, 1-back to 4-back.
-  - **Schulte table.** Find 1, 2, 3… in order, on grids from 3×3 to 6×6.
-  - **Word ladder.** Change one letter at a time. Puzzles come from common words, so a common-word path always exists, and the stated step count is always the shortest.
+- **80 game types, all playable offline and seeded.**
+  - **Logic:** logic grids (zebra, unique solution guaranteed), knights and knaves, Mastermind, Tower of Hanoi, syllogisms, spot the fallacy (46 fallacies), and **24 puzzles from Simon Tatham's Portable Puzzle Collection** (Solo, Keen, Towers, Unequal, Pattern, Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines, Pearl, Tracks, Unruly, Map, Mosaic).
+  - **Math:** mental math sprint, Countdown numbers and the 24 game (a solver proves every puzzle solvable), Fermi estimation (scored on log error), sequences, Kakuro (unique solution), probability intuition (predict, then watch it simulated), orders of magnitude.
+  - **Language:** Countdown letters, anagrams, word ladder, Wordle-style, cryptograms (public-domain quotes), mini crosswords from the keyword bank, etymology.
+  - **Memory:** dual n-back, digit span (forwards and backwards), Corsi blocks, card pairs, Kim's game, a memory-palace trainer, and "yesterday" recall of facts from 1, 3 and 7 days ago.
+  - **Attention and speed:** Stroop (with a colour-blind mode), Schulte tables, Flanker, Go/No-Go, reaction time (simple and choice), visual search, RSVP speed reading with comprehension questions.
+  - **Spatial:** 3D mental rotation, 15-puzzle, Rush Hour (every puzzle's minimum move count is exact), map geography.
+  - **Strategy:** rated chess puzzles (Lichess database), a full game against Stockfish at your level, Connect Four against minimax, and Nim with a "discover the winning rule" mode.
+  - **Knowledge:** trivia (two open databases plus an offline bank), guess the Wikipedia article, chronology ("On this day" or an offline set), flags, capitals, higher or lower.
+  - **Deep thinking:** explain it back (Feynman technique), steelman the other side, first principles, and a no-AI challenge of the day.
+  - **Riddles and lateral thinking:** 112 riddles, 42 situation puzzles and 50 rebuses.
 - **Every puzzle has a seed code** like `stroop:4:k9x2mf`. Replay it, or share it, and you get exactly the same puzzle.
 - **Adaptive levels.** Each skill (logic, math, language, memory, attention, spatial, strategy, knowledge, deep thinking) has its own rating. New rounds aim for about 75 % success, the "hard but doable" zone. You can bias it easier or harder.
 - **Thinking timer.** Hints and "show solution" stay locked for the first N seconds, so you try first.
 - **Auto-pause.** If the window loses focus (a Focus Point break, a notification, Alt+Tab), the round pauses. Paused time never counts.
-- **Keyword bank: 540 topics across 33 domains**, from entropy to the Maya numerals, from Costa Rica's abolished army to the Voynich manuscript.
+- **Keyword bank: 1,541 topics across 33 domains**, from entropy to the Maya numerals, from Costa Rica's abolished army to the Voynich manuscript.
   - Fuzzy search with aliases and typos, plus domain filters.
   - Random picks: fully random, within a domain, **outside my comfort zone** (favours domains you've explored least), and **rabbit hole** (follow the related-topics graph).
   - **Keyword of the day**, the same all day.
@@ -55,10 +60,13 @@ Focus Point holds its breaks while a fullscreen game or video is in front. Mind 
 | --- | --- | --- | --- |
 | [Wikipedia](https://en.wikipedia.org/) | Summaries, images, "On this day", topic search | CC BY-SA 4.0 (credited on every summary) | Identified User-Agent, ≤ 4 requests/s |
 | [Wikidata](https://www.wikidata.org/) | Key facts, dated quiz questions | CC0 | One small query at a time, cached 30 days |
-| [Open Trivia DB](https://opentdb.com/) | Bonus trivia | CC BY-SA 4.0 | One request every 5.5 s, session tokens |
+| [Open Trivia DB](https://opentdb.com/) | Bonus trivia, the trivia game | CC BY-SA 4.0 | One request every 5.5 s, session tokens |
+| [The Trivia API](https://the-trivia-api.com/) | The trivia game | CC BY-NC 4.0 (fine while Mind Gym is free) | One request every 2 s |
 | [Lichess](https://lichess.org/) | Daily puzzle; offline puzzle pack from the CC0 database | CC0 | One request at a time, 1 min pause after a 429 |
 
 All requests happen in the main process, only to these hosts, and are cached on disk. The pages themselves can't reach the network. The *Verify online sources* workflow checks every endpoint weekly from GitHub Actions.
+
+**Stockfish** (GPL-3.0) is not bundled. The first time you play it, Mind Gym downloads the unmodified official release (1.8 MB, from GitHub or its npm mirror on jsDelivr), checks it against SHA-256 fingerprints pinned in the code, and runs it in a separate Web Worker. You can remove it from the Licenses page.
 
 REST Countries was planned, but its free API was switched off in September 2026. Mind Gym ships its own country list (195 countries, capitals and flags) instead.
 
@@ -124,6 +132,11 @@ Then run `npm run keywords:build`. The build fails on duplicate ids, duplicate W
 | The game contract | `src/shared/game-contract.js` |
 | Game shell: intro, level picker, pause, results | `src/renderer/views/play.js` |
 | Games (pure logic in `logic.js`, UI in `index.js`) | `src/renderer/games/*/` |
+| Shared game engines: quiz, typed answers, riddles, reflection, speeded trials, span staircase, chessboard | `src/renderer/games/_engine/` |
+| Simon Tatham's puzzles: WebAssembly build, host page, bridge | `.github/workflows/build-tatham.yml`, `scripts/tatham-presets.cjs`, `src/renderer/tatham/` |
+| Stockfish download and integrity checks | `src/main/engines.js` |
+| Online extras for the knowledge games | `src/main/knowledge.js` |
+| Prebuilt packs: Rush Hour puzzles, world map | `scripts/build-rush-hour.mjs`, `scripts/build-map.mjs` |
 | Views: home, Daily Mix, games, keywords, stats, settings | `src/renderer/views/` |
 
 The renderer is plain JavaScript modules with no framework and no bundler. Games load on demand. Pages run with `contextIsolation`, `sandbox`, no Node access, and a strict Content Security Policy. The renderer can't reach the network at all; external links open in your browser, and only for a short list of known sites.

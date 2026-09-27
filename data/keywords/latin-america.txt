@@ -17,3 +17,35 @@ amazon-rainforest | Amazon rainforest | Amazonia | ecology, Brazil | 1 | amazon-
 atacama-desert | Atacama Desert | | deserts, Chile | 2 | |
 simon-bolivar | Simón Bolívar | El Libertador | independence | 1 | |
 galapagos-islands | Galápagos Islands | | Ecuador, evolution | 1 | natural-selection |
+# Phase 3 additions
+guanacaste | Guanacaste Province |  | Costa Rica, regions | 2 | costa-rica |
+corcovado | Corcovado National Park |  | Costa Rica, parks | 2 | costa-rica |
+poas-volcano | Poás Volcano |  | Costa Rica, volcanoes | 2 | arenal-volcano |
+san-jose-cr | San José, Costa Rica |  | Costa Rica, cities | 1 | costa-rica |
+pura-vida | Pura vida |  | Costa Rica, culture | 1 | costa-rica |
+gallo-pinto | Gallo pinto |  | food, Costa Rica | 1 | |
+sea-turtle | Sea turtle |  | wildlife, Costa Rica | 1 | tortuguero-national-park |
+aztec-empire | Aztec Empire |  | Mesoamerica, empires | 1 | |
+tenochtitlan | Tenochtitlan |  | Mesoamerica, cities | 2 | aztec-empire |
+olmecs | Olmecs | colossal heads | Mesoamerica | 3 | |
+teotihuacan | Teotihuacan |  | Mesoamerica, cities | 2 | |
+mesoamerican-ballgame | Mesoamerican ballgame |  | Mesoamerica, sport | 3 | |
+hernan-cortes | Hernán Cortés |  | conquest | 2 | aztec-empire |
+francisco-pizarro | Francisco Pizarro |  | conquest | 2 | inca-empire |
+potosi | Potosí | Cerro Rico | silver, colonial | 3 | |
+tupac-amaru-ii | Túpac Amaru II |  | rebellions | 3 | |
+mexican-independence | Mexican War of Independence |  | independence | 2 | |
+jose-de-san-martin | José de San Martín |  | independence | 2 | simon-bolivar |
+mexican-revolution | Mexican Revolution |  | revolutions | 2 | |
+cuban-revolution | Cuban Revolution |  | revolutions | 2 | |
+gabriel-garcia-marquez | Gabriel García Márquez |  | literature | 1 | |
+diego-rivera | Diego Rivera |  | art, murals | 2 | |
+lake-titicaca | Lake Titicaca |  | lakes, Andes | 1 | |
+salar-de-uyuni | Salar de Uyuni |  | salt flats, Bolivia | 2 | |
+patagonia | Patagonia |  | regions | 1 | |
+iguazu-falls | Iguazu Falls |  | waterfalls | 1 | |
+easter-island | Easter Island | moai | Pacific, Chile | 1 | |
+day-of-the-dead | Day of the Dead |  | culture, Mexico | 1 | |
+quinoa | Quinoa |  | food, Andes | 1 | |
+capoeira | Capoeira |  | Brazil, martial arts | 2 | |
+carnival-rio | Rio Carnival |  | Brazil, festivals | 1 | |

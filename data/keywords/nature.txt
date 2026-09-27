@@ -14,3 +14,36 @@ axolotl | Axolotl | | amphibians, regeneration | 1 | |
 waggle-dance | Waggle dance | | bees, communication | 2 | |
 periodical-cicadas | Periodical cicadas | 17-year cicada | insects, prime numbers | 3 | prime-number |
 sloth | Sloth | | mammals, Costa Rica | 1 | |
+# Phase 3 additions
+food-web | Food web |  | ecology | 1 | keystone-species |
+ecosystem | Ecosystem |  | ecology | 1 | food-web |
+biodiversity | Biodiversity |  | ecology | 1 | |
+invasive-species | Invasive species | cane toad | ecology | 2 | |
+symbiosis | Symbiosis |  | ecology, relationships | 2 | mycorrhiza |
+parasitism | Parasitism |  | ecology, relationships | 2 | symbiosis |
+plant | Plant |  | plants | 1 | |
+carnivorous-plant | Carnivorous plant | Venus flytrap | plants | 2 | |
+sequoia | Sequoiadendron giganteum | giant sequoia | trees | 2 | |
+baobab | Adansonia | baobab | trees | 2 | |
+lichen | Lichen |  | fungi, symbiosis | 3 | symbiosis |
+slime-mold | Slime mold |  | organisms, intelligence | 3 | |
+ant-colony | Ant colony |  | insects, social | 2 | |
+leafcutter-ant | Leafcutter ant |  | insects, farming | 2 | ant-colony |
+honey-bee | Western honey bee |  | insects | 1 | waggle-dance |
+dragonfly | Dragonfly |  | insects, flight | 2 | |
+cuttlefish | Cuttlefish |  | cephalopods, camouflage | 2 | octopus |
+mimic-octopus | Mimic octopus |  | cephalopods, mimicry | 3 | octopus |
+mimicry | Mimicry |  | adaptation | 2 | |
+blue-whale | Blue whale |  | whales | 1 | |
+humpback-whale | Humpback whale | whale song | whales | 1 | blue-whale |
+dolphin | Dolphin |  | marine mammals, intelligence | 1 | |
+elephant | Elephant |  | mammals, memory | 1 | |
+crow-intelligence | Corvidae | crows | birds, intelligence | 2 | |
+peregrine-falcon | Peregrine falcon |  | birds, speed | 1 | |
+arctic-tern | Arctic tern |  | birds, migration | 2 | bird-migration |
+emperor-penguin | Emperor penguin |  | birds, Antarctica | 1 | |
+platypus | Platypus |  | mammals, oddities | 1 | |
+naked-mole-rat | Naked mole-rat |  | mammals, ageing | 3 | |
+cheetah | Cheetah |  | mammals, speed | 1 | |
+great-white-shark | Great white shark |  | sharks | 1 | |
+coelacanth | Coelacanth | living fossil | fish | 3 | |

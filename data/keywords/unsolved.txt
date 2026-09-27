@@ -13,3 +13,34 @@ sleep | Sleep | why do we sleep? | biology | 2 | sleep-and-memory |
 lonely-runner-conjecture | Lonely runner conjecture | | mathematics | 4 | |
 hilberts-problems | Hilbert's problems | | mathematics, history | 3 | riemann-hypothesis |
 origin-of-language | Origin of language | | linguistics, evolution | 3 | universal-grammar |
+# Phase 3 additions
+wimp | Weakly interacting massive particle | WIMP | physics, dark matter | 4 | |
+cp-violation | CP violation |  | physics | 5 | baryon-asymmetry |
+strong-cp-problem | Strong CP problem |  | physics | 5 | |
+hierarchy-problem | Hierarchy problem |  | physics | 5 | |
+measurement-problem | Measurement problem |  | quantum, interpretation | 4 | |
+many-worlds | Many-worlds interpretation |  | quantum, interpretation | 3 | measurement-problem |
+fine-tuned-universe | Fine-tuned universe |  | cosmology, philosophy | 3 | |
+cosmological-constant-problem | Cosmological constant problem |  | cosmology | 5 | |
+black-hole-information-paradox | Black hole information paradox |  | physics | 4 | |
+great-filter | Great Filter |  | life, Fermi paradox | 3 | |
+origin-of-consciousness | Consciousness |  | mind | 2 | |
+protein-structure-prediction | Protein structure prediction | AlphaFold | biology, computation | 3 | |
+cambrian-explosion | Cambrian explosion |  | evolution | 2 | |
+why-we-yawn | Yawn |  | behaviour | 1 | |
+ageing | Ageing | why we age | biology | 2 | |
+senescence | Senescence |  | biology | 3 | |
+animal-navigation | Animal navigation | magnetoreception | biology | 3 | |
+dark-flow | Dark flow |  | cosmology | 5 | |
+perfect-number | Perfect number | odd perfect number | number theory | 3 | |
+kissing-number | Kissing number |  | geometry | 4 | |
+happy-ending-problem | Happy ending problem |  | combinatorics | 4 | |
+moving-sofa | Moving sofa problem |  | geometry | 3 | |
+inscribed-square | Inscribed square problem |  | geometry | 3 | |
+abc-conjecture | Abc conjecture |  | number theory | 5 | |
+beal-conjecture | Beal conjecture |  | number theory | 4 | |
+unknotting-problem | Unknotting problem |  | knot theory | 4 | |
+undeciphered-scripts | Undeciphered writing systems |  | linguistics | 3 | |
+indus-script | Indus script |  | undeciphered scripts | 3 | |
+linear-elamite | Linear Elamite |  | undeciphered scripts | 5 | |
+evolutionary-musicology | Evolutionary musicology |  | music, evolution | 3 | |

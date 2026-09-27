@@ -15,3 +15,32 @@ supernova | Supernova | | stars | 2 | neutron-star, neutrino |
 neutron-star | Neutron star | pulsar | stars | 3 | supernova |
 voyager-golden-record | Voyager Golden Record | | spacecraft | 2 | |
 lagrange-point | Lagrange point | L2 | orbits | 3 | |
+# Phase 3 additions
+solar-system | Solar System |  | planets | 1 | |
+sun | Sun |  | stars | 1 | solar-system |
+moon | Moon |  | Earth, satellites | 1 | |
+mars | Mars |  | planets | 1 | solar-system |
+jupiter | Jupiter |  | planets, gas giants | 1 | great-red-spot |
+great-red-spot | Great Red Spot |  | Jupiter, storms | 2 | jupiter |
+saturn-rings | Rings of Saturn |  | Saturn, planets | 2 | |
+europa-moon | Europa (moon) |  | moons, ocean worlds | 2 | jupiter |
+titan-moon | Titan (moon) |  | moons, Saturn | 2 | |
+pluto | Pluto |  | dwarf planets | 1 | kuiper-belt |
+kuiper-belt | Kuiper belt |  | outer solar system | 3 | pluto |
+oort-cloud | Oort cloud |  | comets, outer solar system | 3 | kuiper-belt |
+comet | Comet | Halley's Comet | small bodies | 1 | |
+asteroid | Asteroid |  | small bodies | 1 | |
+milky-way | Milky Way |  | galaxies | 1 | |
+andromeda-galaxy | Andromeda Galaxy |  | galaxies | 2 | milky-way |
+light-year | Light-year |  | distance, units | 1 | |
+parallax | Stellar parallax |  | distance, measurement | 3 | light-year |
+red-giant | Red giant |  | stellar evolution | 2 | |
+white-dwarf | White dwarf |  | stellar evolution | 2 | red-giant |
+pulsar | Pulsar |  | neutron stars | 3 | neutron-star |
+quasar | Quasar |  | galaxies, black holes | 3 | black-hole |
+redshift | Redshift |  | expansion, light | 2 | hubbles-law |
+hubble-telescope | Hubble Space Telescope |  | telescopes | 1 | |
+jwst | James Webb Space Telescope | JWST | telescopes | 1 | hubble-telescope |
+sputnik | Sputnik 1 |  | space race | 1 | |
+international-space-station | International Space Station | ISS | space exploration | 1 | |
+eclipse | Solar eclipse |  | Sun, Moon | 1 | |

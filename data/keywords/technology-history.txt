@@ -14,3 +14,36 @@ xerox-parc | PARC (company) | Xerox PARC | computing, GUI | 3 | |
 year-2000-problem | Year 2000 problem | Y2K; millennium bug | software | 1 | |
 first-iphone | iPhone (1st generation) | | smartphones | 1 | |
 electrical-telegraph | Electrical telegraph | Morse code | communication | 2 | telephone |
+# Phase 3 additions
+abacus | Abacus |  | calculation | 1 | |
+slide-rule | Slide rule |  | calculation | 2 | abacus |
+pascaline | Pascal's calculator | Pascaline | calculation | 3 | |
+difference-engine | Difference engine | Babbage | calculation | 2 | analytical-engine |
+jacquard-machine | Jacquard machine | punched cards | automation, textiles | 3 | analytical-engine |
+punched-card | Punched card |  | data | 2 | jacquard-machine |
+vacuum-tube | Vacuum tube |  | electronics | 3 | eniac |
+colossus-computer | Colossus computer |  | codebreaking, WWII | 3 | enigma-machine |
+bletchley-park | Bletchley Park |  | codebreaking, WWII | 2 | enigma-machine |
+ibm-pc | IBM Personal Computer |  | personal computers | 2 | |
+apple-ii | Apple II |  | personal computers | 2 | |
+mother-of-all-demos | The Mother of All Demos | Douglas Engelbart | interfaces | 3 | |
+computer-mouse | Computer mouse |  | interfaces | 1 | mother-of-all-demos |
+graphical-user-interface | Graphical user interface | GUI | interfaces | 2 | |
+email | Email |  | communication | 1 | arpanet |
+mosaic-browser | Mosaic (web browser) |  | the web | 3 | world-wide-web |
+search-engine | Search engine |  | the web | 1 | |
+wikipedia-history | History of Wikipedia |  | the web, collaboration | 2 | |
+linux | Linux |  | operating systems, open source | 2 | unix |
+gnu-project | GNU Project | free software | open source | 3 | linux |
+smartphone | Smartphone |  | mobile | 1 | |
+mobile-phone | Mobile phone |  | mobile | 1 | smartphone |
+radio | Radio |  | broadcasting | 1 | |
+television | Television |  | broadcasting | 1 | |
+transatlantic-cable | Transatlantic telegraph cable |  | communication, cables | 3 | electrical-telegraph |
+satellite | Satellite |  | space, communication | 2 | |
+video-game | Video game |  | entertainment | 1 | |
+pong | Pong |  | video games | 2 | video-game |
+floppy-disk | Floppy disk |  | storage | 2 | |
+compact-disc | Compact disc | CD | storage, audio | 2 | |
+digital-camera | Digital camera |  | imaging | 2 | |
+deep-blue | Deep Blue (chess computer) | Kasparov | AI history | 2 | |

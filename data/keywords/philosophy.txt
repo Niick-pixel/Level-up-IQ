@@ -14,3 +14,33 @@ stoicism | Stoicism | | ethics, Hellenistic | 1 | |
 existentialism | Existentialism | | modern | 2 | |
 original-position | Original position | veil of ignorance; Rawls | political philosophy, justice | 3 | social-contract |
 socratic-method | Socratic method | elenchus | reasoning, teaching | 1 | |
+# Phase 3 additions
+socrates | Socrates |  | ancient philosophers | 1 | socratic-method |
+plato | Plato |  | ancient philosophers | 1 | |
+aristotle | Aristotle |  | ancient philosophers | 1 | |
+confucius | Confucius |  | Chinese philosophy | 1 | |
+laozi | Laozi | Tao Te Ching | Chinese philosophy | 2 | |
+epicureanism | Epicureanism |  | ancient schools, happiness | 2 | stoicism |
+cynicism | Cynicism (philosophy) | Diogenes | ancient schools | 3 | |
+rene-descartes | René Descartes |  | early modern | 1 | |
+mind-body-problem | Mind–body problem | dualism | philosophy of mind | 3 | |
+free-will | Free will |  | metaphysics | 2 | |
+determinism | Determinism | Laplace's demon | metaphysics | 3 | free-will |
+empiricism | Empiricism |  | epistemology | 2 | |
+rationalism | Rationalism |  | epistemology | 3 | empiricism |
+john-locke | John Locke | tabula rasa | early modern | 2 | empiricism |
+david-hume | David Hume |  | early modern | 2 | problem-of-induction |
+immanuel-kant | Immanuel Kant |  | early modern | 2 | categorical-imperative |
+is-ought-problem | Is–ought problem |  | ethics | 3 | david-hume |
+virtue-ethics | Virtue ethics |  | ethics | 2 | aristotle |
+friedrich-nietzsche | Friedrich Nietzsche |  | modern | 2 | |
+absurdism | Absurdism | Camus | existentialism | 3 | existentialism |
+simone-de-beauvoir | Simone de Beauvoir |  | existentialism, feminism | 2 | existentialism |
+philosophy-of-science | Philosophy of science |  | science, knowledge | 3 | falsifiability |
+paradigm-shift | Paradigm shift | Thomas Kuhn | science, knowledge | 3 | |
+gettier-problem | Gettier problem |  | epistemology | 4 | |
+philosophical-zombie | Philosophical zombie |  | philosophy of mind | 4 | hard-problem-of-consciousness |
+simulation-hypothesis | Simulation hypothesis |  | metaphysics | 2 | brain-in-a-vat |
+veil-of-ignorance | Veil of ignorance |  | justice | 3 | |
+pascals-wager | Pascal's wager |  | religion, decisions | 2 | |
+sorites-paradox | Sorites paradox | paradox of the heap | vagueness, paradoxes | 3 | |

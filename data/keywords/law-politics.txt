@@ -13,3 +13,36 @@ first-past-the-post | First-past-the-post voting | plurality voting | voting sys
 proportional-representation | Proportional representation | | voting systems | 2 | first-past-the-post |
 filibuster | Filibuster | | legislatures | 2 | |
 un-security-council | United Nations Security Council | UNSC; veto | international law | 2 | |
+# Phase 3 additions
+democracy | Democracy |  | systems | 1 | athenian-democracy |
+constitution | Constitution |  | foundations | 1 | |
+us-constitution | Constitution of the United States |  | constitutions | 2 | constitution |
+bill-of-rights | United States Bill of Rights |  | rights | 2 | us-constitution |
+parliamentary-system | Parliamentary system |  | systems | 2 | |
+presidential-system | Presidential system |  | systems | 2 | parliamentary-system |
+federalism | Federalism |  | systems | 2 | |
+monarchy | Monarchy |  | systems | 1 | |
+constitutional-monarchy | Constitutional monarchy |  | systems | 2 | monarchy |
+authoritarianism | Authoritarianism |  | systems | 2 | |
+totalitarianism | Totalitarianism |  | systems | 2 | authoritarianism |
+suffrage | Suffrage | the right to vote | elections, rights | 1 | |
+womens-suffrage | Women's suffrage |  | elections, rights | 1 | suffrage |
+ranked-choice-voting | Instant-runoff voting | ranked-choice voting | elections | 3 | |
+referendum | Referendum |  | elections | 1 | |
+jury-trial | Jury trial |  | courts | 1 | |
+supreme-court | Supreme court |  | courts | 1 | |
+judicial-review | Judicial review | Marbury v. Madison | courts | 3 | separation-of-powers |
+precedent | Precedent | stare decisis | courts, common law | 3 | common-law |
+contract | Contract |  | private law | 2 | |
+tort | Tort |  | private law | 3 | contract |
+intellectual-property | Intellectual property |  | private law | 2 | |
+copyright | Copyright |  | intellectual property | 1 | intellectual-property |
+patent | Patent |  | intellectual property | 2 | intellectual-property |
+creative-commons | Creative Commons license |  | licensing | 2 | copyright |
+international-law | International law |  | law | 3 | |
+united-nations | United Nations |  | international | 1 | |
+european-union | European Union |  | international | 1 | |
+nuremberg-trials | Nuremberg trials |  | international law, history | 2 | |
+civil-disobedience | Civil disobedience | Thoreau | protest | 2 | |
+due-process | Due process |  | rights, courts | 3 | habeas-corpus |
+freedom-of-speech | Freedom of speech |  | rights | 1 | |

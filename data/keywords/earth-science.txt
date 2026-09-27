@@ -14,3 +14,36 @@ jet-stream | Jet stream | | atmosphere, weather | 2 | coriolis-force |
 el-nino | El Niño–Southern Oscillation | ENSO; El Niño; La Niña | climate, oceans | 2 | thermohaline-circulation |
 thermohaline-circulation | Thermohaline circulation | ocean conveyor belt | oceans | 3 | el-nino |
 chicxulub-crater | Chicxulub crater | dinosaur-killing asteroid | impacts, extinction | 2 | |
+# Phase 3 additions
+volcano | Volcano |  | volcanoes | 1 | ring-of-fire |
+supervolcano | Supervolcano | Yellowstone | volcanoes | 2 | volcano |
+mount-vesuvius | Mount Vesuvius | Pompeii | volcanoes, history | 1 | volcano |
+krakatoa | 1883 eruption of Krakatoa | Krakatoa | volcanoes, history | 2 | volcano |
+mount-tambora | 1815 eruption of Mount Tambora | Year Without a Summer | volcanoes, climate | 3 | volcano |
+earthquake | Earthquake |  | seismology | 1 | plate-tectonics |
+tsunami | Tsunami |  | waves, earthquakes | 1 | earthquake |
+san-andreas-fault | San Andreas Fault |  | faults, California | 2 | earthquake |
+rock-cycle | Rock cycle |  | geology | 1 | |
+igneous-rock | Igneous rock |  | rocks | 2 | rock-cycle |
+sedimentary-rock | Sedimentary rock |  | rocks | 2 | rock-cycle |
+fossil | Fossil |  | palaeontology | 1 | |
+geologic-time-scale | Geologic time scale |  | deep time | 2 | |
+mass-extinction | Extinction event | mass extinction | extinction, deep time | 2 | chicxulub-crater |
+permian-extinction | Permian–Triassic extinction event | Great Dying | extinction | 3 | mass-extinction |
+anthropocene | Anthropocene |  | human impact, deep time | 2 | |
+earths-core | Earth's inner core |  | Earth structure | 2 | |
+earths-magnetic-field | Earth's magnetic field | magnetosphere | Earth structure | 2 | |
+geomagnetic-reversal | Geomagnetic reversal |  | magnetism | 3 | earths-magnetic-field |
+aurora | Aurora | northern lights | atmosphere, space weather | 1 | earths-magnetic-field |
+ozone-layer | Ozone layer | ozone hole | atmosphere | 2 | |
+water-cycle | Water cycle |  | hydrology | 1 | |
+glacier | Glacier |  | ice | 1 | |
+permafrost | Permafrost |  | ice, climate | 2 | |
+monsoon | Monsoon |  | weather, seasons | 2 | |
+tropical-cyclone | Tropical cyclone | hurricane; typhoon | weather, storms | 1 | |
+tornado | Tornado |  | weather, storms | 1 | |
+lightning | Lightning |  | weather, electricity | 1 | |
+ocean-acidification | Ocean acidification |  | oceans, climate | 3 | climate-change |
+carbon-cycle | Carbon cycle |  | climate, cycles | 2 | |
+continental-drift | Continental drift | Alfred Wegener | plate tectonics, history | 2 | plate-tectonics |
+hydrothermal-vent | Hydrothermal vent | black smoker | oceans, life | 3 | |

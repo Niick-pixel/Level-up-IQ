@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.3.0: Phase 3 (variety)
+
+**Added**
+- **80 game types** (56 of our own plus 24 Tatham puzzles; the spec asked for 60+). Every one is seeded, adaptive (levels 1–10), pausable, and playable offline.
+- **Simon Tatham's Portable Puzzle Collection:** 24 puzzles built to WebAssembly in CI from the unmodified upstream source (one exported status function added), with difficulty presets per level, "show solution" locked by the thinking timer, and the MIT notice.
+- **Logic:** logic grids with a unique-solution generator, knights and knaves, Mastermind, Tower of Hanoi, syllogisms with counterexamples, spot the fallacy.
+- **Math:** Countdown numbers, the 24 game (solver-backed), Fermi estimation, sequences, Kakuro, probability intuition, orders of magnitude.
+- **Language:** Countdown letters, anagrams, Wordle-style, cryptograms, mini crosswords, etymology.
+- **Memory:** digit span, Corsi blocks, card pairs, Kim's game, memory palace, "yesterday" recall.
+- **Attention:** Flanker, Go/No-Go, reaction time, visual search, RSVP speed reading (14 original passages).
+- **Spatial:** 3D mental rotation (canvas, no library), 15-puzzle, Rush Hour (728 prebuilt puzzles with exact minimum move counts), map geography (Natural Earth shapes baked to SVG at build time).
+- **Strategy:** chess puzzles from the Lichess pack, play vs Stockfish (downloaded on first use, SHA-256 pinned, GPL notice and source links), Connect Four, Nim.
+- **Knowledge:** trivia (Open Trivia DB + The Trivia API + 127 offline questions), guess the article, chronology, flags, capitals.
+- **Deep thinking:** explain it back, steelman, first principles, no-AI challenge of the day.
+- **Riddles:** 204 riddles, situation puzzles and rebuses.
+- **Keyword bank: 1,541 keywords** (from 540), about 47 per domain.
+- **Home** shows a different set of featured games each day; the **Games** page has a filter and a Tatham section; the **Daily Mix** rotates its games by date.
+- **Licenses page** lists Tatham's puzzles, chess.js, flag-icons, world-atlas, the Lichess database, The Trivia API, and the Stockfish status (with the GPL text and a Remove button).
+- 98 tests, including one for every new generator (unique solutions, legal chess lines, exact Rush Hour move counts, chirality in mental rotation, solvable 15-puzzles) and the engine download's integrity checks.
+
+**Fixed**
+- Optional page elements no longer show up as the text "null".
+- Tatham Mines and Undead now end the round after "Show solution".
+- Removed `frame-ancestors` from the page's meta CSP (browsers ignore it there and warn).
+
+**Not in this phase**
+- Tangrams: skipped. Dragging and rotating polygons needs more UI work than it's worth right now, and Tatham's puzzles already cover pipe connecting (Net).
+- Go problems: no clearly licensed problem set was found, as the spec allowed.
+- Kim's game uses emoji instead of museum images; the art, species and space providers arrive in Phase 4.
+- The live Stockfish download couldn't be tested from this sandbox (its proxy blocks Electron's network stack). The installer is covered by unit tests, and the engine itself was tested end to end from verified local copies.
+- The new keywords get their Wikidata IDs from the next *Verify online sources* run.
+
+
 ## 0.2.0: Phase 2 (online content)
 
 **Added**

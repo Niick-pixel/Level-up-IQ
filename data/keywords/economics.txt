@@ -14,3 +14,36 @@ great-depression | Great Depression | | crises, 20th century | 1 | |
 goodharts-law | Goodhart's law | | measurement, incentives | 2 | perverse-incentive |
 perverse-incentive | Perverse incentive | cobra effect | incentives | 2 | goodharts-law |
 moral-hazard | Moral hazard | | incentives, insurance | 3 | |
+# Phase 3 additions
+gdp | Gross domestic product | GDP | macroeconomics, measurement | 1 | |
+recession | Recession |  | macroeconomics, business cycle | 1 | |
+interest-rate | Interest rate |  | money, banking | 1 | |
+central-bank | Central bank |  | money, banking | 2 | interest-rate |
+fractional-reserve-banking | Fractional-reserve banking |  | banking | 3 | central-bank |
+money-supply | Money supply |  | money | 3 | |
+gold-standard | Gold standard |  | money, history | 2 | |
+bretton-woods | Bretton Woods system |  | money, history | 3 | gold-standard |
+stock-market | Stock market |  | finance | 1 | |
+bond-finance | Bond (finance) |  | finance | 2 | |
+diversification | Diversification (finance) | don't put all your eggs in one basket | finance, risk | 2 | |
+index-fund | Index fund |  | finance, investing | 2 | |
+efficient-market-hypothesis | Efficient-market hypothesis |  | finance, theory | 4 | |
+bubble | Economic bubble |  | finance, crises | 2 | tulip-mania |
+south-sea-bubble | South Sea Company | South Sea Bubble | crises, history | 3 | bubble |
+financial-crisis-2008 | 2008 financial crisis |  | crises | 2 | |
+adam-smith | Adam Smith | invisible hand | economists | 1 | |
+keynesian-economics | Keynesian economics |  | schools of thought | 3 | |
+monopoly | Monopoly |  | markets, competition | 1 | |
+externality | Externality |  | markets, market failure | 3 | tragedy-of-the-commons |
+public-good | Public good (economics) | free rider | market failure | 3 | externality |
+game-of-chicken | Chicken (game) |  | game theory | 3 | nash-equilibrium |
+marginal-utility | Marginal utility | diminishing returns | microeconomics | 3 | |
+division-of-labour | Division of labour | pin factory | production | 2 | adam-smith |
+universal-basic-income | Universal basic income | UBI | policy | 2 | |
+behavioral-economics | Behavioral economics |  | psychology, economics | 2 | |
+nudge-theory | Nudge theory |  | behavioural economics | 3 | behavioral-economics |
+gini-coefficient | Gini coefficient |  | inequality, measurement | 3 | |
+purchasing-power-parity | Purchasing power parity | Big Mac index | currencies | 3 | |
+cryptocurrency | Cryptocurrency | Bitcoin | money, technology | 2 | |
+paradox-of-thrift | Paradox of thrift |  | macroeconomics, paradoxes | 4 | |
+parkinsons-law | Parkinson's law |  | work, organisations | 2 | |

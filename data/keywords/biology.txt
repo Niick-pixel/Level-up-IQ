@@ -14,3 +14,30 @@ symbiogenesis | Symbiogenesis | endosymbiotic theory | cells, evolution | 3 | mi
 atp | Adenosine triphosphate | ATP | energy, molecules | 2 | mitochondrion, photosynthesis |
 photosynthesis | Photosynthesis | | plants, energy | 1 | atp, great-oxidation-event |
 horizontal-gene-transfer | Horizontal gene transfer | | genetics, bacteria | 4 | antimicrobial-resistance |
+# Phase 3 additions
+cell-biology | Cell (biology) |  | cells, life | 1 | |
+cell-membrane | Cell membrane |  | cells | 2 | cell-biology |
+mitosis | Mitosis |  | cell division | 2 | meiosis |
+meiosis | Meiosis |  | cell division, reproduction | 3 | mitosis |
+ribosome | Ribosome |  | cells, proteins | 2 | |
+rna | RNA | ribonucleic acid | molecules, genetics | 2 | dna |
+mendelian-inheritance | Mendelian inheritance |  | genetics, heredity | 2 | gregor-mendel |
+gregor-mendel | Gregor Mendel |  | scientists, genetics | 1 | mendelian-inheritance |
+mutation | Mutation |  | genetics, evolution | 1 | |
+human-genome-project | Human Genome Project |  | genetics, big science | 2 | |
+charles-darwin | Charles Darwin |  | scientists, evolution | 1 | natural-selection |
+speciation | Speciation |  | evolution | 3 | |
+darwins-finches | Darwin's finches |  | evolution, Galápagos | 2 | |
+tree-of-life | Tree of life (biology) |  | evolution, classification | 2 | |
+taxonomy | Taxonomy (biology) |  | classification | 2 | |
+virus | Virus |  | microbes | 1 | |
+bacteria | Bacteria |  | microbes | 1 | |
+prion | Prion |  | proteins, disease | 4 | protein-folding |
+microbiome | Microbiome | gut flora | microbes, health | 2 | |
+homeostasis | Homeostasis |  | physiology | 2 | |
+cloning | Cloning | Dolly the sheep | biotechnology | 2 | |
+stem-cell | Stem cell |  | cells, medicine | 2 | |
+telomere | Telomere |  | chromosomes, ageing | 3 | |
+miller-urey | Miller–Urey experiment |  | origin of life, experiments | 3 | abiogenesis |
+biological-immortality | Biological immortality | Turritopsis | ageing | 4 | telomere |
+circadian-rhythm | Circadian rhythm | body clock | physiology, sleep | 2 | |

@@ -14,3 +14,36 @@ heros-journey | Hero's journey | monomyth | storytelling | 2 | odyssey |
 a-space-odyssey | 2001: A Space Odyssey | HAL 9000 | science fiction | 2 | |
 seven-samurai | Seven Samurai | Kurosawa | classics, Japanese | 2 | |
 studio-ghibli | Studio Ghibli | Miyazaki | animation | 1 | |
+# Phase 3 additions
+lumiere-brothers | Auguste and Louis Lumière |  | early cinema | 2 | |
+georges-melies | Georges Méliès | A Trip to the Moon | early cinema, special effects | 2 | |
+silent-film | Silent film |  | early cinema | 1 | |
+charlie-chaplin | Charlie Chaplin |  | silent film, comedy | 1 | silent-film |
+buster-keaton | Buster Keaton |  | silent film, stunts | 2 | silent-film |
+sound-film | Sound film | talkies | technology | 2 | silent-film |
+technicolor | Technicolor |  | technology, colour | 3 | |
+alfred-hitchcock | Alfred Hitchcock |  | directors, suspense | 1 | macguffin |
+akira-kurosawa | Akira Kurosawa |  | directors | 2 | seven-samurai |
+rashomon | Rashomon |  | films, unreliable narration | 3 | akira-kurosawa |
+casablanca | Casablanca (film) |  | films, Hollywood | 1 | |
+the-godfather | The Godfather |  | films | 1 | |
+star-wars | Star Wars (film) |  | films, science fiction | 1 | |
+jurassic-park | Jurassic Park (film) |  | films, special effects | 1 | |
+toy-story | Toy Story |  | animation, computer graphics | 1 | |
+spirited-away | Spirited Away |  | animation | 1 | studio-ghibli |
+walt-disney | Walt Disney |  | animation | 1 | |
+stop-motion | Stop motion |  | animation, techniques | 2 | |
+cgi | Computer-generated imagery | CGI | special effects | 2 | |
+chroma-key | Chroma key | green screen | special effects | 2 | |
+motion-capture | Motion capture |  | special effects | 3 | |
+film-noir | Film noir |  | genres | 2 | |
+western-genre | Western (genre) |  | genres | 1 | |
+documentary-film | Documentary film |  | genres | 1 | |
+screenplay | Screenplay |  | writing | 2 | |
+three-act-structure | Three-act structure |  | writing, structure | 2 | |
+cinematography | Cinematography |  | craft | 2 | |
+long-take | Long take | oner | techniques | 3 | |
+shot-reverse-shot | Shot reverse shot |  | editing | 3 | |
+180-degree-rule | 180-degree rule |  | editing, continuity | 3 | |
+bechdel-test | Bechdel test |  | criticism | 2 | |
+academy-awards | Academy Awards | Oscars | awards | 1 | |

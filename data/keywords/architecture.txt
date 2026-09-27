@@ -14,3 +14,35 @@ angkor-wat | Angkor Wat | | temples, Khmer | 1 | |
 alhambra | Alhambra | | Islamic, palaces | 2 | |
 leaning-tower-of-pisa | Leaning Tower of Pisa | | foundations, Italy | 1 | |
 vernacular-architecture | Vernacular architecture | | styles | 3 | |
+# Phase 3 additions
+parthenon | Parthenon |  | ancient Greek, temples | 1 | |
+classical-order | Classical order | Doric; Ionic; Corinthian | ancient, columns | 2 | parthenon |
+colosseum | Colosseum |  | Roman, amphitheatres | 1 | |
+roman-architecture | Ancient Roman architecture |  | Roman | 2 | roman-concrete |
+dome | Dome |  | structures | 2 | pantheon |
+florence-cathedral | Florence Cathedral | Brunelleschi's dome | Renaissance, domes | 2 | dome |
+notre-dame-de-paris | Notre-Dame de Paris |  | Gothic, cathedrals | 1 | gothic-architecture |
+chartres-cathedral | Chartres Cathedral |  | Gothic, stained glass | 3 | gothic-architecture |
+st-peters-basilica | St. Peter's Basilica |  | Renaissance, churches | 1 | |
+palace-of-versailles | Palace of Versailles |  | Baroque, palaces | 1 | |
+taj-mahal | Taj Mahal |  | Mughal, tombs | 1 | |
+forbidden-city | Forbidden City |  | China, palaces | 1 | |
+chichen-itza | Chichen Itza |  | Maya, sites | 1 | |
+petra | Petra |  | ancient, rock-cut | 1 | |
+great-wall-of-china | Great Wall of China |  | China, fortifications | 1 | |
+eiffel-tower | Eiffel Tower |  | iron, landmarks | 1 | |
+brooklyn-bridge | Brooklyn Bridge |  | bridges | 2 | suspension-bridge |
+golden-gate-bridge | Golden Gate Bridge |  | bridges | 1 | suspension-bridge |
+sydney-opera-house | Sydney Opera House |  | modernism, landmarks | 1 | |
+guggenheim-bilbao | Guggenheim Museum Bilbao | Frank Gehry | deconstructivism, museums | 2 | |
+le-corbusier | Le Corbusier |  | modernism, architects | 2 | |
+frank-lloyd-wright | Frank Lloyd Wright |  | architects | 2 | fallingwater |
+zaha-hadid | Zaha Hadid |  | architects | 2 | |
+art-nouveau | Art Nouveau |  | styles | 2 | sagrada-familia |
+art-deco | Art Deco |  | styles | 2 | |
+form-follows-function | Form follows function |  | principles | 3 | |
+passive-house | Passive house |  | sustainability, energy | 3 | |
+feng-shui | Feng shui |  | traditions | 2 | |
+igloo | Igloo |  | vernacular, ice | 1 | vernacular-architecture |
+castle | Castle |  | medieval, fortifications | 1 | |
+lighthouse | Lighthouse | Pharos of Alexandria | structures | 1 | |

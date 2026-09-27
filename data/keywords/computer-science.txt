@@ -13,3 +13,33 @@ recursion | Recursion (computer science) | | programming | 2 | |
 byzantine-fault | Byzantine fault | Byzantine generals problem | distributed systems | 4 | |
 compiler | Compiler | | programming languages | 2 | |
 open-source-software | Open-source software | open source | software, culture | 1 | |
+# Phase 3 additions
+algorithm | Algorithm |  | foundations | 1 | |
+binary-number | Binary number |  | number systems | 1 | |
+boolean-algebra | Boolean algebra |  | logic, circuits | 3 | binary-number |
+logic-gate | Logic gate |  | circuits | 2 | boolean-algebra |
+von-neumann-architecture | Von Neumann architecture |  | computer architecture | 3 | |
+operating-system | Operating system |  | systems | 1 | |
+programming-language | Programming language |  | languages | 1 | compiler |
+data-structure | Data structure |  | foundations | 2 | |
+binary-search | Binary search |  | algorithms, searching | 2 | sorting-algorithm |
+dijkstras-algorithm | Dijkstra's algorithm | shortest path | algorithms, graphs | 3 | |
+dynamic-programming | Dynamic programming |  | algorithms | 4 | |
+np-completeness | NP-completeness |  | complexity | 4 | |
+travelling-salesman | Travelling salesman problem |  | algorithms, optimisation | 3 | np-completeness |
+relational-database | Relational database | SQL | databases | 2 | |
+tcp-ip | Internet protocol suite | TCP/IP | networking | 3 | |
+dns | Domain Name System | DNS | networking | 2 | tcp-ip |
+encryption | Encryption |  | security, cryptography | 2 | public-key-cryptography |
+rsa-cryptosystem | RSA (cryptosystem) |  | cryptography | 4 | public-key-cryptography |
+computer-virus | Computer virus | malware | security | 1 | |
+blockchain | Blockchain |  | distributed systems | 2 | |
+machine-learning | Machine learning |  | artificial intelligence | 2 | |
+large-language-model | Large language model | LLM | artificial intelligence | 2 | machine-learning |
+transformer-model | Transformer (deep learning architecture) | attention is all you need | artificial intelligence | 4 | large-language-model |
+computer-vision | Computer vision |  | artificial intelligence | 3 | machine-learning |
+grace-hopper | Grace Hopper |  | computer scientists | 2 | compiler |
+software-bug | Software bug |  | software engineering | 1 | |
+version-control | Version control | Git | software engineering | 2 | |
+cloud-computing | Cloud computing |  | systems | 2 | |
+unicode | Unicode |  | text, standards | 2 | |

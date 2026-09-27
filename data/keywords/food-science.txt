@@ -13,3 +13,35 @@ coffee | Coffee | | crops, caffeine | 1 | caffeine |
 caffeine | Caffeine | | stimulants, adenosine | 1 | coffee |
 sous-vide | Sous vide | | techniques | 2 | |
 starch-gelatinization | Starch gelatinization | | starch | 3 | |
+# Phase 3 additions
+bread | Bread |  | baking | 1 | gluten |
+yeast | Yeast |  | microbes, baking | 1 | fermentation |
+baking-soda | Sodium bicarbonate | baking soda | leavening, chemistry | 2 | |
+cheese | Cheese |  | dairy, fermentation | 1 | fermentation |
+yogurt | Yogurt |  | dairy, fermentation | 1 | fermentation |
+kimchi | Kimchi |  | fermentation, Korea | 2 | fermentation |
+wine | Wine |  | fermentation | 1 | fermentation |
+beer | Beer |  | fermentation, brewing | 1 | fermentation |
+vinegar | Vinegar |  | fermentation, acids | 2 | |
+chocolate | Chocolate |  | sweets | 1 | cocoa-bean |
+sugar | Sugar |  | sweets, chemistry | 1 | caramelization |
+honey | Honey |  | sweets, bees | 1 | |
+salt | Salt |  | seasoning, preservation | 1 | |
+curing-food | Curing (food preservation) |  | preservation | 2 | salt |
+smoking-food | Smoking (cooking) |  | preservation | 2 | |
+canning | Canning |  | preservation | 2 | |
+freeze-drying | Freeze-drying |  | preservation | 3 | |
+food-irradiation | Food irradiation |  | preservation, safety | 3 | |
+spice-trade | Spice trade |  | history, spices | 2 | |
+black-pepper | Black pepper |  | spices | 1 | spice-trade |
+saffron | Saffron |  | spices | 2 | |
+vanilla | Vanilla |  | spices, orchids | 2 | |
+rice | Rice |  | staples | 1 | |
+potato | Potato |  | staples, Americas | 1 | |
+maize | Maize | corn | staples, Americas | 1 | nixtamalization |
+tea | Tea |  | drinks | 1 | caffeine |
+olive-oil | Olive oil |  | fats | 1 | |
+taste | Taste | five basic tastes | senses | 1 | umami |
+scoville-scale | Scoville scale |  | spiciness, measurement | 2 | capsaicin |
+molecular-gastronomy | Molecular gastronomy |  | cooking, science | 3 | |
+cast-iron-cookware | Cast-iron cookware | seasoning | cookware | 3 | |

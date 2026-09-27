@@ -14,3 +14,34 @@ oumuamua | ʻOumuamua | 1I/2017 U1 | interstellar objects | 3 | |
 phaistos-disc | Phaistos Disc | | scripts, undeciphered | 3 | linear-a |
 bloop | Bloop | | oceans, sound | 2 | |
 mpemba-effect | Mpemba effect | hot water freezes faster | physics, anomalies | 2 | |
+# Phase 3 additions
+stonehenge | Stonehenge |  | megaliths | 1 | |
+gobekli-tepe | Göbekli Tepe |  | archaeology | 2 | |
+baghdad-battery | Baghdad Battery |  | archaeology, artefacts | 3 | |
+shroud-of-turin | Shroud of Turin |  | artefacts, dating | 2 | |
+antikythera-wreck | Antikythera wreck |  | shipwrecks, archaeology | 3 | antikythera-mechanism |
+bermuda-triangle | Bermuda Triangle |  | legends | 1 | |
+loch-ness-monster | Loch Ness Monster |  | cryptids | 1 | |
+amelia-earhart | Amelia Earhart |  | disappearances | 1 | |
+franklin-expedition | Franklin's lost expedition |  | disappearances, Arctic | 3 | |
+db-cooper | D. B. Cooper |  | disappearances, crime | 2 | |
+zodiac-killer | Zodiac Killer |  | crime, ciphers | 2 | kryptos |
+beale-ciphers | Beale ciphers |  | ciphers, treasure | 3 | kryptos |
+shugborough-inscription | Shugborough inscription |  | ciphers | 4 | |
+taman-shud-case | Tamam Shud case | Somerton Man | unexplained deaths | 3 | |
+princes-in-the-tower | Princes in the Tower |  | history | 3 | |
+lanse-aux-meadows | L'Anse aux Meadows | Vinland | archaeology, Vikings | 3 | |
+flannan-isles | Flannan Isles Lighthouse |  | disappearances | 4 | |
+oak-island | Oak Island mystery |  | treasure | 3 | |
+winchester-mystery-house | Winchester Mystery House |  | architecture, legends | 2 | |
+fairy-circle | Fairy circle (arid grass formation) |  | nature, patterns | 3 | |
+sailing-stones | Sailing stones | Racetrack Playa | geology, solved | 2 | |
+min-min-light | Min Min light |  | lights, folklore | 4 | ball-lightning |
+hessdalen-lights | Hessdalen lights |  | lights | 4 | ball-lightning |
+great-attractor | Great Attractor |  | cosmology | 3 | |
+fast-radio-burst | Fast radio burst |  | astronomy, signals | 3 | wow-signal |
+pioneer-anomaly | Pioneer anomaly |  | spacecraft, solved | 3 | |
+spontaneous-remission | Spontaneous remission |  | medicine | 4 | |
+mary-rose | Mary Rose |  | shipwrecks | 3 | |
+cahokia | Cahokia |  | archaeology, North America | 3 | |
+dancing-plague | Dancing plague of 1518 |  | mass behaviour | 2 | |

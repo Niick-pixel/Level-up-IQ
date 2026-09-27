@@ -13,3 +13,34 @@ landlocked-country | Landlocked country | doubly landlocked | borders | 2 | encl
 svalbard | Svalbard | | Arctic, Norway | 2 | |
 great-barrier-reef | Great Barrier Reef | | reefs, Australia | 1 | coral-reef |
 okavango-delta | Okavango Delta | | wetlands, Botswana | 3 | |
+# Phase 3 additions
+continent | Continent |  | landforms | 1 | |
+pacific-ocean | Pacific Ocean |  | oceans | 1 | |
+atlantic-ocean | Atlantic Ocean |  | oceans | 1 | |
+antarctica | Antarctica |  | continents, ice | 1 | |
+greenland | Greenland |  | islands, ice | 1 | |
+himalayas | Himalayas |  | mountains | 1 | mount-everest |
+andes | Andes |  | mountains, South America | 1 | |
+alps | Alps |  | mountains, Europe | 1 | |
+k2 | K2 |  | mountains | 2 | himalayas |
+kilimanjaro | Mount Kilimanjaro |  | mountains, Africa | 1 | |
+grand-canyon | Grand Canyon |  | canyons, erosion | 1 | |
+great-rift-valley | Great Rift Valley |  | rifts, Africa | 3 | |
+mississippi-river | Mississippi River |  | rivers | 1 | |
+yangtze | Yangtze |  | rivers, China | 2 | three-gorges-dam |
+danube | Danube |  | rivers, Europe | 2 | |
+ganges | Ganges |  | rivers, India | 2 | |
+caspian-sea | Caspian Sea |  | lakes | 2 | |
+aral-sea | Aral Sea |  | lakes, environmental disaster | 3 | |
+victoria-falls | Victoria Falls |  | waterfalls | 1 | |
+angel-falls | Angel Falls |  | waterfalls, Venezuela | 2 | |
+gobi-desert | Gobi Desert |  | deserts, Asia | 2 | |
+madagascar | Madagascar |  | islands, biodiversity | 1 | |
+iceland | Iceland |  | islands, volcanoes | 1 | |
+strait-of-gibraltar | Strait of Gibraltar |  | straits | 2 | |
+bosphorus | Bosporus | Bosphorus | straits, Istanbul | 2 | |
+equator | Equator |  | lines, climate | 1 | prime-meridian |
+tropic-of-cancer | Tropic of Cancer |  | lines, climate | 2 | equator |
+time-zone | Time zone |  | time, lines | 1 | international-date-line |
+latitude-longitude | Geographic coordinate system | latitude and longitude | maps, navigation | 1 | |
+megacity | Megacity |  | cities, population | 2 | |

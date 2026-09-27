@@ -19,3 +19,34 @@ cold-war | Cold War | | 20th century | 1 | cuban-missile-crisis, space-race, fal
 cuban-missile-crisis | Cuban Missile Crisis | October Crisis | 20th century, Cold War | 2 | cold-war, mutual-assured-destruction |
 fall-of-the-berlin-wall | Fall of the Berlin Wall | | 20th century, Cold War | 1 | cold-war |
 space-race | Space Race | | 20th century, space | 1 | cold-war, apollo-11 |
+# Phase 3 additions
+mesopotamia | Mesopotamia |  | ancient, civilisations | 1 | |
+sumer | Sumer |  | ancient, writing | 2 | mesopotamia |
+ancient-egypt | Ancient Egypt |  | ancient, civilisations | 1 | |
+tutankhamun | Tutankhamun |  | ancient Egypt | 1 | ancient-egypt |
+indus-valley-civilisation | Indus Valley Civilisation | Harappa | ancient, civilisations | 2 | |
+persian-empire | Achaemenid Empire | Persian Empire | ancient, empires | 2 | |
+alexander-the-great | Alexander the Great |  | ancient, conquerors | 1 | |
+roman-republic | Roman Republic |  | ancient Rome | 2 | |
+julius-caesar | Julius Caesar |  | ancient Rome | 1 | roman-republic |
+han-dynasty | Han dynasty |  | ancient China | 2 | silk-road |
+qin-shi-huang | Qin Shi Huang | Terracotta Army | ancient China | 2 | |
+maurya-empire | Maurya Empire | Ashoka | ancient India | 3 | |
+vikings | Vikings |  | medieval, Scandinavia | 1 | |
+crusades | Crusades |  | medieval, religion | 2 | |
+charlemagne | Charlemagne |  | medieval, Europe | 2 | |
+feudalism | Feudalism |  | medieval, society | 2 | |
+ottoman-empire | Ottoman Empire |  | empires | 1 | fall-of-constantinople |
+mali-empire | Mali Empire | Mansa Musa | Africa, empires | 2 | |
+great-zimbabwe | Great Zimbabwe |  | Africa, medieval | 3 | |
+reformation | Reformation | Martin Luther | religion, Europe | 2 | printing-press |
+age-of-discovery | Age of Discovery |  | exploration | 2 | columbian-exchange |
+atlantic-slave-trade | Atlantic slave trade |  | slavery, colonialism | 2 | |
+american-revolution | American Revolution |  | revolutions | 1 | |
+haitian-revolution | Haitian Revolution |  | revolutions, Caribbean | 2 | french-revolution |
+napoleon | Napoleon | Napoleon Bonaparte | Europe, conquerors | 1 | french-revolution |
+scramble-for-africa | Scramble for Africa |  | colonialism | 2 | |
+russian-revolution | Russian Revolution |  | revolutions, 20th century | 2 | |
+world-war-ii | World War II |  | 20th century, wars | 1 | world-war-i |
+partition-of-india | Partition of India |  | independence, 20th century | 2 | |
+decolonisation | Decolonization |  | 20th century | 2 | |

@@ -14,3 +14,34 @@ frida-kahlo | Frida Kahlo | | painters, Mexico | 1 | mexican-muralism |
 mexican-muralism | Mexican muralism | Diego Rivera | movements, Mexico | 3 | frida-kahlo |
 ukiyo-e | Ukiyo-e | The Great Wave | Japanese, prints | 2 | |
 fountain-duchamp | Fountain (Duchamp) | readymade | conceptual art | 3 | |
+# Phase 3 additions
+cave-painting | Cave painting |  | prehistoric | 1 | lascaux |
+venus-of-willendorf | Venus of Willendorf |  | prehistoric, sculpture | 2 | |
+ancient-greek-art | Ancient Greek art |  | ancient | 2 | |
+terracotta-army | Terracotta Army |  | China, sculpture | 1 | |
+byzantine-art | Byzantine art | icons | medieval | 3 | |
+bayeux-tapestry | Bayeux Tapestry |  | medieval, textiles | 2 | |
+leonardo-da-vinci | Leonardo da Vinci |  | Renaissance, artists | 1 | mona-lisa |
+michelangelo | Michelangelo |  | Renaissance, artists | 1 | |
+sistine-chapel-ceiling | Sistine Chapel ceiling |  | Renaissance, frescoes | 1 | michelangelo |
+david-michelangelo | David (Michelangelo) |  | Renaissance, sculpture | 1 | michelangelo |
+the-birth-of-venus | The Birth of Venus | Botticelli | Renaissance, paintings | 2 | |
+fresco | Fresco |  | techniques | 2 | |
+oil-painting | Oil painting |  | techniques | 2 | |
+baroque | Baroque |  | styles | 2 | caravaggio |
+las-meninas | Las Meninas | Velázquez | Baroque, paintings | 2 | |
+rembrandt | Rembrandt |  | Dutch Golden Age | 1 | |
+girl-with-a-pearl-earring | Girl with a Pearl Earring | Vermeer | Dutch Golden Age | 1 | |
+romanticism | Romanticism |  | styles | 2 | |
+the-great-wave | The Great Wave off Kanagawa | Hokusai | ukiyo-e | 1 | ukiyo-e |
+claude-monet | Claude Monet | water lilies | Impressionism | 1 | impressionism |
+vincent-van-gogh | Vincent van Gogh |  | Post-Impressionism | 1 | the-starry-night |
+pointillism | Pointillism | Seurat | techniques | 3 | |
+the-scream | The Scream | Munch | Expressionism | 1 | |
+pablo-picasso | Pablo Picasso |  | Cubism, artists | 1 | cubism |
+salvador-dali | Salvador Dalí |  | Surrealism | 1 | surrealism |
+the-persistence-of-memory | The Persistence of Memory | melting clocks | Surrealism | 1 | salvador-dali |
+abstract-expressionism | Abstract expressionism | Jackson Pollock | styles | 3 | |
+pop-art | Pop art | Andy Warhol | styles | 2 | |
+color-theory | Color theory |  | techniques, colour | 2 | |
+banksy | Banksy |  | street art | 1 | |

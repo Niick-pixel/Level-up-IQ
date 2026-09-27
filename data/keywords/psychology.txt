@@ -15,3 +15,36 @@ stroop-effect | Stroop effect | | attention | 2 | working-memory |
 flow | Flow (psychology) | being in the zone | motivation | 2 | |
 milgram-experiment | Milgram experiment | | social psychology, obedience | 2 | bystander-effect |
 bystander-effect | Bystander effect | | social psychology | 2 | milgram-experiment |
+# Phase 3 additions
+cognitive-dissonance | Cognitive dissonance |  | attitudes | 2 | |
+hindsight-bias | Hindsight bias |  | biases | 2 | |
+halo-effect | Halo effect |  | biases, impressions | 2 | |
+framing-effect | Framing effect (psychology) |  | biases, decisions | 2 | loss-aversion |
+survivorship-bias | Survivorship bias |  | biases, statistics | 2 | |
+fundamental-attribution-error | Fundamental attribution error |  | biases, social | 3 | |
+planning-fallacy | Planning fallacy |  | biases, time | 2 | |
+optimism-bias | Optimism bias |  | biases | 2 | planning-fallacy |
+ikea-effect | IKEA effect |  | biases, effort | 2 | |
+mere-exposure-effect | Mere-exposure effect |  | biases, familiarity | 3 | |
+barnum-effect | Barnum effect | Forer effect | biases, personality | 2 | |
+observer-expectancy | Observer-expectancy effect | Clever Hans | expectations, experiments | 3 | |
+pygmalion-effect | Pygmalion effect |  | expectations, teaching | 3 | |
+stanford-prison-experiment | Stanford prison experiment |  | experiments, controversy | 2 | milgram-experiment |
+asch-conformity | Asch conformity experiments |  | social influence, experiments | 2 | |
+marshmallow-experiment | Stanford marshmallow experiment |  | self-control, experiments | 2 | |
+classical-conditioning | Classical conditioning | Pavlov's dogs | learning | 1 | |
+operant-conditioning | Operant conditioning | Skinner box | learning | 2 | classical-conditioning |
+learned-helplessness | Learned helplessness |  | learning, motivation | 3 | |
+growth-mindset | Mindset | growth mindset | motivation | 2 | |
+maslows-hierarchy | Maslow's hierarchy of needs |  | motivation | 1 | |
+intrinsic-motivation | Motivation | intrinsic motivation | motivation | 2 | |
+false-memory | False memory |  | memory | 2 | |
+serial-position-effect | Serial-position effect | primacy and recency | memory | 3 | |
+chunking | Chunking (psychology) |  | memory | 2 | working-memory |
+method-of-loci | Method of loci | memory palace | memory techniques | 2 | |
+inattentional-blindness | Inattentional blindness | invisible gorilla | attention, perception | 2 | |
+change-blindness | Change blindness |  | attention, perception | 3 | inattentional-blindness |
+cocktail-party-effect | Cocktail party effect |  | attention, hearing | 3 | |
+optical-illusion | Optical illusion |  | perception | 1 | |
+big-five-personality | Big Five personality traits |  | personality | 2 | |
+theory-of-mind | Theory of mind |  | development, social | 3 | |

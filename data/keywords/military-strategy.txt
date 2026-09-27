@@ -14,3 +14,35 @@ ooda-loop | OODA loop | observe orient decide act | decision making | 3 | |
 siege-of-leningrad | Siege of Leningrad | | WWII | 2 | |
 battle-of-hastings | Battle of Hastings | 1066 | medieval battles | 1 | |
 military-logistics | Military logistics | | supply | 3 | |
+# Phase 3 additions
+sun-tzu | Sun Tzu |  | strategists | 1 | the-art-of-war |
+carl-von-clausewitz | Carl von Clausewitz |  | strategists | 2 | on-war |
+hannibal | Hannibal |  | generals, Carthage | 1 | battle-of-cannae |
+battle-of-marathon | Battle of Marathon |  | ancient battles | 1 | |
+battle-of-salamis | Battle of Salamis |  | naval, ancient | 2 | |
+phalanx | Phalanx |  | formations, ancient | 2 | |
+roman-legion | Roman legion |  | ancient, organisation | 2 | |
+battle-of-agincourt | Battle of Agincourt | longbow | medieval battles | 2 | |
+castle-siege | Siege |  | tactics | 1 | |
+trojan-horse | Trojan Horse |  | deception, myth | 1 | |
+battle-of-lepanto | Battle of Lepanto |  | naval | 3 | |
+spanish-armada | Spanish Armada |  | naval | 2 | |
+battle-of-trafalgar | Battle of Trafalgar | Nelson | naval | 2 | |
+battle-of-waterloo | Battle of Waterloo |  | Napoleonic Wars | 1 | |
+napoleonic-warfare | Napoleonic Wars |  | Europe, 19th century | 2 | battle-of-waterloo |
+battle-of-gettysburg | Battle of Gettysburg |  | American Civil War | 2 | |
+battle-of-the-somme | Battle of the Somme |  | World War I | 2 | trench-warfare |
+battle-of-stalingrad | Battle of Stalingrad |  | World War II | 2 | |
+battle-of-midway | Battle of Midway |  | naval, World War II | 2 | |
+aircraft-carrier | Aircraft carrier |  | naval | 2 | battle-of-midway |
+codebreaking | Cryptanalysis | codebreaking | intelligence | 2 | operation-fortitude |
+deception-military | Military deception |  | deception | 3 | operation-fortitude |
+attrition-warfare | Attrition warfare |  | theory | 3 | |
+maneuver-warfare | Maneuver warfare |  | theory | 3 | attrition-warfare |
+war-of-attrition-game | War of attrition (game) |  | game theory | 4 | |
+cold-war-arms-race | Nuclear arms race |  | Cold War | 2 | mutual-assured-destruction |
+deterrence-theory | Deterrence theory |  | theory, nuclear | 3 | mutual-assured-destruction |
+asymmetric-warfare | Asymmetric warfare |  | theory | 3 | guerrilla-warfare |
+geneva-conventions | Geneva Conventions |  | law of war | 2 | |
+camouflage | Camouflage | dazzle | deception | 1 | |
+hadrians-wall | Hadrian's Wall |  | fortifications | 2 | |

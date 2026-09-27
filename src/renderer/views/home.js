@@ -80,7 +80,7 @@ export async function renderHome(el) {
         h('div', {}, 'Roll a game or a keyword')),
       h('a', { class: 'card', href: '#/keywords' },
         h('div', { class: 'eyebrow' }, 'Curiosity'),
-        h('div', {}, `${count} keywords to explore`)),
+        h('div', {}, `${count.toLocaleString('en')} keywords to explore`)),
       h('a', { class: 'card', href: '#/review' },
         h('div', { class: 'eyebrow' }, 'Review queue'),
         h('div', {}, cards ? `${plural(cards, 'card')} saved from your sessions` : 'Cards from keyword sessions land here')),

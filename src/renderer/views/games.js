@@ -31,7 +31,7 @@ export function renderGames(el) {
     const grid = h('div', { class: 'grid' }, sec.games.map(card));
     return { el: h('section', {}, h('h2', { style: { marginTop: '18px' } }, sec.title), sec.note ? h('p', { class: 'muted small' }, sec.note) : '', grid), grid };
   });
-  const filter = h('input', { type: 'search', placeholder: 'Filter games', 'aria-label': 'Filter games', oninput: () => {
+  const filter = h('input', { type: 'text', placeholder: 'Filter games', 'aria-label': 'Filter games', oninput: () => {
     const q = filter.value.trim().toLowerCase();
     for (const b of blocks) {
       let shown = 0;

@@ -1,7 +1,7 @@
 {
   "name": "mind-gym",
   "productName": "Mind Gym",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Brain training and curiosity: puzzles, games, a searchable keyword bank, and anti-AI-dependence exercises. Offline-first, private, no telemetry.",
   "main": "src/main/main.js",
   "author": "Nicolas",
@@ -14,7 +14,9 @@
     "icons": "node scripts/make-icons.js",
     "dist": "electron-builder --win nsis --publish never",
     "countries:build": "node scripts/build-countries.js",
-    "verify:providers": "node scripts/verify-providers.js"
+    "verify:providers": "node scripts/verify-providers.js",
+    "map:build": "node scripts/build-map.mjs",
+    "rushhour:build": "node scripts/build-rush-hour.mjs"
   },
   "build": {
     "appId": "com.mindgym.app",

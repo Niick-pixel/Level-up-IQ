@@ -1,4 +1,4 @@
-# id | Term | aliases (;) | tags (,) | difficulty 1-5 | related ids (,) | Wikipedia title (optional)
+# id | Term | aliases (;) | tags (,) | difficulty 1-5 | related ids (, ) | Wikipedia title (optional)
 entropy | Entropy | second law of thermodynamics; disorder | thermodynamics, information theory | 3 | heat-death-of-the-universe, maxwells-demon, information-theory, arrow-of-time |
 heat-death-of-the-universe | Heat death of the universe | big freeze | cosmology, thermodynamics | 3 | entropy, dark-energy |
 maxwells-demon | Maxwell's demon | | thermodynamics, thought experiment | 4 | entropy, information-theory |
@@ -18,3 +18,32 @@ standard-model | Standard Model | particle physics | particles, forces | 4 | hig
 higgs-boson | Higgs boson | God particle | particles, CERN | 3 | standard-model |
 neutrino | Neutrino | ghost particle | particles | 3 | standard-model, supernova |
 superconductivity | Superconductivity | | condensed matter, materials | 4 | |
+# Phase 3 additions
+newtons-laws | Newton's laws of motion |  | mechanics, classical | 1 | |
+inertia | Inertia |  | mechanics | 1 | newtons-laws |
+momentum | Momentum |  | mechanics | 2 | newtons-laws |
+angular-momentum | Angular momentum |  | mechanics, rotation | 2 | momentum |
+gravity | Gravity | gravitation | forces | 1 | general-relativity |
+friction | Friction |  | forces | 1 | |
+pendulum | Pendulum |  | oscillation, mechanics | 1 | |
+simple-harmonic-motion | Simple harmonic motion |  | oscillation | 3 | pendulum |
+doppler-effect | Doppler effect |  | waves, sound, light | 2 | |
+electromagnetism | Electromagnetism |  | forces, fields | 2 | maxwells-equations |
+maxwells-equations | Maxwell's equations |  | electromagnetism, fields | 4 | |
+electromagnetic-spectrum | Electromagnetic spectrum |  | light, waves | 1 | |
+ohms-law | Ohm's law |  | electricity, circuits | 1 | |
+faradays-law | Faraday's law of induction | electromagnetic induction | electricity, magnetism | 3 | electromagnetism |
+thermodynamics | Laws of thermodynamics |  | heat, energy | 2 | entropy |
+absolute-zero | Absolute zero |  | temperature, heat | 2 | thermodynamics |
+bose-einstein-condensate | Bose–Einstein condensate |  | quantum, states of matter | 4 | |
+heisenberg-uncertainty | Uncertainty principle | Heisenberg uncertainty principle | quantum | 3 | quantum-superposition |
+quantum-tunnelling | Quantum tunnelling | quantum tunneling | quantum | 3 | |
+pauli-exclusion | Pauli exclusion principle |  | quantum, atoms | 4 | |
+antimatter | Antimatter |  | particles | 2 | standard-model |
+nuclear-fission | Nuclear fission |  | nuclear, energy | 2 | nuclear-fusion |
+nuclear-fusion | Nuclear fusion |  | nuclear, stars, energy | 2 | nuclear-fission |
+e-mc2 | Mass–energy equivalence | E = mc² | relativity, energy | 2 | special-relativity |
+time-dilation | Time dilation |  | relativity | 3 | twin-paradox |
+speed-of-light | Speed of light |  | light, relativity | 1 | special-relativity |
+string-theory | String theory |  | theoretical physics | 4 | |
+buoyancy | Buoyancy | Archimedes' principle | fluids | 1 | |

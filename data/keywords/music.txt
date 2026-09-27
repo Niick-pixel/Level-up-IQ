@@ -14,3 +14,36 @@ theremin | Theremin | | instruments, electronic | 2 | |
 absolute-pitch | Absolute pitch | perfect pitch | perception | 2 | |
 earworm | Earworm | involuntary musical imagery | perception, psychology | 1 | |
 four-thirty-three | 4′33″ | John Cage | experimental | 3 | |
+# Phase 3 additions
+musical-scale | Scale (music) |  | theory | 1 | |
+major-scale | Major scale |  | theory | 2 | musical-scale |
+pentatonic-scale | Pentatonic scale |  | theory, world music | 2 | musical-scale |
+chord-music | Chord (music) |  | theory, harmony | 1 | |
+consonance-dissonance | Consonance and dissonance |  | theory, harmony | 3 | |
+tempo | Tempo |  | rhythm | 1 | |
+syncopation | Syncopation |  | rhythm | 2 | |
+polyrhythm | Polyrhythm |  | rhythm, African music | 3 | |
+timbre | Timbre |  | sound | 2 | |
+overtone | Overtone |  | acoustics | 3 | |
+musical-notation | Musical notation |  | notation | 1 | |
+gregorian-chant | Gregorian chant |  | early music | 2 | |
+johann-sebastian-bach | Johann Sebastian Bach |  | Baroque, composers | 1 | fugue |
+wolfgang-amadeus-mozart | Wolfgang Amadeus Mozart |  | Classical, composers | 1 | |
+ludwig-van-beethoven | Ludwig van Beethoven |  | composers | 1 | |
+opera | Opera |  | genres | 1 | |
+symphony-orchestra | Orchestra |  | ensembles | 1 | |
+piano | Piano |  | instruments | 1 | |
+violin | Violin | Stradivarius | instruments | 1 | |
+pipe-organ | Pipe organ |  | instruments | 2 | |
+electric-guitar | Electric guitar |  | instruments | 1 | |
+synthesizer | Synthesizer |  | electronic music | 2 | theremin |
+rock-and-roll | Rock and roll |  | genres | 1 | blues |
+hip-hop | Hip-hop |  | genres | 1 | |
+reggae | Reggae |  | genres, Jamaica | 1 | |
+flamenco | Flamenco |  | genres, Spain | 2 | |
+gamelan | Gamelan |  | world music, Indonesia | 3 | |
+tango-music | Tango music |  | genres, Argentina | 2 | |
+cumbia | Cumbia |  | genres, Colombia | 2 | |
+phonograph | Phonograph | gramophone | recording | 2 | |
+music-and-emotion | Music and emotion | chills | psychology | 3 | earworm |
+mozart-effect | Mozart effect |  | myths, psychology | 2 | |

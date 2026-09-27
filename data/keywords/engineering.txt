@@ -14,3 +14,33 @@ factor-of-safety | Factor of safety | safety factor | design | 3 | |
 tuned-mass-damper | Tuned mass damper | | vibration, skyscrapers | 3 | resonance, taipei-101 |
 three-gorges-dam | Three Gorges Dam | | dams, energy | 2 | |
 finite-element-method | Finite element method | FEM | simulation | 5 | |
+# Phase 3 additions
+lever | Lever |  | simple machines | 1 | |
+pulley | Pulley |  | simple machines | 1 | lever |
+gear | Gear |  | mechanisms | 1 | |
+internal-combustion-engine | Internal combustion engine |  | engines | 2 | steam-engine |
+jet-engine | Jet engine |  | engines, aviation | 2 | |
+electric-motor | Electric motor |  | electricity, machines | 2 | |
+electric-generator | Electric generator | dynamo | electricity, power | 2 | electric-motor |
+alternating-current | Alternating current | AC | electricity, power | 2 | war-of-the-currents |
+war-of-the-currents | War of the currents | Edison vs Tesla | electricity, history | 2 | alternating-current |
+electrical-grid | Electrical grid |  | power | 2 | |
+solar-cell | Solar cell | photovoltaic | energy, renewables | 2 | |
+wind-turbine | Wind turbine |  | energy, renewables | 1 | |
+hydroelectricity | Hydroelectricity |  | energy, dams | 1 | |
+nuclear-reactor | Nuclear reactor |  | energy, nuclear | 2 | |
+semiconductor | Semiconductor |  | electronics | 3 | transistor |
+integrated-circuit | Integrated circuit | microchip | electronics | 2 | transistor |
+cantilever | Cantilever |  | structures | 3 | |
+truss | Truss |  | structures | 3 | |
+skyscraper | Skyscraper |  | structures, buildings | 1 | |
+aqueduct | Aqueduct (bridge) | Roman aqueduct | structures, water | 2 | arch |
+suez-canal | Suez Canal |  | canals, megaprojects | 1 | |
+channel-tunnel | Channel Tunnel |  | tunnels, megaprojects | 2 | |
+hoover-dam | Hoover Dam |  | dams | 1 | |
+3d-printing | 3D printing | additive manufacturing | manufacturing | 2 | |
+assembly-line | Assembly line |  | manufacturing | 1 | |
+robotics | Robotics |  | machines, automation | 2 | |
+failure-analysis | Failure analysis |  | safety, forensics | 4 | |
+challenger-disaster | Space Shuttle Challenger disaster | O-rings | failures, space | 2 | failure-analysis |
+reverse-engineering | Reverse engineering |  | methods | 3 | |

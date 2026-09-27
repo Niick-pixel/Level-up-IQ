@@ -15,3 +15,35 @@ gps | Global Positioning System | GPS | navigation, relativity | 2 | general-rel
 lithium-ion-battery | Lithium-ion battery | | energy | 2 | redox |
 wheel | Wheel | | ancient | 1 | |
 barcode | Barcode | | retail | 1 | |
+# Phase 3 additions
+writing | History of writing |  | communication | 2 | |
+plough | Plough | plow | agriculture | 2 | |
+irrigation | Irrigation |  | agriculture, water | 2 | |
+water-wheel | Water wheel |  | power | 2 | |
+windmill | Windmill |  | power | 1 | |
+clock | Clock |  | time | 1 | |
+pendulum-clock | Pendulum clock | Huygens | time | 3 | clock |
+marine-chronometer | Marine chronometer | John Harrison | time, navigation | 3 | |
+eyeglasses | Glasses | spectacles | optics, health | 1 | |
+camera-obscura | Camera obscura |  | optics | 3 | |
+photography | Photography | daguerreotype | imaging | 1 | camera-obscura |
+sewing-machine | Sewing machine |  | textiles | 2 | |
+spinning-jenny | Spinning jenny |  | textiles, industry | 3 | |
+cotton-gin | Cotton gin |  | agriculture, industry | 3 | |
+steam-locomotive | Steam locomotive |  | transport | 1 | |
+bicycle | Bicycle |  | transport | 1 | |
+automobile | Car | automobile | transport | 1 | |
+airplane | Airplane | Wright brothers | transport, flight | 1 | |
+hot-air-balloon | Hot air balloon | Montgolfier brothers | flight | 1 | |
+parachute | Parachute |  | flight, safety | 2 | |
+submarine | Submarine |  | transport, ships | 2 | |
+radar | Radar |  | detection | 2 | |
+laser | Laser |  | light | 2 | |
+refrigerator | Refrigerator |  | appliances | 1 | refrigeration |
+air-conditioning | Air conditioning | Willis Carrier | appliances | 2 | refrigeration |
+dynamite | Dynamite | Alfred Nobel | explosives | 2 | gunpowder |
+pencil | Pencil |  | writing tools | 1 | |
+ballpoint-pen | Ballpoint pen | Bíró | writing tools | 1 | pencil |
+zipper | Zipper |  | everyday objects | 1 | hook-and-loop-fastener |
+safety-pin | Safety pin |  | everyday objects | 2 | |
+tin-can | Tin can |  | food, preservation | 2 | |

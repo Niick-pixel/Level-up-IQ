@@ -14,3 +14,33 @@ insulin | Insulin | | hormones, diabetes | 2 | |
 immune-system | Immune system | | immunology | 1 | vaccine, autoimmunity |
 autoimmunity | Autoimmunity | autoimmune disease | immunology | 3 | immune-system |
 thalidomide | Thalidomide | | drugs, regulation | 3 | chirality |
+# Phase 3 additions
+hippocratic-oath | Hippocratic Oath |  | ethics, history | 1 | |
+hippocrates | Hippocrates |  | history, physicians | 1 | hippocratic-oath |
+blood-type | Blood type | ABO blood group | blood, transfusion | 1 | |
+blood-transfusion | Blood transfusion |  | blood | 2 | blood-type |
+circulatory-system | Circulatory system |  | anatomy, heart | 1 | william-harvey |
+william-harvey | William Harvey |  | history, circulation | 3 | circulatory-system |
+organ-transplantation | Organ transplantation |  | surgery | 2 | |
+x-ray | X-ray |  | imaging, radiation | 1 | |
+mri | Magnetic resonance imaging | MRI | imaging | 2 | x-ray |
+stethoscope | Stethoscope |  | instruments, diagnosis | 1 | |
+cancer | Cancer |  | disease, cells | 1 | |
+chemotherapy | Chemotherapy |  | treatment, cancer | 2 | cancer |
+immunotherapy | Cancer immunotherapy |  | treatment, immune system | 3 | immune-system |
+diabetes | Diabetes |  | disease, metabolism | 1 | insulin |
+hypertension | Hypertension | high blood pressure | disease, heart | 2 | |
+cholera | Cholera |  | infectious disease, water | 2 | john-snow |
+malaria | Malaria |  | infectious disease, mosquitoes | 2 | |
+tuberculosis | Tuberculosis | TB | infectious disease | 2 | |
+spanish-flu | Spanish flu | 1918 influenza pandemic | pandemics, history | 2 | |
+mrna-vaccine | mRNA vaccine |  | vaccines, biotechnology | 3 | vaccine |
+evidence-based-medicine | Evidence-based medicine |  | methods | 3 | randomized-controlled-trial |
+double-blind | Blinded experiment | double-blind | methods, trials | 2 | randomized-controlled-trial |
+nocebo | Nocebo |  | expectation, side effects | 3 | placebo |
+florence-nightingale | Florence Nightingale |  | nursing, statistics | 1 | |
+ignaz-semmelweis | Ignaz Semmelweis | hand washing | history, hygiene | 2 | |
+edward-jenner | Edward Jenner |  | vaccines, history | 2 | smallpox |
+aspirin | Aspirin |  | drugs, history | 1 | |
+dna-sequencing | DNA sequencing |  | genetics, diagnosis | 3 | |
+sleep-deprivation | Sleep deprivation |  | sleep, health | 1 | |

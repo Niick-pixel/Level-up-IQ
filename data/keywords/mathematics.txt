@@ -15,3 +15,31 @@ law-of-large-numbers | Law of large numbers | | probability | 2 | gamblers-falla
 chaos-theory | Chaos theory | butterfly effect | dynamical systems | 3 | |
 seven-bridges-of-konigsberg | Seven Bridges of Königsberg | | graph theory | 2 | four-color-theorem |
 four-color-theorem | Four color theorem | four colour theorem | graph theory, proofs | 3 | seven-bridges-of-konigsberg |
+# Phase 3 additions
+zero | Zero |  | numbers, history | 2 | | 0
+infinity | Infinity |  | numbers, sets | 2 | cantors-diagonal-argument |
+irrational-number | Irrational number |  | numbers | 2 | |
+square-root-of-2 | Square root of 2 |  | numbers, proof | 2 | irrational-number |
+e-constant | E (mathematical constant) | Euler's number | constants, exponential | 3 | |
+imaginary-number | Imaginary number |  | complex numbers | 3 | complex-number |
+complex-number | Complex number |  | numbers | 3 | |
+calculus | Calculus |  | analysis | 2 | |
+derivative | Derivative |  | calculus | 3 | calculus |
+integral | Integral |  | calculus | 3 | calculus |
+exponential-growth | Exponential growth |  | functions, growth | 2 | |
+logarithm | Logarithm |  | functions | 2 | exponential-growth |
+euclid-elements | Euclid's Elements |  | geometry, history | 2 | |
+non-euclidean-geometry | Non-Euclidean geometry |  | geometry | 4 | euclid-elements |
+topology | Topology |  | geometry, shapes | 3 | |
+mobius-strip | Möbius strip |  | topology | 2 | topology |
+fractal | Fractal |  | geometry, self-similarity | 2 | mandelbrot-set |
+mandelbrot-set | Mandelbrot set |  | fractals, complex numbers | 3 | fractal |
+graph-theory | Graph theory |  | networks | 3 | |
+game-theory | Game theory |  | strategy, decisions | 2 | prisoners-dilemma |
+normal-distribution | Normal distribution | bell curve | statistics | 2 | |
+standard-deviation | Standard deviation |  | statistics | 2 | normal-distribution |
+regression-to-mean | Regression toward the mean |  | statistics | 3 | |
+fermats-last-theorem | Fermat's Last Theorem | Andrew Wiles | number theory | 3 | |
+zenos-paradoxes | Zeno's paradoxes | Achilles and the tortoise | paradoxes, infinity | 2 | infinity |
+banach-tarski | Banach–Tarski paradox |  | paradoxes, sets | 5 | |
+ramanujan | Srinivasa Ramanujan |  | mathematicians | 2 | |
