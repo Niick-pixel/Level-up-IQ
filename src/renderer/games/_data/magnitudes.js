@@ -1,0 +1,85 @@
+// Quantities for "which is bigger?" and higher/lower. Values are widely cited round figures;
+// only quantities of the same kind are ever compared.
+export const MAGNITUDES = [
+  // length, metres
+  { kind: 'length', unit: 'm', name: 'The height of Mount Everest', v: 8849 },
+  { kind: 'length', unit: 'm', name: 'The depth of the Mariana Trench (Challenger Deep)', v: 10935 },
+  { kind: 'length', unit: 'm', name: 'The height of the Burj Khalifa', v: 828 },
+  { kind: 'length', unit: 'm', name: 'The height of the Eiffel Tower', v: 330 },
+  { kind: 'length', unit: 'm', name: 'The height of the Great Pyramid of Giza (today)', v: 138 },
+  { kind: 'length', unit: 'm', name: 'The length of a marathon', v: 42195 },
+  { kind: 'length', unit: 'm', name: 'The length of a blue whale', v: 30 },
+  { kind: 'length', unit: 'm', name: 'The length of a football (soccer) pitch', v: 105 },
+  { kind: 'length', unit: 'm', name: 'The diameter of the Earth', v: 12.742e6 },
+  { kind: 'length', unit: 'm', name: 'The diameter of the Moon', v: 3.474e6 },
+  { kind: 'length', unit: 'm', name: 'The distance from the Earth to the Moon', v: 3.844e8 },
+  { kind: 'length', unit: 'm', name: 'The length of the Nile', v: 6.65e6 },
+  { kind: 'length', unit: 'm', name: 'The width of a human hair', v: 7e-5 },
+  { kind: 'length', unit: 'm', name: 'The diameter of a red blood cell', v: 8e-6 },
+  { kind: 'length', unit: 'm', name: 'The length of an E. coli bacterium', v: 2e-6 },
+  { kind: 'length', unit: 'm', name: 'The diameter of an influenza virus', v: 1e-7 },
+  { kind: 'length', unit: 'm', name: 'The height of an adult giraffe', v: 5.5 },
+  { kind: 'length', unit: 'm', name: 'The wingspan of a Boeing 747-400', v: 64.4 },
+  { kind: 'length', unit: 'm', name: 'The height of the Statue of Liberty from ground to torch', v: 93 },
+  { kind: 'length', unit: 'm', name: 'The height of Angel Falls, the tallest waterfall', v: 979 },
+  { kind: 'length', unit: 'm', name: 'The length of the Panama Canal', v: 82000 },
+  { kind: 'length', unit: 'm', name: 'The circumference of the Earth', v: 4.0075e7 },
+  // mass, kilograms
+  { kind: 'mass', unit: 'kg', name: 'An adult blue whale', v: 1.5e5 },
+  { kind: 'mass', unit: 'kg', name: 'An adult African elephant', v: 6000 },
+  { kind: 'mass', unit: 'kg', name: 'A typical family car', v: 1500 },
+  { kind: 'mass', unit: 'kg', name: 'The iron structure of the Eiffel Tower', v: 7.3e6 },
+  { kind: 'mass', unit: 'kg', name: 'The Great Pyramid of Giza', v: 6e9 },
+  { kind: 'mass', unit: 'kg', name: 'A fully loaded Boeing 747 at take-off', v: 4e5 },
+  { kind: 'mass', unit: 'kg', name: 'The Moon', v: 7.35e22 },
+  { kind: 'mass', unit: 'kg', name: 'The Earth', v: 5.97e24 },
+  { kind: 'mass', unit: 'kg', name: 'The Sun', v: 1.99e30 },
+  { kind: 'mass', unit: 'kg', name: 'An adult human', v: 70 },
+  { kind: 'mass', unit: 'kg', name: 'A house cat', v: 4.5 },
+  { kind: 'mass', unit: 'kg', name: 'A honeybee', v: 1e-4 },
+  { kind: 'mass', unit: 'kg', name: 'An ostrich egg', v: 1.4 },
+  { kind: 'mass', unit: 'kg', name: 'A human brain', v: 1.4 },
+  { kind: 'mass', unit: 'kg', name: 'A grain of rice', v: 2.5e-5 },
+  { kind: 'mass', unit: 'kg', name: 'The International Space Station', v: 4.2e5 },
+  // counts
+  { kind: 'count', unit: '', name: 'People alive on Earth', v: 8.2e9 },
+  { kind: 'count', unit: '', name: 'Trees on Earth', v: 3e12 },
+  { kind: 'count', unit: '', name: 'Neurons in a human brain', v: 8.6e10 },
+  { kind: 'count', unit: '', name: 'Stars in the Milky Way', v: 2e11 },
+  { kind: 'count', unit: '', name: 'Cells in a human body', v: 3e13 },
+  { kind: 'count', unit: '', name: 'Ants on Earth', v: 2e16 },
+  { kind: 'count', unit: '', name: 'Bones in an adult human', v: 206 },
+  { kind: 'count', unit: '', name: 'Hairs on a human head', v: 1e5 },
+  { kind: 'count', unit: '', name: 'Heartbeats in an 80-year life', v: 3e9 },
+  { kind: 'count', unit: '', name: 'Countries in the world', v: 195 },
+  { kind: 'count', unit: '', name: 'Words in Shakespeare’s complete works', v: 8.8e5 },
+  { kind: 'count', unit: '', name: 'Moves in the longest possible chess game (50-move rule)', v: 5949 },
+  { kind: 'count', unit: '', name: 'Possible arrangements of a Rubik’s Cube', v: 4.3e19 },
+  { kind: 'count', unit: '', name: 'Ways to shuffle a deck of 52 cards', v: 8.07e67 },
+  { kind: 'count', unit: '', name: 'Atoms in the observable universe (estimate)', v: 1e80 },
+  { kind: 'count', unit: '', name: 'Grains of rice in a 1 kg bag', v: 4e4 },
+  { kind: 'count', unit: '', name: 'Languages spoken in the world today', v: 7000 },
+  // time, seconds
+  { kind: 'time', unit: 's', name: 'A day', v: 86400 },
+  { kind: 'time', unit: 's', name: 'A year', v: 3.15e7 },
+  { kind: 'time', unit: 's', name: 'An 80-year human life', v: 2.5e9 },
+  { kind: 'time', unit: 's', name: 'The age of the universe', v: 4.35e17 },
+  { kind: 'time', unit: 's', name: 'The age of the Earth', v: 1.43e17 },
+  { kind: 'time', unit: 's', name: 'Time since the Great Pyramid was built', v: 1.43e11 },
+  { kind: 'time', unit: 's', name: 'Time since the dinosaurs died out', v: 2.1e15 },
+  { kind: 'time', unit: 's', name: 'Time for sunlight to reach the Earth', v: 499 },
+  { kind: 'time', unit: 's', name: 'Time for light to cross a football pitch', v: 3.5e-7 },
+  { kind: 'time', unit: 's', name: 'One human heartbeat at rest', v: 0.86 },
+  { kind: 'time', unit: 's', name: 'The Apollo 11 trip from Earth to the Moon', v: 2.9e5 },
+  { kind: 'time', unit: 's', name: 'Time since the first humans (Homo sapiens) appeared', v: 9.5e12 },
+  { kind: 'time', unit: 's', name: 'A blink of an eye', v: 0.3 },
+  { kind: 'time', unit: 's', name: 'A marathon world-record run', v: 7235 },
+];
+
+export function formatQuantity(q) {
+  const v = q.v;
+  const s = v >= 1e5 || v < 1e-2
+    ? `${Number((v / 10 ** Math.floor(Math.log10(v))).toFixed(2))} × 10^${Math.floor(Math.log10(v))}`
+    : Number(v.toPrecision(4)).toLocaleString('en');
+  return q.unit ? `${s} ${q.unit}` : s;
+}
