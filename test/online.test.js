@@ -198,7 +198,12 @@ test('provider: disabled in settings means no requests at all', async () => {
   const offline = createProviders({ ...deps({ getSettings: () => ({ offlineMode: true, providers: {} }) }), fetch: fakeFetch([]) });
   await assert.rejects(offline.lichess.daily(), (e) => e.code === 'disabled');
   assert.equal(d.fetch.calls.length, 0);
-  assert.deepEqual(ps.hosts().sort(), ['en.wikipedia.org', 'lichess.org', 'opentdb.com', 'query.wikidata.org', 'the-trivia-api.com', 'upload.wikimedia.org']);
+  assert.deepEqual(ps.hosts().sort(), [
+    'api.artic.edu', 'api.inaturalist.org', 'api.nasa.gov', 'apod.nasa.gov', 'archive.org', 'collectionapi.metmuseum.org',
+    'en.wikipedia.org', 'i.ytimg.com', 'images.metmuseum.org', 'inaturalist-open-data.s3.amazonaws.com', 'lichess.org',
+    'opentdb.com', 'query.wikidata.org', 'science.nasa.gov', 'static.inaturalist.org', 'the-trivia-api.com',
+    'upload.wikimedia.org', 'www.artic.edu', 'www.googleapis.com', 'www.youtube.com',
+  ]);
 });
 
 // ---------------------------------------------------------------- providers

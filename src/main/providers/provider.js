@@ -76,6 +76,21 @@ class Provider {
    * @returns {Promise<{ data: any, fromCache: boolean, stale: boolean }>}
    */
   async getJson(url, opts = {}) {
+    return this.#getCached(url, opts, { Accept: 'application/json' }, async (res) => {
+      try {
+        return await res.json();
+      } catch {
+        throw new ProviderError(`${this.name} sent something that isn't JSON`, 'parse');
+      }
+    });
+  }
+
+  /** Like getJson, for text responses (RSS / Atom feeds). */
+  async getText(url, opts = {}) {
+    return this.#getCached(url, opts, { Accept: opts.acceptType || 'application/xml, text/xml, */*' }, (res) => res.text());
+  }
+
+  async #getCached(url, opts, accept, read) {
     this.checkHost(url);
     const key = opts.key || `${this.id}:${url}`;
     const useCache = opts.cache !== false;
@@ -91,13 +106,8 @@ class Provider {
     if (this.now < this.lockedUntil) return fallback(new ProviderError(`${this.name} asked us to slow down`, 'locked'));
 
     try {
-      const res = await this.#request(url, { headers: { Accept: 'application/json', ...opts.headers } });
-      let data;
-      try {
-        data = await res.json();
-      } catch {
-        throw new ProviderError(`${this.name} sent something that isn't JSON`, 'parse');
-      }
+      const res = await this.#request(url, { headers: { ...accept, ...opts.headers } });
+      const data = await read(res);
       if (opts.accept && !opts.accept(data)) throw new ProviderError(`${this.name} sent an unexpected answer`, 'parse');
       if (useCache) this.deps.cache.set(key, data, opts.ttlMs ?? this.ttlMs);
       this.lastError = null;

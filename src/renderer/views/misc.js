@@ -68,10 +68,6 @@ function engineCard() {
     status, h('div', { class: 'row' }, remove), details);
 }
 
-export function renderComingSoon(title, text) {
-  return (el) => el.append(h('div', { class: 'page' }, h('h1', {}, title), h('div', { class: 'card hero' }, h('p', { class: 'muted' }, text))));
-}
-
 export async function renderReview(el) {
   const [count, cards] = await Promise.all([window.api.cardCount(), window.api.recentCards()]);
   el.append(h('div', { class: 'page' },

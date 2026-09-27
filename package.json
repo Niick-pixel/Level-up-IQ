@@ -54,6 +54,7 @@
   "dependencies": {
     "chess.js": "^1.4.0",
     "electron-updater": "^6.8.9",
+    "fast-xml-parser": "^5.11.1",
     "flag-icons": "^7.5.0",
     "fuse.js": "^7.5.0"
   },

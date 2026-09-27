@@ -16,12 +16,14 @@ const FEATURE_POOLS = [
 ];
 
 export async function renderHome(el) {
-  const [kotd, summary, count, cards] = await Promise.all([
+  const [kotd, summary, count, cards, watch] = await Promise.all([
     window.api.keywordOfTheDay(),
     window.api.statsSummary(),
     window.api.keywordCount(),
     window.api.cardCount(),
+    window.api.watchList(),
   ]);
+  const toWatch = watch.filter((v) => !v.watchedAt).length;
   const today = summary.today;
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
@@ -85,8 +87,8 @@ export async function renderHome(el) {
         h('div', { class: 'eyebrow' }, 'Review queue'),
         h('div', {}, cards ? `${plural(cards, 'card')} saved from your sessions` : 'Cards from keyword sessions land here')),
       h('a', { class: 'card', href: '#/watch' },
-        h('div', { class: 'eyebrow' }, 'Watch later'),
-        h('div', {}, 'Documentaries (coming soon)')),
+        h('div', { class: 'eyebrow' }, 'Watch and learn'),
+        h('div', {}, toWatch ? `${plural(toWatch, 'video')} in your list` : 'Documentaries from 36 curated channels')),
       h('a', { class: 'card', href: '#/stats' },
         h('div', { class: 'eyebrow' }, 'Stats'),
         h('div', {}, `${plural(summary.totals.games, 'round')} · ${plural(summary.totals.keywords, 'keyword')} explored`))),

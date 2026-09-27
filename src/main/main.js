@@ -1,6 +1,6 @@
 const path = require('path');
 const {
-  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, net, Notification, nativeImage,
+  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, net, Notification, nativeImage, safeStorage,
 } = require('electron');
 const { Store } = require('./store');
 const { Stats } = require('./stats');
@@ -17,6 +17,8 @@ const { isAllowedLink } = require('./links');
 const { registerIpc } = require('./ipc');
 const { Engines } = require('./engines');
 const { Knowledge } = require('./knowledge');
+const { Secrets } = require('./secrets');
+const { Media } = require('./media');
 const { localDateKey } = require('../shared/rng.js');
 
 const ASSETS = path.join(__dirname, '..', '..', 'assets');
@@ -222,12 +224,14 @@ app.whenReady().then(() => {
   const userAgent = `MindGym/${app.getVersion()} (+https://github.com/Niick-pixel/Level-up-IQ)`;
   const netSession = session.fromPartition('mind-gym-net');
   netSession.setUserAgent(userAgent); // Wikimedia asks every client to identify itself
+  const secrets = new Secrets(dir, safeStorage);
   providers = createProviders({
     fetch: (url, opts) => netSession.fetch(url, opts),
     cache,
     userAgent,
     isOnline: () => net.isOnline(),
     getSettings: () => store.get(),
+    getSecret: (name) => secrets.get(name),
   });
   sessions = new KeywordSessions({ bank, providers, learning, stats, ratings, dateKey });
   // Downloaded engines (Stockfish, GPL-3.0) live outside the app folder and are served read-only.
@@ -238,7 +242,8 @@ app.whenReady().then(() => {
     bundledLicense: path.join(ROOT, 'assets', 'licenses', 'GPL-3.0.txt'),
   });
   addMount('/engines/', path.join(dir, 'engines'));
-  const knowledge = new Knowledge({ bank, providers });
+  const knowledge = new Knowledge({ bank, providers, cache, dir, getSettings: () => store.get() });
+  const media = new Media(dir, { providers, bank, learning, getSettings: () => store.get() });
 
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
@@ -251,7 +256,7 @@ app.whenReady().then(() => {
   updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
 
   registerIpc({
-    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, guard: {
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, guard: {
       setFullscreen: (on) => guard?.setFullscreen(on),
       toggleMaximize: () => guard?.toggleMaximize(),
     },

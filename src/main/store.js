@@ -25,7 +25,12 @@ const DEFAULTS = {
 
   // Online sources (all optional; the app works fully offline)
   offlineMode: false,
-  providers: { wikipedia: true, wikidata: true, opentdb: true, lichess: true },
+  providers: {
+    wikipedia: true, wikidata: true, opentdb: true, triviaapi: true, lichess: true,
+    youtube: true, youtubeapi: true, archive: true, met: true, aic: true, inaturalist: true, apod: true,
+  },
+  channels: { disabled: [], custom: [] }, // curated YouTube channels switched off; your own additions
+  speciesCostaRica: true, // species quiz: Costa Rica only (off = the whole world)
 
   autoUpdate: true,
   windowBounds: null, // { x, y, width, height }
@@ -46,6 +51,18 @@ function sanitize(partial) {
         if (v && typeof v === 'object') {
           out[k] = { ...DEFAULTS.providers };
           for (const id of Object.keys(DEFAULTS.providers)) if (typeof v[id] === 'boolean') out[k][id] = v[id];
+        }
+        break;
+      case 'channels':
+        if (v && typeof v === 'object') {
+          const id = /^UC[A-Za-z0-9_-]{22}$/;
+          out[k] = {
+            disabled: [...new Set((Array.isArray(v.disabled) ? v.disabled : []).filter((x) => id.test(x)))].slice(0, 200),
+            custom: (Array.isArray(v.custom) ? v.custom : [])
+              .filter((c) => c && id.test(c.id))
+              .slice(0, 50)
+              .map((c) => ({ id: c.id, name: String(c.name || c.id).slice(0, 80), domains: (Array.isArray(c.domains) ? c.domains : []).filter((d) => /^[a-z-]{2,30}$/.test(d)).slice(0, 8) })),
+          };
         }
         break;
       case 'windowBounds':

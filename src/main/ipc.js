@@ -3,6 +3,8 @@ const fs = require('fs');
 const { normalizeResult, validateMeta } = require('../shared/game-contract.js');
 const { isAllowedLink } = require('./links');
 
+const { CHANNELS } = require('./channels');
+const { makeRng } = require('../shared/rng.js');
 const str = (v, max = 200) => (typeof v === 'string' ? v.slice(0, max) : '');
 const ID = /^[a-z0-9-]{1,80}$/;
 
@@ -11,7 +13,7 @@ const ID = /^[a-z0-9-]{1,80}$/;
  * @param {Electron.IpcMain} deps.ipcMain
  */
 function registerIpc({
-  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge,
+  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media,
   onSettingsChanged, cache, providers, learning, sessions,
 }) {
   const handle = (channel, fn) => ipcMain.handle(channel, (_e, ...args) => fn(...args));
@@ -99,6 +101,36 @@ function registerIpc({
   handle('knowledge:trivia', (o = {}) => knowledge.trivia({ seed: str(o.seed, 40), amount: num(o.amount, 1, 12, 8), difficulty: num(o.difficulty, 1, 10, 5) }));
   handle('knowledge:guess', (o = {}) => knowledge.guess({ seed: str(o.seed, 40), count: num(o.count, 1, 8, 5), difficulty: num(o.difficulty, 1, 10, 5) }));
   handle('knowledge:onThisDay', (o = {}) => knowledge.onThisDay({ seed: str(o.seed, 40) }));
+  handle('knowledge:art', (o = {}) => knowledge.art({ seed: str(o.seed, 40) }));
+  handle('knowledge:apod', (o = {}) => knowledge.apod({ seed: str(o.seed, 40) }));
+  handle('knowledge:species', (o = {}) => knowledge.species({ seed: str(o.seed, 40), difficulty: num(o.difficulty, 1, 10, 5) }));
+
+  // --- watch and learn
+  const videoKey = (k) => (typeof k === 'string' && /^(youtube|archive):[A-Za-z0-9_.-]{1,100}$/.test(k) ? k : '');
+  handle('media:latest', (o = {}) => media.latest({ domain: bank.domains.some((d) => d.id === o.domain) ? o.domain : null }));
+  handle('media:suggest', (id) => media.suggestions(kid(id)));
+  handle('media:list', () => media.list());
+  handle('media:add', (video, keywordId) => media.add(video && typeof video === 'object' ? video : null, typeof keywordId === 'string' && ID.test(keywordId) ? keywordId : null));
+  handle('media:remove', (key) => media.remove(videoKey(key)));
+  handle('media:recall', (key, seed) => media.recallQuestions(videoKey(key), makeRng(`recall:${str(seed, 40)}`)));
+  handle('media:watched', (key, answers = {}) => media.markWatched(videoKey(key), answers && typeof answers === 'object' ? answers : {}));
+  handle('media:learned', () => media.learned());
+  // Remote images come through the main process (the page can't reach the network):
+  // only https, only hosts a provider is allowed to contact.
+  handle('media:image', async (url) => {
+    let u;
+    try { u = new URL(String(url)); } catch { return null; }
+    if (u.protocol !== 'https:') return null;
+    const p = Object.values(providers).find((x) => x && Array.isArray(x.hosts) && x.hosts.includes(u.hostname));
+    const hash = p ? await p.cacheImage(u.href) : null;
+    return hash ? `mg-cache://img/${hash}` : null;
+  });
+  handle('channels:list', () => ({ curated: CHANNELS, settings: store.get().channels }));
+
+  // --- optional API keys (values never leave the main process)
+  handle('secrets:status', () => secrets.status());
+  handle('secrets:set', (name, value) => secrets.set(str(name, 20), str(value, 200)));
+
   handle('engine:status', () => engines.status());
   ipcMain.handle('engine:install', async (e) => {
     let last = 0;

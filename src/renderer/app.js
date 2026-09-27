@@ -9,7 +9,8 @@ import { renderKeywords } from './views/keywords.js';
 import { renderSession } from './views/session.js';
 import { renderStats } from './views/stats.js';
 import { renderSettings } from './views/settings.js';
-import { renderLicenses, renderComingSoon, renderReview } from './views/misc.js';
+import { renderLicenses, renderReview } from './views/misc.js';
+import { renderWatch, renderRecall, renderLearned } from './views/watch.js';
 
 const view = document.getElementById('view');
 
@@ -25,8 +26,9 @@ const ROUTES = [
   [/^\/settings$/, 'settings', renderSettings],
   [/^\/licenses$/, 'settings', renderLicenses],
   [/^\/review$/, 'review', renderReview],
-  [/^\/watch$/, 'watch', renderComingSoon('Watch later',
-    'Documentary and video suggestions from curated channels arrive in a later phase, with three recall questions after each video.')],
+  [/^\/watch$/, 'watch', renderWatch],
+  [/^\/watch\/recall\/([^/]+)$/, 'watch', renderRecall],
+  [/^\/learned$/, 'learned', renderLearned],
 ];
 
 let cleanup = null;

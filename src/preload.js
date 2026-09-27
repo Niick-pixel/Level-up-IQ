@@ -46,6 +46,26 @@ contextBridge.exposeInMainWorld('api', {
   guessArticle: call('knowledge:guess'),
   onThisDay: call('knowledge:onThisDay'),
 
+  artRound: call('knowledge:art'),
+  apodRound: call('knowledge:apod'),
+  speciesRound: call('knowledge:species'),
+
+  // watch and learn
+  latestVideos: call('media:latest'),
+  suggestVideos: call('media:suggest'),
+  watchList: call('media:list'),
+  addToWatch: call('media:add'),
+  removeFromWatch: call('media:remove'),
+  recallQuestions: call('media:recall'),
+  markWatched: call('media:watched'),
+  learnedItems: call('media:learned'),
+  remoteImage: call('media:image'),
+  channels: call('channels:list'),
+
+  // optional API keys: you can set them and see whether they're set, never read them back
+  secretsStatus: call('secrets:status'),
+  setSecret: call('secrets:set'),
+
   // downloadable engines (Stockfish)
   engineStatus: call('engine:status'),
   installEngine: call('engine:install'),

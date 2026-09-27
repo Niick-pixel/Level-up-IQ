@@ -1,4 +1,5 @@
 // The keyword session (spec §2): predict → learn → quiz → puzzle → explain it back → watch → remember.
+import { videoCard } from './video.js';
 import { h, clear, extLink, wikipediaUrl, pct, toast, plural, fill } from '../ui.js';
 import { mountGame } from './play.js';
 import { byId as gameById } from '../games/registry.js';
@@ -269,14 +270,21 @@ export async function renderSession(el, params) {
 
   // ---- 6 Watch
   function watch() {
-    const q = encodeURIComponent(`${k.term} documentary explained`);
+    const list = h('div', { class: 'vid-grid' }, h('p', { class: 'muted' }, 'Looking for videos on this…'));
+    const extra = h('div', { class: 'row', style: { marginTop: '10px' } });
     body.append(h('div', { class: 'card hero' },
       h('h2', {}, 'Watch'),
-      h('p', { class: 'muted' }, 'Curated documentary suggestions (from channels like Veritasium, Kurzgesagt and PBS Space Time), a watch-later queue and recall questions arrive in Phase 4. For now:'),
-      h('div', { class: 'row' },
-        h('button', { class: 'btn', type: 'button', onclick: () => window.api.openExternal(`https://www.youtube.com/results?search_query=${q}`) }, 'Search YouTube'),
-        s.learn?.summary ? h('button', { class: 'btn', type: 'button', onclick: () => window.api.openExternal(s.learn.summary.url) }, 'Read the full article') : null),
+      h('p', { class: 'muted' }, 'Videos from your curated channels that match this topic, plus public-domain films from the Internet Archive. Add one to Watch later; after watching, three recall questions lock it in.'),
+      list, extra,
       h('div', { class: 'row', style: { marginTop: '14px' } }, nextBtn('Next: remember'))));
+    window.api.suggestVideos(k.id).then((r) => {
+      clear(list);
+      if (!r.videos.length) list.append(h('p', { class: 'muted' }, 'None of your channels has a recent video on this (their feeds list the latest 15 videos each). Try a search instead.'));
+      for (const v of r.videos) list.append(videoCard(v, { keywordId: k.id }));
+      extra.append(
+        h('button', { class: 'btn', type: 'button', onclick: () => window.api.openExternal(r.searchUrl) }, 'Search YouTube'),
+        s.learn?.summary ? h('button', { class: 'btn', type: 'button', onclick: () => window.api.openExternal(s.learn.summary.url) }, 'Read the full article') : '');
+    }).catch(() => fill(list, h('p', { class: 'muted' }, 'Couldn’t look for videos right now.')));
   }
 
   // ---- 7 Remember
