@@ -49,6 +49,7 @@ class DiskCache {
       return;
     }
     this.#write(this.#file('json', hash), JSON.stringify(entry));
+    this.#touch(this.#file('json', hash)); // "last used" follows our clock, not the file system's
   }
 
   /** Stores image bytes; returns the hash used by the mg-cache:// protocol. */
@@ -60,6 +61,8 @@ class DiskCache {
     }
     this.#write(this.#file('img', hash), buffer);
     this.#write(this.#file('img', hash) + '.meta', JSON.stringify({ key, type, storedAt: this.now() }));
+    this.#touch(this.#file('img', hash));
+    this.#touch(this.#file('img', hash) + '.meta');
     return hash;
   }
 

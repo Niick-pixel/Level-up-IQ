@@ -21,6 +21,7 @@
 **Fixed**
 - The Trivia API couldn't be switched off in Settings (it was missing from the settings' list of sources).
 - Art quiz centuries BC were off by one (300 BC is the 3rd century BC); found by the new tests before release.
+- The disk cache stamped new files with the file system’s clock but reads with its own, so on Windows “least recently used” could tie and prune the newest entry. Writes now use the same clock.
 
 **Not in this phase**
 - Recall questions are generic (main idea, a fact, the topic). Questions about the video's actual content need its transcript or an AI model; that comes with the optional Claude features in Phase 6.
