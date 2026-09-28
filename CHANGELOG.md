@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.5.0: Phase 5 (adaptivity)
+
+**Added**
+- **Spaced repetition with FSRS** (ts-fsrs, MIT). Every card gets a schedule; the Review page shows each card's front, then its answer, and four grades that say when the card will come back. Settings: target recall (80–95 %) and new cards per day. Reviews count as training time. There's also an "All cards" list where you can delete a card.
+- **An adaptive Daily Mix** (planner in `src/shared/mix-plan.js`, pure and seeded):
+  - Follows the spec's arc; due reviews come first.
+  - Favours skills rated below your average, and mostly skips games played in the last 3 days.
+  - Counts Tatham's 24 puzzles as one family, so they don't crowd everything else out.
+  - Fits the session length (a 10-minute mix averages about 11 minutes; 20 and 30 land on target).
+  - Picks a keyword from a less-visited domain when today's is from one you explored recently.
+  - Shows its estimated length.
+- **New ways to play:** Pick a skill, Marathon, and your own playlists (with an editor). Everything runs on one step runner.
+- **Streaks with rest days:** by default one day off per rolling week doesn't break a streak; today never breaks it; reviews count. It can be hidden in Settings.
+- **The curiosity map:**
+  - Explored keywords clustered around their domains, with links between related topics.
+  - A frontier of unexplored neighbours.
+  - Coverage per domain.
+- **Full stats:**
+  - Tiles: today, streak, all-time thinking without AI, keywords, cards due, videos.
+  - Minutes per day over 7, 30 or 90 days; most played; personal bests.
+  - The skill radar now vs 30 days ago, with each skill's trend.
+  - Keywords explored over 12 weeks; reviews due over the next 14 days; recall rate; videos.
+- **Charts follow data-viz rules:**
+  - Thin marks, hairline grids, one axis, sparing labels.
+  - A tooltip on hover and on keyboard focus, and a table view for every chart.
+  - Dedicated `--chart-1` / `--chart-2` colours per theme, checked with a palette validator (lightness, chroma, colour-blind separation, contrast) and by a test. The theme accents are too pale to use as data colours.
+- **JSON export** now includes your cards, reviews, watch list and session log.
+- 126 tests (12 new) for the scheduler, streaks, the curiosity map, the mix planner, chart colours and settings.
+
+**Not in this phase**
+- FSRS uses its default parameters. Fitting them to your own review history needs a few hundred reviews first; the review log is kept for that.
+- Vocabulary cards: the card type exists, but no game creates them yet.
+
+
 ## 0.4.0: Phase 4 (watch and learn)
 
 **Added**

@@ -104,6 +104,22 @@ class Learning {
     return picked.slice(0, max).map((c) => ({ ...c, daysAgo: Math.round(age(c)) }));
   }
 
+  /** All cards (for the scheduler). Mutate through saveCards(). */
+  allCards() {
+    return this.cards;
+  }
+
+  saveCards() {
+    writeJson(this.cardsFile, this.cards);
+  }
+
+  deleteCard(id) {
+    const before = this.cards.length;
+    this.cards = this.cards.filter((c) => c.id !== id);
+    if (this.cards.length !== before) this.saveCards();
+    return before !== this.cards.length;
+  }
+
   cardCount() {
     return this.cards.length;
   }

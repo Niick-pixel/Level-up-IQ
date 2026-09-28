@@ -38,6 +38,11 @@ for (const theme of ['night', 'dusk', 'forest', 'sand']) {
     assert.ok(ratio(t.muted, t.bg) >= 4.5, `${theme} muted ${ratio(t.muted, t.bg).toFixed(2)}`);
     assert.ok(ratio(t['accent-ink'], t.accent) >= 4.5, `${theme} accent button ${ratio(t['accent-ink'], t.accent).toFixed(2)}`);
     assert.ok(ratio(t.ok, t.bg) >= 3 && ratio(t.bad, t.bg) >= 3, `${theme} ok/bad`);
+    // chart series (views/charts.js): graphics need 3:1 against the surface they sit on
+    for (const k of ['chart-1', 'chart-2']) {
+      assert.match(t[k] || '', /^#[0-9a-f]{6}$/i, `${theme} --${k}`);
+      assert.ok(ratio(t[k], t['bg-2']) >= 3, `${theme} ${k} ${ratio(t[k], t['bg-2']).toFixed(2)}`);
+    }
   });
 }
 

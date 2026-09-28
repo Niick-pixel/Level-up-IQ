@@ -66,6 +66,20 @@ contextBridge.exposeInMainWorld('api', {
   secretsStatus: call('secrets:status'),
   setSecret: call('secrets:set'),
 
+  // spaced repetition
+  reviewQueue: call('srs:queue'),
+  reviewCard: call('srs:review'),
+  srsStats: call('srs:stats'),
+  allCards: call('srs:cards'),
+  deleteCard: call('srs:delete'),
+
+  // adaptivity
+  mixContext: call('mix:context'),
+  streak: call('stats:streak'),
+  statsDays: call('stats:days'),
+  statsExtra: call('stats:extra'),
+  curiosity: call('stats:curiosity'),
+
   // downloadable engines (Stockfish)
   engineStatus: call('engine:status'),
   installEngine: call('engine:install'),

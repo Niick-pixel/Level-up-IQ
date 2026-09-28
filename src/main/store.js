@@ -32,6 +32,13 @@ const DEFAULTS = {
   channels: { disabled: [], custom: [] }, // curated YouTube channels switched off; your own additions
   speciesCostaRica: true, // species quiz: Costa Rica only (off = the whole world)
 
+  // Spaced repetition and streaks (Phase 5)
+  srsRetention: 0.9, // aim to remember 90 % of cards when they come back
+  srsNewPerDay: 15, // new cards introduced per day
+  showStreaks: true,
+  restDaysPerWeek: 1, // days off that don't break a streak (rolling 7 days)
+  playlists: [], // your own game lists: [{ id, name, games: [gameId] }]
+
   autoUpdate: true,
   windowBounds: null, // { x, y, width, height }
 };
@@ -51,6 +58,18 @@ function sanitize(partial) {
         if (v && typeof v === 'object') {
           out[k] = { ...DEFAULTS.providers };
           for (const id of Object.keys(DEFAULTS.providers)) if (typeof v[id] === 'boolean') out[k][id] = v[id];
+        }
+        break;
+      case 'srsRetention': { const n = Number(v); if (Number.isFinite(n)) out[k] = Math.min(0.97, Math.max(0.7, Math.round(n * 100) / 100)); break; }
+      case 'srsNewPerDay': out[k] = clampInt(v, 0, 100); break;
+      case 'restDaysPerWeek': out[k] = clampInt(v, 0, 3); break;
+      case 'playlists':
+        if (Array.isArray(v)) {
+          out[k] = v.filter((p) => p && typeof p.name === 'string' && Array.isArray(p.games)).slice(0, 30).map((p, i) => ({
+            id: /^[a-z0-9-]{1,40}$/.test(p.id) ? p.id : `list-${i + 1}`,
+            name: p.name.trim().slice(0, 60) || 'My playlist',
+            games: p.games.filter((g) => /^[a-z0-9-]{1,40}$/.test(g)).slice(0, 30),
+          }));
         }
         break;
       case 'channels':

@@ -16,6 +16,7 @@ export function renderLicenses(el) {
           row('Fuse.js', 'Apache-2.0', 'https://www.npmjs.com/package/fuse.js', 'Fuzzy keyword search'),
           row('an-array-of-english-words', 'MIT', 'https://www.npmjs.com/package/an-array-of-english-words', 'Word list for word games'),
           row('Simon Tatham’s Portable Puzzle Collection', 'MIT', 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/', '24 logic puzzles (built to WebAssembly from the unmodified source)'),
+          row('ts-fsrs', 'MIT', 'https://github.com/open-spaced-repetition/ts-fsrs', 'Spaced-repetition scheduling (FSRS)'),
           row('fast-xml-parser', 'MIT', 'https://github.com/NaturalIntelligence/fast-xml-parser', 'Reading YouTube channel feeds'),
           row('chess.js', 'BSD-2-Clause', 'https://github.com/jhlywa/chess.js', 'Chess rules for the chess games'),
           row('flag-icons', 'MIT', 'https://github.com/lipis/flag-icons', 'Flag images'),
@@ -76,16 +77,3 @@ function engineCard() {
     status, h('div', { class: 'row' }, remove), details);
 }
 
-export async function renderReview(el) {
-  const [count, cards] = await Promise.all([window.api.cardCount(), window.api.recentCards()]);
-  el.append(h('div', { class: 'page' },
-    h('h1', {}, 'Review queue'),
-    h('div', { class: 'card hero' },
-      h('p', {}, count ? `${count} card${count === 1 ? '' : 's'} saved from your keyword sessions.` : 'No cards yet. Finish a keyword session and its key facts land here.'),
-      h('p', { class: 'muted' }, 'Spaced repetition (FSRS) arrives in Phase 5: each card comes back right before you would forget it.')),
-    cards.length ? h('div', { class: 'card', style: { marginTop: '14px' } },
-      h('h3', {}, 'Most recent'),
-      h('ul', { class: 'cards-list' }, cards.map((c) => h('li', {},
-        h('a', { href: `#/keyword/${c.keywordId}` }, c.front),
-        h('div', { class: 'muted' }, c.back))))) : null));
-}

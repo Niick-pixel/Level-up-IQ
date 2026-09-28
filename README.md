@@ -4,7 +4,7 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Status: Phase 4 of 6.** 83 game types (59 of our own plus 24 of Simon Tatham's puzzles), 1,541 keywords, keyword sessions, videos with recall, stats and settings work. Spaced repetition, adaptive mixes and optional AI features are coming. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Status: Phase 5 of 6.** 83 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, streaks, the curiosity map and full stats work. Optional AI features and v1.0 polish are next. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
 ## Features (so far)
 
@@ -20,6 +20,11 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
   - **Deep thinking:** explain it back (Feynman technique), steelman the other side, first principles, and a no-AI challenge of the day.
   - **Riddles and lateral thinking:** 112 riddles, 42 situation puzzles and 50 rebuses.
 - **Every puzzle has a seed code** like `stroop:4:k9x2mf`. Replay it, or share it, and you get exactly the same puzzle.
+- **Daily Mix that adapts.** Warm-up → logic → memory → extra rounds for your weakest skills while time allows → today's keyword (explained back) → something to think about → something to watch. It favours weaker skills, mostly skips games you played in the last 3 days, varies the keyword's domain, fits the length you set, and puts due reviews first.
+- **More ways to play:** Pick a skill (three rounds), Marathon (game after game until you stop), your own playlists, Random anything, Rabbit hole.
+- **Spaced repetition (FSRS).** Key facts from keyword sessions and your video summaries become review cards that come back just before you'd forget them. Grade Again / Hard / Good / Easy (each shows when the card returns); set your target recall and new cards per day.
+- **Streaks that allow rest.** Days trained in a row, with rest days (1 a week by default) that don't break it. You can hide streaks.
+- **Curiosity map.** Every keyword you've explored, clustered by domain and linked where topics are related, plus the frontier: unexplored topics one step from what you know.
 - **Adaptive levels.** Each skill (logic, math, language, memory, attention, spatial, strategy, knowledge, deep thinking) has its own rating. New rounds aim for about 75 % success, the "hard but doable" zone. You can bias it easier or harder.
 - **Thinking timer.** Hints and "show solution" stay locked for the first N seconds, so you try first.
 - **Auto-pause.** If the window loses focus (a Focus Point break, a notification, Alt+Tab), the round pauses. Paused time never counts.
@@ -44,7 +49,7 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
 - **Optional API keys** (YouTube Data API, NASA) are encrypted with Windows' own protection (DPAPI through Electron `safeStorage`) and never written to settings or shown again.
 - **On this day and the daily chess puzzle** on the home screen, when online.
 - **Daily Mix.** A short guided set: warm-up, math, memory and words, then the keyword of the day and an explain-it-back prompt.
-- **Stats that stay on your computer.** Minutes per day, rounds, "thinking without AI" time, personal bests, a skill radar, and export to JSON or CSV.
+- **Stats that stay on your computer.** Minutes per day (7/30/90 days), streaks, most played, personal bests, the skill radar now vs 30 days ago with each skill's trend, keywords explored over time, reviews due in the next 14 days, recall rate, videos watched, and "thinking without AI" time. Every chart has a table view and keyboard-focusable values. Export everything (cards, reviews and watch list included) to JSON or CSV.
 - **Four themes:** Night, Dusk, Forest and Sand, the same as Focus Point, with contrast checked by the tests.
 - **Keyboard first.** Ctrl+K searches, Esc pauses, and every game plays without a mouse.
 - **Private and offline-first.** No accounts, no telemetry. Online sources only enrich: each one can be turned off, there's a full offline mode, and everything fetched is cached so it still works without a connection.
@@ -149,6 +154,10 @@ Then run `npm run keywords:build`. The build fails on duplicate ids, duplicate W
 | Online extras for the knowledge games, picture pools for offline play | `src/main/knowledge.js` |
 | Watch list, recall, video suggestions, curated channels | `src/main/media.js`, `src/main/channels.js` |
 | Encrypted API keys | `src/main/secrets.js` |
+| Spaced repetition (FSRS via ts-fsrs) | `src/main/srs.js` |
+| Daily Mix planner and Marathon picker (pure, seeded, tested) | `src/shared/mix-plan.js` |
+| Streaks, curiosity map | `src/main/stats.js`, `src/main/curiosity.js` |
+| Step runner for the mix, skills, marathon and playlists; chart kit | `src/renderer/views/run.js`, `src/renderer/views/charts.js` |
 | Prebuilt packs: Rush Hour puzzles, world map | `scripts/build-rush-hour.mjs`, `scripts/build-map.mjs` |
 | Views: home, Daily Mix, games, keywords, stats, settings | `src/renderer/views/` |
 

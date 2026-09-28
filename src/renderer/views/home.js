@@ -16,13 +16,17 @@ const FEATURE_POOLS = [
 ];
 
 export async function renderHome(el) {
-  const [kotd, summary, count, cards, watch] = await Promise.all([
+  const [kotd, summary, count, cards, watch, streak, srs, settings] = await Promise.all([
     window.api.keywordOfTheDay(),
     window.api.statsSummary(),
     window.api.keywordCount(),
     window.api.cardCount(),
     window.api.watchList(),
+    window.api.streak(),
+    window.api.srsStats(),
+    window.api.getSettings(),
   ]);
+  const dueToday = srs.dueNow + srs.newAvailable;
   const toWatch = watch.filter((v) => !v.watchedAt).length;
   const today = summary.today;
   const hour = new Date().getHours();
@@ -64,13 +68,16 @@ export async function renderHome(el) {
         h('h1', {}, greeting),
         h('p', { class: 'muted' }, today.games
           ? `Today: ${plural(today.games, 'round')}, ${fmtMinutes(today.ms)} of thinking without AI.`
-          : 'Nothing trained yet today. Ten minutes is plenty.'))),
+          : 'Nothing trained yet today. Ten minutes is plenty.')),
+      settings.showStreaks && streak.current ? h('div', { class: 'streak', title: 'Days trained in a row. Rest days are allowed and don’t break it.' },
+        h('strong', {}, `${streak.current}-day streak`), h('span', { class: 'muted small' }, streak.trainedToday ? '' : ' · train today to keep it',
+          streak.restLeft ? ` · ${plural(streak.restLeft, 'rest day')} left this week` : '')) : ''),
 
     h('div', { class: 'grid', style: { gridTemplateColumns: '2fr 1fr' } },
       h('a', { class: 'card hero', href: '#/mix' },
         h('div', { class: 'eyebrow' }, 'Daily Mix'),
         h('div', { class: 'big' }, 'Warm up, focus, remember, think'),
-        h('p', { class: 'muted' }, 'A short guided set: speed, math, memory and words, then the keyword of the day.')),
+        h('p', { class: 'muted' }, 'Warm-up, logic, memory, today’s keyword and something to think about, leaning towards your weaker skills.')),
       h('a', { class: 'card hero', href: `#/keyword/${kotd.id}` },
         h('div', { class: 'eyebrow' }, 'Keyword of the day'),
         h('div', { class: 'big' }, kotd.term),
@@ -83,12 +90,15 @@ export async function renderHome(el) {
       h('a', { class: 'card', href: '#/keywords' },
         h('div', { class: 'eyebrow' }, 'Curiosity'),
         h('div', {}, `${count.toLocaleString('en')} keywords to explore`)),
-      h('a', { class: 'card', href: '#/review' },
-        h('div', { class: 'eyebrow' }, 'Review queue'),
-        h('div', {}, cards ? `${plural(cards, 'card')} saved from your sessions` : 'Cards from keyword sessions land here')),
+      h('a', { class: `card${dueToday ? ' due' : ''}`, href: '#/review' },
+        h('div', { class: 'eyebrow' }, 'Review'),
+        h('div', {}, dueToday ? `${plural(dueToday, 'card')} to review today` : cards ? 'All caught up' : 'Cards from keyword sessions land here')),
       h('a', { class: 'card', href: '#/watch' },
         h('div', { class: 'eyebrow' }, 'Watch and learn'),
         h('div', {}, toWatch ? `${plural(toWatch, 'video')} in your list` : 'Documentaries from 36 curated channels')),
+      h('a', { class: 'card', href: '#/map' },
+        h('div', { class: 'eyebrow' }, 'Curiosity map'),
+        h('div', {}, summary.totals.keywords ? `${plural(summary.totals.keywords, 'topic')} explored` : 'Grows as you explore')),
       h('a', { class: 'card', href: '#/stats' },
         h('div', { class: 'eyebrow' }, 'Stats'),
         h('div', {}, `${plural(summary.totals.games, 'round')} · ${plural(summary.totals.keywords, 'keyword')} explored`))),

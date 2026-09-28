@@ -9,7 +9,10 @@ import { renderKeywords } from './views/keywords.js';
 import { renderSession } from './views/session.js';
 import { renderStats } from './views/stats.js';
 import { renderSettings } from './views/settings.js';
-import { renderLicenses, renderReview } from './views/misc.js';
+import { renderLicenses } from './views/misc.js';
+import { renderReview, renderCards } from './views/review.js';
+import { renderMap } from './views/map.js';
+import { renderSkill, renderMarathon, renderPlaylists, renderPlaylist } from './views/modes.js';
 import { renderWatch, renderRecall, renderLearned } from './views/watch.js';
 
 const view = document.getElementById('view');
@@ -19,13 +22,19 @@ const ROUTES = [
   [/^\/$/, 'home', renderHome],
   [/^\/mix$/, 'mix', renderMix],
   [/^\/games$/, 'games', renderGames],
+  [/^\/skill\/([a-z-]+)$/, 'games', renderSkill],
+  [/^\/marathon$/, 'games', renderMarathon],
+  [/^\/playlists$/, 'games', renderPlaylists],
+  [/^\/playlist\/([a-z0-9-]+)$/, 'games', renderPlaylist],
   [/^\/play\/([a-z0-9-]+)$/, 'games', renderPlay],
   [/^\/keywords$/, 'keywords', renderKeywords],
   [/^\/keyword\/([a-z0-9-]+)$/, 'keywords', renderSession],
   [/^\/stats$/, 'stats', renderStats],
+  [/^\/map$/, 'stats', renderMap],
   [/^\/settings$/, 'settings', renderSettings],
   [/^\/licenses$/, 'settings', renderLicenses],
   [/^\/review$/, 'review', renderReview],
+  [/^\/cards$/, 'review', renderCards],
   [/^\/watch$/, 'watch', renderWatch],
   [/^\/watch\/recall\/([^/]+)$/, 'watch', renderRecall],
   [/^\/learned$/, 'learned', renderLearned],

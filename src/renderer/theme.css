@@ -2,6 +2,9 @@
    Themes are switched with <html data-theme="...">. */
 :root,
 [data-theme="night"] {
+  /* chart series: validated with the dataviz palette checks against --bg-2 */
+  --chart-1: #8771de;
+  --chart-2: #be7c1c;
   --bg: #12131f;
   --bg-2: #191a2b;
   --surface: rgba(255, 255, 255, 0.04);
@@ -19,6 +22,9 @@
 }
 
 [data-theme="dusk"] {
+  /* chart series: validated with the dataviz palette checks against --bg-2 */
+  --chart-1: #c3457f;
+  --chart-2: #488acb;
   --bg: #1c1426;
   --bg-2: #241a31;
   --surface: rgba(255, 255, 255, 0.04);
@@ -36,6 +42,9 @@
 }
 
 [data-theme="forest"] {
+  /* chart series: validated with the dataviz palette checks against --bg-2 */
+  --chart-1: #019f68;
+  --chart-2: #cb7229;
   --bg: #0f1a17;
   --bg-2: #14231f;
   --surface: rgba(255, 255, 255, 0.04);
@@ -53,6 +62,9 @@
 }
 
 [data-theme="sand"] {
+  /* chart series: validated with the dataviz palette checks against --bg-2 */
+  --chart-1: #ae5528;
+  --chart-2: #286cab;
   --bg: #f3eee6;
   --bg-2: #ebe4d9;
   --surface: rgba(80, 60, 40, 0.04);

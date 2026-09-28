@@ -59,6 +59,22 @@ class Stats {
     return { newBest };
   }
 
+  /** A spaced-repetition review counts as training time too (it's recall without help). */
+  recordReview(elapsedMs) {
+    const at = this.now();
+    const day = this.#day(this.dateKey(at));
+    const ms = Math.min(Math.max(0, elapsedMs || 0), 5 * 60 * 1000);
+    day.reviews = (day.reviews || 0) + 1;
+    day.ms += ms;
+    day.noAiMs += ms;
+    writeJson(this.file, this.data);
+  }
+
+  /** Current and best streak (see streak() below). */
+  streak(restPerWeek = 1) {
+    return streak(this.data.days, this.dateKey(this.now()), restPerWeek);
+  }
+
   /**
    * Marks a keyword as explored (feeds "outside my comfort zone" and the curiosity map).
    * @param {{ quiz: number, explain: number }} [mastery] best scores from a finished session
@@ -115,6 +131,13 @@ class Stats {
     };
   }
 
+  /** Rounds played per game, all time. */
+  gameCounts() {
+    const out = {};
+    for (const d of Object.values(this.data.days)) for (const [g, n] of Object.entries(d.byGame || {})) out[g] = (out[g] || 0) + n;
+    return out;
+  }
+
   /** Everything, for export. */
   exportJson(ratings) {
     return {
@@ -149,4 +172,52 @@ class Stats {
   }
 }
 
-module.exports = { Stats, SESSION_GAP_MS };
+/** Calendar day keys from `from` to `to` inclusive (local dates, DST-safe). */
+function dayKeys(from, to) {
+  const [fy, fm, fd] = from.split('-').map(Number);
+  const out = [];
+  for (let i = 0; ; i++) {
+    const d = new Date(fy, fm - 1, fd + i, 12);
+    const k = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    out.push(k);
+    if (k >= to || i > 4000) return out;
+  }
+}
+
+const trained = (d) => Boolean(d && (d.games || d.reviews));
+
+/**
+ * Streaks that don't punish rest: a day off doesn't break the streak as long as you've taken no
+ * more than `restPerWeek` days off in the last 7 days. Today only counts once you've trained;
+ * an untrained today never breaks anything. Pure; exported for tests.
+ * @returns {{ current, best, trainedToday, restLeft, restDays }}
+ */
+function streak(days, todayKey, restPerWeek = 1) {
+  const keys = Object.keys(days).filter((k) => trained(days[k])).sort();
+  if (!keys.length) return { current: 0, best: 0, trainedToday: false, restLeft: restPerWeek, restDays: [] };
+  const all = dayKeys(keys[0], todayKey);
+  let run = 0, best = 0, rests = []; // rests = indexes of rest days inside the current run
+  all.forEach((k, i) => {
+    if (trained(days[k])) {
+      run += 1;
+    } else if (k === todayKey) {
+      // today isn't over yet
+    } else {
+      rests = rests.filter((j) => j > i - 7);
+      if (run > 0 && rests.length < restPerWeek) rests.push(i);
+      else { run = 0; rests = []; }
+    }
+    best = Math.max(best, run);
+  });
+  const lastIndex = all.length - 1;
+  const recentRests = rests.filter((j) => j > lastIndex - 7);
+  return {
+    current: run,
+    best,
+    trainedToday: trained(days[todayKey]),
+    restLeft: Math.max(0, restPerWeek - recentRests.length),
+    restDays: recentRests.map((j) => all[j]),
+  };
+}
+
+module.exports = { Stats, SESSION_GAP_MS, streak };

@@ -200,7 +200,7 @@ textarea { width: 100%; min-height: 90px; resize: vertical; }
 .stat .num { font-size: 26px; font-weight: 600; }
 .radar text { fill: var(--muted); font-size: 11px; }
 .radar .ring { fill: none; stroke: var(--line); }
-.radar .area { fill: color-mix(in srgb, var(--accent) 30%, transparent); stroke: var(--accent); stroke-width: 2; }
+.radar .area { fill: color-mix(in srgb, var(--chart-1) 12%, transparent); stroke: var(--chart-1); stroke-width: 2; }
 
 table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); }
@@ -282,3 +282,65 @@ details summary { cursor: pointer; color: var(--muted); }
 .learned-list { list-style: none; padding: 0; display: grid; gap: 8px; }
 .learned-list li { padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
 .chan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 4px 12px; }
+
+/* ---- review (FSRS) */
+.review-card { max-width: 720px; }
+.review-meta { gap: 6px; }
+.review-front { font-size: 22px; line-height: 1.35; margin: 14px 0 6px; }
+.review-back { margin: 14px 0; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 6px; white-space: pre-line; }
+.review-grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.review-grades .btn { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 6px; }
+.grade-next { font-variant-numeric: tabular-nums; }
+.cards-list li .row { gap: 10px; }
+.plan-list { line-height: 1.9; }
+.plan-label { display: inline-block; min-width: 92px; }
+.modes .row { flex-wrap: wrap; gap: 6px; }
+
+/* ---- charts (see views/charts.js) */
+.chart { position: relative; }
+.chart-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart-svg .grid { stroke: var(--line); stroke-width: 1; }
+.chart-svg .axis { stroke: color-mix(in srgb, var(--muted) 45%, transparent); stroke-width: 1; }
+.chart-svg .tick { fill: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+.chart-svg .end-label { fill: var(--text); font-weight: 600; }
+.chart-svg .col { fill: var(--chart-1); }
+.chart-svg .mark .hit { fill: transparent; }
+.chart-svg .mark:hover .col, .chart-svg .mark:focus .col { filter: brightness(1.15); }
+.chart-svg .mark:focus { outline: none; }
+.chart-svg .mark:focus .hit { stroke: var(--chart-1); stroke-width: 1; stroke-dasharray: 0; fill: color-mix(in srgb, var(--chart-1) 8%, transparent); }
+.chart-svg .line { fill: none; stroke: var(--chart-1); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.chart-svg .area { fill: var(--chart-1); opacity: 0.1; }
+.chart-svg .dot { fill: var(--chart-1); stroke: var(--bg-2); stroke-width: 2; }
+.chart-svg .crosshair { stroke: var(--muted); stroke-width: 1; }
+.chart-tip { position: absolute; z-index: 5; pointer-events: none; display: flex; flex-direction: column; gap: 1px; padding: 6px 10px; border-radius: 8px; background: var(--overlay); border: 1px solid var(--line); min-width: 120px; font-size: 13px; }
+.chart-table-btn { margin-top: 4px; }
+.chart-table { margin-top: 6px; font-size: 13px; }
+.stats-h { margin: 26px 0 10px; font-size: 16px; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.num-col { text-align: right; font-variant-numeric: tabular-nums; }
+.seg { display: inline-flex; gap: 4px; }
+.seg .btn[aria-checked="true"] { background: var(--surface-2); border-color: var(--accent); }
+.radar-wrap { display: flex; flex-direction: column; align-items: center; }
+.radar .area.past { fill: none; stroke: var(--chart-2); stroke-width: 2; }
+.legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+.legend .key { display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.legend .key.now { background: var(--chart-1); }
+.legend .key.past { background: var(--chart-2); }
+.spark { width: 120px; height: 26px; }
+.curiosity .edge { stroke: color-mix(in srgb, var(--chart-1) 35%, transparent); stroke-width: 1; }
+.curiosity .anchor { fill: var(--surface-2); stroke: var(--line); }
+.curiosity .domain.explored .anchor { fill: color-mix(in srgb, var(--chart-1) 30%, var(--bg-2)); stroke: none; }
+.curiosity .domain-label { font-size: 11px; }
+.curiosity .domain.explored .domain-label { fill: var(--text); }
+.curiosity .node .hit { fill: transparent; }
+.curiosity .node .dot { fill: var(--chart-1); stroke: var(--bg-2); stroke-width: 2; }
+.curiosity .node .dot.light { fill: color-mix(in srgb, var(--chart-1) 55%, var(--bg-2)); }
+.curiosity .node:focus { outline: none; }
+.curiosity .node:focus .hit { stroke: var(--chart-1); }
+.frontier { list-style: none; padding: 0; display: grid; gap: 8px; }
+.meter-cell { width: 45%; }
+.meter { height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.meter > div { height: 100%; background: var(--chart-1); border-radius: 999px; }
+.streak { align-self: center; padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.card.due { border-color: var(--accent); }
+.chart-empty { padding: 30px 0; text-align: center; }

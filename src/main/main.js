@@ -19,6 +19,7 @@ const { Engines } = require('./engines');
 const { Knowledge } = require('./knowledge');
 const { Secrets } = require('./secrets');
 const { Media } = require('./media');
+const { Srs } = require('./srs');
 const { localDateKey } = require('../shared/rng.js');
 
 const ASSETS = path.join(__dirname, '..', '..', 'assets');
@@ -244,6 +245,7 @@ app.whenReady().then(() => {
   addMount('/engines/', path.join(dir, 'engines'));
   const knowledge = new Knowledge({ bank, providers, cache, dir, getSettings: () => store.get() });
   const media = new Media(dir, { providers, bank, learning, getSettings: () => store.get() });
+  const srs = new Srs(dir, { learning, getSettings: () => store.get(), dateKey });
 
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
@@ -256,7 +258,7 @@ app.whenReady().then(() => {
   updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
 
   registerIpc({
-    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, guard: {
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, srs, guard: {
       setFullscreen: (on) => guard?.setFullscreen(on),
       toggleMaximize: () => guard?.toggleMaximize(),
     },

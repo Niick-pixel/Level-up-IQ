@@ -49,6 +49,13 @@ export function renderGames(el) {
     h('div', { class: 'page-head' },
       h('h1', {}, 'Games'),
       h('div', { class: 'row' }, seedInput, h('button', { class: 'btn small', type: 'button', onclick: openSeed }, 'Play seed'), seedMsg)),
-    h('div', { class: 'row' }, filter, h('span', { class: 'muted' }, `${GAMES.length} games: ${own.length} of our own and ${tatham.length} of Simon Tatham’s puzzles.`)),
+    h('div', { class: 'card modes' },
+      h('div', { class: 'row' }, h('strong', {}, 'Ways to play'),
+        h('a', { class: 'btn small primary', href: '#/mix' }, 'Daily Mix'),
+        h('a', { class: 'btn small', href: '#/marathon' }, 'Marathon'),
+        h('a', { class: 'btn small', href: '#/playlists' }, 'Your playlists')),
+      h('div', { class: 'row', style: { marginTop: '8px' } }, h('span', { class: 'muted small' }, 'Pick a skill:'),
+        SKILLS.map((s) => h('a', { class: 'btn small ghost', href: `#/skill/${s}` }, SKILL_LABELS[s])))),
+    h('div', { class: 'row', style: { marginTop: '12px' } }, filter, h('span', { class: 'muted' }, `${GAMES.length} games: ${own.length} of our own and ${tatham.length} of Simon Tatham’s puzzles.`)),
     blocks.map((b) => b.el)));
 }

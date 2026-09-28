@@ -4,6 +4,7 @@ const { normalizeResult, validateMeta } = require('../shared/game-contract.js');
 const { isAllowedLink } = require('./links');
 
 const { CHANNELS } = require('./channels');
+const { curiosityMap } = require('./curiosity');
 const { makeRng } = require('../shared/rng.js');
 const str = (v, max = 200) => (typeof v === 'string' ? v.slice(0, max) : '');
 const ID = /^[a-z0-9-]{1,80}$/;
@@ -13,7 +14,7 @@ const ID = /^[a-z0-9-]{1,80}$/;
  * @param {Electron.IpcMain} deps.ipcMain
  */
 function registerIpc({
-  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media,
+  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media, srs,
   onSettingsChanged, cache, providers, learning, sessions,
 }) {
   const handle = (channel, fn) => ipcMain.handle(channel, (_e, ...args) => fn(...args));
@@ -131,6 +132,33 @@ function registerIpc({
   handle('secrets:status', () => secrets.status());
   handle('secrets:set', (name, value) => secrets.set(str(name, 20), str(value, 200)));
 
+  // --- spaced repetition (FSRS)
+  const cardId = (id) => (typeof id === 'string' && /^c[a-z0-9]{1,30}$/.test(id) ? id : '');
+  handle('srs:queue', (limit) => srs.queue(num(limit, 1, 200, 50)));
+  handle('srs:review', (id, grade, elapsedMs) => {
+    const r = srs.review(cardId(id), num(grade, 1, 4, 3), num(elapsedMs, 0, 3600000, 0));
+    stats.recordReview(Number(elapsedMs) || 0);
+    return r;
+  });
+  handle('srs:stats', () => srs.stats());
+  handle('srs:cards', () => learning.allCards().map((c) => ({ id: c.id, front: c.front, back: c.back, createdAt: c.createdAt, due: c.fsrs?.due || null, keywordId: c.keywordId })).reverse());
+  handle('srs:delete', (id) => learning.deleteCard(cardId(id)));
+
+  // --- adaptivity: what the Daily Mix planner needs, streaks, the curiosity map
+  handle('mix:context', () => {
+    const now = Date.now();
+    const since = now - 7 * 24 * 3600 * 1000;
+    const recent = stats.history().filter((h) => h.at >= since).map((h) => ({ gameId: h.gameId, at: h.at }));
+    const explored = stats.data.keywords;
+    const recentDomains = [...new Set(Object.values(explored).filter((k) => k.last >= now - 3 * 24 * 3600 * 1000).map((k) => k.domain))];
+    const s = store.get();
+    return { now, recent, ratings: ratings.all(), reviewsDue: srs.stats().dueNow, hasCards: learning.cardCount() > 0, recentDomains, offline: s.offlineMode, minutes: s.sessionMinutes };
+  });
+  handle('stats:days', (n) => stats.recentDays(num(n, 7, 365, 30)));
+  handle('stats:extra', () => ({ gameCounts: stats.gameCounts(), watched: media.list().filter((v) => v.watchedAt).length, recalled: media.list().filter((v) => v.recall?.main).length, queued: media.list().filter((v) => !v.watchedAt).length }));
+  handle('stats:streak', () => stats.streak(store.get().restDaysPerWeek));
+  handle('stats:curiosity', () => curiosityMap({ bank, explored: stats.data.keywords, now: Date.now() }));
+
   handle('engine:status', () => engines.status());
   ipcMain.handle('engine:install', async (e) => {
     let last = 0;
@@ -173,7 +201,7 @@ function registerIpc({
       filters: [csv ? { name: 'CSV', extensions: ['csv'] } : { name: 'JSON', extensions: ['json'] }],
     });
     if (canceled || !filePath) return null;
-    const body = csv ? stats.exportCsv() : JSON.stringify(stats.exportJson(ratings.all()), null, 2);
+    const body = csv ? stats.exportCsv() : JSON.stringify({ ...stats.exportJson(ratings.all()), cards: learning.allCards(), reviews: srs.log(), watch: media.list(), learnedSessions: learning.sessions() }, null, 2);
     await fs.promises.writeFile(filePath, body);
     return filePath;
   });
