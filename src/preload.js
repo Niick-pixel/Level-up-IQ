@@ -67,6 +67,11 @@ contextBridge.exposeInMainWorld('api', {
   setSecret: call('secrets:set'),
 
   // spaced repetition
+  aiStatus: call('ai:status'),
+  aiGrade: call('ai:grade'),
+  aiSocratic: call('ai:socratic'),
+  aiRiddle: call('ai:riddle'),
+  aiQuestions: call('ai:questions'),
   reviewQueue: call('srs:queue'),
   reviewCard: call('srs:review'),
   srsStats: call('srs:stats'),

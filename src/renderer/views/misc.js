@@ -13,6 +13,7 @@ export function renderLicenses(el) {
           row('Mind Gym', 'MIT', 'https://github.com/Niick-pixel/Level-up-IQ', 'This app'),
           row('Electron', 'MIT', 'https://www.electronjs.org/', 'Desktop shell'),
           row('electron-updater', 'MIT', 'https://www.npmjs.com/package/electron-updater', 'Updates from GitHub Releases'),
+          row('@anthropic-ai/sdk', 'MIT', 'https://www.npmjs.com/package/@anthropic-ai/sdk', 'Optional Claude features (only with your own key)'),
           row('Fuse.js', 'Apache-2.0', 'https://www.npmjs.com/package/fuse.js', 'Fuzzy keyword search'),
           row('an-array-of-english-words', 'MIT', 'https://www.npmjs.com/package/an-array-of-english-words', 'Word list for word games'),
           row('Simon Tatham’s Portable Puzzle Collection', 'MIT', 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/', '24 logic puzzles (built to WebAssembly from the unmodified source)'),

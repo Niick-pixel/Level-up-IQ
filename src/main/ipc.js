@@ -14,7 +14,7 @@ const ID = /^[a-z0-9-]{1,80}$/;
  * @param {Electron.IpcMain} deps.ipcMain
  */
 function registerIpc({
-  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media, srs,
+  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media, srs, ai,
   onSettingsChanged, cache, providers, learning, sessions,
 }) {
   const handle = (channel, fn) => ipcMain.handle(channel, (_e, ...args) => fn(...args));
@@ -134,6 +134,23 @@ function registerIpc({
 
   // --- spaced repetition (FSRS)
   const cardId = (id) => (typeof id === 'string' && /^c[a-z0-9]{1,30}$/.test(id) ? id : '');
+  // --- Claude (optional): the topic's summary comes from the session cache, never from the page
+  const aiTopic = async (id) => {
+    if (!ID.test(id || '')) throw new Error('Unknown keyword');
+    const k = sessions.keyword(id);
+    let summary = null;
+    try { summary = (await sessions.learn(id)).summary?.extract || null; } catch { /* term only */ }
+    return { term: k.term, domain: k.domainLabel || k.domain, summary };
+  };
+  handle('ai:status', () => ai.status());
+  handle('ai:grade', async (id, text) => ai.grade({ ...(await aiTopic(id)), explanation: str(text, 4000) }));
+  handle('ai:socratic', async (id, history) => ai.socratic({
+    ...(await aiTopic(id)),
+    history: (Array.isArray(history) ? history : []).slice(-20).map((t) => ({ who: t?.who === 'tutor' ? 'tutor' : 'you', text: str(t?.text, 1200) })),
+  }));
+  handle('ai:riddle', async (id) => ai.riddle(await aiTopic(id)));
+  handle('ai:questions', async (id, count) => ai.questions({ ...(await aiTopic(id)), count: num(count, 1, 6, 4) }));
+
   handle('srs:queue', (limit) => srs.queue(num(limit, 1, 200, 50)));
   handle('srs:review', (id, grade, elapsedMs) => {
     const r = srs.review(cardId(id), num(grade, 1, 4, 3), num(elapsedMs, 0, 3600000, 0));

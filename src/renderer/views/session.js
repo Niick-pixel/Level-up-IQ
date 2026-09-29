@@ -1,6 +1,6 @@
 // The keyword session (spec §2): predict → learn → quiz → puzzle → explain it back → watch → remember.
 import { videoCard } from './video.js';
-import { h, clear, extLink, wikipediaUrl, pct, toast, plural, fill } from '../ui.js';
+import { h, clear, extLink, wikipediaUrl, pct, toast, plural, fill, add } from '../ui.js';
 import { mountGame } from './play.js';
 import { byId as gameById } from '../games/registry.js';
 import { SKILL_LABELS } from '../../shared/game-contract.js';
@@ -16,6 +16,9 @@ export async function renderSession(el, params) {
     return;
   }
   window.api.exploreKeyword(k.id);
+  // Optional Claude features (Settings → Claude features, with your own key)
+  const ai = await window.api.aiStatus().catch(() => null);
+  const aiReady = Boolean(ai?.ready);
 
   const s = {
     step: 0,
@@ -26,8 +29,12 @@ export async function renderSession(el, params) {
     quizPromise: null,
     qIndex: 0,
     answers: [],
+    baseCount: 0, // questions before any Claude bonus questions (only these count toward your rating)
+    bonusLoaded: false,
     explanation: '',
     compare: null,
+    dialogue: [], // Socratic mode: { who: 'tutor' | 'you', text }
+    riddle: null,
     selfRating: 0,
     finished: null,
     activeMs: 0,
@@ -130,7 +137,7 @@ export async function renderSession(el, params) {
       if (d.summary.description) card.append(h('div', { class: 'eyebrow' }, d.summary.description));
       for (const para of d.summary.extract.split('\n').filter(Boolean)) card.append(h('p', {}, para));
     } else {
-      card.append(
+      add(card,
         h('p', {}, `No summary right now. Here's what the keyword bank knows: “${k.term}” is a ${k.domainLabel.toLowerCase()} topic.`),
         k.aliases.length ? h('p', {}, `Also known as: ${k.aliases.join(', ')}.`) : null,
         k.tags.length ? h('p', {}, `Tags: ${k.tags.join(', ')}.`) : null);
@@ -155,6 +162,7 @@ export async function renderSession(el, params) {
     try {
       s.quizPromise ||= window.api.sessionQuiz(k.id);
       s.quiz ||= (await s.quizPromise).questions;
+      s.baseCount ||= s.quiz.length;
     } catch (err) {
       fill(card, h('p', { class: 'g-msg bad' }, `Couldn't build a quiz: ${errText(err)}`), nextBtn('Next: puzzle'));
       return;
@@ -167,10 +175,30 @@ export async function renderSession(el, params) {
     clear(card);
     const qs = s.quiz;
     if (s.qIndex >= qs.length) {
-      const correct = s.answers.filter(Boolean).length;
-      card.append(h('h2', {}, `${correct} / ${qs.length} correct`),
-        h('p', { class: 'muted' }, correct === qs.length ? 'Perfect.' : 'Mistakes are part of it: the key facts of this topic are saved as review cards at the end.'),
-        nextBtn('Next: puzzle'));
+      const correct = s.answers.slice(0, s.baseCount).filter(Boolean).length;
+      const bonus = qs.length - s.baseCount;
+      const bonusCorrect = s.answers.slice(s.baseCount).filter(Boolean).length;
+      const more = h('button', {
+        class: 'btn', type: 'button',
+        onclick: async () => {
+          more.disabled = true;
+          more.textContent = 'Claude is writing questions…';
+          try {
+            const extra = await window.api.aiQuestions(k.id, 4);
+            s.bonusLoaded = true;
+            s.quiz.push(...extra);
+            showQuestion(card);
+          } catch (err) {
+            more.disabled = false;
+            more.textContent = 'More questions by Claude';
+            toast(errText(err));
+          }
+        },
+      }, 'More questions by Claude');
+      add(card, h('h2', {}, `${correct} / ${s.baseCount} correct`),
+        bonus ? h('p', {}, `Bonus questions by Claude: ${bonusCorrect} / ${bonus} (these don’t change your rating).`) : null,
+        h('p', { class: 'muted' }, correct === s.baseCount ? 'Perfect.' : 'Mistakes are part of it: the key facts of this topic are saved as review cards at the end.'),
+        h('div', { class: 'row' }, nextBtn('Next: puzzle'), aiReady && !s.bonusLoaded ? more : null));
       return;
     }
     const q = qs[s.qIndex];
@@ -191,7 +219,7 @@ export async function renderSession(el, params) {
         if (j === q.answer) b.classList.add('right');
         else if (j === i) b.classList.add('wrong');
       });
-      feedback.textContent = ok ? 'Correct.' : `Not quite: it's “${q.options[q.answer]}”.`;
+      feedback.textContent = (ok ? 'Correct.' : `Not quite: it's “${q.options[q.answer]}”.`) + (q.explain ? ` ${q.explain}` : '');
       feedback.className = `g-msg ${ok ? 'ok' : 'bad'}`;
       nextQ.hidden = false;
       nextQ.focus();
@@ -204,8 +232,10 @@ export async function renderSession(el, params) {
     quizKey = onKey;
     document.addEventListener('keydown', onKey);
     const [first, ...rest] = q.prompt.split('\n');
-    card.append(
-      h('div', { class: 'muted small' }, `Question ${s.qIndex + 1} of ${qs.length}${q.source ? ` · from ${q.source.name}` : ''}`),
+    add(card,
+      h('div', { class: 'muted small' }, s.qIndex >= s.baseCount
+        ? `Bonus question ${s.qIndex - s.baseCount + 1} of ${qs.length - s.baseCount} · written by Claude, may contain mistakes`
+        : `Question ${s.qIndex + 1} of ${s.baseCount}${q.source ? ` · from ${q.source.name}` : ''}`),
       h('h3', { style: { marginTop: '6px' } }, first),
       rest.length ? h('blockquote', {}, rest.join(' ')) : null,
       h('div', { class: 'options' }, buttons),
@@ -231,23 +261,42 @@ export async function renderSession(el, params) {
     const box = h('textarea', { placeholder: 'Explain it in 3–5 sentences, without looking. As if to a curious friend.', 'aria-label': 'Your explanation' });
     box.value = s.explanation;
     box.addEventListener('input', () => { s.explanation = box.value; });
-    const result = h('div', {});
-    const check = h('button', { class: 'btn primary', type: 'button', onclick: compare }, 'Compare with the summary');
+    const result = h('div', { 'aria-live': 'polite' });
+    const talk = h('div', {});
+    const buttons = aiReady
+      ? [h('button', { class: 'btn primary', type: 'button', onclick: () => grade(true) }, 'Grade with Claude'),
+        h('button', { class: 'btn', type: 'button', onclick: () => grade(false) }, 'Quick word check')]
+      : [h('button', { class: 'btn primary', type: 'button', onclick: () => grade(false) }, 'Compare with the summary')];
     body.append(h('div', { class: 'card hero' },
       h('h2', {}, 'Explain it back'),
       h('p', { class: 'muted' }, 'The summary is hidden. Writing it from memory is where most of the learning happens.'),
       box,
-      h('div', { class: 'row', style: { marginTop: '12px' } }, check, h('button', { class: 'btn', type: 'button', onclick: next }, 'Skip')),
-      result));
+      h('div', { class: 'row', style: { marginTop: '12px' } }, ...buttons,
+        aiReady ? h('button', { class: 'btn', type: 'button', onclick: () => socratic(talk) }, 'Talk it through (Socratic)') : null,
+        h('button', { class: 'btn', type: 'button', onclick: next }, 'Skip')),
+      result,
+      talk));
+    if (s.dialogue.length) socratic(talk);
 
-    async function compare() {
+    async function grade(useAi) {
       if (box.value.trim().split(/\s+/).length < 8) {
         toast('Write a little more first: a few full sentences.');
         return;
       }
+      buttons.forEach((b) => { b.disabled = true; });
+      fill(result, h('p', { class: 'muted', style: { marginTop: '12px' } }, useAi ? 'Claude is reading your explanation…' : 'Comparing…'));
       let r = null;
-      try { r = await window.api.sessionCompare(k.id, box.value); } catch { /* offline */ }
+      let aiNote = null;
+      if (useAi) {
+        try { r = await window.api.aiGrade(k.id, box.value); } catch (err) { aiNote = `Claude couldn’t grade this (${errText(err)}), so here is the word check.`; }
+      }
+      if (!r) {
+        try { r = await window.api.sessionCompare(k.id, box.value); } catch { /* offline */ }
+      }
+      buttons.forEach((b) => { b.disabled = false; });
+      if (destroyed || s.step !== 4) return;
       clear(result);
+      if (aiNote) result.append(h('p', { class: 'muted small', style: { marginTop: '12px' } }, aiNote));
       if (!r) {
         // No summary to compare with: rate yourself honestly.
         result.append(h('p', {}, 'No summary to compare with right now. How well do you think you explained it?'),
@@ -258,13 +307,77 @@ export async function renderSession(el, params) {
         return;
       }
       s.compare = r;
-      result.append(
+      const summaryAgain = h('details', { style: { marginTop: '10px' } }, h('summary', {}, 'Show the summary again'), h('p', {}, s.learn?.summary?.extract || ''));
+      if (r.ai) {
+        const chipList = (label, items, cls) => (items.length
+          ? h('div', { class: 'chips', style: { marginTop: '6px' } }, h('span', { class: 'muted small' }, label), items.map((w) => h('span', { class: `chip ${cls}` }, w)))
+          : null);
+        add(result,
+          h('h3', { style: { marginTop: '16px' } }, `Understanding: ${pct(r.score)}`),
+          r.verdict ? h('p', {}, r.verdict) : null,
+          chipList('You got: ', r.understood, 'ok'),
+          chipList('Left out: ', r.missing, ''),
+          r.misconceptions.length ? h('div', { style: { marginTop: '8px' } }, h('div', { class: 'muted small' }, 'Worth a second look:'),
+            h('ul', {}, r.misconceptions.map((m) => h('li', {}, m)))) : null,
+          r.nextStep ? h('p', { class: 'prediction', style: { marginTop: '10px' } }, h('span', { class: 'muted small' }, 'Think about next: '), r.nextStep) : null,
+          summaryAgain,
+          h('p', { class: 'muted small' }, 'Graded by Claude. It judges meaning rather than words, but it can be wrong: trust the summary over the grade.'),
+          nextBtn('Next: watch'));
+        return;
+      }
+      add(result,
         h('h3', { style: { marginTop: '16px' } }, `You covered ${pct(r.score)} of the key ideas`),
         r.matched.length ? h('div', { class: 'chips' }, h('span', { class: 'muted small' }, 'Mentioned: '), r.matched.map((w) => h('span', { class: 'chip ok' }, w))) : null,
         r.missed.length ? h('div', { class: 'chips', style: { marginTop: '6px' } }, h('span', { class: 'muted small' }, 'Not mentioned: '), r.missed.map((w) => h('span', { class: 'chip' }, w))) : null,
-        h('details', { style: { marginTop: '10px' } }, h('summary', {}, 'Show the summary again'), h('p', {}, s.learn?.summary?.extract || '')),
+        summaryAgain,
         h('p', { class: 'muted small' }, 'This is a simple word-overlap check, not a judge of understanding. Missing words can still be worth a second look.'),
         nextBtn('Next: watch'));
+    }
+  }
+
+  /** Socratic mode: Claude only asks questions (the main process also drops anything that isn't one). */
+  function socratic(holder) {
+    const log = h('div', { class: 'dialogue', 'aria-live': 'polite' });
+    const input = h('textarea', { placeholder: 'Your answer. Thinking out loud is fine; "I don’t know" is fine too.', 'aria-label': 'Your answer', rows: 3 });
+    const send = h('button', { class: 'btn primary', type: 'button', onclick: () => turn() }, 'Answer');
+    const draw = () => fill(log, s.dialogue.map((t) => h('div', { class: `bubble ${t.who}` },
+      h('span', { class: 'muted small' }, t.who === 'tutor' ? 'Tutor' : 'You'), h('p', {}, t.text))));
+    fill(holder, h('div', { style: { marginTop: '18px' } },
+      h('h3', {}, 'Socratic mode'),
+      h('p', { class: 'muted small' }, 'A tutor that only asks questions. It won’t tell you the answer: you reason your way there. Written by Claude.'),
+      log,
+      h('div', { class: 'row', style: { marginTop: '8px', alignItems: 'flex-end' } }, input, send)));
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) turn(); });
+    draw();
+    if (!s.dialogue.length) ask();
+    else input.focus();
+
+    async function ask() {
+      send.disabled = true;
+      log.append(h('p', { class: 'muted small thinking' }, 'Thinking of a question…'));
+      try {
+        const r = await window.api.aiSocratic(k.id, s.dialogue);
+        s.dialogue.push({ who: 'tutor', text: r.question });
+        if (r.done) s.dialogueDone = true;
+      } catch (err) {
+        toast(errText(err));
+      }
+      if (destroyed) return;
+      send.disabled = false;
+      draw();
+      input.focus();
+    }
+    function turn() {
+      const text = input.value.trim();
+      if (!text || send.disabled) return;
+      s.dialogue.push({ who: 'you', text });
+      input.value = '';
+      draw();
+      if (s.dialogueDone) {
+        log.append(h('p', { class: 'muted small' }, 'Nicely reasoned. Try writing your explanation above again now.'));
+        return;
+      }
+      ask();
     }
   }
 
@@ -294,8 +407,8 @@ export async function renderSession(el, params) {
     if (!s.finished) {
       try {
         s.finished = await window.api.sessionFinish(k.id, {
-          quizCorrect: s.answers.filter(Boolean).length,
-          quizTotal: s.quiz?.length || 0,
+          quizCorrect: s.answers.slice(0, s.baseCount).filter(Boolean).length,
+          quizTotal: s.baseCount,
           explainScore: s.compare?.score || 0,
           activeMs: s.activeMs,
           predicted: Boolean(s.prediction.trim()),
@@ -313,11 +426,47 @@ export async function renderSession(el, params) {
       h('h2', {}, 'Session complete'),
       h('p', {}, `${plural(f.cards.length, 'new review card')} saved.${knowledge ? ` Knowledge rating ${knowledge.after} (${knowledge.after - knowledge.before >= 0 ? '+' : ''}${knowledge.after - knowledge.before}).` : ''}`),
       f.cards.length ? h('ul', { class: 'cards-list' }, f.cards.map((c) => h('li', {}, h('strong', {}, c.front), h('div', { class: 'muted' }, c.back)))) : null,
-      h('p', { class: 'muted small' }, 'Spaced repetition (bringing these back right before you\'d forget them) arrives in Phase 5.'),
+      h('p', { class: 'muted small' }, 'They come back in Review right before you\'d forget them.'),
+      aiReady ? riddleBlock() : null,
       h('div', { class: 'row' },
         h('button', { class: 'btn primary', type: 'button', onclick: rabbit }, 'Rabbit hole: next topic →'),
         h('a', { class: 'btn', href: '#/keywords' }, 'All keywords'),
         h('a', { class: 'btn', href: '#/' }, 'Home')));
+  }
+
+  /** A riddle about a topic you might explore next (so the answer isn't the one you just learned). */
+  function riddleBlock() {
+    const box = h('div', { class: 'riddle', style: { marginTop: '14px' } });
+    const show = (r) => {
+      const answer = h('p', { hidden: true }, h('strong', {}, r.answer));
+      const hint = h('p', { class: 'muted', hidden: true }, `Hint: ${r.hint}`);
+      const explore = h('a', { class: 'btn small', href: `#/keyword/${r.id}`, hidden: true }, 'Explore it →');
+      fill(box, h('h3', {}, 'A riddle by Claude'),
+        h('p', { style: { whiteSpace: 'pre-line' } }, r.riddle), hint, answer,
+        h('div', { class: 'row' },
+          r.hint ? h('button', { class: 'btn small', type: 'button', onclick: () => { hint.hidden = false; } }, 'Hint') : null,
+          h('button', { class: 'btn small', type: 'button', onclick: () => { answer.hidden = false; explore.hidden = false; } }, 'Show the answer'),
+          explore));
+    };
+    const ask = h('button', {
+      class: 'btn', type: 'button',
+      onclick: async () => {
+        ask.disabled = true;
+        ask.textContent = 'Claude is thinking of a riddle…';
+        try {
+          const target = k.neighbours?.length ? k.neighbours[Math.floor(Math.random() * k.neighbours.length)].id : k.id;
+          s.riddle = { ...(await window.api.aiRiddle(target)), id: target };
+          show(s.riddle);
+        } catch (err) {
+          ask.disabled = false;
+          ask.textContent = 'A riddle about a related topic';
+          toast(errText(err));
+        }
+      },
+    }, 'A riddle about a related topic');
+    if (s.riddle) show(s.riddle);
+    else box.append(ask);
+    return box;
   }
 
   go(0);

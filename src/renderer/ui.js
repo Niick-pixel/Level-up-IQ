@@ -37,6 +37,12 @@ export function fill(el, ...kids) {
   return el;
 }
 
+/** Like el.append, but skips null / false children (native append would print "null"). */
+export function add(el, ...kids) {
+  el.append(...kids.flat(Infinity).filter((k) => k != null && k !== false));
+  return el;
+}
+
 export function toast(message, ms = 2400) {
   const t = h('div', { class: 'toast', role: 'status' }, message);
   document.body.append(t);

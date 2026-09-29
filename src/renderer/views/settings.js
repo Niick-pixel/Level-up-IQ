@@ -23,14 +23,16 @@ export async function renderSettings(el) {
     h('div', { class: `field ${cls}` }, h('div', {}, h('div', {}, label), hint ? h('div', { class: 'hint' }, hint) : null), h('div', {}, control));
 
   const updaterLine = h('span', { class: 'muted small' });
+  const restartBtn = h('button', { class: 'btn small primary', type: 'button', hidden: true, onclick: () => window.api.installUpdate() }, 'Restart to update');
   const showUpdater = (u) => {
+    restartBtn.hidden = u.status !== 'ready';
     updaterLine.textContent = {
       dev: 'Running from source: no updates.',
       idle: 'Checks GitHub Releases every few hours.',
       checking: 'Checking…',
       'up-to-date': 'You have the latest version.',
       downloading: `Downloading ${u.version} (${u.progress} %)…`,
-      ready: `Version ${u.version} will install when you quit.`,
+      ready: `Version ${u.version} is downloaded. It installs when you quit, or restart now.`,
       error: `Update check failed: ${u.error}`,
     }[u.status] || '';
   };
@@ -63,6 +65,9 @@ export async function renderSettings(el) {
     h('h2', { style: { marginTop: '22px' } }, 'API keys (optional)'),
     await keysSection(),
 
+    h('h2', { style: { marginTop: '22px' } }, 'Claude features (optional)'),
+    await aiSection(save),
+
     h('h2', { style: { marginTop: '22px' } }, 'YouTube channels'),
     await channelsSection(save),
 
@@ -87,7 +92,8 @@ export async function renderSettings(el) {
     h('div', { class: 'card' },
       field('Updates', updaterLine, h('div', { class: 'row' },
         toggle('autoUpdate'),
-        h('button', { class: 'btn small', type: 'button', onclick: () => window.api.checkForUpdates() }, 'Check now'))),
+        h('button', { class: 'btn small', type: 'button', onclick: () => window.api.checkForUpdates() }, 'Check now'),
+        restartBtn)),
       field('Reset stats', 'Deletes your history, personal bests and skill ratings. Can\'t be undone.',
         h('button', {
           class: 'btn small',
@@ -150,6 +156,7 @@ async function keysSection() {
   const help = {
     youtube: ['Lets the Watch step search all of YouTube for a keyword (100 searches a day are free; Mind Gym uses at most 20). Without it, suggestions come from your channels and the Internet Archive.', 'https://developers.google.com/youtube/v3/getting-started'],
     nasa: ['Only needed if the shared demo key runs out (50 requests a day per computer) in the space quiz.', 'https://api.nasa.gov/'],
+    anthropic: ['For the optional Claude features below. Billed to your own Anthropic account, pay per use.', 'https://platform.claude.com/'],
   };
   async function draw() {
     const st = await window.api.secretsStatus();
@@ -164,6 +171,7 @@ async function keysSection() {
           await window.api.setSecret(name, value);
           toast(value ? 'Key saved (encrypted).' : 'Key removed.');
           draw();
+          window.dispatchEvent(new Event('mg:keys-changed'));
         } catch (err) {
           toast(String(err.message || err).replace(/^Error invoking remote method '[^']+': (Error: )?/, ''));
         }
@@ -209,5 +217,38 @@ async function channelsSection(save) {
         } }, 'Add channel')));
   }
   await draw();
+  return box;
+}
+
+let redrawAi = () => {};
+window.addEventListener('mg:keys-changed', () => redrawAi());
+
+async function aiSection(save) {
+  const box = h('div', { class: 'card' });
+  async function draw() {
+    const st = await window.api.aiStatus();
+    const toggle = h('input', {
+      type: 'checkbox', class: 'switch', role: 'switch', checked: st.turnedOn, 'aria-label': 'Claude features',
+      onchange: async (e) => { await save({ aiEnabled: e.target.checked }); draw(); },
+    });
+    const line = !st.turnedOn ? 'Off. Everything in Mind Gym works without it.'
+      : !st.keySet ? 'On, but no key yet: add your Anthropic API key above.'
+        : !st.enabled ? 'On, but offline mode is on.'
+          : `Ready · ${st.requestsToday} of ${st.dailyLimit} requests today${st.lastError ? ` · last error: ${st.lastError}` : ''}`;
+    fill(box,
+      h('div', { class: 'field' },
+        h('div', {}, h('div', {}, 'Use Claude'), h('div', { class: 'hint' }, line)),
+        h('div', {}, toggle)),
+      h('ul', { class: 'muted small', style: { margin: '6px 0 0', paddingLeft: '18px' } },
+        h('li', {}, 'Explain it back: Claude grades your explanation for understanding, not just matching words.'),
+        h('li', {}, 'Socratic mode: talk a topic through with a tutor that only asks questions and never gives the answer.'),
+        h('li', {}, 'Riddles and extra quiz questions written for any keyword, based on its Wikipedia summary.')),
+      h('p', { class: 'muted small', style: { marginTop: '8px' } },
+        'Privacy: only when you use one of these, Mind Gym sends the topic, its Wikipedia summary and what you wrote for that exercise to Anthropic (api.anthropic.com), with your key. Nothing else from your data, and nothing in the background. Anthropic\'s ',
+        h('a', { href: '#', onclick: (e) => { e.preventDefault(); window.api.openExternal('https://www.anthropic.com/legal/privacy'); } }, 'privacy policy'),
+        ' applies to what you send. Claude can make mistakes; its questions are marked.'));
+  }
+  await draw();
+  redrawAi = () => box.isConnected && draw();
   return box;
 }

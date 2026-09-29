@@ -39,6 +39,9 @@ const DEFAULTS = {
   restDaysPerWeek: 1, // days off that don't break a streak (rolling 7 days)
   playlists: [], // your own game lists: [{ id, name, games: [gameId] }]
 
+  // Claude features (Phase 6): off by default, and they also need your own API key
+  aiEnabled: false,
+
   autoUpdate: true,
   windowBounds: null, // { x, y, width, height }
 };

@@ -20,6 +20,7 @@ const { Knowledge } = require('./knowledge');
 const { Secrets } = require('./secrets');
 const { Media } = require('./media');
 const { Srs } = require('./srs');
+const { Ai } = require('./ai');
 const { localDateKey } = require('../shared/rng.js');
 
 const ASSETS = path.join(__dirname, '..', '..', 'assets');
@@ -246,6 +247,14 @@ app.whenReady().then(() => {
   const knowledge = new Knowledge({ bank, providers, cache, dir, getSettings: () => store.get() });
   const media = new Media(dir, { providers, bank, learning, getSettings: () => store.get() });
   const srs = new Srs(dir, { learning, getSettings: () => store.get(), dateKey });
+  // Optional Claude features: off unless turned on in Settings with your own key.
+  const ai = new Ai({
+    fetch: (url, opts) => netSession.fetch(url, opts),
+    getSecret: (name) => secrets.get(name),
+    getSettings: () => store.get(),
+    isOnline: () => net.isOnline(),
+    dateKey,
+  });
 
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
   session.defaultSession.webRequest.onBeforeRequest((details, cb) => {
@@ -258,7 +267,7 @@ app.whenReady().then(() => {
   updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
 
   registerIpc({
-    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, srs, guard: {
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, srs, ai, guard: {
       setFullscreen: (on) => guard?.setFullscreen(on),
       toggleMaximize: () => guard?.toggleMaximize(),
     },

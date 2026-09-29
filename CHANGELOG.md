@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.0.0: Phase 6 (optional Claude, polish)
+
+**Added**
+- **Optional Claude features**, off by default. They need *Settings → Claude features* turned on and your own Anthropic API key, which is encrypted with safeStorage like the other keys. They use the official Anthropic SDK and the model `claude-opus-5-5` with structured JSON output. If Claude declines a request, Anthropic's server-side fallback retries it on another model.
+  - **Grade with Claude** in explain-it-back: an understanding score, what you got, what you left out, misconceptions with corrections, and a question to think about next. The local word check stays as a button and as the automatic fallback.
+  - **Socratic mode:** a tutor that only asks questions. The prompt forbids answers, and the main process also removes every sentence that isn't a question before you see it. The dialogue is capped at 8 exchanges.
+  - **More questions by Claude** after the quiz. They're written from the topic's Wikipedia summary, validated (four distinct options, one answer), labelled, and they don't count toward ratings.
+  - **A riddle about a related topic** at the end of a session. A riddle that names its own answer is rejected. After the answer is revealed, "Explore it" opens that topic.
+- **Privacy and safety for the Claude features:**
+  - They send only the topic, its summary and the text you wrote, and only when you press a Claude button. Settings says exactly what is sent.
+  - Requests are checked against `api.anthropic.com` before they leave, and go through the main process's network session.
+  - Wikipedia text and your answers are passed as tagged data, and the prompts tell Claude to ignore instructions inside them.
+  - There's a cap of 60 requests a day. Errors (bad key, rate limit, offline) are shown in plain words.
+- **Updates:** a *Restart to update* button in Settings and a quiet banner on Home when a downloaded update is waiting. It still installs on quit without asking.
+- 135 tests (9 new) for the Claude module:
+  - Off by default, needs a key, respects offline.
+  - Request shape: model, structured output, fallback.
+  - Only the one host.
+  - Socratic mode lets no statements through.
+  - Output validation, the daily cap, error mapping.
+  - Key storage.
+
+**Fixed**
+- "null" was printed in the keyword quiz under single-line questions, and in the offline Learn and Explain steps. A new `add()` helper in `ui.js` skips empty children.
+- Removed leftover "arrives in Phase 4/5" text from the session and the README.
+
+**Not in this phase**
+- Claude features only live in keyword sessions. The standalone deep-thinking games (explain-back, steelman, first principles) keep their self-check lists; wiring the grader into them is a small follow-up.
+- No live call to the Anthropic API was made from this sandbox (it can't reach api.anthropic.com, and has no keyring for safeStorage). The request path is covered by a test that drives the real SDK through a fake fetch, and the UI was checked with a stubbed SDK.
+- Spanish word games are still later, as agreed.
+
 ## 0.5.0: Phase 5 (adaptivity)
 
 **Added**

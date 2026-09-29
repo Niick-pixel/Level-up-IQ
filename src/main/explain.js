@@ -3,7 +3,8 @@
 //   1. topics in the keyword bank that the summary mentions ("information theory")
 //   2. names of people and places ("Clausius")
 //   3. the summary's most frequent content words
-// and you see exactly which ones you hit and missed. (With a Claude key, Phase 6 adds a real grader.)
+// and you see exactly which ones you hit and missed. With Claude turned on (optional, your own key),
+// src/main/ai.js grades for meaning instead, and this stays the offline fallback.
 
 const STOP = new Set(`a about above according across after again against all almost also although always am among an and
 another any are around as at be became because become been before being below between both but by can could did do does

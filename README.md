@@ -4,9 +4,9 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Status: Phase 5 of 6.** 83 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, streaks, the curiosity map and full stats work. Optional AI features and v1.0 polish are next. The full plan is in [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Version 1.0.** 83 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
-## Features (so far)
+## Features
 
 - **83 game types, seeded, and all but three playable fully offline** (the picture quizzes need the internet the first time).
   - **Logic:** logic grids (zebra, unique solution guaranteed), knights and knaves, Mastermind, Tower of Hanoi, syllogisms, spot the fallacy (46 fallacies), and **24 puzzles from Simon Tatham's Portable Puzzle Collection** (Solo, Keen, Towers, Unequal, Pattern, Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines, Pearl, Tracks, Unruly, Map, Mosaic).
@@ -37,8 +37,8 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
   2. **Learn** from the Wikipedia summary, its lead image, and key facts from Wikidata.
   3. **Quiz:** 5–8 questions, some built from the summary and facts, some bonus trivia.
   4. **Puzzle tie-in:** a short related game.
-  5. **Explain it back** from memory. It's checked against the summary's key ideas, and you see what you covered and missed.
-  6. **Watch** (videos arrive in Phase 4).
+  5. **Explain it back** from memory. It's checked against the summary's key ideas, and you see what you covered and missed (or, with Claude on, graded for understanding). You can also talk it through in **Socratic mode**.
+  6. **Watch:** matching videos from your channels and the Internet Archive.
   7. **Remember:** key facts become review cards.
 
   Offline, the session still works from the keyword bank alone.
@@ -46,13 +46,23 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
 - **Watch and learn.** The latest videos from 36 curated channels (Veritasium, Kurzgesagt, 3Blue1Brown, PBS Space Time and more; switch any off or add your own), public-domain documentaries from the Internet Archive, and, with your own optional key, YouTube search.
   - Each keyword session suggests matching videos. Add them to your watch-later list; videos always open in your browser.
   - When you've watched one: three recall questions (the main idea, one fact, and which topic it was about). Your answers become a review card and an entry in **Things I've learned**.
-- **Optional API keys** (YouTube Data API, NASA) are encrypted with Windows' own protection (DPAPI through Electron `safeStorage`) and never written to settings or shown again.
+- **Optional Claude features** (off by default, with your own Anthropic API key). See [Optional: Claude](#optional-claude).
+- **Optional API keys** (YouTube Data API, NASA, Anthropic) are encrypted with Windows' own protection (DPAPI through Electron `safeStorage`) and never written to settings or shown again.
 - **On this day and the daily chess puzzle** on the home screen, when online.
-- **Daily Mix.** A short guided set: warm-up, math, memory and words, then the keyword of the day and an explain-it-back prompt.
 - **Stats that stay on your computer.** Minutes per day (7/30/90 days), streaks, most played, personal bests, the skill radar now vs 30 days ago with each skill's trend, keywords explored over time, reviews due in the next 14 days, recall rate, videos watched, and "thinking without AI" time. Every chart has a table view and keyboard-focusable values. Export everything (cards, reviews and watch list included) to JSON or CSV.
 - **Four themes:** Night, Dusk, Forest and Sand, the same as Focus Point, with contrast checked by the tests.
 - **Keyboard first.** Ctrl+K searches, Esc pauses, and every game plays without a mouse.
 - **Private and offline-first.** No accounts, no telemetry. Online sources only enrich: each one can be turned off, there's a full offline mode, and everything fetched is cached so it still works without a connection.
+
+## Optional: Claude
+
+Mind Gym is about thinking without AI, so AI is strictly opt-in and never does the thinking for you. Turn on *Settings → Claude features* and paste your own [Anthropic API key](https://platform.claude.com/) (it's encrypted like the other keys; usage is billed to your Anthropic account). Then, in keyword sessions:
+
+- **Grade with Claude.** Your explain-it-back answer is graded for meaning instead of word overlap: a score, what you got, what you left out, anything that's wrong, and one question to think about next. The offline word check stays one click away and takes over if Claude can't be reached.
+- **Socratic mode.** A tutor that only asks questions. It's told never to give answers, and the app also drops any sentence in its reply that isn't a question, so it can't hand you one.
+- **More questions by Claude** after the quiz, and **a riddle** about a related topic at the end. They're written from the topic's Wikipedia summary, checked (four distinct options, one answer, a riddle mustn't name its answer), labelled "written by Claude", and don't affect your ratings.
+
+What is sent, and only when you press one of those buttons: the topic, its Wikipedia summary and the text you wrote for that exercise. Nothing else, and nothing in the background. Requests go from the main process to `api.anthropic.com` only, and are capped at 60 a day. The model is Claude Opus 5.5 (`claude-opus-5-5`, chosen from Anthropic's docs in September 2026) with structured JSON output. If Claude declines a request, Anthropic's server-side fallback retries it on another model. Without a key, or offline, everything else works exactly the same.
 
 ## Plays well with Focus Point
 
@@ -79,6 +89,7 @@ Focus Point holds its breaks while a fullscreen game or video is in front. Mind 
 | [iNaturalist](https://www.inaturalist.org/) | Species quiz | Per photo: CC0, CC BY or CC BY-NC only, author credited | ≤ 1 request/s, lists cached 30 days |
 | [NASA APOD](https://apod.nasa.gov/) | Space quiz | Per image, credit shown | DEMO_KEY (or yours); batches cached a year; switches to the new endpoint on 2026-12-01 |
 | [Lichess](https://lichess.org/) | Daily puzzle; offline puzzle pack from the CC0 database | CC0 | One request at a time, 1 min pause after a 429 |
+| [Anthropic API](https://www.anthropic.com/) (your key, optional, off by default) | Claude grading, Socratic mode, riddles and questions | [Anthropic's terms](https://www.anthropic.com/legal) apply to what you send | Only when you press a Claude button; at most 60 requests a day |
 
 All requests happen in the main process, only to these hosts, and are cached on disk. The pages themselves can't reach the network. The *Verify online sources* workflow checks every endpoint weekly from GitHub Actions.
 
@@ -88,7 +99,7 @@ REST Countries was planned, but its free API was switched off in September 2026.
 
 ## Install (Windows)
 
-Download the latest **`MindGym-Setup-x.y.z.exe`** from the [Releases page](https://github.com/Niick-pixel/Level-up-IQ/releases/latest) and run it. After that, the app keeps itself up to date.
+Download the latest **`MindGym-Setup-x.y.z.exe`** from the [Releases page](https://github.com/Niick-pixel/Level-up-IQ/releases/latest) and run it. After that, the app keeps itself up to date: it checks GitHub Releases every few hours, downloads new versions in the background and installs them when you quit (or right away from the *Restart to update* button on Home or in Settings). You can turn this off in Settings.
 
 > Windows SmartScreen may warn you because the app isn't code-signed. Click *More info → Run anyway*.
 
@@ -137,7 +148,8 @@ Then run `npm run keywords:build`. The build fails on duplicate ids, duplicate W
 | Training history (`stats.json` + `history.jsonl`) | `src/main/stats.js` |
 | Per-skill ratings and difficulty picking | `src/main/rating.js` |
 | Keyword bank: fuzzy search, random modes, keyword of the day | `src/main/keywords.js`, `scripts/build-keywords.js` |
-| Online sources: provider base, rate limiter, Wikipedia, Wikidata, Open Trivia DB, Lichess | `src/main/providers/` |
+| Online sources: provider base, rate limiter, and one file per source | `src/main/providers/` |
+| Optional Claude features: grading, Socratic mode, riddles and questions (Anthropic SDK) | `src/main/ai.js` |
 | Disk cache (JSON and images, TTL, stale-if-offline, size cap) | `src/main/cache.js` |
 | Keyword sessions, quiz builder, explain-it-back check | `src/main/session.js`, `src/main/quiz.js`, `src/main/explain.js` |
 | Your keywords, review cards, session log | `src/main/learning.js` |

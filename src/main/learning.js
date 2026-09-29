@@ -71,7 +71,7 @@ class Learning {
         back: String(c.back).slice(0, 1000),
         source: c.source || null,
         createdAt: this.now(),
-        fsrs: null, // scheduled in Phase 5
+        fsrs: null, // scheduled by srs.js on its first review
       };
       this.cards.push(card);
       added.push(card);

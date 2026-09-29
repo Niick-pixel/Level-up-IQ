@@ -1,7 +1,7 @@
 {
   "name": "mind-gym",
   "productName": "Mind Gym",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Brain training and curiosity: puzzles, games, a searchable keyword bank, and anti-AI-dependence exercises. Offline-first, private, no telemetry.",
   "main": "src/main/main.js",
   "author": "Nicolas",
@@ -52,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.129.0",
     "chess.js": "^1.4.0",
     "electron-updater": "^6.8.9",
     "fast-xml-parser": "^5.11.1",

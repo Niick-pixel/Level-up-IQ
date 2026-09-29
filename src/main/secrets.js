@@ -1,4 +1,4 @@
-// Optional API keys (YouTube Data API, NASA), encrypted with Electron's safeStorage (DPAPI on
+// Optional API keys (YouTube Data API, NASA, Anthropic), encrypted with Electron's safeStorage (DPAPI on
 // Windows) in <userData>/secrets.bin. Never written to settings.json, never sent to the page:
 // the UI only learns whether a key is set.
 const fs = require('fs');
@@ -7,6 +7,7 @@ const path = require('path');
 const NAMES = {
   youtube: { label: 'YouTube Data API key', test: /^[A-Za-z0-9_-]{30,60}$/ },
   nasa: { label: 'NASA API key', test: /^[A-Za-z0-9]{20,60}$/ },
+  anthropic: { label: 'Anthropic API key (Claude)', test: /^sk-ant-[A-Za-z0-9_-]{20,200}$/ },
 };
 
 class Secrets {

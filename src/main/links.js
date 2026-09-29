@@ -21,6 +21,8 @@ const LINK_HOSTS = [
   'chiark.greenend.org.uk',
   'developers.google.com',
   'console.cloud.google.com',
+  'anthropic.com', // www.anthropic.com (privacy, terms)
+  'claude.com', // platform.claude.com (API keys, docs)
   'creativecommons.org',
   'opensource.org',
   'gnu.org',

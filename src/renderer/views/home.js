@@ -16,7 +16,7 @@ const FEATURE_POOLS = [
 ];
 
 export async function renderHome(el) {
-  const [kotd, summary, count, cards, watch, streak, srs, settings] = await Promise.all([
+  const [kotd, summary, count, cards, watch, streak, srs, settings, update] = await Promise.all([
     window.api.keywordOfTheDay(),
     window.api.statsSummary(),
     window.api.keywordCount(),
@@ -25,6 +25,7 @@ export async function renderHome(el) {
     window.api.streak(),
     window.api.srsStats(),
     window.api.getSettings(),
+    window.api.updaterState().catch(() => null),
   ]);
   const dueToday = srs.dueNow + srs.newAvailable;
   const toWatch = watch.filter((v) => !v.watchedAt).length;
@@ -63,6 +64,7 @@ export async function renderHome(el) {
   }).catch(() => {});
 
   el.append(h('div', { class: 'page' },
+    update?.status === 'ready' ? updateBanner(update) : null,
     h('div', { class: 'page-head' },
       h('div', {},
         h('h1', {}, greeting),
@@ -118,4 +120,11 @@ export async function renderHome(el) {
 function featured() {
   const rng = makeRng(`home:${localDateKey()}`);
   return FEATURE_POOLS.map((pool) => byId(rng.pick(pool))).filter(Boolean);
+}
+
+/** A quiet note when a downloaded update is waiting (no pop-ups: it also installs when you quit). */
+function updateBanner(u) {
+  return h('div', { class: 'update-banner', role: 'status' },
+    h('span', {}, `Mind Gym ${u.version} is ready. It installs when you quit, or now.`),
+    h('button', { class: 'btn small primary', type: 'button', onclick: () => window.api.installUpdate() }, 'Restart to update'));
 }
