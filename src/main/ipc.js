@@ -6,6 +6,7 @@ const { isAllowedLink } = require('./links');
 const { CHANNELS } = require('./channels');
 const { curiosityMap } = require('./curiosity');
 const { makeRng } = require('../shared/rng.js');
+const { applyMode } = require('../shared/difficulty.js');
 const str = (v, max = 200) => (typeof v === 'string' ? v.slice(0, max) : '');
 const ID = /^[a-z0-9-]{1,80}$/;
 
@@ -14,8 +15,8 @@ const ID = /^[a-z0-9-]{1,80}$/;
  * @param {Electron.IpcMain} deps.ipcMain
  */
 function registerIpc({
-  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media, srs, ai,
-  onSettingsChanged, cache, providers, learning, sessions,
+  ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, getWindow, guard, engines, knowledge, secrets, media, srs, ai, reminders,
+  onSettingsChanged, onActivity = () => {}, testReminder = () => {}, cache, providers, learning, sessions,
 }) {
   const handle = (channel, fn) => ipcMain.handle(channel, (_e, ...args) => fn(...args));
 
@@ -84,14 +85,14 @@ function registerIpc({
   handle('session:quiz', (id, seed) => sessions.quiz(kid(id), str(seed, 40) || undefined));
   handle('session:puzzle', (id) => sessions.puzzleFor(kid(id)));
   handle('session:compare', (id, text) => sessions.compare(kid(id), str(text, 5000)));
-  handle('session:finish', (id, r = {}) => sessions.finish(kid(id), {
+  handle('session:finish', (id, r = {}) => onActivity(sessions.finish(kid(id), {
     quizCorrect: Math.max(0, Math.min(20, Number(r.quizCorrect) || 0)),
     quizTotal: Math.max(0, Math.min(20, Number(r.quizTotal) || 0)),
     explainScore: Math.max(0, Math.min(1, Number(r.explainScore) || 0)),
     activeMs: Math.max(0, Math.min(3 * 3600 * 1000, Number(r.activeMs) || 0)),
     predicted: Boolean(r.predicted),
     explained: Boolean(r.explained),
-  }));
+  })));
   handle('home:extras', () => sessions.homeExtras(dateKey()));
   handle('cards:count', () => learning.cardCount());
   handle('cards:recent', () => learning.recentCards(50));
@@ -151,10 +152,25 @@ function registerIpc({
   handle('ai:riddle', async (id) => ai.riddle(await aiTopic(id)));
   handle('ai:questions', async (id, count) => ai.questions({ ...(await aiTopic(id)), count: num(count, 1, 6, 4) }));
 
+  // --- reminders and check-ins
+  handle('app:changelog', () => {
+    try { return fs.readFileSync(require('path').join(app.getAppPath(), 'CHANGELOG.md'), 'utf8').slice(0, 200000); } catch { return ''; }
+  });
+  handle('reminders:status', () => reminders.status());
+  handle('reminders:snooze', (time) => reminders.snooze(str(time, 5)));
+  handle('reminders:test', () => testReminder());
+  handle('checkin:context', () => {
+    const now = Date.now();
+    const s = store.get();
+    const recent = stats.history().filter((x) => x.at >= now - 7 * 24 * 3600 * 1000).map((x) => ({ gameId: x.gameId, at: x.at }));
+    return { now, recent, ratings: ratings.all(), reviewsDue: srs.stats().dueNow, hasCards: learning.cardCount() > 0, offline: s.offlineMode, minutes: s.checkinMinutes, status: reminders.status() };
+  });
+
   handle('srs:queue', (limit) => srs.queue(num(limit, 1, 200, 50)));
   handle('srs:review', (id, grade, elapsedMs) => {
     const r = srs.review(cardId(id), num(grade, 1, 4, 3), num(elapsedMs, 0, 3600000, 0));
     stats.recordReview(Number(elapsedMs) || 0);
+    onActivity();
     return r;
   });
   handle('srs:stats', () => srs.stats());
@@ -195,13 +211,18 @@ function registerIpc({
   });
 
   // --- games, stats, ratings
-  handle('rating:suggest', (skills) => ratings.suggest(Array.isArray(skills) ? skills : [], store.get().difficultyBias));
+  handle('rating:suggest', (skills, range) => {
+    const s = store.get();
+    const r = Array.isArray(range) && range.length === 2 ? [num(range[0], 1, 10, 1), num(range[1], 1, 10, 10)] : [1, 10];
+    return applyMode(ratings.suggest(Array.isArray(skills) ? skills : [], s.difficultyBias), s.difficultyMode, r);
+  });
   handle('rating:all', () => ratings.all());
   handle('stats:record', (result, meta) => {
     if (validateMeta(meta).length) throw new Error('Invalid game meta');
     const r = normalizeResult(result || {}, meta);
     const { newBest } = stats.record(r);
     const changes = ratings.record(r);
+    onActivity();
     return { result: r, newBest, changes };
   });
   handle('stats:summary', () => ({ ...stats.summary(), ratings: ratings.all() }));

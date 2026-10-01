@@ -1,4 +1,4 @@
-import { h, clear, fill } from './ui.js';
+import { h, clear, fill, toast } from './ui.js';
 import { state } from './state.js';
 import { searchGames } from './games/registry.js';
 import { renderHome } from './views/home.js';
@@ -14,6 +14,9 @@ import { renderReview, renderCards } from './views/review.js';
 import { renderMap } from './views/map.js';
 import { renderSkill, renderMarathon, renderPlaylists, renderPlaylist } from './views/modes.js';
 import { renderWatch, renderRecall, renderLearned } from './views/watch.js';
+import { renderCheckin } from './views/checkin.js';
+import { renderWhatsNew } from './views/whats-new.js';
+import { playSound } from './sounds.js';
 
 const view = document.getElementById('view');
 
@@ -38,7 +41,12 @@ const ROUTES = [
   [/^\/watch$/, 'watch', renderWatch],
   [/^\/watch\/recall\/([^/]+)$/, 'watch', renderRecall],
   [/^\/learned$/, 'learned', renderLearned],
+  [/^\/checkin$/, 'home', renderCheckin],
+  [/^\/whats-new$/, 'settings', renderWhatsNew],
 ];
+
+// Routes where you're already training: a reminder doesn't pull you out of them.
+const TRAINING = /^\/(play|keyword|mix|skill|marathon|playlist|review|checkin)(\/|$)/;
 
 let cleanup = null;
 let renderId = 0;
@@ -154,6 +162,19 @@ async function main() {
     applyTheme(s.theme);
   });
   window.api.onNavigate((hash) => { location.hash = hash; });
+  // A reminder: play Mind Gym's sound; in mandatory mode open the check-in (unless you're
+  // already training, which counts anyway).
+  window.api.onReminder((r) => {
+    playSound(r.sound, r.volume);
+    const path = (location.hash.slice(1) || '/').split('?')[0];
+    if (TRAINING.test(path)) {
+      toast(`It’s ${r.time}: check-in time. What you’re doing now counts.`, 5000);
+    } else if (r.mandatory || r.open) {
+      location.hash = '#/checkin';
+    } else {
+      toast(`It’s ${r.time}: time for a ${r.minutes}-minute check-in.`, 6000);
+    }
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'F11') {
       e.preventDefault();

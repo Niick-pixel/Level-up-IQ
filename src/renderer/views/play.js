@@ -4,6 +4,7 @@ import { byId } from '../games/registry.js';
 import { makeRng, randomSeed, formatSeedCode } from '../../shared/rng.js';
 import { SKILL_LABELS } from '../../shared/game-contract.js';
 import { state } from '../state.js';
+import { levelName, applyMode, MODE_LABELS } from '../../shared/difficulty.js';
 
 /**
  * @param {HTMLElement} el
@@ -18,7 +19,7 @@ export async function mountGame(el, opts) {
     return () => {};
   }
   const { meta } = entry;
-  let difficulty = opts.difficulty || await window.api.suggestDifficulty(meta.skills);
+  let difficulty = opts.difficulty || await window.api.suggestDifficulty(meta.skills, meta.difficultyRange);
   let seed = opts.seed || randomSeed();
   let instance = null;
   let pausedByBlur = false;
@@ -45,9 +46,17 @@ export async function mountGame(el, opts) {
     phase = 'intro';
     pauseBtn.hidden = true;
     const out = h('output', {}, String(difficulty));
+    const name = h('span', { class: 'level-name' });
+    const bands = ['easy', 'medium', 'hard', 'expert'];
+    const presets = bands.map((mode) => h('button', {
+      class: 'chip', type: 'button', 'aria-pressed': 'false',
+      onclick: () => set(applyMode(mode === 'easy' ? 2 : mode === 'medium' ? 5 : mode === 'hard' ? 7 : 9, mode, meta.difficultyRange)),
+    }, MODE_LABELS[mode]));
     const set = (d) => {
       difficulty = Math.min(meta.difficultyRange[1], Math.max(meta.difficultyRange[0], d));
       out.textContent = String(difficulty);
+      name.textContent = levelName(difficulty);
+      presets.forEach((b, i) => b.setAttribute('aria-pressed', String(levelName(difficulty) === MODE_LABELS[bands[i]])));
       updateSeed();
     };
     const startBtn = h('button', { class: 'btn primary', type: 'button', onclick: play }, 'Start (Enter)');
@@ -59,9 +68,12 @@ export async function mountGame(el, opts) {
         h('span', { class: 'stepper' },
           h('button', { class: 'btn small', type: 'button', 'aria-label': 'Easier', onclick: () => set(difficulty - 1) }, '−'),
           out,
-          h('button', { class: 'btn small', type: 'button', 'aria-label': 'Harder', onclick: () => set(difficulty + 1) }, '+'))),
+          h('button', { class: 'btn small', type: 'button', 'aria-label': 'Harder', onclick: () => set(difficulty + 1) }, '+')),
+        name),
+      h('div', { class: 'chips level-presets', role: 'group', 'aria-label': 'Difficulty' }, presets),
       startBtn));
     fill(stage, overlay);
+    set(difficulty);
     startBtn.focus();
   }
 

@@ -343,3 +343,52 @@ g.wrong .wm-land, g.wrong .wm-dot { fill: var(--cb-vermillion); }
 .quiz-pic { margin: 8px 0 4px; text-align: center; }
 .quiz-pic img { max-width: 100%; max-height: 46vh; border-radius: 10px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35); background: var(--surface-2); }
 .quiz-pic figcaption { margin-top: 6px; }
+
+/* ---- 1.1 games ---- */
+/* Task switching */
+.ts-wrap { display: grid; justify-items: center; gap: 10px; }
+.ts-cue { font-size: 18px; color: var(--muted); letter-spacing: 0.02em; }
+.ts-digit { font: 700 72px/1 ui-monospace, 'Cascadia Mono', Consolas, monospace; width: 120px; height: 120px; display: grid; place-items: center; border-radius: 16px; border: 3px solid var(--line); }
+.ts-wrap.parity .ts-digit { border-color: var(--chart-1); }
+.ts-wrap.magnitude .ts-digit { border-color: var(--chart-2); border-style: dashed; }
+/* More dots */
+.dots-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; height: 100%; padding: 14px; box-sizing: border-box; }
+.dots-panel { width: 100%; height: 100%; border-radius: 10px; background: var(--surface-2); }
+.dots-panel circle { fill: var(--text); }
+.dots-pair.masked .dots-panel circle { visibility: hidden; }
+/* Trail making */
+.trail-field { position: relative; width: min(760px, 92vw); aspect-ratio: 100 / 64; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
+.trail-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.trail-lines line { stroke: var(--accent); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.trail-node { position: absolute; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--line); background: var(--bg, var(--surface-2)); color: var(--text); font-weight: 600; cursor: pointer; }
+.trail-node:hover, .trail-node:focus-visible { border-color: var(--accent); }
+.trail-node.found { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.trail-node.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 25%, transparent); }
+/* Simon */
+.simon-board { display: grid; gap: 12px; margin-top: 10px; }
+.simon-board.n4 { grid-template-columns: repeat(2, 110px); }
+.simon-board.n6 { grid-template-columns: repeat(3, 100px); }
+.simon-board.n9 { grid-template-columns: repeat(3, 92px); }
+.simon-pad { aspect-ratio: 1; border-radius: 18px; border: 2px solid transparent; cursor: pointer; opacity: 0.45; transition: opacity 0.08s, transform 0.08s; color: #fff; font-weight: 700; font-size: 18px; }
+.simon-pad span { opacity: 0.8; }
+.simon-pad.lit { opacity: 1; transform: scale(1.05); box-shadow: 0 0 24px currentColor; }
+.simon-pad.wrong { border-color: var(--bad); }
+.simon-board.watching .simon-pad { cursor: default; }
+.simon-pad.p0 { background: #2f8f5b; } .simon-pad.p1 { background: #c0392b; } .simon-pad.p2 { background: #c9a227; }
+.simon-pad.p3 { background: #2c6fbb; } .simon-pad.p4 { background: #8e44ad; } .simon-pad.p5 { background: #d35400; }
+.simon-pad.p6 { background: #16a085; } .simon-pad.p7 { background: #7f8c8d; } .simon-pad.p8 { background: #b03a74; }
+/* Set */
+.set-grid { display: grid; grid-template-columns: repeat(4, 150px); gap: 10px; }
+.set-grid.n9 { grid-template-columns: repeat(3, 150px); }
+.set-card { position: relative; height: 96px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
+.set-card.picked { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+.set-card.empty { visibility: hidden; }
+.set-key { position: absolute; top: 4px; left: 8px; font-size: 11px; color: var(--muted); }
+.set-sym { width: 56px; height: 22px; overflow: visible; }
+.set-sym path { stroke: currentColor; stroke-width: 1.8; }
+.set-sym.c0 { color: var(--chart-1); } .set-sym.c1 { color: var(--chart-2); } .set-sym.c2 { color: var(--text); }
+.set-sym.f0 path { fill: currentColor; }
+.set-sym.f1 path { fill: currentColor; fill-opacity: 0.3; }
+.set-sym.f2 path { fill: none; }
+/* Remote associates */
+.riddle.rat { font-size: 26px; letter-spacing: 0.02em; }

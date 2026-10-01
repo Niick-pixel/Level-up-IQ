@@ -3,6 +3,9 @@ const path = require('path');
 const { readJson, writeJson } = require('./json-file');
 
 const THEMES = ['night', 'dusk', 'forest', 'sand'];
+const SOUNDS = ['chime', 'bell', 'marimba', 'soft', 'none'];
+const DIFFICULTY_MODES = ['adaptive', 'easy', 'medium', 'hard', 'expert'];
+const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
 
 const DEFAULTS = {
   theme: 'night',
@@ -15,9 +18,29 @@ const DEFAULTS = {
 
   // Things Focus Point already does are off by default here.
   trayIcon: false,
-  dailyReminder: false,
-  dailyReminderTime: '19:00',
+  dailyReminder: false, // reminders on/off (several times a day since 1.1)
+  dailyReminderTime: '19:00', // kept for older settings files; reminderTimes replaces it
   launchAtLogin: false,
+
+  // Reminders and check-ins (1.1)
+  reminderTimes: ['19:00'], // up to 6 a day, "HH:MM"
+  reminderDays: [0, 1, 2, 3, 4, 5, 6], // 0 = Sunday
+  reminderSound: 'chime', // chime | bell | marimba | soft | none
+  reminderVolume: 0.7,
+  checkinMinutes: 5, // a check-in is done after this much training
+  checkinMandatory: false, // bring the window forward and keep reminding until it's done
+  snoozeMinutes: 10, // mandatory mode reminds again this often
+  maxSnoozes: 2, // snoozes allowed per check-in in mandatory mode
+  quietStart: '22:30', // no reminders between these (empty = no quiet hours)
+  quietEnd: '07:00',
+  dailyGoalMinutes: 10, // shown on the taskbar button and in the tray
+  taskbarProgress: true,
+  gameSounds: true, // tones in games like Simon
+
+  // Difficulty (1.1): 'adaptive' follows your ratings; the others keep levels in a band
+  difficultyMode: 'adaptive', // adaptive | easy | medium | hard | expert
+
+  lastSeenVersion: '', // for "What's new" after an update
 
   // Focus Point coexistence
   safeMaximize: true, // keep Focus Point breaks working when maximized without a visible taskbar
@@ -56,7 +79,22 @@ function sanitize(partial) {
       case 'difficultyBias': out[k] = clampInt(v, -2, 2); break;
       case 'thinkingTimerSec': out[k] = clampInt(v, 0, 300); break;
       case 'wordLanguage': if (v === 'en') out[k] = v; break;
-      case 'dailyReminderTime': if (/^([01]\d|2[0-3]):[0-5]\d$/.test(v)) out[k] = v; break;
+      case 'dailyReminderTime': if (TIME.test(v)) out[k] = v; break;
+      case 'reminderTimes':
+        if (Array.isArray(v)) out[k] = [...new Set(v.filter((t) => TIME.test(t)))].sort().slice(0, 6);
+        break;
+      case 'reminderDays':
+        if (Array.isArray(v)) out[k] = [...new Set(v.map(Number).filter((d) => Number.isInteger(d) && d >= 0 && d <= 6))].sort();
+        break;
+      case 'reminderSound': if (SOUNDS.includes(v)) out[k] = v; break;
+      case 'reminderVolume': { const n = Number(v); if (Number.isFinite(n)) out[k] = Math.min(1, Math.max(0, Math.round(n * 100) / 100)); break; }
+      case 'checkinMinutes': out[k] = clampInt(v, 1, 60); break;
+      case 'snoozeMinutes': out[k] = clampInt(v, 2, 60); break;
+      case 'maxSnoozes': out[k] = clampInt(v, 0, 10); break;
+      case 'quietStart': case 'quietEnd': if (v === '' || TIME.test(v)) out[k] = v; break;
+      case 'dailyGoalMinutes': out[k] = clampInt(v, 1, 240); break;
+      case 'difficultyMode': if (DIFFICULTY_MODES.includes(v)) out[k] = v; break;
+      case 'lastSeenVersion': if (typeof v === 'string' && /^[0-9a-z.+-]{0,40}$/i.test(v)) out[k] = v; break;
       case 'providers':
         if (v && typeof v === 'object') {
           out[k] = { ...DEFAULTS.providers };
@@ -112,7 +150,10 @@ class Store {
   /** @param {string|null} dir app-data folder; null keeps everything in memory (tests) */
   constructor(dir) {
     this.file = dir ? path.join(dir, 'settings.json') : null;
-    const saved = sanitize(readJson(this.file, {}));
+    const raw = readJson(this.file, {});
+    const saved = sanitize(raw);
+    // settings from 1.0 had one reminder time
+    if (!raw.reminderTimes && saved.dailyReminderTime) saved.reminderTimes = [saved.dailyReminderTime];
     this.data = { ...structuredClone(DEFAULTS), ...saved };
   }
 
@@ -136,4 +177,4 @@ class Store {
   }
 }
 
-module.exports = { Store, DEFAULTS, THEMES };
+module.exports = { Store, DEFAULTS, THEMES, SOUNDS, DIFFICULTY_MODES };

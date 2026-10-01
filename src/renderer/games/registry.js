@@ -59,6 +59,12 @@ import { meta as rebus } from './rebus/logic.js';
 import { meta as artQuiz } from './art-quiz/logic.js';
 import { meta as speciesQuiz } from './species-quiz/logic.js';
 import { meta as apodQuiz } from './apod-quiz/logic.js';
+import { meta as taskSwitch } from './task-switch/logic.js';
+import { meta as dotCompare } from './dot-compare/logic.js';
+import { meta as trailMaking } from './trail-making/logic.js';
+import { meta as simon } from './simon/logic.js';
+import { meta as setGame } from './set-game/logic.js';
+import { meta as remoteAssociates } from './remote-associates/logic.js';
 import { TATHAM } from './tatham/logic.js';
 
 const G = (meta, load) => ({ meta, load });
@@ -72,6 +78,9 @@ export const GAMES = [
   G(reactionTime, () => import('./reaction-time/index.js')),
   G(visualSearch, () => import('./visual-search/index.js')),
   G(rsvp, () => import('./rsvp/index.js')),
+  G(taskSwitch, () => import('./task-switch/index.js')),
+  G(trailMaking, () => import('./trail-making/index.js')),
+  G(setGame, () => import('./set-game/index.js')),
   // memory
   G(nback, () => import('./nback/index.js')),
   G(digitSpan, () => import('./digit-span/index.js')),
@@ -80,6 +89,7 @@ export const GAMES = [
   G(kimsGame, () => import('./kims-game/index.js')),
   G(memoryPalace, () => import('./memory-palace/index.js')),
   G(yesterday, () => import('./yesterday/index.js')),
+  G(simon, () => import('./simon/index.js')),
   // math
   G(mentalMath, () => import('./mental-math/index.js')),
   G(countdownNumbers, () => import('./countdown-numbers/index.js')),
@@ -88,6 +98,7 @@ export const GAMES = [
   G(sequences, () => import('./sequences/index.js')),
   G(kakuro, () => import('./kakuro/index.js')),
   G(probability, () => import('./probability/index.js')),
+  G(dotCompare, () => import('./dot-compare/index.js')),
   // logic
   G(zebra, () => import('./zebra/index.js')),
   G(knights, () => import('./knights/index.js')),
@@ -103,6 +114,7 @@ export const GAMES = [
   G(cryptogram, () => import('./cryptogram/index.js')),
   G(crossword, () => import('./crossword/index.js')),
   G(etymology, () => import('./etymology/index.js')),
+  G(remoteAssociates, () => import('./remote-associates/index.js')),
   // spatial
   G(mentalRotation, () => import('./mental-rotation/index.js')),
   G(fifteen, () => import('./fifteen/index.js')),

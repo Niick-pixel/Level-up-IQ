@@ -1,13 +1,14 @@
 import { h, fmtMinutes, plural, clear } from '../ui.js';
 import { GAMES, byId } from '../games/registry.js';
 import { makeRng, localDateKey } from '../../shared/rng.js';
+import { checkinCard } from './checkin.js';
 
 // A handful of games shown on Home, a different set each day (one per kind, roughly).
 const FEATURE_POOLS = [
-  ['stroop', 'schulte', 'flanker', 'go-no-go', 'visual-search', 'reaction-time', 'rsvp'],
-  ['nback', 'digit-span', 'corsi', 'card-pairs', 'kims-game', 'memory-palace'],
-  ['mental-math', 'game-24', 'countdown-numbers', 'fermi', 'sequences', 'probability', 'kakuro'],
-  ['wordle', 'word-ladder', 'anagram', 'cryptogram', 'crossword', 'countdown-letters', 'rebus'],
+  ['stroop', 'schulte', 'flanker', 'go-no-go', 'visual-search', 'reaction-time', 'rsvp', 'task-switch', 'trail-making', 'set-game'],
+  ['nback', 'digit-span', 'corsi', 'card-pairs', 'kims-game', 'memory-palace', 'simon'],
+  ['mental-math', 'game-24', 'countdown-numbers', 'fermi', 'sequences', 'probability', 'kakuro', 'dot-compare'],
+  ['wordle', 'word-ladder', 'anagram', 'cryptogram', 'crossword', 'countdown-letters', 'rebus', 'remote-associates'],
   ['zebra', 'knights', 'mastermind', 'syllogism', 'fallacy', 'riddles', 'situation-puzzles'],
   ['mental-rotation', 'rush-hour', 'fifteen', 'map-quiz'],
   ['chess-puzzles', 'connect-four', 'nim', 'chess-engine'],
@@ -16,7 +17,7 @@ const FEATURE_POOLS = [
 ];
 
 export async function renderHome(el) {
-  const [kotd, summary, count, cards, watch, streak, srs, settings, update] = await Promise.all([
+  const [kotd, summary, count, cards, watch, streak, srs, settings, update, reminders, info] = await Promise.all([
     window.api.keywordOfTheDay(),
     window.api.statsSummary(),
     window.api.keywordCount(),
@@ -26,7 +27,11 @@ export async function renderHome(el) {
     window.api.srsStats(),
     window.api.getSettings(),
     window.api.updaterState().catch(() => null),
+    window.api.reminderStatus().catch(() => null),
+    window.api.info(),
   ]);
+  const goalMs = settings.dailyGoalMinutes * 60 * 1000;
+  const habitOff = !settings.dailyReminder && !settings.trayIcon && !settings.launchAtLogin;
   const dueToday = srs.dueNow + srs.newAvailable;
   const toWatch = watch.filter((v) => !v.watchedAt).length;
   const today = summary.today;
@@ -65,12 +70,18 @@ export async function renderHome(el) {
 
   el.append(h('div', { class: 'page' },
     update?.status === 'ready' ? updateBanner(update) : null,
+    settings.lastSeenVersion !== info.version ? h('a', { class: 'update-banner', href: '#/whats-new' },
+      h('span', {}, settings.lastSeenVersion ? `Updated to Mind Gym ${info.version}.` : `Welcome to Mind Gym ${info.version}.`),
+      h('span', { class: 'btn small' }, 'See what’s new →')) : null,
     h('div', { class: 'page-head' },
       h('div', {},
         h('h1', {}, greeting),
         h('p', { class: 'muted' }, today.games
           ? `Today: ${plural(today.games, 'round')}, ${fmtMinutes(today.ms)} of thinking without AI.`
-          : 'Nothing trained yet today. Ten minutes is plenty.')),
+          : 'Nothing trained yet today. Ten minutes is plenty.'),
+        h('div', { class: 'goal-bar', role: 'progressbar', 'aria-label': 'Today’s goal', 'aria-valuemin': '0', 'aria-valuemax': String(settings.dailyGoalMinutes), 'aria-valuenow': String(Math.floor(today.ms / 60000)) },
+          h('span', { style: { width: `${Math.min(100, (today.ms / goalMs) * 100)}%` } })),
+        h('div', { class: 'muted small' }, today.ms >= goalMs ? `Daily goal of ${settings.dailyGoalMinutes} minutes reached.` : `${Math.floor(today.ms / 60000)} of ${settings.dailyGoalMinutes} minutes toward today’s goal.`)),
       settings.showStreaks && streak.current ? h('div', { class: 'streak', title: 'Days trained in a row. Rest days are allowed and don’t break it.' },
         h('strong', {}, `${streak.current}-day streak`), h('span', { class: 'muted small' }, streak.trainedToday ? '' : ' · train today to keep it',
           streak.restLeft ? ` · ${plural(streak.restLeft, 'rest day')} left this week` : '')) : ''),
@@ -104,6 +115,12 @@ export async function renderHome(el) {
       h('a', { class: 'card', href: '#/stats' },
         h('div', { class: 'eyebrow' }, 'Stats'),
         h('div', {}, `${plural(summary.totals.games, 'round')} · ${plural(summary.totals.keywords, 'keyword')} explored`))),
+
+    reminders?.activeToday || habitOff ? h('div', { class: 'grid', style: { marginTop: '14px' } },
+      checkinCard(reminders),
+      habitOff ? h('a', { class: 'card', href: '#/settings' },
+        h('div', { class: 'eyebrow' }, 'Make it a habit'),
+        h('div', {}, 'Reminders a few times a day with their own sound, check-ins, the tray icon and start with Windows: one switch in Settings.')) : null) : null,
 
     extras,
 

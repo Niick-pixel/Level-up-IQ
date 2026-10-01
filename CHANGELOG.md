@@ -1,5 +1,54 @@
 # Changelog
 
+## 1.1.0: reminders, check-ins and six new games
+
+**Added**
+- **Reminders a few times a day.**
+  - Up to six times, on the days you pick.
+  - Mind Gym plays its own sound (chime, bell, marimba or soft, with a volume and a Test button). The sounds are synthesized in the app, so there are no audio files.
+  - Quiet hours, 22:30 to 07:00 by default.
+  - Your old single reminder time carries over.
+- **Check-ins.** Each reminder asks for a short session: 5 minutes by default, of quick games from different skills plus a few due reviews.
+  - Any training counts.
+  - If you've already trained since the last check-in, the reminder stays quiet.
+  - Opening the app late doesn't stack them up: only the latest one is due.
+- **Mandatory check-ins** (opt-in, with a warning):
+  - Mind Gym comes to the front and reminds you again every few minutes until the check-in is done.
+  - You get a limited number of snoozes (2 by default).
+  - A reminder never pulls you out of a game you're already playing.
+- **Always on:** one switch for reminders, the tray icon and start with Windows (hidden, in the tray).
+  - The taskbar button fills up toward a daily goal (10 minutes by default). It turns yellow with an orange dot while a check-in is waiting.
+  - The tray tooltip shows today's minutes and the next check-in. The tray menu can start a check-in, the Daily Mix or reviews.
+  - Home shows today's check-ins and a progress bar toward your goal.
+- **Named difficulty.**
+  - *Settings → Difficulty:* Adaptive (default), Easy, Medium, Hard or Expert. The named modes keep the suggested level in that band and still adjust to you inside it.
+  - Every game's intro names the level (Easy, Medium, Hard, Expert, Genius) and has one-click presets.
+- **Six new games** (89 in total):
+  - **Set:** find three cards where every feature is all the same or all different. Easy levels use three features.
+  - **Simon:** a growing sequence of pads, with tones. More pads and a faster tempo at higher levels.
+  - **Trail making:** connect scattered circles in order. From level 4 the order alternates 1 → A → 2 → B.
+  - **Task switching:** odd or even? Less or more than 5? The question keeps changing.
+  - **More dots:** two clouds flash, and you say which had more. This trains number sense.
+  - **Remote associates:** three words and one hidden link, with 70 puzzles in three tiers.
+- **Updates:**
+  - A notification when a new version has downloaded.
+  - *What's new* (this list) appears once after each update, and is always in Settings.
+  - The changelog now ships inside the app.
+- A *Game sounds* setting (used by Simon).
+- 150 tests (15 new):
+  - The reminder scheduler: gentle and mandatory, snoozes, quiet hours, days, late starts.
+  - Training only counts toward one check-in.
+  - Settings migration.
+  - Each new game's generator and rules.
+  - Difficulty bands, the check-in planner and the changelog parser.
+
+**Fixed**
+- Settings switches now redraw with their current value when a section updates.
+
+**Not possible from an app**
+- **Pinning to the taskbar:** Windows doesn't let apps pin themselves. Right-click Mind Gym on the taskbar and choose *Pin to taskbar*.
+- **Keeping the tray icon visible:** Windows 11 may hide a new tray icon behind the ^ overflow. Drag it onto the taskbar.
+
 ## 1.0.0: Phase 6 (optional Claude, polish)
 
 **Added**

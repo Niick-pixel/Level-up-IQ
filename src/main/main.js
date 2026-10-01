@@ -21,6 +21,7 @@ const { Secrets } = require('./secrets');
 const { Media } = require('./media');
 const { Srs } = require('./srs');
 const { Ai } = require('./ai');
+const { Reminders } = require('./reminders');
 const { localDateKey } = require('../shared/rng.js');
 
 const ASSETS = path.join(__dirname, '..', '..', 'assets');
@@ -59,7 +60,7 @@ let guard = null;
 let tray = null;
 let quitting = false;
 let reminderTimer = null;
-let lastReminderDay = null;
+let reminders = null;
 
 const dateKey = (ms = Date.now()) => localDateKey(ms);
 
@@ -98,6 +99,8 @@ function createWindow() {
       nodeIntegration: false,
       sandbox: true,
       spellcheck: false,
+      autoplayPolicy: 'no-user-gesture-required', // reminder sounds play even when the window is hidden
+      backgroundThrottling: false,
     },
   });
   win.removeMenu();
@@ -161,22 +164,96 @@ function applyTheme(themeName) {
 // ---------------------------------------------------------------------------
 // Optional extras (all off by default: Focus Point owns the tray and interruptions)
 
+function trayMenu() {
+  const st = reminders?.status();
+  return Menu.buildFromTemplate([
+    { label: 'Open Mind Gym', click: showWindow },
+    { label: st?.due ? `Start the ${st.due.time} check-in` : 'Quick check-in', click: () => { showWindow(); broadcast('navigate', '#/checkin'); } },
+    { label: 'Daily Mix', click: () => { showWindow(); broadcast('navigate', '#/mix'); } },
+    { label: 'Review cards', click: () => { showWindow(); broadcast('navigate', '#/review'); } },
+    { type: 'separator' },
+    { label: 'Quit', click: () => { quitting = true; app.quit(); } },
+  ]);
+}
+
 function applyTray(enabled) {
   if (enabled && !tray) {
     const icon = nativeImage.createFromPath(path.join(ASSETS, 'tray.png'));
     tray = new Tray(icon);
     tray.setToolTip('Mind Gym');
-    tray.setContextMenu(Menu.buildFromTemplate([
-      { label: 'Open Mind Gym', click: showWindow },
-      { label: 'Daily Mix', click: () => { showWindow(); broadcast('navigate', '#/mix'); } },
-      { type: 'separator' },
-      { label: 'Quit', click: () => { quitting = true; app.quit(); } },
-    ]));
+    tray.setContextMenu(trayMenu());
     tray.on('click', showWindow);
+    refreshPresence();
   } else if (!enabled && tray) {
     tray.destroy();
     tray = null;
   }
+}
+
+// A small orange dot for the taskbar button when a check-in is due (BGRA pixels, no file needed).
+let dueBadgeImage = null;
+function dueBadge() {
+  if (dueBadgeImage) return dueBadgeImage;
+  const size = 16;
+  const buf = Buffer.alloc(size * size * 4);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const d = Math.hypot(x - 7.5, y - 7.5);
+      const a = Math.max(0, Math.min(1, 7.5 - d)); // anti-aliased edge
+      const ring = d > 5.5; // white ring so it reads on any taskbar colour
+      const i = (y * size + x) * 4;
+      buf[i] = ring ? 255 : 0x1c; buf[i + 1] = ring ? 255 : 0x72; buf[i + 2] = ring ? 255 : 0xcb; buf[i + 3] = Math.round(a * 255);
+    }
+  }
+  dueBadgeImage = nativeImage.createFromBitmap(buf, { width: size, height: size });
+  return dueBadgeImage;
+}
+
+/** Taskbar progress toward today's goal, a badge when a check-in is due, and the tray tooltip. */
+function refreshPresence() {
+  if (!store || !reminders) return;
+  const s = store.get();
+  const todayMs = stats.summary().today.ms || 0;
+  const goalMs = s.dailyGoalMinutes * 60 * 1000;
+  const st = reminders.status();
+  if (win && !win.isDestroyed()) {
+    try {
+      if (s.taskbarProgress && todayMs < goalMs) win.setProgressBar(Math.max(0.03, todayMs / goalMs), { mode: st.due ? 'paused' : 'normal' });
+      else win.setProgressBar(-1);
+      win.setOverlayIcon(st.due ? dueBadge() : null, st.due ? 'Check-in due' : '');
+    } catch { /* not supported on this platform */ }
+  }
+  if (tray) {
+    const mins = Math.floor(todayMs / 60000);
+    const extra = st.due ? ` · ${st.due.time} check-in due` : st.next ? ` · next check-in ${st.next.time}` : '';
+    tray.setToolTip(`Mind Gym · ${mins} of ${s.dailyGoalMinutes} min today${extra}`);
+    tray.setContextMenu(trayMenu());
+  }
+}
+
+/** Fires a reminder: a notification, Mind Gym's own sound, and in mandatory mode the check-in. */
+function fireReminder(f, { test = false } = {}) {
+  const s = store.get();
+  const body = f.mandatory
+    ? `Time for your ${f.time} check-in: ${s.checkinMinutes} minutes.${f.repeat ? ' It’s still waiting.' : ''}`
+    : `Ten minutes for your brain? Your ${f.time} check-in is ready (${s.checkinMinutes} min).`;
+  if (Notification.isSupported()) {
+    const n = new Notification({ title: test ? 'Mind Gym (test)' : f.mandatory ? 'Check-in time' : 'Mind Gym', body, silent: true });
+    n.on('click', () => { showWindow(); broadcast('navigate', '#/checkin'); });
+    n.show();
+  }
+  broadcast('reminder:fire', { ...f, sound: s.reminderSound, volume: s.reminderVolume, minutes: s.checkinMinutes, open: false });
+  if (f.mandatory && !test) {
+    showWindow();
+    win?.flashFrame(true);
+  }
+}
+
+function tickReminders() {
+  if (!reminders) return;
+  const { fire } = reminders.tick();
+  if (fire) fireReminder(fire);
+  refreshPresence();
 }
 
 function applyLoginItem(enabled) {
@@ -184,26 +261,12 @@ function applyLoginItem(enabled) {
   app.setLoginItemSettings({ openAtLogin: enabled, args: ['--hidden'] });
 }
 
-function checkReminder() {
-  const s = store.get();
-  if (!s.dailyReminder) return;
-  const now = new Date();
-  const today = dateKey(now.getTime());
-  const [h, m] = s.dailyReminderTime.split(':').map(Number);
-  if (lastReminderDay === today || now.getHours() * 60 + now.getMinutes() < h * 60 + m) return;
-  lastReminderDay = today;
-  if ((stats.summary().today.games || 0) > 0) return; // already trained today
-  if (!Notification.isSupported()) return;
-  const n = new Notification({ title: 'Mind Gym', body: 'Ten minutes for your brain? Your Daily Mix is ready.', silent: true });
-  n.on('click', () => { showWindow(); broadcast('navigate', '#/mix'); });
-  n.show();
-}
-
 function onSettingsChanged(next) {
   applyTheme(next.theme);
   applyTray(next.trayIcon);
   applyLoginItem(next.launchAtLogin);
   if (!next.allowFullscreen && win && win.isFullScreen()) win.setFullScreen(false);
+  tickReminders();
   broadcast('settings:changed', next);
 }
 
@@ -264,22 +327,40 @@ app.whenReady().then(() => {
   handleProtocol(protocol);
   handleCacheProtocol(protocol, cache);
 
-  updater = createUpdater({ app, getSettings: () => store.get(), onChange: (s) => broadcast('updater:state', s) });
+  reminders = new Reminders(dir, { dateKey, getSettings: () => store.get(), todayMs: () => stats.summary().today.ms || 0 });
+  let updateNotified = null;
+  updater = createUpdater({
+    app,
+    getSettings: () => store.get(),
+    onChange: (s) => {
+      broadcast('updater:state', s);
+      // one quiet notification per downloaded version; it installs when you quit
+      if (s.status === 'ready' && updateNotified !== s.version && Notification.isSupported()) {
+        updateNotified = s.version;
+        const n = new Notification({ title: `Mind Gym ${s.version} is ready`, body: 'It installs when you quit, or click to restart now.', silent: true });
+        n.on('click', () => updater.install());
+        n.show();
+      }
+    },
+  });
 
   registerIpc({
-    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, srs, ai, guard: {
+    ipcMain, app, shell, dialog, store, stats, ratings, bank, updater, dateKey, cache, providers, learning, sessions, engines, knowledge, secrets, media, srs, ai, reminders, guard: {
       setFullscreen: (on) => guard?.setFullscreen(on),
       toggleMaximize: () => guard?.toggleMaximize(),
     },
     getWindow: () => win,
     onSettingsChanged,
+    onActivity: (x) => { Promise.resolve(x).finally(() => setTimeout(tickReminders, 50)); return x; },
+    testReminder: () => fireReminder({ time: new Date().toTimeString().slice(0, 5), mandatory: false, repeat: false }, { test: true }),
   });
 
   createWindow();
   const s = store.get();
   applyTray(s.trayIcon);
   applyLoginItem(s.launchAtLogin);
-  reminderTimer = setInterval(checkReminder, 60 * 1000);
+  reminderTimer = setInterval(tickReminders, 30 * 1000);
+  win.webContents.once('did-finish-load', () => setTimeout(tickReminders, 1500));
   updater.start();
 });
 
