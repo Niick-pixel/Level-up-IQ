@@ -1,5 +1,7 @@
 import { h, toast, fill } from '../ui.js';
 import { state } from '../state.js';
+import { playSound, SOUND_NAMES } from '../sounds.js';
+import { MODE_LABELS } from '../../shared/difficulty.js';
 
 export async function renderSettings(el) {
   const s = state.settings;
@@ -12,11 +14,11 @@ export async function renderSettings(el) {
     return sel;
   };
   const toggle = (key, onChange) => h('input', {
-    type: 'checkbox', class: 'switch', checked: Boolean(s[key]), role: 'switch',
+    type: 'checkbox', class: 'switch', checked: Boolean(state.settings[key]), role: 'switch',
     onchange: async (e) => { await save({ [key]: e.target.checked }); onChange?.(e.target.checked); },
   });
   const number = (key, min, max, step = 1) => h('input', {
-    type: 'number', min, max, step, value: s[key], style: { width: '90px' },
+    type: 'number', min, max, step, value: state.settings[key], style: { width: '90px' },
     onchange: (e) => save({ [key]: Number(e.target.value) }),
   });
   const field = (label, hint, control, cls = '') =>
@@ -46,6 +48,8 @@ export async function renderSettings(el) {
     h('div', { class: 'card' },
       field('Theme', 'The same four themes as Focus Point.', select('theme', [['night', 'Night'], ['dusk', 'Dusk'], ['forest', 'Forest'], ['sand', 'Sand']])),
       field('Daily Mix length', 'Minutes. The mix adds rounds for your weakest skills until it’s full. The shortest mix is about 9 minutes.', number('sessionMinutes', 3, 60)),
+      field('Difficulty', 'Adaptive follows your skill ratings across all 10 levels. Easy, Medium, Hard and Expert keep levels in that band and still adjust to you inside it. You can always change the level before a game.',
+        select('difficultyMode', Object.entries(MODE_LABELS))),
       field('Difficulty bias', 'Levels aim for about 75 % success. Harder aims lower, easier aims higher.',
         select('difficultyBias', [[-2, 'Much easier'], [-1, 'Easier'], [0, 'Balanced'], [1, 'Harder'], [2, 'Much harder']], Number)),
       field('Thinking timer', 'Seconds before hints and "show solution" unlock in a puzzle.', number('thinkingTimerSec', 0, 300, 5)),
@@ -55,7 +59,8 @@ export async function renderSettings(el) {
       field('Review: new cards per day', 'New cards introduced each day; the rest wait for tomorrow.', number('srsNewPerDay', 0, 100)),
       field('Show streaks', 'Days trained in a row, on Home and in Stats.', toggle('showStreaks')),
       field('Rest days per week', 'Days off that don’t break a streak (rolling 7 days). Rest is part of training.', select('restDaysPerWeek', [[0, 'None'], [1, 'One'], [2, 'Two'], [3, 'Three']], Number)),
-      field('Colour-blind mode', 'Stroop switches to a spatial version that never relies on colour.', toggle('colorblind'))),
+      field('Colour-blind mode', 'Stroop switches to a spatial version that never relies on colour.', toggle('colorblind')),
+      field('Game sounds', 'Tones in games like Simon.', toggle('gameSounds'))),
 
     h('h2', { style: { marginTop: '22px' } }, 'Online sources'),
     await onlineSection(save),
@@ -80,14 +85,8 @@ export async function renderSettings(el) {
         'Warning: true fullscreen makes Focus Point postpone its breaks while you train. Mind Gym is screen time, not rest.',
         toggle('allowFullscreen'), 'warn')),
 
-    h('h2', { style: { marginTop: '22px' } }, 'Extras (off by default)'),
-    h('div', { class: 'card' },
-      field('Tray icon', 'Closing the window keeps Mind Gym running in the tray.', toggle('trayIcon')),
-      field('Daily reminder', 'One quiet notification if you haven\'t trained by this time.',
-        h('div', { class: 'row' }, toggle('dailyReminder'),
-          h('input', { type: 'time', value: s.dailyReminderTime, onchange: (e) => save({ dailyReminderTime: e.target.value }) }))),
-      field('Start with Windows', 'Starts hidden.', toggle('launchAtLogin'))),
-
+    h('h2', { style: { marginTop: '22px' } }, 'Habit: reminders and check-ins'),
+    habitSection(save, field, toggle, number),
     h('h2', { style: { marginTop: '22px' } }, 'Data'),
     h('div', { class: 'card' },
       field('Updates', updaterLine, h('div', { class: 'row' },
@@ -112,6 +111,7 @@ export async function renderSettings(el) {
           location.reload();
         },
       }, 'Reset settings')),
+      field('What’s new', null, h('a', { class: 'btn small', href: '#/whats-new' }, 'Open')),
       field('Attributions and licenses', null, h('a', { class: 'btn small', href: '#/licenses' }, 'Open'))),
   ));
   return off;
@@ -250,5 +250,60 @@ async function aiSection(save) {
   }
   await draw();
   redrawAi = () => box.isConnected && draw();
+  return box;
+}
+
+const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+/** Always-on mode, reminder times, days, sound, check-ins, quiet hours, goal, tray, startup. */
+function habitSection(save, field, toggle, number) {
+  const box = h('div', { class: 'card' });
+  const draw = () => {
+    const s = state.settings;
+    const set = async (partial) => { await save(partial); draw(); };
+    const allOn = s.dailyReminder && s.trayIcon && s.launchAtLogin;
+    const master = h('input', {
+      type: 'checkbox', class: 'switch', role: 'switch', checked: allOn, 'aria-label': 'Always on',
+      onchange: (e) => set({ dailyReminder: e.target.checked, trayIcon: e.target.checked, launchAtLogin: e.target.checked }),
+    });
+
+    // reminder times
+    const timeInput = h('input', { type: 'time', value: '12:00', 'aria-label': 'New reminder time' });
+    const times = h('div', { class: 'time-list' },
+      s.reminderTimes.map((t) => h('span', { class: 'chip' }, t,
+        h('button', { class: 'btn small ghost', type: 'button', 'aria-label': `Remove ${t}`, onclick: () => set({ reminderTimes: s.reminderTimes.filter((x) => x !== t) }) }, '×'))),
+      s.reminderTimes.length < 6 ? h('span', { class: 'row' }, timeInput,
+        h('button', { class: 'btn small', type: 'button', onclick: () => timeInput.value && set({ reminderTimes: [...s.reminderTimes, timeInput.value] }) }, 'Add')) : null);
+    const days = h('div', { class: 'weekdays', role: 'group', 'aria-label': 'Days' }, DAY_LABELS.map((label, d) => h('button', {
+      class: 'chip', type: 'button', 'aria-pressed': String(s.reminderDays.includes(d)),
+      onclick: () => set({ reminderDays: s.reminderDays.includes(d) ? s.reminderDays.filter((x) => x !== d) : [...s.reminderDays, d] }),
+    }, label)));
+
+    const sound = h('select', { 'aria-label': 'Reminder sound', onchange: (e) => { set({ reminderSound: e.target.value }); playSound(e.target.value, s.reminderVolume); } },
+      SOUND_NAMES.map((n) => h('option', { value: n, selected: n === s.reminderSound }, n === 'none' ? 'No sound' : n[0].toUpperCase() + n.slice(1))));
+    const volume = h('input', { type: 'range', min: 0, max: 1, step: 0.05, value: s.reminderVolume, 'aria-label': 'Volume', style: { width: '110px' },
+      onchange: (e) => { set({ reminderVolume: Number(e.target.value) }); playSound(s.reminderSound, Number(e.target.value)); } });
+    const timeField = (key) => h('input', { type: 'time', value: s[key], 'aria-label': key, onchange: (e) => set({ [key]: e.target.value }) });
+
+    fill(box,
+      field('Always on', 'One switch for everything below: reminders, the tray icon and start with Windows (hidden, in the tray). Mind Gym then sits in the tray all day and reminds you at your times.', master),
+      field('Reminders', 'A notification with Mind Gym’s own sound at each time below. Training already done since the last reminder counts, so it only asks when you haven’t.', toggle('dailyReminder', draw)),
+      s.dailyReminder ? h('div', {},
+        field('Times', 'Up to 6 a day.', times),
+        field('Days', null, days),
+        field('Sound', 'Played by Mind Gym itself, so it’s different from other notifications.', h('div', { class: 'row' }, sound, volume,
+          h('button', { class: 'btn small', type: 'button', onclick: () => window.api.testReminder() }, 'Test'))),
+        field('Check-in length', 'Minutes of training that complete a check-in (any game, review or keyword session counts).', number('checkinMinutes', 1, 60)),
+        field('Mandatory check-ins', 'Brings Mind Gym to the front and reminds you again every few minutes until the check-in is done, with a limited number of snoozes. Note: it can interrupt whatever you’re doing, including a Focus Point break.',
+          toggle('checkinMandatory', draw), 'warn'),
+        s.checkinMandatory ? field('Remind again every', 'Minutes, while a check-in is waiting.', number('snoozeMinutes', 2, 60)) : null,
+        s.checkinMandatory ? field('Snoozes per check-in', null, number('maxSnoozes', 0, 10)) : null,
+        field('Quiet hours', 'No reminders in this window. Clear both to turn quiet hours off.', h('div', { class: 'row' }, timeField('quietStart'), h('span', { class: 'muted' }, 'to'), timeField('quietEnd')))) : null,
+      field('Daily goal', 'Minutes a day. Shown on Home, in the tray and as a progress bar on the taskbar button.', number('dailyGoalMinutes', 1, 240)),
+      field('Progress on the taskbar button', 'Fills toward today’s goal; turns yellow with an orange dot when a check-in is waiting.', toggle('taskbarProgress')),
+      field('Tray icon', 'Closing the window keeps Mind Gym running in the tray, so reminders still work. Windows 11 may tuck new tray icons into the ^ overflow: drag it onto the taskbar to keep it visible.', toggle('trayIcon', draw)),
+      field('Start with Windows', 'Starts hidden in the tray. To keep a taskbar button too, right-click Mind Gym on the taskbar and choose “Pin to taskbar” (Windows only lets you do that).', toggle('launchAtLogin', draw)));
+  };
+  draw();
   return box;
 }

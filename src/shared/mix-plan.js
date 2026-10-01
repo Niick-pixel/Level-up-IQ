@@ -121,3 +121,34 @@ export function nextMarathonGame({ metas, ratings, recent, now, rng, offline = f
   const pool = eligible(metas, ctx);
   return pool.length ? rng.weighted(pool, (m) => gameWeight(m, ctx)).id : null;
 }
+
+/**
+ * A short check-in for a reminder: due reviews first (a few), then quick games from different
+ * skills, weakest skills favoured, until the minutes are used. Nothing long, no keyword step.
+ */
+export function planCheckin({ metas, ratings, recent, now, rng, minutes = 5, reviewsDue = 0, offline = false, hasCards = false, exclude = [] }) {
+  const ctx = { ratings, recent, now, offline, hasCards, exclude: new Set(exclude) };
+  const budget = Math.max(2, minutes) * 60;
+  const pool = eligible(metas, ctx).filter((m) => estimateSec(m) <= Math.min(180, budget) && m.skills[0] !== 'deep-thinking');
+  const steps = [];
+  const used = new Set();
+  const skillsUsed = new Set();
+  let sec = 0;
+  if (reviewsDue > 0) {
+    const n = Math.min(5, reviewsDue);
+    steps.push({ kind: 'review', label: 'Review', count: n });
+    sec += n * SEC_PER_CARD;
+  }
+  let guard = 0;
+  while (sec < budget - 30 && guard++ < 10) {
+    const fresh = pool.filter((m) => !used.has(m.id) && !skillsUsed.has(m.skills[0]));
+    const options = (fresh.length ? fresh : pool.filter((m) => !used.has(m.id))).filter((m) => sec + estimateSec(m) <= budget + 45);
+    if (!options.length) break;
+    const g = rng.weighted(options, (m) => gameWeight(m, ctx));
+    used.add(g.id);
+    skillsUsed.add(g.skills[0]);
+    steps.push({ kind: 'game', gameId: g.id, label: g.skills[0][0].toUpperCase() + g.skills[0].slice(1), skill: g.skills[0] });
+    sec += estimateSec(g);
+  }
+  return { steps, estimatedSec: Math.round(sec) };
+}

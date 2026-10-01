@@ -4,16 +4,16 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Version 1.0.** 83 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Version 1.1.** 89 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, reminders and check-ins several times a day, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
 ## Features
 
-- **83 game types, seeded, and all but three playable fully offline** (the picture quizzes need the internet the first time).
+- **89 game types, seeded, and all but three playable fully offline** (the picture quizzes need the internet the first time).
   - **Logic:** logic grids (zebra, unique solution guaranteed), knights and knaves, Mastermind, Tower of Hanoi, syllogisms, spot the fallacy (46 fallacies), and **24 puzzles from Simon Tatham's Portable Puzzle Collection** (Solo, Keen, Towers, Unequal, Pattern, Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines, Pearl, Tracks, Unruly, Map, Mosaic).
-  - **Math:** mental math sprint, Countdown numbers and the 24 game (a solver proves every puzzle solvable), Fermi estimation (scored on log error), sequences, Kakuro (unique solution), probability intuition (predict, then watch it simulated), orders of magnitude.
-  - **Language:** Countdown letters, anagrams, word ladder, Wordle-style, cryptograms (public-domain quotes), mini crosswords from the keyword bank, etymology.
-  - **Memory:** dual n-back, digit span (forwards and backwards), Corsi blocks, card pairs, Kim's game, a memory-palace trainer, and "yesterday" recall of facts from 1, 3 and 7 days ago.
-  - **Attention and speed:** Stroop (with a colour-blind mode), Schulte tables, Flanker, Go/No-Go, reaction time (simple and choice), visual search, RSVP speed reading with comprehension questions.
+  - **Math:** mental math sprint, Countdown numbers and the 24 game (a solver proves every puzzle solvable), Fermi estimation (scored on log error), sequences, Kakuro (unique solution), probability intuition (predict, then watch it simulated), orders of magnitude, and "more dots" (number sense).
+  - **Language:** Countdown letters, anagrams, word ladder, Wordle-style, cryptograms (public-domain quotes), mini crosswords from the keyword bank, etymology, and remote associates (three words, one link).
+  - **Memory:** dual n-back, digit span (forwards and backwards), Corsi blocks, card pairs, Kim's game, a memory-palace trainer, "yesterday" recall of facts from 1, 3 and 7 days ago, and Simon (with tones).
+  - **Attention and speed:** Stroop (with a colour-blind mode), Schulte tables, Flanker, Go/No-Go, reaction time (simple and choice), visual search, RSVP speed reading with comprehension questions, task switching, trail making (1 → A → 2 → B…), and Set.
   - **Spatial:** 3D mental rotation, 15-puzzle, Rush Hour (every puzzle's minimum move count is exact), map geography.
   - **Strategy:** rated chess puzzles (Lichess database), a full game against Stockfish at your level, Connect Four against minimax, and Nim with a "discover the winning rule" mode.
   - **Knowledge:** trivia (two open databases plus an offline bank), guess the Wikipedia article, chronology ("On this day" or an offline set), flags, capitals, higher or lower, and three picture quizzes: art through time (The Met and the Art Institute of Chicago), name that species (iNaturalist, Costa Rica by default) and "What am I looking at?" (NASA's Astronomy Picture of the Day).
@@ -25,6 +25,9 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
 - **Spaced repetition (FSRS).** Key facts from keyword sessions and your video summaries become review cards that come back just before you'd forget them. Grade Again / Hard / Good / Easy (each shows when the card returns); set your target recall and new cards per day.
 - **Streaks that allow rest.** Days trained in a row, with rest days (1 a week by default) that don't break it. You can hide streaks.
 - **Curiosity map.** Every keyword you've explored, clustered by domain and linked where topics are related, plus the frontier: unexplored topics one step from what you know.
+- **Reminders and check-ins.** Up to six reminders a day, on the days you choose, with Mind Gym's own sound (chime, bell, marimba or soft) and quiet hours. Each one asks for a short check-in (5 minutes by default) of quick games from different skills; any training counts, and if you already trained since the last one it doesn't bother you. **Mandatory mode** brings the window forward and keeps reminding every few minutes until it's done, with a limited number of snoozes.
+- **Always on.** One switch turns on reminders, the tray icon and start with Windows (hidden in the tray). The taskbar button fills toward your daily goal and shows an orange dot when a check-in is waiting; the tray tooltip and menu show today's progress and the next check-in.
+- **Named difficulty.** Adaptive (default) or Easy / Medium / Hard / Expert, which keep levels in that band and still adjust inside it. Every game's intro shows the level's name and one-click presets.
 - **Adaptive levels.** Each skill (logic, math, language, memory, attention, spatial, strategy, knowledge, deep thinking) has its own rating. New rounds aim for about 75 % success, the "hard but doable" zone. You can bias it easier or harder.
 - **Thinking timer.** Hints and "show solution" stay locked for the first N seconds, so you try first.
 - **Auto-pause.** If the window loses focus (a Focus Point break, a notification, Alt+Tab), the round pauses. Paused time never counts.
@@ -71,7 +74,7 @@ Focus Point holds its breaks while a fullscreen game or video is in front. Mind 
 - It opens in a normal window.
 - A maximized window normally stops at the taskbar, which is fine. With an auto-hidden taskbar, or on a monitor without one, a maximized window would cover the whole screen and Focus Point would wait. In that case Mind Gym maximizes to one pixel short of the screen (Settings → *Keep Focus Point breaks working when maximized*, on by default).
 - True fullscreen (F11) is off unless you turn it on, and Settings warns that it delays Focus Point breaks.
-- The tray icon, daily reminder and start-with-Windows are all **off by default**. Focus Point already owns that slot.
+- The tray icon, reminders and start-with-Windows are all **off by default** (one *Always on* switch turns them on). Mandatory check-ins bring the window forward, which can interrupt a Focus Point break, so they're a separate opt-in with a warning; quiet hours apply to every reminder.
 
 ## Online sources
 
@@ -99,7 +102,7 @@ REST Countries was planned, but its free API was switched off in September 2026.
 
 ## Install (Windows)
 
-Download the latest **`MindGym-Setup-x.y.z.exe`** from the [Releases page](https://github.com/Niick-pixel/Level-up-IQ/releases/latest) and run it. After that, the app keeps itself up to date: it checks GitHub Releases every few hours, downloads new versions in the background and installs them when you quit (or right away from the *Restart to update* button on Home or in Settings). You can turn this off in Settings.
+Download the latest **`MindGym-Setup-x.y.z.exe`** from the [Releases page](https://github.com/Niick-pixel/Level-up-IQ/releases/latest) and run it. After that, the app keeps itself up to date over the air: it checks GitHub Releases every few hours, downloads new versions in the background, tells you once with a notification, and installs them when you quit (or right away from *Restart to update* on Home or in Settings). After an update, Home links to *What's new*. You can turn updates off in Settings.
 
 > Windows SmartScreen may warn you because the app isn't code-signed. Click *More info → Run anyway*.
 
@@ -141,7 +144,9 @@ Then run `npm run keywords:build`. The build fails on duplicate ids, duplicate W
 
 | Part | File |
 | --- | --- |
-| App shell: window, protocol, tray, reminder, security policy | `src/main/main.js` |
+| App shell: window, protocol, tray, taskbar progress, reminders, security policy | `src/main/main.js` |
+| Reminder scheduler and check-ins (pure, tested) | `src/main/reminders.js`, `src/renderer/views/checkin.js` |
+| Mind Gym's own sounds (Web Audio, no files) | `src/renderer/sounds.js` |
 | `app://` protocol that serves only the app's own folders | `src/main/protocol.js` |
 | Every IPC handler, with argument checks | `src/main/ipc.js`, `src/preload.js` |
 | Settings saved to `%APPDATA%/Mind Gym/settings.json` | `src/main/store.js` |

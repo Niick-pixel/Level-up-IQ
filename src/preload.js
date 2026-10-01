@@ -116,4 +116,10 @@ contextBridge.exposeInMainWorld('api', {
   onBlur: on('window:blur'),
   onFocus: on('window:focus'),
   onNavigate: on('navigate'),
+  onReminder: on('reminder:fire'),
+  reminderStatus: call('reminders:status'),
+  snoozeReminder: call('reminders:snooze'),
+  testReminder: call('reminders:test'),
+  checkinContext: call('checkin:context'),
+  changelog: call('app:changelog'),
 });
