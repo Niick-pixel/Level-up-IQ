@@ -286,7 +286,7 @@ function habitSection(save, field, toggle, number) {
     const timeField = (key) => h('input', { type: 'time', value: s[key], 'aria-label': key, onchange: (e) => set({ [key]: e.target.value }) });
 
     fill(box,
-      field('Always on', 'One switch for everything below: reminders, the tray icon and start with Windows (hidden, in the tray). Mind Gym then sits in the tray all day and reminds you at your times.', master),
+      field('Always on', 'One switch for reminders, the tray icon and start with Windows. Mind Gym then stays running all day and reminds you at your times. On by default.', master),
       field('Reminders', 'A notification with Mind Gym’s own sound at each time below. Training already done since the last reminder counts, so it only asks when you haven’t.', toggle('dailyReminder', draw)),
       s.dailyReminder ? h('div', {},
         field('Times', 'Up to 6 a day.', times),
@@ -301,8 +301,12 @@ function habitSection(save, field, toggle, number) {
         field('Quiet hours', 'No reminders in this window. Clear both to turn quiet hours off.', h('div', { class: 'row' }, timeField('quietStart'), h('span', { class: 'muted' }, 'to'), timeField('quietEnd')))) : null,
       field('Daily goal', 'Minutes a day. Shown on Home, in the tray and as a progress bar on the taskbar button.', number('dailyGoalMinutes', 1, 240)),
       field('Progress on the taskbar button', 'Fills toward today’s goal; turns yellow with an orange dot when a check-in is waiting.', toggle('taskbarProgress')),
-      field('Tray icon', 'Closing the window keeps Mind Gym running in the tray, so reminders still work. Windows 11 may tuck new tray icons into the ^ overflow: drag it onto the taskbar to keep it visible.', toggle('trayIcon', draw)),
-      field('Start with Windows', 'Starts hidden in the tray. To keep a taskbar button too, right-click Mind Gym on the taskbar and choose “Pin to taskbar” (Windows only lets you do that).', toggle('launchAtLogin', draw)));
+      field('When you close the window', 'Reminders only work while Mind Gym is running. “Minimize” keeps its button (and today’s progress) on the taskbar; “Hide in the tray” keeps only the tray icon.',
+        h('select', { 'aria-label': 'When you close the window', onchange: (e) => set({ closeAction: e.target.value }) },
+          [['minimize', 'Minimize to the taskbar'], ['tray', 'Hide in the tray'], ['quit', 'Quit (no reminders)']]
+            .map(([v, label]) => h('option', { value: v, selected: s.closeAction === v }, label)))),
+      field('Tray icon', 'Right-click it for a check-in, the Daily Mix or reviews. Windows 11 may tuck new tray icons behind the ^ arrow: drag it onto the taskbar to keep it visible.', toggle('trayIcon', draw)),
+      field('Start with Windows', 'Starts minimized on the taskbar (or hidden in the tray), so reminders work from the moment you log in. To pin it, right-click Mind Gym on the taskbar and choose “Pin to taskbar” (Windows only lets you do that yourself).', toggle('launchAtLogin', draw)));
   };
   draw();
   return box;

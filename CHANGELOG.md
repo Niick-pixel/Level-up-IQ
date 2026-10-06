@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.2.0: Mind Gym stays running, so reminders actually reach you
+
+**Fixed**
+- **Reminders never fired on most installs.**
+  - 1.0 and 1.1 shipped with the tray icon, start with Windows and reminders all off, and closing the window quit Mind Gym.
+  - With the app not running, nothing could remind you. Updating also kept those old "off" settings.
+- **Windows notifications could lose their click action**, or vanish early, because nothing kept a reference to them. They're now kept until Windows closes them.
+
+**Changed**
+- **On by default:** reminders at 10:00, 15:00 and 20:00, start with Windows, and the tray icon.
+  - Existing installs get this once on update, with a note on Home explaining it.
+  - If you had already set your own reminder times, they're kept.
+  - Anything you switch off afterwards stays off.
+- **Closing the window now minimizes it to the taskbar** instead of quitting. The taskbar button stays, showing today's progress.
+  - *Settings → When you close the window*: Minimize to the taskbar (the default), Hide in the tray, or Quit (no reminders).
+  - Hiding in the tray shows a one-time "still running" notification.
+- **Start with Windows** opens Mind Gym minimized on the taskbar (or hidden, if you chose the tray), so reminders work from the moment you log in.
+- **Quit asks first** (from the tray menu), because it stops reminders.
+- **Updates install by themselves** after 10 idle minutes while Mind Gym isn't in front, then it comes back minimized. Before, updates installed only on quit, which now rarely happens.
+
+**Still up to you (Windows doesn't let apps do it)**
+- Pinning: right-click Mind Gym on the taskbar and choose *Pin to taskbar*.
+- Keeping the tray icon visible: drag it out of the ^ overflow onto the taskbar.
+- Notifications: allow Mind Gym in *Settings → System → Notifications*. Focus / Do not disturb hides them; the sound still plays.
+
 ## 1.1.0: reminders, check-ins and six new games
 
 **Added**
