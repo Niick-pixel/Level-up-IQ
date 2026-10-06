@@ -113,7 +113,7 @@ test('reminders: quiet hours, days off, turned off; a new day starts fresh', () 
 
 test('settings: reminder times are cleaned up; 1.0 settings keep their reminder time', () => {
   const s = new Store(null);
-  assert.deepEqual(s.get().reminderTimes, ['19:00']);
+  assert.deepEqual(s.get().reminderTimes, ['10:00', '15:00', '20:00']);
   assert.equal(s.get().difficultyMode, 'adaptive');
   const out = s.set({ reminderTimes: ['18:00', '07:30', 'bad', '18:00'], reminderDays: [1, 9, 1, 'x', 5], reminderSound: 'nope', checkinMinutes: 0, quietStart: '' });
   assert.deepEqual(out.reminderTimes, ['07:30', '18:00']);
@@ -131,4 +131,42 @@ test('settings: reminder times are cleaned up; 1.0 settings keep their reminder 
   const old = new Store(dir).get();
   assert.deepEqual(old.reminderTimes, ['08:15']);
   assert.equal(old.dailyReminder, true);
+});
+
+test('settings 1.2: 1.0/1.1 installs get persistence switched on once; later choices stick', () => {
+  const fs = require('fs');
+  const os = require('os');
+  const path = require('path');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mg-habit-'));
+  const file = path.join(dir, 'settings.json');
+  // a 1.1 user who never touched any of it
+  fs.writeFileSync(file, JSON.stringify({ theme: 'forest', trayIcon: false, launchAtLogin: false, dailyReminder: false, reminderTimes: ['19:00'] }));
+  const first = new Store(dir).get();
+  assert.equal(first.theme, 'forest', 'other settings are kept');
+  assert.equal(first.trayIcon, true);
+  assert.equal(first.launchAtLogin, true);
+  assert.equal(first.dailyReminder, true);
+  assert.equal(first.closeAction, 'minimize');
+  assert.deepEqual(first.reminderTimes, ['10:00', '15:00', '20:00']);
+  assert.equal(first.persistNotice, true);
+  assert.equal(JSON.parse(fs.readFileSync(file, 'utf8')).habitDefaults, 2, 'saved right away');
+
+  // switching things off afterwards is respected on the next start
+  new Store(dir).set({ launchAtLogin: false, closeAction: 'quit', persistNotice: false });
+  const later = new Store(dir).get();
+  assert.equal(later.launchAtLogin, false);
+  assert.equal(later.closeAction, 'quit');
+  assert.equal(later.persistNotice, false);
+
+  // someone who already used reminders keeps their own times
+  const dir2 = fs.mkdtempSync(path.join(os.tmpdir(), 'mg-habit-'));
+  fs.writeFileSync(path.join(dir2, 'settings.json'), JSON.stringify({ dailyReminder: true, reminderTimes: ['07:00', '21:00'] }));
+  assert.deepEqual(new Store(dir2).get().reminderTimes, ['07:00', '21:00']);
+
+  // a reset doesn't re-run the migration
+  const s = new Store(dir);
+  s.reset();
+  s.set({ trayIcon: false });
+  assert.equal(new Store(dir).get().trayIcon, false);
+  assert.equal(new Store(null).set({ closeAction: 'explode' }).closeAction, 'minimize');
 });

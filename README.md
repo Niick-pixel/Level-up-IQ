@@ -4,7 +4,7 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Version 1.1.** 89 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, reminders and check-ins several times a day, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Version 1.2.** 89 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, reminders and check-ins several times a day, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
 ## Features
 
@@ -26,7 +26,7 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
 - **Streaks that allow rest.** Days trained in a row, with rest days (1 a week by default) that don't break it. You can hide streaks.
 - **Curiosity map.** Every keyword you've explored, clustered by domain and linked where topics are related, plus the frontier: unexplored topics one step from what you know.
 - **Reminders and check-ins.** Up to six reminders a day, on the days you choose, with Mind Gym's own sound (chime, bell, marimba or soft) and quiet hours. Each one asks for a short check-in (5 minutes by default) of quick games from different skills; any training counts, and if you already trained since the last one it doesn't bother you. **Mandatory mode** brings the window forward and keeps reminding every few minutes until it's done, with a limited number of snoozes.
-- **Always on.** One switch turns on reminders, the tray icon and start with Windows (hidden in the tray). The taskbar button fills toward your daily goal and shows an orange dot when a check-in is waiting; the tray tooltip and menu show today's progress and the next check-in.
+- **Always on (the default since 1.2).** Mind Gym starts with Windows (minimized on the taskbar), and closing the window minimizes it instead of quitting, so reminders always work. You can choose *Hide in the tray* or *Quit* instead. The taskbar button fills toward your daily goal and shows an orange dot when a check-in is waiting; the tray tooltip and menu show today's progress and the next check-in. Quitting from the tray asks first, because it stops reminders. Downloaded updates install by themselves after 10 idle minutes.
 - **Named difficulty.** Adaptive (default) or Easy / Medium / Hard / Expert, which keep levels in that band and still adjust inside it. Every game's intro shows the level's name and one-click presets.
 - **Adaptive levels.** Each skill (logic, math, language, memory, attention, spatial, strategy, knowledge, deep thinking) has its own rating. New rounds aim for about 75 % success, the "hard but doable" zone. You can bias it easier or harder.
 - **Thinking timer.** Hints and "show solution" stay locked for the first N seconds, so you try first.
@@ -74,7 +74,7 @@ Focus Point holds its breaks while a fullscreen game or video is in front. Mind 
 - It opens in a normal window.
 - A maximized window normally stops at the taskbar, which is fine. With an auto-hidden taskbar, or on a monitor without one, a maximized window would cover the whole screen and Focus Point would wait. In that case Mind Gym maximizes to one pixel short of the screen (Settings → *Keep Focus Point breaks working when maximized*, on by default).
 - True fullscreen (F11) is off unless you turn it on, and Settings warns that it delays Focus Point breaks.
-- The tray icon, reminders and start-with-Windows are all **off by default** (one *Always on* switch turns them on). Mandatory check-ins bring the window forward, which can interrupt a Focus Point break, so they're a separate opt-in with a warning; quiet hours apply to every reminder.
+- Since 1.2, reminders, the tray icon and start-with-Windows are **on by default** (Mind Gym is meant to be a daily habit, and reminders only work while it runs); one *Always on* switch turns them all off. A minimized window never looks fullscreen to Focus Point. Mandatory check-ins bring the window forward, which can interrupt a Focus Point break, so they stay a separate opt-in with a warning; quiet hours apply to every reminder.
 
 ## Online sources
 

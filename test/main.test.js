@@ -18,10 +18,16 @@ const tmp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'mindgym-'));
 test('store: defaults, sanitizing and persistence', () => {
   const dir = tmp();
   const s = new Store(dir);
-  assert.deepEqual(s.get(), DEFAULTS);
-  assert.equal(DEFAULTS.trayIcon, false);
-  assert.equal(DEFAULTS.launchAtLogin, false);
-  assert.equal(DEFAULTS.dailyReminder, false);
+  const { habitDefaults, ...rest } = s.get();
+  assert.deepEqual(rest, DEFAULTS);
+  assert.equal(habitDefaults, 2);
+  // since 1.2 Mind Gym stays running by default so reminders can fire (the user asked for it);
+  // true fullscreen, which would hold Focus Point's breaks, stays opt-in
+  assert.equal(DEFAULTS.trayIcon, true);
+  assert.equal(DEFAULTS.launchAtLogin, true);
+  assert.equal(DEFAULTS.dailyReminder, true);
+  assert.equal(DEFAULTS.closeAction, 'minimize');
+  assert.equal(DEFAULTS.checkinMandatory, false);
   assert.equal(DEFAULTS.allowFullscreen, false);
   s.set({ theme: 'sand', thinkingTimerSec: 9999, bogus: 1, theme2: 'x', difficultyBias: '1', dailyReminderTime: '25:00' });
   const again = new Store(dir).get();
@@ -37,7 +43,7 @@ test('store: defaults, sanitizing and persistence', () => {
 test('store: survives a corrupt file', () => {
   const dir = tmp();
   fs.writeFileSync(path.join(dir, 'settings.json'), '{oops');
-  assert.deepEqual(new Store(dir).get(), DEFAULTS);
+  assert.deepEqual(new Store(dir).get(), { ...DEFAULTS, habitDefaults: 2 });
 });
 
 function statsAt(dir) {

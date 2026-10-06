@@ -1,6 +1,6 @@
 const path = require('path');
 const {
-  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, net, Notification, nativeImage, safeStorage,
+  app, BrowserWindow, Tray, Menu, screen, ipcMain, protocol, shell, dialog, session, net, Notification, nativeImage, safeStorage, powerMonitor,
 } = require('electron');
 const { Store } = require('./store');
 const { Stats } = require('./stats');
@@ -25,7 +25,10 @@ const { Reminders } = require('./reminders');
 const { localDateKey } = require('../shared/rng.js');
 
 const ASSETS = path.join(__dirname, '..', '..', 'assets');
-const START_HIDDEN = process.argv.includes('--hidden');
+// Started by Windows at login: come up minimized on the taskbar (or hidden in the tray), not in your face.
+let START_HIDDEN = process.argv.includes('--hidden');
+const IDLE_INSTALL_SEC = 10 * 60; // install a downloaded update after 10 idle minutes
+let installingUpdate = false;
 
 // Title-bar colors for each theme (must match src/renderer/theme.css).
 const THEMES = {
@@ -63,6 +66,29 @@ let reminderTimer = null;
 let reminders = null;
 
 const dateKey = (ms = Date.now()) => localDateKey(ms);
+
+/** What the window's X does. "tray" needs the tray icon; without it we minimize instead, so
+ * Mind Gym never becomes an invisible process you can't get back to. */
+function closeAction(s = store.get()) {
+  if (s.closeAction === 'quit') return 'quit';
+  return s.closeAction === 'tray' && s.trayIcon ? 'tray' : 'minimize';
+}
+
+// Windows drops a notification's click handler (and can drop the toast) once the JS object is
+// garbage-collected, so keep each one referenced until it's closed.
+const liveNotes = new Set();
+function notify(opts, onClick) {
+  if (!Notification.isSupported()) return null;
+  const n = new Notification(opts);
+  liveNotes.add(n);
+  const done = () => liveNotes.delete(n);
+  n.on('click', () => { done(); onClick?.(); });
+  n.on('close', done);
+  n.on('failed', done);
+  n.show();
+  setTimeout(done, 10 * 60 * 1000); // Action Center keeps old toasts; don't hold them forever
+  return n;
+}
 
 function broadcast(channel, payload) {
   if (win && !win.isDestroyed()) win.webContents.send(channel, payload);
@@ -118,6 +144,7 @@ function createWindow() {
   win.loadURL(appUrl('/index.html'));
   win.once('ready-to-show', () => {
     if (!START_HIDDEN) win.show();
+    else if (closeAction() !== 'tray') win.minimize(); // shows it minimized on the taskbar, without focus
   });
 
   let saveTimer = null;
@@ -135,10 +162,20 @@ function createWindow() {
   win.on('focus', () => broadcast('window:focus'));
 
   win.on('close', (e) => {
-    // With the tray icon on, closing hides the window; otherwise closing quits.
-    if (!quitting && store.get().trayIcon) {
-      e.preventDefault();
+    // Closing keeps Mind Gym running so reminders still work: minimized on the taskbar (default)
+    // or hidden in the tray. Only "Quit" (or the "quit" setting) really ends it.
+    if (quitting) return;
+    const action = closeAction();
+    if (action === 'quit') return;
+    e.preventDefault();
+    if (action === 'minimize') {
+      win.minimize();
+    } else {
       win.hide();
+      if (!store.get().trayNoticeShown) {
+        store.set({ trayNoticeShown: true });
+        notify({ title: 'Mind Gym is still running', body: 'It’s in the tray (click ^ on the taskbar if you don’t see it), so your reminders keep working.', silent: true }, showWindow);
+      }
     }
   });
   win.on('closed', () => { win = null; });
@@ -172,8 +209,22 @@ function trayMenu() {
     { label: 'Daily Mix', click: () => { showWindow(); broadcast('navigate', '#/mix'); } },
     { label: 'Review cards', click: () => { showWindow(); broadcast('navigate', '#/review'); } },
     { type: 'separator' },
-    { label: 'Quit', click: () => { quitting = true; app.quit(); } },
+    { label: 'Quit', click: confirmQuit },
   ]);
+}
+
+async function confirmQuit() {
+  const s = store.get();
+  if (s.dailyReminder) {
+    const { response } = await dialog.showMessageBox({
+      type: 'question', buttons: ['Quit', 'Keep running'], defaultId: 1, cancelId: 1, noLink: true,
+      title: 'Quit Mind Gym?', message: 'Quit Mind Gym?',
+      detail: s.launchAtLogin ? 'Reminders stop until you open it again or Windows restarts.' : 'Reminders stop until you open it again.',
+    });
+    if (response !== 0) return;
+  }
+  quitting = true;
+  app.quit();
 }
 
 function applyTray(enabled) {
@@ -237,11 +288,8 @@ function fireReminder(f, { test = false } = {}) {
   const body = f.mandatory
     ? `Time for your ${f.time} check-in: ${s.checkinMinutes} minutes.${f.repeat ? ' It’s still waiting.' : ''}`
     : `Ten minutes for your brain? Your ${f.time} check-in is ready (${s.checkinMinutes} min).`;
-  if (Notification.isSupported()) {
-    const n = new Notification({ title: test ? 'Mind Gym (test)' : f.mandatory ? 'Check-in time' : 'Mind Gym', body, silent: true });
-    n.on('click', () => { showWindow(); broadcast('navigate', '#/checkin'); });
-    n.show();
-  }
+  notify({ title: test ? 'Mind Gym (test)' : f.mandatory ? 'Check-in time' : 'Mind Gym', body, silent: true },
+    () => { showWindow(); broadcast('navigate', '#/checkin'); });
   broadcast('reminder:fire', { ...f, sound: s.reminderSound, volume: s.reminderVolume, minutes: s.checkinMinutes, open: false });
   if (f.mandatory && !test) {
     showWindow();
@@ -249,7 +297,22 @@ function fireReminder(f, { test = false } = {}) {
   }
 }
 
+/** Mind Gym rarely quits now, so a downloaded update installs while you're away from the computer
+ * (and Mind Gym isn't in front), then comes back minimized. Otherwise it would wait forever. */
+function maybeInstallUpdate() {
+  if (updater?.state().status !== 'ready') return;
+  const inUse = win && !win.isDestroyed() && win.isVisible() && !win.isMinimized() && win.isFocused();
+  if (inUse || powerMonitor.getSystemIdleTime() < IDLE_INSTALL_SEC) return;
+  if (installingUpdate) return;
+  installingUpdate = true;
+  store.set({ relaunchHidden: true });
+  updater.install();
+  // if the installer didn't take over, start normally next time and try again later
+  setTimeout(() => { installingUpdate = false; store.set({ relaunchHidden: false }); }, 60 * 1000);
+}
+
 function tickReminders() {
+  maybeInstallUpdate();
   if (!reminders) return;
   const { fire } = reminders.tick();
   if (fire) fireReminder(fire);
@@ -277,6 +340,10 @@ app.on('second-instance', showWindow);
 app.whenReady().then(() => {
   const dir = app.getPath('userData'); // %APPDATA%/Mind Gym
   store = new Store(dir);
+  if (store.get().relaunchHidden) { // restarted by an idle-time update
+    START_HIDDEN = true;
+    store.set({ relaunchHidden: false });
+  }
   stats = new Stats(dir, { dateKey });
   ratings = new Ratings(dir, { dateKey });
   bank = KeywordBank.load();
@@ -335,11 +402,9 @@ app.whenReady().then(() => {
     onChange: (s) => {
       broadcast('updater:state', s);
       // one quiet notification per downloaded version; it installs when you quit
-      if (s.status === 'ready' && updateNotified !== s.version && Notification.isSupported()) {
+      if (s.status === 'ready' && updateNotified !== s.version) {
         updateNotified = s.version;
-        const n = new Notification({ title: `Mind Gym ${s.version} is ready`, body: 'It installs when you quit, or click to restart now.', silent: true });
-        n.on('click', () => updater.install());
-        n.show();
+        notify({ title: `Mind Gym ${s.version} is ready`, body: 'It installs when you quit, or click to restart now.', silent: true }, () => updater.install());
       }
     },
   });
@@ -370,5 +435,6 @@ app.on('before-quit', () => {
 });
 
 app.on('window-all-closed', () => {
-  if (!store?.get().trayIcon) app.quit();
+  // the window only really closes when quitting or with "Close quits Mind Gym"
+  if (!store || quitting || closeAction() === 'quit') app.quit();
 });

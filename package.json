@@ -1,7 +1,7 @@
 {
   "name": "mind-gym",
   "productName": "Mind Gym",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Brain training and curiosity: puzzles, games, a searchable keyword bank, and anti-AI-dependence exercises. Offline-first, private, no telemetry.",
   "main": "src/main/main.js",
   "author": "Nicolas",

@@ -32,6 +32,14 @@ export async function renderHome(el) {
   ]);
   const goalMs = settings.dailyGoalMinutes * 60 * 1000;
   const habitOff = !settings.dailyReminder && !settings.trayIcon && !settings.launchAtLogin;
+  const times = settings.reminderTimes.join(', ');
+  const persistNote = settings.persistNotice ? h('div', { class: 'update-banner', role: 'status' },
+    h('span', {}, settings.dailyReminder
+      ? `Mind Gym now stays running so it can remind you: it starts with Windows, closing the window minimizes it to the taskbar, and reminders come at ${times}.`
+      : 'Mind Gym now starts with Windows and stays on the taskbar when you close it.'),
+    h('span', { class: 'row' },
+      h('a', { class: 'btn small', href: '#/settings', onclick: () => window.api.setSettings({ persistNotice: false }) }, 'Change'),
+      h('button', { class: 'btn small primary', type: 'button', onclick: async (e) => { await window.api.setSettings({ persistNotice: false }); e.target.closest('.update-banner').remove(); } }, 'Got it'))) : null;
   const dueToday = srs.dueNow + srs.newAvailable;
   const toWatch = watch.filter((v) => !v.watchedAt).length;
   const today = summary.today;
@@ -70,6 +78,7 @@ export async function renderHome(el) {
 
   el.append(h('div', { class: 'page' },
     update?.status === 'ready' ? updateBanner(update) : null,
+    persistNote,
     settings.lastSeenVersion !== info.version ? h('a', { class: 'update-banner', href: '#/whats-new' },
       h('span', {}, settings.lastSeenVersion ? `Updated to Mind Gym ${info.version}.` : `Welcome to Mind Gym ${info.version}.`),
       h('span', { class: 'btn small' }, 'See what’s new →')) : null,

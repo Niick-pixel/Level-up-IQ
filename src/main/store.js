@@ -6,6 +6,9 @@ const THEMES = ['night', 'dusk', 'forest', 'sand'];
 const SOUNDS = ['chime', 'bell', 'marimba', 'soft', 'none'];
 const DIFFICULTY_MODES = ['adaptive', 'easy', 'medium', 'hard', 'expert'];
 const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
+const CLOSE_ACTIONS = ['minimize', 'tray', 'quit'];
+// Bumped when the defaults for staying around change; older settings files get them once.
+const HABIT_DEFAULTS = 2;
 
 const DEFAULTS = {
   theme: 'night',
@@ -16,14 +19,18 @@ const DEFAULTS = {
   colorblind: false, // Stroop uses the spatial variant instead of colors
   sound: false,
 
-  // Things Focus Point already does are off by default here.
-  trayIcon: false,
-  dailyReminder: false, // reminders on/off (several times a day since 1.1)
+  // Staying around (on by default since 1.2: Mind Gym is meant to be a daily habit)
+  trayIcon: true,
+  dailyReminder: true, // reminders on/off (several times a day since 1.1)
   dailyReminderTime: '19:00', // kept for older settings files; reminderTimes replaces it
-  launchAtLogin: false,
+  launchAtLogin: true, // starts minimized on the taskbar (or hidden in the tray)
+  closeAction: 'minimize', // the window's X: minimize (stay on the taskbar) | tray (hide) | quit
+  persistNotice: true, // one-time note on Home explaining the above
+  trayNoticeShown: false, // "still running in the tray" shown once
+  relaunchHidden: false, // set before an idle-time update so the restarted app comes back minimized
 
   // Reminders and check-ins (1.1)
-  reminderTimes: ['19:00'], // up to 6 a day, "HH:MM"
+  reminderTimes: ['10:00', '15:00', '20:00'], // up to 6 a day, "HH:MM"
   reminderDays: [0, 1, 2, 3, 4, 5, 6], // 0 = Sunday
   reminderSound: 'chime', // chime | bell | marimba | soft | none
   reminderVolume: 0.7,
@@ -94,6 +101,7 @@ function sanitize(partial) {
       case 'quietStart': case 'quietEnd': if (v === '' || TIME.test(v)) out[k] = v; break;
       case 'dailyGoalMinutes': out[k] = clampInt(v, 1, 240); break;
       case 'difficultyMode': if (DIFFICULTY_MODES.includes(v)) out[k] = v; break;
+      case 'closeAction': if (CLOSE_ACTIONS.includes(v)) out[k] = v; break;
       case 'lastSeenVersion': if (typeof v === 'string' && /^[0-9a-z.+-]{0,40}$/i.test(v)) out[k] = v; break;
       case 'providers':
         if (v && typeof v === 'object') {
@@ -153,8 +161,18 @@ class Store {
     const raw = readJson(this.file, {});
     const saved = sanitize(raw);
     // settings from 1.0 had one reminder time
-    if (!raw.reminderTimes && saved.dailyReminderTime) saved.reminderTimes = [saved.dailyReminderTime];
-    this.data = { ...structuredClone(DEFAULTS), ...saved };
+    if (!raw.reminderTimes && raw.dailyReminder && saved.dailyReminderTime) saved.reminderTimes = [saved.dailyReminderTime];
+    const migrate = Object.keys(raw).length > 0 && (Number(raw.habitDefaults) || 0) < HABIT_DEFAULTS;
+    if (migrate) {
+      // 1.0 and 1.1 shipped with all of this off, so closing the window quit Mind Gym and no
+      // reminder could ever fire. Turn it on once; you can switch any of it off again.
+      Object.assign(saved, { trayIcon: true, launchAtLogin: true, dailyReminder: true, persistNotice: true });
+      delete saved.closeAction;
+      const times = saved.reminderTimes;
+      if (!times || !raw.dailyReminder || (times.length === 1 && times[0] === '19:00')) delete saved.reminderTimes;
+    }
+    this.data = { ...structuredClone(DEFAULTS), ...saved, habitDefaults: HABIT_DEFAULTS };
+    if (migrate) writeJson(this.file, this.data);
   }
 
   get() {
@@ -171,10 +189,10 @@ class Store {
 
   reset() {
     const bounds = this.data.windowBounds;
-    this.data = { ...structuredClone(DEFAULTS), windowBounds: bounds };
+    this.data = { ...structuredClone(DEFAULTS), windowBounds: bounds, habitDefaults: HABIT_DEFAULTS };
     writeJson(this.file, this.data);
     return this.get();
   }
 }
 
-module.exports = { Store, DEFAULTS, THEMES, SOUNDS, DIFFICULTY_MODES };
+module.exports = { Store, DEFAULTS, THEMES, SOUNDS, DIFFICULTY_MODES, CLOSE_ACTIONS, HABIT_DEFAULTS };
