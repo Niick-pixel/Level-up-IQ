@@ -15,6 +15,7 @@ import { renderMap } from './views/map.js';
 import { renderSkill, renderMarathon, renderPlaylists, renderPlaylist } from './views/modes.js';
 import { renderWatch, renderRecall, renderLearned } from './views/watch.js';
 import { renderCheckin } from './views/checkin.js';
+import { renderAcademy, renderLesson } from './views/academy.js';
 import { renderWhatsNew } from './views/whats-new.js';
 import { playSound } from './sounds.js';
 
@@ -42,11 +43,13 @@ const ROUTES = [
   [/^\/watch\/recall\/([^/]+)$/, 'watch', renderRecall],
   [/^\/learned$/, 'learned', renderLearned],
   [/^\/checkin$/, 'home', renderCheckin],
+  [/^\/chess$/, 'chess', renderAcademy],
+  [/^\/chess\/([a-z0-9-]+)$/, 'chess', renderLesson],
   [/^\/whats-new$/, 'settings', renderWhatsNew],
 ];
 
 // Routes where you're already training: a reminder doesn't pull you out of them.
-const TRAINING = /^\/(play|keyword|mix|skill|marathon|playlist|review|checkin)(\/|$)/;
+const TRAINING = /^\/(play|keyword|mix|skill|marathon|playlist|review|checkin|chess)(\/|$)/;
 
 let cleanup = null;
 let renderId = 0;

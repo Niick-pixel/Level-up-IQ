@@ -48,6 +48,7 @@ const DEFAULTS = {
   difficultyMode: 'adaptive', // adaptive | easy | medium | hard | expert
 
   lastSeenVersion: '', // for "What's new" after an update
+  chessProgress: {}, // Chess Academy: { lessonId: { done: true, stars: 0–3 } }
 
   // Focus Point coexistence
   safeMaximize: true, // keep Focus Point breaks working when maximized without a visible taskbar
@@ -112,6 +113,14 @@ function sanitize(partial) {
       case 'srsRetention': { const n = Number(v); if (Number.isFinite(n)) out[k] = Math.min(0.97, Math.max(0.7, Math.round(n * 100) / 100)); break; }
       case 'srsNewPerDay': out[k] = clampInt(v, 0, 100); break;
       case 'restDaysPerWeek': out[k] = clampInt(v, 0, 3); break;
+      case 'chessProgress':
+        if (v && typeof v === 'object' && !Array.isArray(v)) {
+          out[k] = {};
+          for (const [id, x] of Object.entries(v).slice(0, 300)) {
+            if (/^[a-z0-9-]{1,40}$/.test(id) && x && typeof x === 'object') out[k][id] = { done: Boolean(x.done), stars: Math.max(0, Math.min(3, Math.round(Number(x.stars) || 0))) };
+          }
+        }
+        break;
       case 'playlists':
         if (Array.isArray(v)) {
           out[k] = v.filter((p) => p && typeof p.name === 'string' && Array.isArray(p.games)).slice(0, 30).map((p, i) => ({

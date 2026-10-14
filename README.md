@@ -4,18 +4,18 @@ A brain-training and curiosity app for Windows. I use AI all day; this is where 
 
 Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purpose): same themes, same kind of installer and updates, and it's built to stay out of Focus Point's way (see [Plays well with Focus Point](#plays-well-with-focus-point)).
 
-> **Version 1.2.** 89 game types, 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, reminders and check-ins several times a day, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
+> **Version 1.3.** 93 game types, a Chess Academy (36 lessons), 1,541 keywords, keyword sessions, videos with recall, spaced repetition, an adaptive Daily Mix, reminders and check-ins several times a day, streaks, the curiosity map, full stats and optional Claude features. How it was planned: [`docs/PHASE0_PLAN.md`](docs/PHASE0_PLAN.md) and the spec in [`docs/MIND_GYM_SPEC.md`](docs/MIND_GYM_SPEC.md).
 
 ## Features
 
-- **89 game types, seeded, and all but three playable fully offline** (the picture quizzes need the internet the first time).
-  - **Logic:** logic grids (zebra, unique solution guaranteed), knights and knaves, Mastermind, Tower of Hanoi, syllogisms, spot the fallacy (46 fallacies), and **24 puzzles from Simon Tatham's Portable Puzzle Collection** (Solo, Keen, Towers, Unequal, Pattern, Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines, Pearl, Tracks, Unruly, Map, Mosaic).
+- **93 game types, seeded, and all but three playable fully offline** (the picture quizzes need the internet the first time).
+  - **Logic:** Sudoku (generated with a unique solution, graded by the techniques it needs, from singles to X-wings and Swordfish, with hints that explain the next step), logic grids (zebra, unique solution guaranteed), knights and knaves, Mastermind, Tower of Hanoi, syllogisms, spot the fallacy (46 fallacies), and **24 puzzles from Simon Tatham's Portable Puzzle Collection** (Solo, Keen, Towers, Unequal, Pattern, Loopy, Light Up, Bridges, Net, Tents, Range, Galaxies, Magnets, Signpost, Dominosa, Filling, Palisade, Undead, Mines, Pearl, Tracks, Unruly, Map, Mosaic).
   - **Math:** mental math sprint, Countdown numbers and the 24 game (a solver proves every puzzle solvable), Fermi estimation (scored on log error), sequences, Kakuro (unique solution), probability intuition (predict, then watch it simulated), orders of magnitude, and "more dots" (number sense).
   - **Language:** Countdown letters, anagrams, word ladder, Wordle-style, cryptograms (public-domain quotes), mini crosswords from the keyword bank, etymology, and remote associates (three words, one link).
   - **Memory:** dual n-back, digit span (forwards and backwards), Corsi blocks, card pairs, Kim's game, a memory-palace trainer, "yesterday" recall of facts from 1, 3 and 7 days ago, and Simon (with tones).
   - **Attention and speed:** Stroop (with a colour-blind mode), Schulte tables, Flanker, Go/No-Go, reaction time (simple and choice), visual search, RSVP speed reading with comprehension questions, task switching, trail making (1 → A → 2 → B…), and Set.
   - **Spatial:** 3D mental rotation, 15-puzzle, Rush Hour (every puzzle's minimum move count is exact), map geography.
-  - **Strategy:** rated chess puzzles (Lichess database), a full game against Stockfish at your level, Connect Four against minimax, and Nim with a "discover the winning rule" mode.
+  - **Strategy:** rated chess puzzles (Lichess database), a full game against Stockfish at your level with an optional coach (hints, take-backs, live evaluation, a move-by-move review), Reversi, Checkers (English draughts) and Mancala against a computer that searches deeper as you level up, Connect Four against minimax, and Nim with a "discover the winning rule" mode.
   - **Knowledge:** trivia (two open databases plus an offline bank), guess the Wikipedia article, chronology ("On this day" or an offline set), flags, capitals, higher or lower, and three picture quizzes: art through time (The Met and the Art Institute of Chicago), name that species (iNaturalist, Costa Rica by default) and "What am I looking at?" (NASA's Astronomy Picture of the Day).
   - **Deep thinking:** explain it back (Feynman technique), steelman the other side, first principles, and a no-AI challenge of the day.
   - **Riddles and lateral thinking:** 112 riddles, 42 situation puzzles and 50 rebuses.
@@ -25,6 +25,14 @@ Mind Gym is a sibling of [Focus Point](https://github.com/Niick-pixel/Focus-purp
 - **Spaced repetition (FSRS).** Key facts from keyword sessions and your video summaries become review cards that come back just before you'd forget them. Grade Again / Hard / Good / Easy (each shows when the card returns); set your target recall and new cards per day.
 - **Streaks that allow rest.** Days trained in a row, with rest days (1 a week by default) that don't break it. You can hide streaks.
 - **Curiosity map.** Every keyword you've explored, clustered by domain and linked where topics are related, plus the frontier: unexplored topics one step from what you know.
+- **Chess Academy.** 36 lessons in 6 units, from how each piece moves to tactics, openings and endgames:
+  - **The pieces:** collect the stars with each piece, in the fewest moves.
+  - **The rules:** capturing, check, getting out of check, checkmate, stalemate, castling, en passant, promotion.
+  - **Basic checkmates:** back-rank mates, the two-rook ladder, queen + king and rook + king against a king that defends itself.
+  - **Tactics** from real Lichess puzzles: hanging pieces, mate in one and two, forks, pins, skewers, discovered attacks, deflection.
+  - **Openings:** principles, then the Italian, Ruy López, Queen's Gambit, London, Sicilian Najdorf and Caro-Kann, with the idea behind every move.
+  - **Endgames:** promotion, king-and-pawn and rook endgames.
+  - Stars and progress are saved; lessons count as training time.
 - **Reminders and check-ins.** Up to six reminders a day, on the days you choose, with Mind Gym's own sound (chime, bell, marimba or soft) and quiet hours. Each one asks for a short check-in (5 minutes by default) of quick games from different skills; any training counts, and if you already trained since the last one it doesn't bother you. **Mandatory mode** brings the window forward and keeps reminding every few minutes until it's done, with a limited number of snoozes.
 - **Always on (the default since 1.2).** Mind Gym starts with Windows (minimized on the taskbar), and closing the window minimizes it instead of quitting, so reminders always work. You can choose *Hide in the tray* or *Quit* instead. The taskbar button fills toward your daily goal and shows an orange dot when a check-in is waiting; the tray tooltip and menu show today's progress and the next check-in. Quitting from the tray asks first, because it stops reminders. Downloaded updates install by themselves after 10 idle minutes.
 - **Named difficulty.** Adaptive (default) or Easy / Medium / Hard / Expert, which keep levels in that band and still adjust inside it. Every game's intro shows the level's name and one-click presets.
@@ -155,6 +163,8 @@ Then run `npm run keywords:build`. The build fails on duplicate ids, duplicate W
 | Keyword bank: fuzzy search, random modes, keyword of the day | `src/main/keywords.js`, `scripts/build-keywords.js` |
 | Online sources: provider base, rate limiter, and one file per source | `src/main/providers/` |
 | Optional Claude features: grading, Socratic mode, riddles and questions (Anthropic SDK) | `src/main/ai.js` |
+| Chess Academy: the course as data (checked by tests) and its runner | `src/renderer/academy/lessons.js`, `src/renderer/views/academy.js` |
+| Game-tree search for Reversi, Checkers and Mancala (negamax, alpha-beta) | `src/renderer/games/_engine/negamax.js` |
 | Disk cache (JSON and images, TTL, stale-if-offline, size cap) | `src/main/cache.js` |
 | Keyword sessions, quiz builder, explain-it-back check | `src/main/session.js`, `src/main/quiz.js`, `src/main/explain.js` |
 | Your keywords, review cards, session log | `src/main/learning.js` |

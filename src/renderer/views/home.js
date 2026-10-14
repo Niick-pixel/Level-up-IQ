@@ -9,9 +9,9 @@ const FEATURE_POOLS = [
   ['nback', 'digit-span', 'corsi', 'card-pairs', 'kims-game', 'memory-palace', 'simon'],
   ['mental-math', 'game-24', 'countdown-numbers', 'fermi', 'sequences', 'probability', 'kakuro', 'dot-compare'],
   ['wordle', 'word-ladder', 'anagram', 'cryptogram', 'crossword', 'countdown-letters', 'rebus', 'remote-associates'],
-  ['zebra', 'knights', 'mastermind', 'syllogism', 'fallacy', 'riddles', 'situation-puzzles'],
+  ['zebra', 'sudoku', 'knights', 'mastermind', 'syllogism', 'fallacy', 'riddles', 'situation-puzzles'],
   ['mental-rotation', 'rush-hour', 'fifteen', 'map-quiz'],
-  ['chess-puzzles', 'connect-four', 'nim', 'chess-engine'],
+  ['chess-puzzles', 'connect-four', 'nim', 'chess-engine', 'reversi', 'checkers', 'mancala'],
   ['trivia', 'flags', 'capitals', 'chronology', 'guess-article', 'magnitude', 'higher-lower'],
   ['tatham-solo', 'tatham-loopy', 'tatham-bridges', 'tatham-net', 'tatham-pattern', 'tatham-keen', 'tatham-lightup', 'tatham-tents'],
 ];

@@ -225,6 +225,7 @@ function registerIpc({
     onActivity();
     return { result: r, newBest, changes };
   });
+  handle('stats:practice', (ms) => { stats.recordPractice(num(ms, 0, 30 * 60 * 1000, 0)); onActivity(); return true; });
   handle('stats:summary', () => ({ ...stats.summary(), ratings: ratings.all() }));
   handle('stats:reset', () => {
     stats.reset();

@@ -121,5 +121,6 @@ contextBridge.exposeInMainWorld('api', {
   snoozeReminder: call('reminders:snooze'),
   testReminder: call('reminders:test'),
   checkinContext: call('checkin:context'),
+  recordPractice: call('stats:practice'),
   changelog: call('app:changelog'),
 });
