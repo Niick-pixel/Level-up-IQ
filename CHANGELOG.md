@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.3.0: Chess Academy, Sudoku and deeper strategy games
+
+**Added**
+- **Chess Academy**, a new *Chess* section in the sidebar: 36 lessons in 6 units, with stars and saved progress. Lessons count as training time.
+  - **How the pieces move:** collect the stars with each piece in the fewest moves. The target is computed as the true minimum.
+  - **The rules:** capturing, check, getting out of check, checkmate, stalemate, castling, en passant, promotion. Each is a one-move exercise or a question, with explanations.
+  - **Basic checkmates:** back-rank mates, the two-rook ladder, queen + king and rook + king. You play against a lone king that defends itself: it heads for the centre and avoids mate in one.
+  - **Tactics:** hanging pieces, mate in one, forks, pins, skewers, discovered attacks, mate in two, deflection. Each is a set of real Lichess puzzles (CC0) of that theme, easiest first.
+  - **Openings:** five principle questions, then six classic lines (Italian, Ruy López, Queen's Gambit, London, Sicilian Najdorf, Caro-Kann). You play your side, the app answers, and every move you make is explained. After two misses a hint appears; after three, the move.
+  - **Endgames:** promotion, king-and-pawn and rook endgames.
+- **Play vs Stockfish, now with a coach** (on by default; you can turn it off):
+  - Choose White, Black or random.
+  - **Hint** asks a full-strength Stockfish for the best move.
+  - **Take back** undoes your last move.
+  - A live **evaluation bar** shows who's better.
+  - **Review my game:** after the game, each of your moves is graded Best, Good, Inaccuracy, Mistake or Blunder, with the better move. Click a move to see the position.
+  - Each hint or take-back costs a little score.
+- **Sudoku**, generated with a unique solution and graded by the techniques it needs:
+  - Levels 1–4: singles, with fewer givens as levels rise.
+  - Levels 5–6: locked candidates.
+  - Levels 7–8: pairs.
+  - Levels 9–10: triples, X-wing, Y-wing and Swordfish.
+  - The board has notes (pencil marks), "Fill notes", matching-digit highlighting and an immediate mistake check.
+  - The two-step **hint** first shows where to look, then explains the technique ("Column 1 needs a 9, and R1C1 is the only cell that can take one"). It never just fills in a number without saying why.
+- **Reversi**, **Checkers** (English draughts) and **Mancala**, against a computer that looks further ahead as you level up. It uses a shared negamax search with alpha-beta pruning, and makes deliberate slips at low levels.
+- 93 games in total. The new ones join the Home rotation.
+- 166 tests (15 new):
+  - Every Academy position is legal, every goal is achievable, every quiz answer agrees with the rules, every opening line is legal and explained, and every star exercise's target is the true minimum.
+  - The lone king never walks into mate in one when it can avoid it (a property test).
+  - Sudoku puzzles have unique solutions and the right difficulty, and hints never contradict the solution.
+  - Reversi flips, Checkers' forced captures, multi-jumps and crowning, and Mancala's rules all work, and seeds are conserved.
+  - The search finds forced wins.
+  - The coach's evaluation and move grading are checked.
+
 ## 1.2.0: Mind Gym stays running, so reminders actually reach you
 
 **Fixed**

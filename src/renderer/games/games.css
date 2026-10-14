@@ -392,3 +392,78 @@ g.wrong .wm-land, g.wrong .wm-dot { fill: var(--cb-vermillion); }
 .set-sym.f2 path { fill: none; }
 /* Remote associates */
 .riddle.rat { font-size: 26px; letter-spacing: 0.02em; }
+
+/* ---- 1.3: Sudoku ---- */
+.sd-layout { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+.sd-board { display: grid; grid-template-columns: repeat(9, min(52px, 9vw)); grid-auto-rows: min(52px, 9vw); border: 2px solid var(--text); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.sd-cell { border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: transparent; color: var(--accent); font-size: min(26px, 4.6vw); font-weight: 500; padding: 0; cursor: pointer; display: grid; place-items: center; }
+.sd-cell.given { color: var(--text); font-weight: 700; }
+.sd-cell.br { border-right: 2px solid var(--text); }
+.sd-cell.bb { border-bottom: 2px solid var(--text); }
+.sd-cell.peer { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.sd-cell.same { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+.sd-cell.focus { background: color-mix(in srgb, var(--chart-2) 26%, transparent); }
+.sd-cell.sel { background: color-mix(in srgb, var(--accent) 35%, transparent); }
+.sd-cell.wrong { color: var(--bad); }
+.sd-notes { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; height: 100%; font-size: min(11px, 2vw); color: var(--muted); font-weight: 500; line-height: 1; }
+.sd-notes span { display: grid; place-items: center; }
+.sd-notes span.hit { color: var(--text); font-weight: 700; }
+.sd-side { display: grid; gap: 10px; max-width: 300px; }
+.sd-pad { display: grid; grid-template-columns: repeat(5, 48px); gap: 6px; }
+.sd-pad .btn { padding: 8px 0; font-size: 18px; }
+
+/* ---- 1.3: Reversi, Checkers, Mancala ---- */
+.rv-board { display: grid; grid-template-columns: repeat(8, min(52px, 9.5vw)); grid-auto-rows: min(52px, 9.5vw); gap: 2px; padding: 4px; border-radius: 10px; background: #1d5c3a; }
+.rv-cell { border: 0; padding: 0; background: #2e7d4f; border-radius: 3px; display: grid; place-items: center; cursor: pointer; position: relative; }
+.rv-cell.legal::after { content: ''; width: 22%; height: 22%; border-radius: 50%; background: rgba(0, 0, 0, 0.35); }
+.rv-cell.last { box-shadow: inset 0 0 0 3px rgba(240, 228, 66, 0.7); }
+.rv-cell.cursor { outline: 3px solid var(--accent); outline-offset: -3px; }
+.rv-disc { width: 80%; height: 80%; border-radius: 50%; display: inline-block; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.45); }
+.rv-disc.black { background: radial-gradient(circle at 35% 35%, #555, #111 70%); }
+.rv-disc.white { background: radial-gradient(circle at 35% 35%, #fff, #cfcfcf 70%); }
+.rv-disc.small { width: 14px; height: 14px; vertical-align: -2px; }
+.rv-score { display: flex; gap: 24px; font-weight: 600; }
+.ck-board { display: grid; grid-template-columns: repeat(8, min(56px, 10vw)); grid-auto-rows: min(56px, 10vw); border: 2px solid var(--line); border-radius: 8px; overflow: hidden; }
+.ck-sq { border: 0; padding: 0; display: grid; place-items: center; cursor: pointer; position: relative; }
+.ck-sq.light { background: #e9dcc3; cursor: default; }
+.ck-sq.dark { background: #8a6a4c; }
+.ck-sq.movable { box-shadow: inset 0 0 0 3px rgba(86, 180, 233, 0.6); }
+.ck-sq.sel { box-shadow: inset 0 0 0 4px rgba(86, 180, 233, 1); }
+.ck-sq.target::after { content: ''; width: 26%; height: 26%; border-radius: 50%; background: rgba(255, 255, 255, 0.55); }
+.ck-sq.last { background: #a8864f; }
+.ck-sq.cursor { outline: 3px solid var(--accent); outline-offset: -3px; }
+.ck-piece { width: 76%; height: 76%; border-radius: 50%; display: grid; place-items: center; font-size: 20px; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4), inset 0 0 0 3px rgba(255, 255, 255, 0.15); }
+.ck-piece.p1 { background: #b8372f; color: #ffd27a; }
+.ck-piece.p2 { background: #222; color: #ffd27a; }
+.mc-board { display: flex; gap: 10px; align-items: stretch; padding: 14px; border-radius: 40px; background: #7a5233; box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4); }
+.mc-rows { display: grid; gap: 10px; }
+.mc-row { display: grid; grid-template-columns: repeat(6, 64px); gap: 10px; }
+.mc-pit, .mc-store { border: 0; border-radius: 50%; background: #5b3a22; box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.55); color: #f6e7cf; display: grid; place-items: center; padding: 6px; }
+.mc-pit { height: 64px; }
+.mc-pit.playable { cursor: pointer; box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.55), 0 0 0 3px var(--accent); }
+.mc-pit:disabled { cursor: default; opacity: 1; }
+.mc-pit.last, .mc-store.last { background: #6e4a2d; }
+.mc-store { width: 70px; border-radius: 34px; }
+.mc-side { display: grid; }
+.mc-count { font-weight: 700; font-size: 18px; }
+.mc-seeds { font-size: 10px; letter-spacing: 1px; line-height: 0.8; max-width: 50px; word-break: break-all; text-align: center; color: #e8c38c; }
+
+/* ---- 1.3: Chess Academy marks ---- */
+.cb-sq.star::after { content: '★'; position: absolute; font-size: min(30px, 5.5vw); color: #f0b429; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); pointer-events: none; z-index: 2; }
+.cb-sq.hint { box-shadow: inset 0 0 0 4px rgba(0, 158, 115, 0.95); }
+.cb-sq.idea { box-shadow: inset 0 0 0 4px rgba(204, 121, 167, 0.95); }
+
+/* ---- 1.3: chess coach ---- */
+.eval-bar { position: relative; width: 22px; border-radius: 6px; overflow: hidden; background: #2b2b2b; border: 1px solid var(--line); display: flex; flex-direction: column-reverse; }
+.eval-bar.flipped { flex-direction: column; }
+.eval-fill { background: #f2f2ee; height: 50%; transition: height 0.4s; }
+.eval-text { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 10px; font-weight: 700; text-align: center; color: #888; mix-blend-mode: difference; white-space: nowrap; }
+.chess-moves.reviewing { max-height: 360px; font-family: inherit; }
+.review-list { padding-left: 0; margin: 6px 0 0; list-style: none; }
+.review-list li { margin-bottom: 2px; }
+.review-best, .review-good { color: var(--ok); }
+.review-inaccuracy { color: var(--chart-2); }
+.review-mistake { color: #e69f00; }
+.review-blunder { color: var(--bad); }
+.linklike { background: none; border: 0; padding: 0; color: inherit; font: inherit; text-decoration: underline dotted; cursor: pointer; }
+.chip.on, .chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }

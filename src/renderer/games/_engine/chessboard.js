@@ -141,6 +141,10 @@ export function chessBoard({ orientation = 'w', legalFrom, onMove }) {
       setTimeout(() => b.classList.remove(cls), 700);
     },
     lock(on) { locked = on; if (on) clearMarks(); },
+    /** Puts a class on exactly these squares (stars to collect, hint squares…). */
+    mark(list, cls) {
+      squares.forEach((b, sq) => b.classList.toggle(cls, list.includes(sq)));
+    },
     destroy() { document.removeEventListener('keydown', onKey); },
   };
 }

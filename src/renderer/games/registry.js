@@ -65,6 +65,10 @@ import { meta as trailMaking } from './trail-making/logic.js';
 import { meta as simon } from './simon/logic.js';
 import { meta as setGame } from './set-game/logic.js';
 import { meta as remoteAssociates } from './remote-associates/logic.js';
+import { meta as sudoku } from './sudoku/logic.js';
+import { meta as reversi } from './reversi/logic.js';
+import { meta as checkers } from './checkers/logic.js';
+import { meta as mancala } from './mancala/logic.js';
 import { TATHAM } from './tatham/logic.js';
 
 const G = (meta, load) => ({ meta, load });
@@ -100,6 +104,7 @@ export const GAMES = [
   G(probability, () => import('./probability/index.js')),
   G(dotCompare, () => import('./dot-compare/index.js')),
   // logic
+  G(sudoku, () => import('./sudoku/index.js')),
   G(zebra, () => import('./zebra/index.js')),
   G(knights, () => import('./knights/index.js')),
   G(mastermind, () => import('./mastermind/index.js')),
@@ -125,6 +130,9 @@ export const GAMES = [
   G(chessEngine, () => import('./chess-engine/index.js')),
   G(connectFour, () => import('./connect-four/index.js')),
   G(nim, () => import('./nim/index.js')),
+  G(reversi, () => import('./reversi/index.js')),
+  G(checkers, () => import('./checkers/index.js')),
+  G(mancala, () => import('./mancala/index.js')),
   // knowledge
   G(magnitude, () => import('./magnitude/index.js')),
   G(higherLower, () => import('./higher-lower/index.js')),

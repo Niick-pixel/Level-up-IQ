@@ -70,6 +70,16 @@ class Stats {
     writeJson(this.file, this.data);
   }
 
+  /** Practice outside the game catalogue (Chess Academy lessons): counts as training time. */
+  recordPractice(elapsedMs) {
+    const day = this.#day(this.dateKey(this.now()));
+    const ms = Math.min(Math.max(0, elapsedMs || 0), 30 * 60 * 1000);
+    day.practice = (day.practice || 0) + 1;
+    day.ms += ms;
+    day.noAiMs += ms;
+    writeJson(this.file, this.data);
+  }
+
   /** Current and best streak (see streak() below). */
   streak(restPerWeek = 1) {
     return streak(this.data.days, this.dateKey(this.now()), restPerWeek);
@@ -184,7 +194,7 @@ function dayKeys(from, to) {
   }
 }
 
-const trained = (d) => Boolean(d && (d.games || d.reviews));
+const trained = (d) => Boolean(d && (d.games || d.reviews || d.practice));
 
 /**
  * Streaks that don't punish rest: a day off doesn't break the streak as long as you've taken no
